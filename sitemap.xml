@@ -80,6 +80,10 @@
     <loc>https://rentdelawarebeaches.com/community.html</loc>
     <priority>0.70</priority>
   </url>
+  <url>
+    <loc>https://rentdelawarebeaches.com/delaware-beach-rental-owner-services.html</loc>
+    <priority>0.80</priority>
+  </url>
 
   <url>
     <loc>https://rentdelawarebeaches.com/advertise.html</loc>
