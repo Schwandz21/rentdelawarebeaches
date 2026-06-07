@@ -4,438 +4,710 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Delaware Beach House Decor & Printable Wall Art | Rent Delaware Beaches</title>
+  <title>Beach House Decor & Custom Signs | Rent Delaware Beaches</title>
 
-  <meta name="description" content="Shop printable beach house wall art, coastal decor, funny kitchen signs, and vintage-inspired prints perfect for Delaware beach rentals, guest rooms, kitchens, and vacation homes." />
+  <meta name="description" content="Shop beach house decor, printable coastal wall art, custom hand-built house signs, address signs, rental welcome signs, and coastal decor for Delaware beach homes and rentals." />
 
-  <link rel="stylesheet" href="style.css" />
   <style>
-  * {
-    box-sizing: border-box;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f3ea;
-    color: #18344a;
-    line-height: 1.6;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  nav {
-    background: #18344a;
-    text-align: center;
-    padding: 14px;
-  }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f0e3;
+      color: #102f45;
+      line-height: 1.6;
+    }
 
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 14px;
-    font-weight: bold;
-  }
+    a {
+      color: inherit;
+    }
 
-  nav a:hover {
-    text-decoration: underline;
-  }
+    .top-strip {
+      background: #d8903d;
+      color: #102f45;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
 
-  header {
-    background: linear-gradient(rgba(12, 48, 70, 0.75), rgba(12, 48, 70, 0.75)),
-      url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-  }
+    header {
+      min-height: 76vh;
+      background:
+        linear-gradient(rgba(8, 35, 54, 0.35), rgba(8, 35, 54, 0.78)),
+        url("images/2092 Address Sign Hero.png");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
 
-  header h1 {
-    font-size: 44px;
-    margin-bottom: 10px;
-  }
-
-  header p {
-    font-size: 20px;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-
-  section {
-    background: white;
-    margin-bottom: 32px;
-    padding: 32px;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  }
-
-  h2 {
-    color: #1f5f8b;
-    margin-top: 0;
-    font-size: 30px;
-  }
-
-  h3 {
-    color: #18344a;
-    margin-top: 0;
-  }
-
-  .listing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-    margin-top: 24px;
-  }
-
-  .listing-card {
-    border: 1px solid #e4ded1;
-    border-radius: 14px;
-    padding: 24px;
-    background: #fffaf1;
-  }
-
-  .button {
-    display: inline-block;
-    margin-top: 14px;
-    padding: 12px 18px;
-    border-radius: 8px;
-    background: #1f5f8b;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .button:hover {
-    background: #164766;
-  }
-
-  .highlight {
-    background: #f1eadc;
-    border-left: 6px solid #1f5f8b;
-  }
-
-  footer {
-    background: #18344a;
-    color: white;
-    text-align: center;
-    padding: 24px;
-    margin-top: 40px;
-  }
-
-  footer a {
-    color: white;
-    font-weight: bold;
-  }
-
-  @media (max-width: 700px) {
-    header h1 {
-      font-size: 34px;
+    nav {
+      width: calc(100% - 40px);
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding: 14px 18px;
+      background: rgba(16, 47, 69, 0.86);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
     }
 
     nav a {
-      display: block;
-      margin: 8px 0;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .hero-content {
+      max-width: 1040px;
+      margin: auto;
+      padding: 80px 24px 105px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.02;
+      margin: 0 0 22px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
+    }
+
+    .hero-content p {
+      max-width: 790px;
+      margin: 0 auto 28px;
+      font-size: 21px;
+      color: #fff7e8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #1f6f9b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #185879;
+    }
+
+    .button.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .button.gold:hover {
+      background: #c17c30;
+    }
+
+    .button.light {
+      background: #fffaf2;
+      color: #102f45;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -58px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 2;
     }
 
     section {
-      padding: 24px;
+      margin-top: 34px;
+      background: #fffaf2;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
+      border: 1px solid #eadfcd;
     }
-  }
-    .catalog-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 18px 0 28px;
-}
 
-.catalog-filter {
-  border: none;
-  background: #18344a;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: bold;
-}
+    h2 {
+      color: #1f6f9b;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
 
-.catalog-filter:hover {
-  background: #1f5f8b;
-}
+    h3 {
+      color: #102f45;
+      margin-top: 0;
+    }
 
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
+    .section-intro {
+      max-width: 760px;
+      color: #425466;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
 
-.catalog-card {
-  background: #fffaf1;
-  border: 1px solid #e4ded1;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-}
+    .quick-panel {
+      background: rgba(255, 250, 242, 0.96);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      border: 1px solid rgba(216, 144, 61, 0.22);
+    }
 
-.catalog-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-}
+    .quick-card {
+      padding: 20px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid #eadfcd;
+      text-decoration: none;
+      transition: 0.22s ease;
+    }
 
-.catalog-video {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  display: block;
-}
+    .quick-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
+    }
 
-.catalog-card-content {
-  padding: 22px;
-}
+    .quick-card span {
+      color: #d8903d;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-.catalog-card-content h3 {
-  margin-top: 0;
-  color: #18344a;
-}
+    .quick-card h3 {
+      margin: 8px 0 6px;
+      font-size: 20px;
+      color: #102f45;
+    }
 
-.catalog-tag {
-  display: inline-block;
-  background: #f1eadc;
-  color: #18344a;
-  padding: 5px 9px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    .quick-card p {
+      margin: 0;
+      color: #425466;
+      font-size: 15px;
+    }
 
-.catalog-price {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.catalog-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.catalog-buttons .button {
-  margin-top: 0;
-}
     .custom-sign-feature {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 28px;
-  align-items: center;
-}
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 30px;
+      align-items: center;
+    }
 
-.custom-sign-feature img {
-  width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
-}
+    .custom-sign-image-wrap {
+      position: relative;
+    }
 
-.custom-sign-panel {
-  background: #fffaf1;
-  border: 1px solid #e4ded1;
-  border-radius: 18px;
-  padding: 26px;
-}
+    .custom-sign-feature img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+      display: block;
+    }
 
-.custom-sign-panel h2 {
-  margin-top: 0;
-}
+    .floating-badge {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      background: rgba(16, 47, 69, 0.82);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
 
-.order-form {
-  display: grid;
-  gap: 12px;
-  margin-top: 18px;
-}
+    .custom-sign-panel {
+      background: white;
+      border: 1px solid #eadfcd;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(16, 47, 69, 0.08);
+    }
 
-.order-form label {
-  font-weight: bold;
-  color: #18344a;
-}
+    .order-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
 
-.order-form select,
-.order-form input,
-.order-form textarea {
-  width: 100%;
-  padding: 11px;
-  border: 1px solid #d5cbb8;
-  border-radius: 10px;
-  font-family: Arial, sans-serif;
-}
+    .order-form label {
+      font-weight: bold;
+      color: #102f45;
+    }
 
-.order-note {
-  font-size: 14px;
-  color: #425466;
-}
+    .order-form select,
+    .order-form input,
+    .order-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d5cbb8;
+      border-radius: 12px;
+      font-family: Arial, sans-serif;
+      background: #fffaf2;
+      color: #102f45;
+    }
 
-@media (max-width: 800px) {
-  .custom-sign-feature {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    .order-note {
+      font-size: 14px;
+      color: #425466;
+      margin: 4px 0;
+    }
+
+    .catalog-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0 28px;
+    }
+
+    .catalog-filter {
+      border: none;
+      background: #102f45;
+      color: white;
+      padding: 11px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .catalog-filter:hover {
+      background: #1f6f9b;
+      transform: translateY(-2px);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .catalog-card {
+      background: white;
+      border: 1px solid #eadfcd;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+      transition: 0.22s ease;
+    }
+
+    .catalog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
+    }
+
+    .catalog-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+      background: #102f45;
+    }
+
+    .catalog-video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      display: block;
+    }
+
+    .catalog-card-content {
+      padding: 22px;
+    }
+
+    .catalog-tag,
+    .catalog-status {
+      display: inline-block;
+      background: #f1eadc;
+      color: #102f45;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 0 6px 10px 0;
+    }
+
+    .catalog-status {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .catalog-price {
+      font-weight: bold;
+      margin-top: 10px;
+      color: #1f6f9b;
+    }
+
+    .catalog-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .catalog-buttons .button {
+      margin-top: 0;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .owner-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .owner-card {
+      background: white;
+      border: 1px solid #eadfcd;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .owner-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .owner-card p {
+      color: #425466;
+      margin-bottom: 0;
+    }
+
+    .feature-banner {
+      background: linear-gradient(135deg, #102f45, #1f6f9b);
+      color: white;
+      border: none;
+    }
+
+    .feature-banner h2,
+    .feature-banner h3 {
+      color: white;
+    }
+
+    .feature-banner p {
+      color: #e9f3f8;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #102f45;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    footer a {
+      color: white;
+      font-weight: bold;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        min-height: 72vh;
+      }
+
+      nav {
+        border-radius: 22px;
+      }
+
+      main {
+        margin-top: -44px;
+      }
+
+      .custom-sign-feature,
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 26px;
+      }
+
+      .floating-badge {
+        position: static;
+        display: inline-block;
+        margin-top: 12px;
+      }
+    }
+  </style>
 </head>
-  
 
 <body>
 
-  <header class="site-header">
-    <h1>Rent Delaware Beaches</h1>
-    <p>Beach travel guides, local inspiration, and coastal home ideas for Delaware beach lovers.</p>
+  <div class="top-strip">
+    Coastal Decor • Custom House Signs • Printable Beach Art • Built for Beach Homes & Rentals
+  </div>
 
+  <header>
     <nav>
       <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
       <a href="plan-your-trip.html">Plan Your Trip</a>
       <a href="restaurants.html">Restaurants</a>
       <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
       <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
     </nav>
+
+    <div class="hero-content">
+      <span class="eyebrow">The Blue Hen Basement</span>
+
+      <h1>Beach House Decor That Feels Personal.</h1>
+
+      <p>
+        Custom hand-built signs, beach-themed printable wall art, rental welcome pieces,
+        address signs, and coastal decor made for beach homes, cottages, patios,
+        guest rooms, and Delaware rental properties.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button gold" href="#custom-signs">Order Custom Signs</a>
+        <a class="button light" href="#catalog">Browse Catalog</a>
+        <a class="button" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">Shop Etsy</a>
+      </div>
+    </div>
   </header>
 
   <main>
 
-    <section class="hero">
-      <h2>Printable Wall Art for Beach Houses, Rentals & Cozy Coastal Homes</h2>
-
-      <p>
-        Decorating a Delaware beach rental, Airbnb, guest room, kitchen, or coastal getaway?
-        Browse printable wall art and home decor designs from
-        <strong>The Blue Hen Basement</strong>, created with beach houses, family spaces,
-        and relaxed coastal living in mind.
-      </p>
-
-      <p>
-        These digital prints are easy to download, print, frame, and style in your home,
-        vacation rental, kitchen, hallway, guest room, or beach cottage.
-      </p>
-
-      <a class="button" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
-        Visit My Etsy Shop
+    <div class="quick-panel">
+      <a class="quick-card" href="#custom-signs">
+        <span>Custom</span>
+        <h3>House Signs</h3>
+        <p>House numbers, beach house names, rental signs, welcome signs, and custom ideas.</p>
       </a>
-    </section>
-     <section class="content-section">
-  <div class="custom-sign-feature">
-    <div>
-      <img src="images/2092 Address Sign Hero.png" alt="Custom hand-built house number sign with planter box">
+
+      <a class="quick-card" href="#catalog">
+        <span>Shop</span>
+        <h3>Product Catalog</h3>
+        <p>Browse printable art, custom sign options, beach rental decor, and coastal pieces.</p>
+      </a>
+
+      <a class="quick-card" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
+        <span>Etsy</span>
+        <h3>The Blue Hen Basement</h3>
+        <p>Visit the Etsy shop for digital downloads, coastal decor, and custom requests.</p>
+      </a>
+
+      <a class="quick-card" href="community.html">
+        <span>Ideas</span>
+        <h3>Rental Owner Notes</h3>
+        <p>Turn beach homes, guest spaces, patios, and entries into more memorable stays.</p>
+      </a>
     </div>
 
-    <div class="custom-sign-panel">
-      <h2>Custom Hand-Built House Signs</h2>
+    <section id="custom-signs">
+      <div class="custom-sign-feature">
+        <div class="custom-sign-image-wrap">
+          <img src="images/2092 Address Sign Hero.png" alt="Custom hand-built house number sign with planter box">
+          <div class="floating-badge">Custom example • Built by hand</div>
+        </div>
 
-      <p>
-        Order a custom hand-built sign for your beach house, rental property,
-        family home, garage, patio, shed, bar, basement, or entryway.
-      </p>
+        <div class="custom-sign-panel">
+          <span class="eyebrow">Order Now</span>
+          <h2>Custom Hand-Built House Signs</h2>
 
-      <p>
-        Each piece can be built around your preferred house number, family name,
-        rental name, wording, finish, size, and display style.
-      </p>
+          <p>
+            Order a custom hand-built sign for your beach house, rental property,
+            family home, garage, patio, shed, bar, basement, or entryway.
+          </p>
 
-      <form class="order-form">
-        <label for="signType">Sign Type</label>
-        <select id="signType">
-          <option>House number sign</option>
-          <option>Beach house name sign</option>
-          <option>Rental welcome sign</option>
-          <option>Family name sign</option>
-          <option>Garage / bar / basement sign</option>
-          <option>Custom idea</option>
-        </select>
+          <p>
+            Each piece can be built around your preferred house number, family name,
+            rental name, wording, finish, size, and display style.
+          </p>
 
-        <label for="signSize">Approximate Size</label>
-        <select id="signSize">
-          <option>Small accent sign</option>
-          <option>Medium porch / entry sign</option>
-          <option>Large outdoor statement sign</option>
-          <option>Not sure yet</option>
-        </select>
+          <form class="order-form">
+            <label for="signType">Sign Type</label>
+            <select id="signType">
+              <option>House number sign</option>
+              <option>Beach house name sign</option>
+              <option>Rental welcome sign</option>
+              <option>Family name sign</option>
+              <option>Garage / bar / basement sign</option>
+              <option>Custom idea</option>
+            </select>
 
-        <label for="signFinish">Finish Style</label>
-        <select id="signFinish">
-          <option>Natural wood</option>
-          <option>Dark stained wood</option>
-          <option>Coastal whitewash</option>
-          <option>Rustic / weathered</option>
-          <option>Painted custom color</option>
-        </select>
+            <label for="signSize">Approximate Size</label>
+            <select id="signSize">
+              <option>Small accent sign</option>
+              <option>Medium porch / entry sign</option>
+              <option>Large outdoor statement sign</option>
+              <option>Not sure yet</option>
+            </select>
 
-        <label for="signText">Custom Text / House Number</label>
-        <input id="signText" type="text" placeholder="Example: 2092, The Beach House, Welcome to Dewey">
+            <label for="signFinish">Finish Style</label>
+            <select id="signFinish">
+              <option>Natural wood</option>
+              <option>Dark stained wood</option>
+              <option>Coastal whitewash</option>
+              <option>Rustic / weathered</option>
+              <option>Painted custom color</option>
+            </select>
 
-        <label for="signNotes">Notes</label>
-        <textarea id="signNotes" rows="4" placeholder="Tell me where it will go, colors you like, and any special requests."></textarea>
+            <label for="signText">Custom Text / House Number</label>
+            <input id="signText" type="text" placeholder="Example: 2092, The Beach House, Welcome to Dewey">
 
-        <p class="order-note">
-          This form helps you plan the custom specs. Final requests can be sent through Etsy for pricing and details.
-        </p>
+            <label for="signNotes">Notes</label>
+            <textarea id="signNotes" rows="4" placeholder="Tell me where it will go, colors you like, and any special requests."></textarea>
 
-        <a class="button" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
-          Order Now / Request Custom Quote
-        </a>
-      </form>
-    </div>
-  </div>
-</section>
-<section class="content-section">
-  <h2>Browse the Catalog</h2>
+            <p class="order-note">
+              This form helps you plan the specs. Final requests can be sent through Etsy for pricing and details.
+            </p>
 
-  <p>
-    Browse printable wall art, custom hand-built signs, beach rental decor,
-    funny kitchen prints, and coastal home pieces from The Blue Hen Basement.
-    This catalog will grow as new designs and handmade items are finished.
-  </p>
-
-  <div class="catalog-controls">
-    <button class="catalog-filter" onclick="filterCatalog('all')">All</button>
-    <button class="catalog-filter" onclick="filterCatalog('printable-art')">Printable Art</button>
-    <button class="catalog-filter" onclick="filterCatalog('custom-signs')">Custom Signs</button>
-    <button class="catalog-filter" onclick="filterCatalog('kitchen-decor')">Kitchen Decor</button>
-    <button class="catalog-filter" onclick="filterCatalog('beach-rentals')">Beach Rentals</button>
-  </div>
-
-  <div id="catalogGrid" class="catalog-grid"></div>
-</section>
-    
-
-      <h2>Why Printable Decor Works Well for Beach Rentals</h2>
-
-      <p>
-        Printable wall art is an easy way to refresh a room without waiting for shipping.
-        Download the file, print it at home or through a local print shop, frame it,
-        and your space instantly feels more finished.
-      </p>
-
-      <p>
-        It is especially useful for beach rentals, guest bedrooms, kitchens, hallways,
-        entryways, and small spaces that need a quick design upgrade.
-      </p>
+            <a class="button gold" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
+              Order Now / Request Custom Quote
+            </a>
+          </form>
+        </div>
+      </div>
     </section>
 
-    <section class="content-section">
-      <h2>Great Places to Use These Prints</h2>
+    <section id="catalog">
+      <h2>Browse the Catalog</h2>
 
-      <ul>
-        <li>Delaware beach rental homes</li>
-        <li>Airbnb and Vrbo properties</li>
-        <li>Guest bedrooms</li>
-        <li>Kitchen and dining areas</li>
-        <li>Hallways and entryways</li>
-        <li>Beach cottages and lake houses</li>
-        <li>Home offices, dens, and man caves</li>
-      </ul>
+      <p class="section-intro">
+        Browse printable wall art, custom hand-built signs, beach rental decor,
+        funny kitchen prints, and coastal home pieces from The Blue Hen Basement.
+        This catalog will grow as new designs and handmade items are finished.
+      </p>
+
+      <div class="catalog-controls">
+        <button class="catalog-filter" onclick="filterCatalog('all')">All</button>
+        <button class="catalog-filter" onclick="filterCatalog('printable-art')">Printable Art</button>
+        <button class="catalog-filter" onclick="filterCatalog('custom-signs')">Custom Signs</button>
+        <button class="catalog-filter" onclick="filterCatalog('kitchen-decor')">Kitchen Decor</button>
+        <button class="catalog-filter" onclick="filterCatalog('beach-rentals')">Beach Rentals</button>
+      </div>
+
+      <div id="catalogGrid" class="catalog-grid"></div>
+    </section>
+
+    <section>
+      <div class="split-section">
+        <div>
+          <h2>Decor That Makes a Beach Rental Feel Finished</h2>
+
+          <p class="section-intro">
+            A rental property does not need to feel generic. A few well-placed prints,
+            custom signs, welcome pieces, and personal touches can make a guest room,
+            hallway, kitchen, porch, or entryway feel intentional and memorable.
+          </p>
+
+          <p>
+            Printable decor is fast and affordable. Custom signs add a handmade touch.
+            Together, they help a beach house or rental feel less empty and more like
+            a place people remember.
+          </p>
+
+          <div class="cta-row">
+            <a class="button gold" href="#custom-signs">Request Custom Sign</a>
+            <a class="button" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">Shop Etsy</a>
+          </div>
+        </div>
+
+        <div class="owner-card-grid">
+          <div class="owner-card">
+            <h3>Entryways</h3>
+            <p>Welcome guests with signs, house numbers, and simple coastal styling.</p>
+          </div>
+
+          <div class="owner-card">
+            <h3>Guest Rooms</h3>
+            <p>Add printable wall art, local themes, and relaxed beach-house personality.</p>
+          </div>
+
+          <div class="owner-card">
+            <h3>Patios & Porches</h3>
+            <p>Custom signs and outdoor decor make the space feel more intentional.</p>
+          </div>
+
+          <div class="owner-card">
+            <h3>Rental Branding</h3>
+            <p>Name signs, welcome signs, and house details can make a property memorable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-banner">
+      <h2>Good Places to Use These Prints and Signs</h2>
+
+      <p>
+        Delaware beach rental homes, Airbnb and Vrbo properties, beach cottages,
+        guest bedrooms, kitchens, dining rooms, hallways, entryways, decks, patios,
+        garages, sheds, basements, bars, offices, and man caves.
+      </p>
+
+      <div class="cta-row">
+        <a class="button gold" href="#catalog">Browse Catalog</a>
+        <a class="button light" href="plan-your-trip.html">Plan Your Beach Trip</a>
+      </div>
     </section>
 
   </main>
@@ -443,103 +715,109 @@
   <footer>
     <p>
       © 2026 Rent Delaware Beaches |
-      <a href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
-        Shop The Blue Hen Basement on Etsy
-      </a>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="community.html">Community</a>
     </p>
   </footer>
-<script>
-  const products = [
-  {
-  title: "Surf Fishing Vintage Pickup Beach Sunset Wall Art",
-  category: "printable-art",
-  tag: "Printable Art",
-  status: "Available",
-  description: "A beach-themed printable wall art design featuring a vintage pickup, surf fishing energy, and coastal sunset tones. Great for beach houses, rentals, fishing cabins, guest rooms, and coastal homes.",
-  price: "Digital download",
-  image: "images/Surf-Fishing-Vintage-Pickup-Beach-Sunset-Wall-Art.png",
-  video: "",
-  link: "https://www.etsy.com/shop/TheBlueHenBasement",
-  buttonText: "View on Etsy"
-},
-    {
-      title: "Today’s Menu: Take It Or Leave It",
-      category: "kitchen-decor",
-      tag: "Kitchen Decor",
-      status: "Available",
-      description: "A funny farmhouse-style kitchen print with mom/dad humor. Perfect for kitchens, dining rooms, beach rentals, and family homes.",
-      price: "Digital download",
-      image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1200&q=80",
-      video: "",
-      link: "https://www.etsy.com/shop/TheBlueHenBasement",
-      buttonText: "View on Etsy"
-    },
-    {
-      title: "Custom Hand-Built House Signs",
-      category: "custom-signs",
-      tag: "Custom Signs",
-      status: "Custom Order",
-      description: "Custom handmade signs for beach houses, rental properties, family homes, garages, patios, basements, bars, sheds, and entryways.",
-      price: "Custom quote",
-      image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80",
-      video: "",
-      link: "https://www.etsy.com/shop/TheBlueHenBasement",
-      buttonText: "Request Custom Quote"
-    },
-    {
-      title: "Beach Rental Welcome Sign",
-      category: "beach-rentals",
-      tag: "Beach Rentals",
-      status: "Coming Soon",
-      description: "A coastal-inspired welcome sign idea for Airbnb, Vrbo, guest houses, beach cottages, and Delaware vacation rentals.",
-      price: "Custom order",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-      video: "",
-      link: "https://www.etsy.com/shop/TheBlueHenBasement",
-      buttonText: "Request Custom Quote"
-    }
-  ];
 
-  const catalogGrid = document.getElementById("catalogGrid");
+  <script>
+    const products = [
+      {
+        title: "Surf Fishing Vintage Pickup Beach Sunset Wall Art",
+        category: "printable-art",
+        tag: "Printable Art",
+        status: "Available",
+        description: "A beach-themed printable wall art design featuring a vintage pickup, surf fishing energy, and coastal sunset tones. Great for beach houses, rentals, fishing cabins, guest rooms, and coastal homes.",
+        price: "Digital download",
+        image: "images/Surf-Fishing-Vintage-Pickup-Beach-Sunset-Wall-Art.png",
+        video: "",
+        link: "https://www.etsy.com/shop/TheBlueHenBasement",
+        buttonText: "View on Etsy"
+      },
+      {
+        title: "Today’s Menu: Take It Or Leave It",
+        category: "kitchen-decor",
+        tag: "Kitchen Decor",
+        status: "Available",
+        description: "A funny farmhouse-style kitchen print with mom/dad humor. Perfect for kitchens, dining rooms, beach rentals, and family homes.",
+        price: "Digital download",
+        image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1200&q=80",
+        video: "",
+        link: "https://www.etsy.com/shop/TheBlueHenBasement",
+        buttonText: "View on Etsy"
+      },
+      {
+        title: "Custom Hand-Built House Signs",
+        category: "custom-signs",
+        tag: "Custom Signs",
+        status: "Custom Order",
+        description: "Custom handmade signs for beach houses, rental properties, family homes, garages, patios, basements, bars, sheds, and entryways.",
+        price: "Custom quote",
+        image: "images/2092 Address Sign Hero.png",
+        video: "",
+        link: "https://www.etsy.com/shop/TheBlueHenBasement",
+        buttonText: "Request Custom Quote"
+      },
+      {
+        title: "Beach Rental Welcome Sign",
+        category: "beach-rentals",
+        tag: "Beach Rentals",
+        status: "Coming Soon",
+        description: "A coastal-inspired welcome sign idea for Airbnb, Vrbo, guest houses, beach cottages, and Delaware vacation rentals.",
+        price: "Custom order",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        video: "",
+        link: "https://www.etsy.com/shop/TheBlueHenBasement",
+        buttonText: "Request Custom Quote"
+      }
+    ];
 
-  function displayCatalog(items) {
-    catalogGrid.innerHTML = "";
+    const catalogGrid = document.getElementById("catalogGrid");
 
-    items.forEach(product => {
-      const media = product.video
-        ? `<iframe class="catalog-video" src="${product.video}" title="${product.title}" allowfullscreen></iframe>`
-        : `<img src="${product.image}" alt="${product.title}">`;
+    function displayCatalog(items) {
+      catalogGrid.innerHTML = "";
 
-      const card = `
-        <article class="catalog-card">
-          ${media}
-          <div class="catalog-card-content">
-            <span class="catalog-tag">${product.tag}</span>
-            <span class="catalog-status">${product.status}</span>
-            <h3>${product.title}</h3>
-            <p>${product.description}</p>
-            <p class="catalog-price">${product.price}</p>
-            <div class="catalog-buttons">
-              <a class="button" href="${product.link}" target="_blank" rel="noopener">${product.buttonText}</a>
+      items.forEach(product => {
+        const media = product.video
+          ? `<iframe class="catalog-video" src="${product.video}" title="${product.title}" allowfullscreen></iframe>`
+          : `<img src="${product.image}" alt="${product.title}">`;
+
+        const card = `
+          <article class="catalog-card">
+            ${media}
+            <div class="catalog-card-content">
+              <span class="catalog-tag">${product.tag}</span>
+              <span class="catalog-status">${product.status}</span>
+              <h3>${product.title}</h3>
+              <p>${product.description}</p>
+              <p class="catalog-price">${product.price}</p>
+              <div class="catalog-buttons">
+                <a class="button" href="${product.link}" target="_blank" rel="noopener">${product.buttonText}</a>
+              </div>
             </div>
-          </div>
-        </article>
-      `;
+          </article>
+        `;
 
-      catalogGrid.innerHTML += card;
-    });
-  }
-
-  function filterCatalog(category) {
-    if (category === "all") {
-      displayCatalog(products);
-    } else {
-      const filteredProducts = products.filter(product => product.category === category);
-      displayCatalog(filteredProducts);
+        catalogGrid.innerHTML += card;
+      });
     }
-  }
 
-  displayCatalog(products);
-</script>
+    function filterCatalog(category) {
+      if (category === "all") {
+        displayCatalog(products);
+      } else {
+        const filteredProducts = products.filter(product => product.category === category);
+        displayCatalog(filteredProducts);
+      }
+    }
+
+    displayCatalog(products);
+  </script>
+
 </body>
 </html>
