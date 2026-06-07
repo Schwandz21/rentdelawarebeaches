@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Delaware Beach Community Board | Rent Delaware Beaches</title>
+
+  <meta name="description" content="A Delaware beach community board for local tips, restaurant recommendations, rental owner ideas, beach updates, videos, decor inspiration, and visitor questions." />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f0e3;
+      color: #102f45;
+      line-height: 1.6;
+    }
+
+    .top-strip {
+      background: #d8903d;
+      color: #102f45;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+
+    header {
+      background:
+        linear-gradient(rgba(8, 35, 54, 0.35), rgba(8, 35, 54, 0.78)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 34px 20px 95px;
+      text-align: center;
+    }
+
+    nav {
+      max-width: 1180px;
+      margin: 0 auto 70px;
+      padding: 14px 18px;
+      background: rgba(16, 47, 69, 0.86);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    header h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1.04;
+      margin: 0 0 22px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
+    }
+
+    header p {
+      max-width: 790px;
+      margin: 0 auto 28px;
+      font-size: 21px;
+      color: #fff7e8;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #1f6f9b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: 0.2s ease;
+      margin: 8px 6px 0 0;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #185879;
+    }
+
+    .button.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -58px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      margin-top: 34px;
+      background: #fffaf2;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
+      border: 1px solid #eadfcd;
+    }
+
+    h2 {
+      color: #1f6f9b;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      color: #102f45;
+      margin-top: 0;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: #425466;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .board-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid #eadfcd;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+      transition: 0.22s ease;
+    }
+
+    .board-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f1eadc;
+      color: #102f45;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .feature-banner {
+      background: linear-gradient(135deg, #102f45, #1f6f9b);
+      color: white;
+      border: none;
+    }
+
+    .feature-banner h2,
+    .feature-banner h3 {
+      color: white;
+    }
+
+    .feature-banner p {
+      color: #e9f3f8;
+    }
+
+    .submission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .submission-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .submission-card h3 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: #102f45;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    footer a {
+      color: white;
+      font-weight: bold;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        border-radius: 22px;
+        margin-bottom: 50px;
+      }
+
+      header {
+        padding-bottom: 80px;
+      }
+
+      section {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    Delaware Beach Community Board • Local Tips • Visitor Ideas • Rental Owner Notes
+  </div>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
+    </nav>
+
+    <span class="eyebrow">Local Beach Community</span>
+
+    <h1>Delaware Beach Community Board</h1>
+
+    <p>
+      A growing space for local tips, visitor questions, restaurant picks,
+      rental owner ideas, beach updates, videos, and coastal living inspiration.
+    </p>
+
+    <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Delaware%20Beach%20Local%20Tip">Submit a Local Tip</a>
+    <a class="button" href="videos.html">Watch Videos</a>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>A Local Board for Beach People</h2>
+
+      <p class="section-intro">
+        This community board is designed to become a curated hub for Delaware beach visitors,
+        homeowners, rental owners, local businesses, and anyone who wants to make beach trips
+        easier, better, and more memorable.
+      </p>
+
+      <div class="board-grid">
+        <article class="board-card">
+          <span class="tag">Visitors</span>
+          <h3>Ask a Beach Question</h3>
+          <p>
+            Wondering where to stay, what town fits your trip, what to do on a rainy day,
+            or where to eat with a group? This is the future home for visitor questions.
+          </p>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Delaware%20Beach%20Question">Ask a Question</a>
+        </article>
+
+        <article class="board-card">
+          <span class="tag">Local Tips</span>
+          <h3>Share a Local Tip</h3>
+          <p>
+            Parking tricks, quiet beach access, favorite coffee stops, family-friendly ideas,
+            scenic drives, and practical beach-week advice all belong here.
+          </p>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Local%20Delaware%20Beach%20Tip">Submit Tip</a>
+        </article>
+
+        <article class="board-card">
+          <span class="tag">Food</span>
+          <h3>Recommend a Restaurant</h3>
+          <p>
+            Help build a real-world restaurant guide with seafood picks, breakfast spots,
+            casual meals, date-night restaurants, and local favorites.
+          </p>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Restaurant%20Recommendation">Recommend Food</a>
+        </article>
+
+        <article class="board-card">
+          <span class="tag">Rentals</span>
+          <h3>Rental Owner Ideas</h3>
+          <p>
+            Share ideas for better guest experiences, welcome signs, entryway upgrades,
+            checklists, decor, photos, and small improvements that renters remember.
+          </p>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Rental%20Owner%20Idea">Share Rental Idea</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-banner">
+      <h2>What This Community Board Can Become</h2>
+
+      <p>
+        This starts as a curated board. Later it can grow into public comments,
+        ratings, visitor reviews, discussion threads, featured local businesses,
+        rental owner resources, and seasonal Delaware beach updates.
+      </p>
+
+      <div class="submission-grid">
+        <div class="submission-card">
+          <h3>Public Comments</h3>
+          <p>Future page comments for town guides, restaurants, videos, and blog posts.</p>
+        </div>
+
+        <div class="submission-card">
+          <h3>Ratings & Reviews</h3>
+          <p>Visitor ratings for restaurants, activities, rental upgrades, and local experiences.</p>
+        </div>
+
+        <div class="submission-card">
+          <h3>Local Posts</h3>
+          <p>Seasonal updates, beach reminders, event notes, and community-submitted tips.</p>
+        </div>
+
+        <div class="submission-card">
+          <h3>Featured Videos</h3>
+          <p>Beach walks, town previews, rental transformations, restaurant clips, and custom builds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Featured Community Prompts</h2>
+
+      <p class="section-intro">
+        These prompts give the site a community feel right away and can later become
+        real blog posts, polls, comments, or discussion threads.
+      </p>
+
+      <div class="board-grid">
+        <article class="board-card">
+          <span class="tag">Question</span>
+          <h3>What is the best Delaware beach town for families?</h3>
+          <p>
+            A perfect discussion topic comparing Rehoboth, Bethany, Lewes, Fenwick,
+            South Bethany, and quieter rental-home areas.
+          </p>
+        </article>
+
+        <article class="board-card">
+          <span class="tag">Rental Owners</span>
+          <h3>What makes a beach rental feel premium?</h3>
+          <p>
+            Entryway signs, clean decor, stocked basics, local guidebooks, guest checklists,
+            and small upgrades can make a rental feel intentional.
+          </p>
+        </article>
+
+        <article class="board-card">
+          <span class="tag">Food</span>
+          <h3>Best casual meal after a long beach day?</h3>
+          <p>
+            The kind of question that can turn into comments, restaurant recommendations,
+            and local favorites.
+          </p>
+        </article>
+
+        <article class="board-card">
+          <span class="tag">Video Ideas</span>
+          <h3>What beach videos should we make next?</h3>
+          <p>
+            Town walkthroughs, rainy day itineraries, custom sign builds, beach rental upgrades,
+            and restaurant clips all fit the brand.
+          </p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Rent Delaware Beaches |
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+    </p>
+  </footer>
+
+</body>
+</html>
