@@ -6,11 +6,15 @@
 
   <title>Delaware Beach Community Board | Rent Delaware Beaches</title>
 
-  <meta name="description" content="A Delaware beach community board for local tips, restaurant recommendations, rental owner ideas, beach updates, videos, decor inspiration, and visitor questions." />
+  <meta name="description" content="Join the Delaware Beach Community Board for local tips, visitor questions, restaurant recommendations, rental owner ideas, beach updates, video submissions, custom sign requests, and coastal community notes." />
 
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -19,6 +23,10 @@
       background: #f7f0e3;
       color: #102f45;
       line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
     }
 
     .top-strip {
@@ -31,19 +39,22 @@
     }
 
     header {
+      min-height: 84vh;
       background:
-        linear-gradient(rgba(8, 35, 54, 0.35), rgba(8, 35, 54, 0.78)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
+        radial-gradient(circle at top left, rgba(216, 144, 61, 0.26), transparent 34%),
+        linear-gradient(rgba(8, 35, 54, 0.35), rgba(8, 35, 54, 0.84)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85");
       background-size: cover;
       background-position: center;
       color: white;
-      padding: 34px 20px 95px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
     }
 
     nav {
+      width: calc(100% - 40px);
       max-width: 1180px;
-      margin: 0 auto 70px;
+      margin: 20px auto 0;
       padding: 14px 18px;
       background: rgba(16, 47, 69, 0.86);
       backdrop-filter: blur(8px);
@@ -70,6 +81,13 @@
       transform: translateY(-1px);
     }
 
+    .hero-content {
+      max-width: 1040px;
+      margin: auto;
+      padding: 80px 24px 112px;
+      text-align: center;
+    }
+
     .eyebrow {
       display: inline-block;
       padding: 8px 14px;
@@ -83,18 +101,26 @@
       font-size: 13px;
     }
 
-    header h1 {
-      font-size: clamp(42px, 6vw, 74px);
-      line-height: 1.04;
+    h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: 1.02;
       margin: 0 0 22px;
       text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
     }
 
-    header p {
-      max-width: 790px;
+    .hero-content p {
+      max-width: 820px;
       margin: 0 auto 28px;
       font-size: 21px;
       color: #fff7e8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
     }
 
     .button {
@@ -107,7 +133,8 @@
       font-weight: bold;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
       transition: 0.2s ease;
-      margin: 8px 6px 0 0;
+      border: none;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -117,6 +144,15 @@
 
     .button.gold {
       background: #d8903d;
+      color: #102f45;
+    }
+
+    .button.gold:hover {
+      background: #c17c30;
+    }
+
+    .button.light {
+      background: #fffaf2;
       color: #102f45;
     }
 
@@ -139,7 +175,7 @@
 
     h2 {
       color: #1f6f9b;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(28px, 4vw, 44px);
       line-height: 1.1;
       margin: 0 0 16px;
     }
@@ -150,29 +186,80 @@
     }
 
     .section-intro {
-      max-width: 760px;
+      max-width: 790px;
       color: #425466;
       font-size: 18px;
       margin-bottom: 24px;
     }
 
-    .board-grid {
+    .quick-panel {
+      background: rgba(255, 250, 242, 0.96);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      border: 1px solid rgba(216, 144, 61, 0.22);
+    }
+
+    .quick-card {
+      padding: 20px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid #eadfcd;
+      text-decoration: none;
+      transition: 0.22s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
+    }
+
+    .quick-card span {
+      color: #d8903d;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .quick-card h3 {
+      margin: 8px 0 6px;
+      font-size: 20px;
+      color: #102f45;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: #425466;
+      font-size: 15px;
+    }
+
+    .board-grid,
+    .prompt-grid,
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
       gap: 22px;
       margin-top: 24px;
     }
 
-    .board-card {
+    .board-card,
+    .prompt-card,
+    .roadmap-card {
       background: white;
-      border-radius: 20px;
-      padding: 24px;
       border: 1px solid #eadfcd;
+      border-radius: 22px;
+      padding: 24px;
       box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
       transition: 0.22s ease;
     }
 
-    .board-card:hover {
+    .board-card:hover,
+    .prompt-card:hover,
+    .roadmap-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
     }
@@ -185,7 +272,19 @@
       border-radius: 999px;
       font-size: 13px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin: 0 6px 10px 0;
+    }
+
+    .tag.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .board-card p,
+    .prompt-card p,
+    .roadmap-card p,
+    .roadmap-card li {
+      color: #425466;
     }
 
     .feature-banner {
@@ -199,27 +298,96 @@
       color: white;
     }
 
-    .feature-banner p {
+    .feature-banner p,
+    .feature-banner li {
       color: #e9f3f8;
     }
 
-    .submission-grid {
+    .bulletin-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
     }
 
-    .submission-card {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 18px;
-      padding: 20px;
-    }
-
-    .submission-card h3 {
+    .bulletin-visual {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.42), rgba(16, 47, 69, 0.86)),
+        url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=85");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      padding: 28px;
       color: white;
-      margin-bottom: 8px;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .bulletin-visual h3 {
+      color: white;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .bulletin-visual p {
+      color: #fff7e8;
+    }
+
+    .submit-box {
+      background: #fffaf2;
+      border-radius: 24px;
+      padding: 28px;
+      border: 2px dashed rgba(216, 144, 61, 0.75);
+      box-shadow: inset 0 0 0 1px rgba(16, 47, 69, 0.04);
+    }
+
+    .submit-box p {
+      color: #425466;
+    }
+
+    .decor-preview {
+      min-height: 390px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.62), rgba(16, 47, 69, 0.78)),
+        url("images/2092 Address Sign Hero.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      padding: 28px;
+      color: white;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .decor-preview h3 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .decor-preview p {
+      color: #fff7e8;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    ul {
+      padding-left: 22px;
     }
 
     footer {
@@ -235,14 +403,22 @@
       margin: 0 6px;
     }
 
-    @media (max-width: 800px) {
-      nav {
-        border-radius: 22px;
-        margin-bottom: 50px;
+    @media (max-width: 850px) {
+      header {
+        min-height: 74vh;
       }
 
-      header {
-        padding-bottom: 80px;
+      nav {
+        border-radius: 22px;
+      }
+
+      main {
+        margin-top: -44px;
+      }
+
+      .bulletin-layout,
+      .split-section {
+        grid-template-columns: 1fr;
       }
 
       section {
@@ -255,7 +431,7 @@
 <body>
 
   <div class="top-strip">
-    Delaware Beach Community Board • Local Tips • Visitor Ideas • Rental Owner Notes
+    Delaware Beach Community Board • Local Tips • Visitor Questions • Restaurant Picks • Beach Updates
   </div>
 
   <header>
@@ -270,149 +446,302 @@
       <a href="community.html">Community</a>
     </nav>
 
-    <span class="eyebrow">Local Beach Community</span>
+    <div class="hero-content">
+      <span class="eyebrow">Local Voices Coming Together</span>
 
-    <h1>Delaware Beach Community Board</h1>
+      <h1>The Delaware Beach Community Board.</h1>
 
-    <p>
-      A growing space for local tips, visitor questions, restaurant picks,
-      rental owner ideas, beach updates, videos, and coastal living inspiration.
-    </p>
+      <p>
+        A growing space for visitor questions, local tips, restaurant recommendations,
+        rental owner ideas, beach updates, video submissions, custom sign requests,
+        and useful coastal notes from people who know and love the Delaware beaches.
+      </p>
 
-    <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Delaware%20Beach%20Local%20Tip">Submit a Local Tip</a>
-    <a class="button" href="videos.html">Watch Videos</a>
+      <div class="hero-buttons">
+        <a class="button gold" href="#submit">Submit a Tip</a>
+        <a class="button light" href="#board">Explore the Board</a>
+        <a class="button" href="videos.html">Watch Videos</a>
+      </div>
+    </div>
   </header>
 
   <main>
 
+    <div class="quick-panel">
+      <a class="quick-card" href="#questions">
+        <span>Ask</span>
+        <h3>Visitor Questions</h3>
+        <p>Where to stay, what to do, where to eat, when to visit, and how to plan smarter.</p>
+      </a>
+
+      <a class="quick-card" href="#tips">
+        <span>Share</span>
+        <h3>Local Tips</h3>
+        <p>Parking notes, quiet spots, rainy-day ideas, family tips, and seasonal updates.</p>
+      </a>
+
+      <a class="quick-card" href="#restaurants">
+        <span>Recommend</span>
+        <h3>Restaurant Picks</h3>
+        <p>Seafood, breakfast, beach bars, takeout, date nights, and family-friendly meals.</p>
+      </a>
+
+      <a class="quick-card" href="#owners">
+        <span>Build</span>
+        <h3>Rental Owner Ideas</h3>
+        <p>Custom signs, welcome details, decor upgrades, guest tips, and better stays.</p>
+      </a>
+    </div>
+
+    <section id="board">
+      <div class="bulletin-layout">
+        <div>
+          <h2>A Beach Bulletin Board With a Bigger Future</h2>
+
+          <p class="section-intro">
+            This page starts simple: visitors and locals can send tips, recommendations,
+            questions, video ideas, and beach-house suggestions. Over time, it can grow into
+            comments, ratings, featured posts, local business spotlights, and real community discussion.
+          </p>
+
+          <p>
+            The goal is to make Rent Delaware Beaches feel alive. Not just pages sitting there —
+            a place where people can contribute useful information and help shape the Delaware beach experience.
+          </p>
+
+          <div class="cta-row">
+            <a class="button gold" href="#submit">Submit Something</a>
+            <a class="button" href="plan-your-trip.html">Plan Your Trip</a>
+          </div>
+        </div>
+
+        <div class="bulletin-visual">
+          <div>
+            <span class="eyebrow">Community Powered</span>
+            <h3>Tips, Questions, Clips & Local Finds</h3>
+            <p>
+              Build a useful hub around the real questions people ask before, during,
+              and after a Delaware beach trip.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
-      <h2>A Local Board for Beach People</h2>
+      <h2>What Belongs on the Community Board?</h2>
 
       <p class="section-intro">
-        This community board is designed to become a curated hub for Delaware beach visitors,
-        homeowners, rental owners, local businesses, and anyone who wants to make beach trips
-        easier, better, and more memorable.
+        Think of this as the place for useful, local, practical, beach-specific information
+        that does not always fit neatly on a normal travel page.
       </p>
 
       <div class="board-grid">
-        <article class="board-card">
-          <span class="tag">Visitors</span>
-          <h3>Ask a Beach Question</h3>
+        <article class="board-card" id="questions">
+          <span class="tag gold">Questions</span>
+          <h3>Visitor Questions</h3>
           <p>
-            Wondering where to stay, what town fits your trip, what to do on a rainy day,
-            or where to eat with a group? This is the future home for visitor questions.
+            “Which town is best for families?” “Where should we eat with kids?”
+            “What is there to do if it rains?” “Is Dewey too loud?” “What should we pack?”
           </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Delaware%20Beach%20Question">Ask a Question</a>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Visitor%20Question">Ask a Question</a>
         </article>
 
-        <article class="board-card">
-          <span class="tag">Local Tips</span>
-          <h3>Share a Local Tip</h3>
+        <article class="board-card" id="tips">
+          <span class="tag gold">Local Tips</span>
+          <h3>Beach Notes & Updates</h3>
           <p>
-            Parking tricks, quiet beach access, favorite coffee stops, family-friendly ideas,
-            scenic drives, and practical beach-week advice all belong here.
+            Parking notes, seasonal reminders, quiet beach spots, beach access tips,
+            family-friendly ideas, stormy-day suggestions, and local observations.
           </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Local%20Delaware%20Beach%20Tip">Submit Tip</a>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Local%20Tip">Send a Tip</a>
         </article>
 
-        <article class="board-card">
-          <span class="tag">Food</span>
-          <h3>Recommend a Restaurant</h3>
+        <article class="board-card" id="restaurants">
+          <span class="tag gold">Food</span>
+          <h3>Restaurant Recommendations</h3>
           <p>
-            Help build a real-world restaurant guide with seafood picks, breakfast spots,
-            casual meals, date-night restaurants, and local favorites.
+            Seafood spots, breakfast places, takeout winners, date-night meals,
+            casual family dinners, beach bars, coffee shops, and hidden gems.
           </p>
           <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Restaurant%20Recommendation">Recommend Food</a>
         </article>
 
-        <article class="board-card">
-          <span class="tag">Rentals</span>
+        <article class="board-card" id="owners">
+          <span class="tag gold">Owners</span>
           <h3>Rental Owner Ideas</h3>
           <p>
-            Share ideas for better guest experiences, welcome signs, entryway upgrades,
-            checklists, decor, photos, and small improvements that renters remember.
+            Welcome signs, guest books, porch upgrades, entryway ideas,
+            custom house signs, printable art, check-in notes, and small details guests remember.
           </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Rental%20Owner%20Idea">Share Rental Idea</a>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Rental%20Owner%20Idea">Share Owner Idea</a>
+        </article>
+
+        <article class="board-card">
+          <span class="tag gold">Video</span>
+          <h3>Video Submissions</h3>
+          <p>
+            Beach walks, town walkthroughs, restaurant clips, custom sign builds,
+            rental upgrades, local businesses, sunsets, fishing, and seasonal clips.
+          </p>
+          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Video%20Submission">Submit Video Idea</a>
+        </article>
+
+        <article class="board-card">
+          <span class="tag gold">Custom</span>
+          <h3>Custom Sign Requests</h3>
+          <p>
+            Beach house names, rental welcome signs, house numbers, patio signs,
+            family signs, personalized gifts, and coastal decor requests.
+          </p>
+          <a class="button" href="decor.html">Request Custom Sign</a>
         </article>
       </div>
     </section>
 
     <section class="feature-banner">
-      <h2>What This Community Board Can Become</h2>
+      <h2>Community Prompts We Can Build Around</h2>
 
       <p>
-        This starts as a curated board. Later it can grow into public comments,
-        ratings, visitor reviews, discussion threads, featured local businesses,
-        rental owner resources, and seasonal Delaware beach updates.
+        These prompts can eventually become featured discussions, blog posts, social posts,
+        videos, or guides that answer real visitor questions.
       </p>
 
-      <div class="submission-grid">
-        <div class="submission-card">
-          <h3>Public Comments</h3>
-          <p>Future page comments for town guides, restaurants, videos, and blog posts.</p>
+      <div class="prompt-grid">
+        <article class="prompt-card">
+          <span class="tag gold">Prompt</span>
+          <h3>Best Delaware beach town for a first trip?</h3>
+          <p>
+            Perfect future discussion for comparing Rehoboth, Dewey, Bethany, Lewes, Fenwick,
+            and South Bethany by vibe.
+          </p>
+        </article>
+
+        <article class="prompt-card">
+          <span class="tag gold">Prompt</span>
+          <h3>Best rainy-day plan at the beach?</h3>
+          <p>
+            Great for trip planning, restaurants, shopping, indoor attractions, rental-house activities,
+            and local backup ideas.
+          </p>
+        </article>
+
+        <article class="prompt-card">
+          <span class="tag gold">Prompt</span>
+          <h3>What makes a beach rental feel premium?</h3>
+          <p>
+            Perfect tie-in for decor, custom signs, welcome notes, guest experience, porch details,
+            and rental-owner strategy.
+          </p>
+        </article>
+
+        <article class="prompt-card">
+          <span class="tag gold">Prompt</span>
+          <h3>Best casual seafood meal near the beaches?</h3>
+          <p>
+            Restaurant recommendations can become food guides, videos, town pages,
+            and community-submitted favorites.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="submit">
+      <div class="split-section">
+        <div>
+          <h2>Submit a Tip, Question, Recommendation, or Idea</h2>
+
+          <p class="section-intro">
+            For now, submissions go through email. Later, this can become a real form,
+            comment system, ratings section, or featured community board.
+          </p>
+
+          <div class="submit-box">
+            <h3>What can you send?</h3>
+            <p>
+              Send a visitor question, restaurant recommendation, beach tip, video idea,
+              local business suggestion, rental owner idea, or custom sign request.
+            </p>
+
+            <div class="cta-row">
+              <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Community%20Board%20Submission">Email a Submission</a>
+              <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Ask%20Rent%20Delaware%20Beaches">Ask a Question</a>
+            </div>
+          </div>
         </div>
 
-        <div class="submission-card">
-          <h3>Ratings & Reviews</h3>
-          <p>Visitor ratings for restaurants, activities, rental upgrades, and local experiences.</p>
-        </div>
-
-        <div class="submission-card">
-          <h3>Local Posts</h3>
-          <p>Seasonal updates, beach reminders, event notes, and community-submitted tips.</p>
-        </div>
-
-        <div class="submission-card">
-          <h3>Featured Videos</h3>
-          <p>Beach walks, town previews, rental transformations, restaurant clips, and custom builds.</p>
+        <div class="decor-preview">
+          <div>
+            <span class="eyebrow">Local + Handmade</span>
+            <h3>Custom Signs, Beach Decor & Rental Ideas</h3>
+            <p>
+              Community questions can lead directly into useful guides, video ideas,
+              and custom decor products people actually want.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Featured Community Prompts</h2>
+      <h2>Future Community Features</h2>
 
       <p class="section-intro">
-        These prompts give the site a community feel right away and can later become
-        real blog posts, polls, comments, or discussion threads.
+        This page is built as a foundation. The first version is simple, but the structure
+        is ready for bigger features as the site grows.
       </p>
 
-      <div class="board-grid">
-        <article class="board-card">
-          <span class="tag">Question</span>
-          <h3>What is the best Delaware beach town for families?</h3>
+      <div class="roadmap-grid">
+        <article class="roadmap-card">
+          <span class="tag gold">Phase 1</span>
+          <h3>Email Submissions</h3>
           <p>
-            A perfect discussion topic comparing Rehoboth, Bethany, Lewes, Fenwick,
-            South Bethany, and quieter rental-home areas.
+            People send questions, recommendations, tips, clips, and product ideas by email.
+            You curate the best ones into site content.
           </p>
         </article>
 
-        <article class="board-card">
-          <span class="tag">Rental Owners</span>
-          <h3>What makes a beach rental feel premium?</h3>
+        <article class="roadmap-card">
+          <span class="tag gold">Phase 2</span>
+          <h3>Google Form or Simple Submission Form</h3>
           <p>
-            Entryway signs, clean decor, stocked basics, local guidebooks, guest checklists,
-            and small upgrades can make a rental feel intentional.
+            Add a clean form for structured submissions: town, category, recommendation,
+            question, photo, video link, or business name.
           </p>
         </article>
 
-        <article class="board-card">
-          <span class="tag">Food</span>
-          <h3>Best casual meal after a long beach day?</h3>
+        <article class="roadmap-card">
+          <span class="tag gold">Phase 3</span>
+          <h3>Featured Community Posts</h3>
           <p>
-            The kind of question that can turn into comments, restaurant recommendations,
-            and local favorites.
+            Turn the best questions into blog posts, quick guides, video scripts,
+            restaurant roundups, and town-specific recommendations.
           </p>
         </article>
 
-        <article class="board-card">
-          <span class="tag">Video Ideas</span>
-          <h3>What beach videos should we make next?</h3>
+        <article class="roadmap-card">
+          <span class="tag gold">Phase 4</span>
+          <h3>Comments, Ratings & Discussions</h3>
           <p>
-            Town walkthroughs, rainy day itineraries, custom sign builds, beach rental upgrades,
-            and restaurant clips all fit the brand.
+            Later, add real comments, ratings, town threads, restaurant notes,
+            rental-owner advice, and local business profiles.
           </p>
         </article>
+      </div>
+    </section>
+
+    <section class="feature-banner">
+      <h2>This Is How the Site Becomes Alive</h2>
+
+      <p>
+        Travel guides help people plan. Videos help them feel the place. Decor gives the project a product lane.
+        The community board gives people a reason to participate, submit, ask, recommend, and return.
+      </p>
+
+      <div class="cta-row">
+        <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Community%20Board%20Submission">Submit to the Board</a>
+        <a class="button light" href="videos.html">Watch Videos</a>
+        <a class="button" href="decor.html">Browse Decor</a>
       </div>
     </section>
 
