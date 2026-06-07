@@ -230,6 +230,61 @@
 .catalog-buttons .button {
   margin-top: 0;
 }
+    .custom-sign-feature {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.custom-sign-feature img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.custom-sign-panel {
+  background: #fffaf1;
+  border: 1px solid #e4ded1;
+  border-radius: 18px;
+  padding: 26px;
+}
+
+.custom-sign-panel h2 {
+  margin-top: 0;
+}
+
+.order-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.order-form label {
+  font-weight: bold;
+  color: #18344a;
+}
+
+.order-form select,
+.order-form input,
+.order-form textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #d5cbb8;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.order-note {
+  font-size: 14px;
+  color: #425466;
+}
+
+@media (max-width: 800px) {
+  .custom-sign-feature {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
   
