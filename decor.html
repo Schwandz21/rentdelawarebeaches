@@ -270,8 +270,27 @@
         Visit My Etsy Shop
       </a>
     </section>
+<section class="content-section">
+  <h2>Browse the Catalog</h2>
 
+  <p>
+    Browse printable wall art, custom hand-built signs, beach rental decor,
+    funny kitchen prints, and coastal home pieces from The Blue Hen Basement.
+    This catalog will grow as new designs and handmade items are finished.
+  </p>
+
+  <div class="catalog-controls">
+    <button class="catalog-filter" onclick="filterCatalog('all')">All</button>
+    <button class="catalog-filter" onclick="filterCatalog('printable-art')">Printable Art</button>
+    <button class="catalog-filter" onclick="filterCatalog('custom-signs')">Custom Signs</button>
+    <button class="catalog-filter" onclick="filterCatalog('kitchen-decor')">Kitchen Decor</button>
+    <button class="catalog-filter" onclick="filterCatalog('beach-rentals')">Beach Rentals</button>
+  </div>
+
+  <div id="catalogGrid" class="catalog-grid"></div>
+</section>
     <section class="content-section">
+      
       <h2>Featured Printable Wall Art</h2>
 
       <div class="listing-grid">
