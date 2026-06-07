@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Delaware Beach Guide Blog | Rent Delaware Beaches</title>
+
+  <meta name="description" content="Read Delaware beach guides, trip planning articles, beach town comparisons, restaurant ideas, rainy day plans, rental owner tips, and beach house decor inspiration." />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f0e3;
+      color: #102f45;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .top-strip {
+      background: #d8903d;
+      color: #102f45;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+
+    header {
+      min-height: 86vh;
+      background:
+        radial-gradient(circle at top left, rgba(216, 144, 61, 0.24), transparent 34%),
+        linear-gradient(rgba(8, 35, 54, 0.34), rgba(8, 35, 54, 0.86)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      width: calc(100% - 40px);
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding: 14px 18px;
+      background: rgba(16, 47, 69, 0.86);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .hero-content {
+      max-width: 1040px;
+      margin: auto;
+      padding: 80px 24px 112px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.02;
+      margin: 0 0 22px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
+    }
+
+    .hero-content p {
+      max-width: 830px;
+      margin: 0 auto 28px;
+      font-size: 21px;
+      color: #fff7e8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #1f6f9b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #185879;
+    }
+
+    .button.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .button.gold:hover {
+      background: #c17c30;
+    }
+
+    .button.light {
+      background: #fffaf2;
+      color: #102f45;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -58px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      margin-top: 34px;
+      background: #fffaf2;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
+      border: 1px solid #eadfcd;
+    }
+
+    h2 {
+      color: #1f6f9b;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      color: #102f45;
+      margin-top: 0;
+    }
+
+    .section-intro {
+      max-width: 790px;
+      color: #425466;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .quick-panel {
+      background: rgba(255, 250, 242, 0.96);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      border: 1px solid rgba(216, 144, 61, 0.22);
+    }
+
+    .quick-card {
+      padding: 20px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid #eadfcd;
+      text-decoration: none;
+      transition: 0.22s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
+    }
+
+    .quick-card span {
+      color: #d8903d;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .quick-card h3 {
+      margin: 8px 0 6px;
+      font-size: 20px;
+      color: #102f45;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: #425466;
+      font-size: 15px;
+    }
+
+    .featured-article {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .featured-image {
+      min-height: 440px;
+      border-radius: 24px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.24), rgba(16, 47, 69, 0.82)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1300&q=85");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 28px;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 14px 34px rgba(16, 47, 69, 0.18);
+    }
+
+    .featured-image h3 {
+      color: white;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .featured-image p {
+      color: #fff7e8;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f1eadc;
+      color: #102f45;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 0 6px 10px 0;
+    }
+
+    .tag.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .article-grid,
+    .topic-grid,
+    .seo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .article-card,
+    .topic-card,
+    .seo-card {
+      background: white;
+      border: 1px solid #eadfcd;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+      transition: 0.22s ease;
+    }
+
+    .topic-card,
+    .seo-card {
+      padding: 24px;
+    }
+
+    .article-card:hover,
+    .topic-card:hover,
+    .seo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
+    }
+
+    .article-thumb {
+      height: 185px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .article-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(16, 47, 69, 0.62));
+    }
+
+    .article-body {
+      padding: 24px;
+    }
+
+    .article-body p,
+    .topic-card p,
+    .seo-card p,
+    .seo-card li {
+      color: #425466;
+    }
+
+    .feature-banner {
+      background: linear-gradient(135deg, #102f45, #1f6f9b);
+      color: white;
+      border: none;
+    }
+
+    .feature-banner h2,
+    .feature-banner h3 {
+      color: white;
+    }
+
+    .feature-banner p,
+    .feature-banner li {
+      color: #e9f3f8;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .decor-preview {
+      min-height: 390px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.62), rgba(16, 47, 69, 0.78)),
+        url("images/2092 Address Sign Hero.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      padding: 28px;
+      color: white;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .decor-preview h3 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .decor-preview p {
+      color: #fff7e8;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    footer {
+      background: #102f45;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    footer a {
+      color: white;
+      font-weight: bold;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        min-height: 74vh;
+      }
+
+      nav {
+        border-radius: 22px;
+      }
+
+      main {
+        margin-top: -44px;
+      }
+
+      .featured-article,
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    Delaware Beach Guide Blog • Trip Planning • Town Comparisons • Restaurants • Rentals • Decor
+  </div>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <div class="hero-content">
+      <span class="eyebrow">Content Machine Max</span>
+
+      <h1>Delaware Beach Guides That Actually Help People Plan.</h1>
+
+      <p>
+        Trip ideas, town comparisons, rainy-day plans, restaurant guides, rental-owner tips,
+        beach-house decor inspiration, and practical local content built to grow search traffic over time.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button gold" href="#featured">Start Reading</a>
+        <a class="button light" href="#article-ideas">Article Library</a>
+        <a class="button" href="community.html">Submit an Idea</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="quick-panel">
+      <a class="quick-card" href="#town-guides">
+        <span>SEO Lane</span>
+        <h3>Town Guides</h3>
+        <p>Rehoboth, Dewey, Bethany, Lewes, Fenwick, and town-by-town visitor guides.</p>
+      </a>
+
+      <a class="quick-card" href="#trip-planning">
+        <span>SEO Lane</span>
+        <h3>Trip Planning</h3>
+        <p>Family trips, rainy days, weekend itineraries, packing, timing, parking, and planning.</p>
+      </a>
+
+      <a class="quick-card" href="#rental-owners">
+        <span>SEO Lane</span>
+        <h3>Rental Owners</h3>
+        <p>Guest experience, decor ideas, welcome signs, rental upgrades, and better beach stays.</p>
+      </a>
+
+      <a class="quick-card" href="#food-guides">
+        <span>SEO Lane</span>
+        <h3>Food Guides</h3>
+        <p>Seafood, date nights, family meals, takeout, breakfast stops, and beach bars.</p>
+      </a>
+    </div>
+
+    <section id="featured">
+      <div class="featured-article">
+        <div>
+          <span class="tag gold">Featured Strategy</span>
+          <h2>The Blog Is the Traffic Engine</h2>
+
+          <p class="section-intro">
+            The guide pages make the site useful. The blog gives the site room to grow.
+            Each article can target one specific question people search before visiting the Delaware beaches.
+          </p>
+
+          <p>
+            Instead of trying to rank for one giant phrase, this page lets you build dozens of focused guides:
+            town comparisons, family trip ideas, rainy-day plans, restaurant roundups, beach rental improvements,
+            custom sign ideas, and local tips.
+          </p>
+
+          <div class="cta-row">
+            <a class="button gold" href="#article-ideas">View Article Ideas</a>
+            <a class="button" href="plan-your-trip.html">Plan Your Trip</a>
+          </div>
+        </div>
+
+        <div class="featured-image">
+          <div>
+            <span class="eyebrow">SEO Foundation</span>
+            <h3>Useful Local Articles, Published Consistently</h3>
+            <p>
+              Every article becomes another doorway into the site.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="article-ideas">
+      <h2>Featured Article Ideas</h2>
+
+      <p class="section-intro">
+        These are the first articles worth building because they connect directly to visitor questions,
+        beach-town decisions, rental planning, restaurant choices, and your decor/custom sign lane.
+      </p>
+
+      <div class="article-grid">
+        <article class="article-card">
+          <div class="article-thumb" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="article-body">
+            <span class="tag gold">Town Guide</span>
+            <h3>Best Delaware Beach Town for Families</h3>
+            <p>
+              Compare Rehoboth, Bethany, Lewes, Fenwick, and South Bethany for family beach trips,
+              rental weeks, calmer streets, food, and activities.
+            </p>
+            <a class="button" href="beach-towns.html">Start With Towns</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-thumb" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="article-body">
+            <span class="tag gold">Comparison</span>
+            <h3>Rehoboth vs Dewey: Which Fits Your Trip?</h3>
+            <p>
+              Break down classic boardwalk energy versus nightlife, group weekends, music,
+              beach bars, restaurants, and trip style.
+            </p>
+            <a class="button" href="beach-towns.html#rehoboth">Compare Towns</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-thumb" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="article-body">
+            <span class="tag gold">Rental Owners</span>
+            <h3>How to Make a Beach Rental Feel More Premium</h3>
+            <p>
+              Simple upgrades: custom signs, welcome notes, guest-room prints, entryway details,
+              better photos, and cleaner first impressions.
+            </p>
+            <a class="button" href="decor.html">Browse Decor</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-thumb" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="article-body">
+            <span class="tag gold">Trip Planning</span>
+            <h3>Best Rainy Day Ideas at the Delaware Beaches</h3>
+            <p>
+              Shopping, restaurants, scenic drives, rental-house activities, local history,
+              coffee stops, and low-pressure backup plans.
+            </p>
+            <a class="button" href="things-to-do.html">Find Things To Do</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-thumb" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="article-body">
+            <span class="tag gold">Food</span>
+            <h3>Where to Eat During a Delaware Beach Trip</h3>
+            <p>
+              Seafood nights, family meals, breakfast stops, quick lunches, takeout,
+              beach bars, date nights, and rental-house meal strategy.
+            </p>
+            <a class="button" href="restaurants.html">Dining Guide</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-thumb" style="background-image: url('images/2092 Address Sign Hero.png');"></div>
+          <div class="article-body">
+            <span class="tag gold">Decor</span>
+            <h3>Delaware Beach House Decor Ideas</h3>
+            <p>
+              Custom address signs, house-name signs, welcome signs, printable coastal art,
+              porch details, and beach rental visual upgrades.
+            </p>
+            <a class="button" href="decor.html">See Decor Ideas</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Content Pillars</h2>
+
+      <p class="section-intro">
+        These pillars keep the blog focused. Every article should fit into one of these lanes
+        so the site builds authority instead of becoming random.
+      </p>
+
+      <div class="topic-grid">
+        <article class="topic-card" id="town-guides">
+          <span class="tag gold">Pillar 1</span>
+          <h3>Beach Town Guides</h3>
+          <p>
+            Individual and comparison guides for Rehoboth, Dewey, Bethany, Lewes,
+            Fenwick, South Bethany, and nearby coastal areas.
+          </p>
+        </article>
+
+        <article class="topic-card" id="trip-planning">
+          <span class="tag gold">Pillar 2</span>
+          <h3>Trip Planning Help</h3>
+          <p>
+            Itineraries, packing, timing, parking, family plans, rainy-day backups,
+            weekend guides, and first-time visitor advice.
+          </p>
+        </article>
+
+        <article class="topic-card" id="food-guides">
+          <span class="tag gold">Pillar 3</span>
+          <h3>Restaurants & Food</h3>
+          <p>
+            Seafood, date nights, family dinners, takeout, beach bars, breakfast,
+            coffee, rental-house meals, and town-by-town dining.
+          </p>
+        </article>
+
+        <article class="topic-card" id="rental-owners">
+          <span class="tag gold">Pillar 4</span>
+          <h3>Rental Owner Upgrades</h3>
+          <p>
+            Guest experience, decor, custom signs, welcome areas, porch styling,
+            listing photos, and small improvements that make rentals stand out.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-banner">
+      <h2>First 10 Articles to Build</h2>
+
+      <p>
+        These are strong starting points because they are specific, useful, and connected
+        to pages already on the site.
+      </p>
+
+      <div class="seo-grid">
+        <article class="seo-card">
+          <span class="tag gold">01</span>
+          <h3>Best Delaware Beach Town for Families</h3>
+          <p>Family trip comparison across Bethany, Rehoboth, Lewes, Fenwick, and South Bethany.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">02</span>
+          <h3>Rehoboth vs Dewey</h3>
+          <p>Classic beach town versus nightlife town. Help visitors choose the right vibe.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">03</span>
+          <h3>Bethany Beach Family Trip Guide</h3>
+          <p>Quiet family weeks, rental homes, restaurants, beach routines, and slow travel.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">04</span>
+          <h3>Rainy Day Ideas at the Delaware Beaches</h3>
+          <p>Restaurants, shopping, scenic drives, indoor ideas, cozy rental activities, and backups.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">05</span>
+          <h3>How to Make a Beach Rental Feel Premium</h3>
+          <p>Signs, decor, entryways, guest notes, photos, small upgrades, and memorable details.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">06</span>
+          <h3>Best Seafood Meals for a Delaware Beach Trip</h3>
+          <p>Seafood night strategy by town, meal mood, group type, and vacation style.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">07</span>
+          <h3>First-Time Delaware Beach Trip Plan</h3>
+          <p>Simple itinerary for people who have never visited the Delaware beaches before.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">08</span>
+          <h3>Lewes Day Trip Guide</h3>
+          <p>Historic charm, Cape Henlopen, food, scenic stops, and quieter coastal energy.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">09</span>
+          <h3>Beach House Welcome Sign Ideas</h3>
+          <p>Custom signs, address signs, rental welcome signs, porch signs, and guest experience.</p>
+        </article>
+
+        <article class="seo-card">
+          <span class="tag gold">10</span>
+          <h3>Weekend Delaware Beach Itinerary</h3>
+          <p>One beach day, one restaurant night, one explore day, and one flexible backup.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="split-section">
+        <div>
+          <h2>Turn Reader Questions Into Articles</h2>
+
+          <p class="section-intro">
+            The community board feeds the blog. Every real question can become an article,
+            a video, a guide, a social post, or a product idea.
+          </p>
+
+          <p>
+            A visitor asks, “Which town is best for kids?” That becomes a blog post.
+            Someone asks, “What should I do if it rains?” That becomes a rainy-day guide.
+            A rental owner asks, “How do I make my place feel nicer?” That becomes decor content
+            and custom sign product ideas.
+          </p>
+
+          <div class="cta-row">
+            <a class="button gold" href="community.html">Visit Community Board</a>
+            <a class="button" href="videos.html">Watch Video Hub</a>
+          </div>
+        </div>
+
+        <div class="decor-preview">
+          <div>
+            <span class="eyebrow">Content + Products</span>
+            <h3>Beach Decor Articles Can Drive Custom Sign Sales</h3>
+            <p>
+              Rental-owner content connects naturally to your decor page, Etsy shop,
+              custom signs, and beach-house upgrade ideas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-banner">
+      <h2>Publishing Rhythm</h2>
+
+      <p>
+        A realistic starting goal: publish one useful Delaware beach article per week.
+        Ideal progress: two articles per week once the template is working. Every article
+        should link back to at least two core pages like Beach Towns, Plan Your Trip,
+        Restaurants, Videos, Community, or Decor.
+      </p>
+
+      <div class="cta-row">
+        <a class="button gold" href="beach-towns.html">Beach Towns</a>
+        <a class="button light" href="plan-your-trip.html">Plan Your Trip</a>
+        <a class="button" href="decor.html">Beach House Decor</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Rent Delaware Beaches |
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
+    </p>
+  </footer>
+
+</body>
+</html>
