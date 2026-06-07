@@ -6,129 +6,397 @@
 
   <title>Plan Your Delaware Beach Trip | Rent Delaware Beaches</title>
 
-  <meta name="description" content="Plan your Delaware beach vacation with tips on where to stay, when to visit, what to pack, parking, traffic, beach rental planning, rainy day ideas, and coastal home decor." />
+  <meta name="description" content="Plan your Delaware beach vacation with trip ideas, town comparisons, packing tips, parking advice, rainy day plans, restaurants, videos, and beach house decor inspiration." />
 
   <style>
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f3ea;
-      color: #18344a;
+      background: #f7f0e3;
+      color: #102f45;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .top-strip {
+      background: #d8903d;
+      color: #102f45;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+
     header {
-      background: linear-gradient(rgba(12, 48, 70, 0.75), rgba(12, 48, 70, 0.75)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+      min-height: 82vh;
+      background:
+        linear-gradient(rgba(8, 35, 54, 0.30), rgba(8, 35, 54, 0.80)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
       background-size: cover;
       background-position: center;
       color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 44px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 20px;
-      max-width: 780px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
     }
 
     nav {
-      background: #18344a;
-      text-align: center;
-      padding: 14px;
+      width: calc(100% - 40px);
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding: 14px 18px;
+      background: rgba(16, 47, 69, 0.86);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 14px;
       font-weight: bold;
+      font-size: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
     }
 
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    .hero-content {
+      max-width: 1040px;
+      margin: auto;
+      padding: 80px 24px 110px;
+      text-align: center;
     }
 
-    section {
-      background: white;
-      margin-bottom: 32px;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
     }
 
-    h2 {
-      color: #1f5f8b;
-      margin-top: 0;
-      font-size: 30px;
+    h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: 1.02;
+      margin: 0 0 22px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
     }
 
-    h3 {
-      color: #18344a;
-      margin-top: 0;
+    .hero-content p {
+      max-width: 800px;
+      margin: 0 auto 28px;
+      font-size: 21px;
+      color: #fff7e8;
     }
 
-    .trip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .trip-card {
-      background: #fffaf1;
-      border: 1px solid #e4ded1;
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .trip-card h3 {
-      color: #1f5f8b;
-    }
-
-    .callout {
-      background: #f1eadc;
-      border-left: 6px solid #1f5f8b;
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
     }
 
     .button {
       display: inline-block;
-      margin-top: 14px;
-      margin-right: 10px;
-      padding: 12px 18px;
-      border-radius: 8px;
-      background: #1f5f8b;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #1f6f9b;
       color: white;
       text-decoration: none;
       font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: 0.2s ease;
     }
 
     .button:hover {
-      background: #164766;
+      transform: translateY(-2px);
+      background: #185879;
     }
 
-    .secondary-button {
-      background: #c9822b;
+    .button.gold {
+      background: #d8903d;
+      color: #102f45;
     }
 
-    .secondary-button:hover {
-      background: #a86822;
+    .button.gold:hover {
+      background: #c17c30;
+    }
+
+    .button.light {
+      background: #fffaf2;
+      color: #102f45;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -58px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      margin-top: 34px;
+      background: #fffaf2;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
+      border: 1px solid #eadfcd;
+    }
+
+    h2 {
+      color: #1f6f9b;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      color: #102f45;
+      margin-top: 0;
+    }
+
+    .section-intro {
+      max-width: 790px;
+      color: #425466;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .quick-panel {
+      background: rgba(255, 250, 242, 0.96);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      border: 1px solid rgba(216, 144, 61, 0.22);
+    }
+
+    .quick-card {
+      padding: 20px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid #eadfcd;
+      text-decoration: none;
+      transition: 0.22s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
+    }
+
+    .quick-card span {
+      color: #d8903d;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .quick-card h3 {
+      margin: 8px 0 6px;
+      font-size: 20px;
+      color: #102f45;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: #425466;
+      font-size: 15px;
+    }
+
+    .trip-builder {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .builder-panel {
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.70), rgba(16, 47, 69, 0.78)),
+        url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=85");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      border-radius: 24px;
+      padding: 32px;
+      min-height: 420px;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 14px 34px rgba(16, 47, 69, 0.18);
+    }
+
+    .builder-panel h2 {
+      color: white;
+    }
+
+    .builder-panel p {
+      color: #fff7e8;
+    }
+
+    .builder-steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step-card {
+      background: white;
+      border: 1px solid #eadfcd;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+    }
+
+    .step-card span {
+      display: inline-block;
+      background: #d8903d;
+      color: #102f45;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .trip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .trip-card {
+      background: white;
+      border: 1px solid #eadfcd;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+      transition: 0.22s ease;
+    }
+
+    .trip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
+    }
+
+    .trip-card span {
+      display: inline-block;
+      background: #f1eadc;
+      color: #102f45;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .trip-card p,
+    .trip-card li {
+      color: #425466;
+    }
+
+    .feature-banner {
+      background: linear-gradient(135deg, #102f45, #1f6f9b);
+      color: white;
+      border: none;
+    }
+
+    .feature-banner h2,
+    .feature-banner h3 {
+      color: white;
+    }
+
+    .feature-banner p,
+    .feature-banner li {
+      color: #e9f3f8;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .decor-preview {
+      min-height: 390px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.62), rgba(16, 47, 69, 0.78)),
+        url("images/2092 Address Sign Hero.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      padding: 28px;
+      color: white;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .decor-preview h3 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .decor-preview p {
+      color: #fff7e8;
+    }
+
+    .season-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .season-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .season-card h3 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
     }
 
     ul {
@@ -136,30 +404,38 @@
     }
 
     footer {
-      background: #18344a;
+      background: #102f45;
       color: white;
       text-align: center;
-      padding: 24px;
-      margin-top: 40px;
+      padding: 28px 20px;
     }
 
     footer a {
       color: white;
       font-weight: bold;
+      margin: 0 6px;
     }
 
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 34px;
+    @media (max-width: 850px) {
+      header {
+        min-height: 74vh;
       }
 
-      nav a {
-        display: block;
-        margin: 8px 0;
+      nav {
+        border-radius: 22px;
+      }
+
+      main {
+        margin-top: -44px;
+      }
+
+      .trip-builder,
+      .split-section {
+        grid-template-columns: 1fr;
       }
 
       section {
-        padding: 24px;
+        padding: 26px;
       }
     }
   </style>
@@ -167,123 +443,216 @@
 
 <body>
 
-  <header>
-    <h1>Plan Your Delaware Beach Trip</h1>
-    <p>
-      A practical guide for planning a Delaware beach vacation, weekend getaway,
-      rental stay, day trip, or coastal home visit.
-    </p>
-  </header>
+  <div class="top-strip">
+    Delaware Beach Trip Planner • Towns • Restaurants • Videos • Rainy Day Ideas • Rental Upgrades
+  </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="beach-towns.html">Beach Towns</a>
-    <a href="plan-your-trip.html">Plan Your Trip</a>
-    <a href="restaurants.html">Restaurants</a>
-    <a href="things-to-do.html">Things To Do</a>
-    <a href="decor.html">Beach House Decor</a>
-  </nav>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
+    </nav>
+
+    <div class="hero-content">
+      <span class="eyebrow">Delaware Beach Concierge</span>
+
+      <h1>Plan a Better Beach Trip.</h1>
+
+      <p>
+        Build a Delaware beach getaway around the trip you actually want:
+        family week, quiet escape, nightlife weekend, first-time visit, rainy-day backup,
+        restaurant stops, videos, and beach-house details.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button gold" href="#trip-builder">Start Planning</a>
+        <a class="button light" href="beach-towns.html">Compare Beach Towns</a>
+        <a class="button" href="restaurants.html">Find Restaurants</a>
+      </div>
+    </div>
+  </header>
 
   <main>
 
-    <section>
-      <h2>Start With the Type of Trip You Want</h2>
+    <div class="quick-panel">
+      <a class="quick-card" href="beach-towns.html">
+        <span>Step 1</span>
+        <h3>Pick Your Town</h3>
+        <p>Choose between Rehoboth, Dewey, Bethany, Lewes, Fenwick, and quieter coastal areas.</p>
+      </a>
 
-      <p>
-        A great Delaware beach trip starts with matching the destination to the
-        experience you actually want. Some visitors want boardwalk energy, restaurants,
-        shopping, and nightlife. Others want a quiet rental house, family beach days,
-        slower mornings, and peaceful evenings.
-      </p>
+      <a class="quick-card" href="restaurants.html">
+        <span>Step 2</span>
+        <h3>Plan the Food</h3>
+        <p>Build in seafood nights, casual meals, breakfast stops, takeout, and rental-house food.</p>
+      </a>
 
-      <p>
-        Use this guide to think through your trip before you book, pack, or build
-        your itinerary.
-      </p>
+      <a class="quick-card" href="things-to-do.html">
+        <span>Step 3</span>
+        <h3>Find Things To Do</h3>
+        <p>Beach days, boardwalks, rainy-day options, family activities, shopping, and local exploring.</p>
+      </a>
 
-      <a class="button" href="beach-towns.html">Compare Beach Towns</a>
-      <a class="button secondary-button" href="decor.html">Browse Beach House Decor</a>
-    </section>
+      <a class="quick-card" href="decor.html">
+        <span>Bonus</span>
+        <h3>Upgrade the Stay</h3>
+        <p>Custom signs, printable beach art, rental welcome details, and coastal decor ideas.</p>
+      </a>
+    </div>
 
-    <section>
-      <h2>Quick Planning Guide</h2>
+    <section id="trip-builder">
+      <div class="trip-builder">
+        <div class="builder-panel">
+          <div>
+            <span class="eyebrow">Trip Builder</span>
+            <h2>Start With the Trip Mood.</h2>
+            <p>
+              The best Delaware beach trip starts by matching the town, rental, restaurants,
+              activities, and pace to the actual experience you want.
+            </p>
+          </div>
+        </div>
 
-      <div class="trip-grid">
+        <div class="builder-steps">
+          <div class="step-card">
+            <span>01</span>
+            <h3>Choose your trip type</h3>
+            <p>Family week, quiet escape, nightlife weekend, first-time visit, romantic getaway, or rental-home reset.</p>
+          </div>
 
-        <article class="trip-card">
-          <h3>For Families</h3>
-          <p>
-            Look for easy beach access, parking, walkable food options, quiet evenings,
-            and a rental layout that gives everyone enough space.
-          </p>
-          <p>
-            Good fit: Rehoboth, Bethany, Lewes, South Bethany, and Fenwick.
-          </p>
-        </article>
+          <div class="step-card">
+            <span>02</span>
+            <h3>Pick the right beach town</h3>
+            <p>Rehoboth for classic energy, Dewey for nightlife, Bethany for quiet family weeks, Lewes for charm, Fenwick for a slower southern feel.</p>
+          </div>
 
-        <article class="trip-card">
-          <h3>For Nightlife & Groups</h3>
-          <p>
-            Choose a location close to bars, live music, restaurants, and rideshare-friendly
-            areas so the group can enjoy the beach without constantly driving.
-          </p>
-          <p>
-            Good fit: Dewey Beach and Rehoboth Beach.
-          </p>
-        </article>
+          <div class="step-card">
+            <span>03</span>
+            <h3>Build a flexible plan</h3>
+            <p>One beach day, one restaurant night, one explore day, one slow morning, and one rainy-day backup.</p>
+          </div>
 
-        <article class="trip-card">
-          <h3>For Quiet Getaways</h3>
-          <p>
-            Prioritize calmer neighborhoods, screened porches, easy morning walks,
-            less crowded beach access, and a rental that feels like a true retreat.
-          </p>
-          <p>
-            Good fit: Bethany, Lewes, South Bethany, Fenwick, and nearby coastal neighborhoods.
-          </p>
-        </article>
-
-        <article class="trip-card">
-          <h3>For First-Time Visitors</h3>
-          <p>
-            Start with a flexible plan: one classic beach day, one restaurant night,
-            one boardwalk/shopping trip, and one low-pressure explore day.
-          </p>
-          <p>
-            Good fit: Rehoboth as a central starting point, with day trips to Lewes,
-            Dewey, Bethany, or Fenwick.
-          </p>
-        </article>
-
+          <div class="step-card">
+            <span>04</span>
+            <h3>Make the stay memorable</h3>
+            <p>Use small details: welcome signs, guest room prints, local guide notes, porch upgrades, and thoughtful beach-house decor.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="callout">
+    <section>
+      <h2>Choose Your Trip Type</h2>
+
+      <p class="section-intro">
+        Different beach trips need different plans. A family rental week is not the same as
+        a Dewey weekend, a quiet Lewes getaway, or a first-time Rehoboth visit.
+      </p>
+
+      <div class="trip-grid">
+        <article class="trip-card">
+          <span>Family Week</span>
+          <h3>Easy, comfortable, low-friction</h3>
+          <p>
+            Prioritize easy beach access, simple meals, flexible activities, quiet evenings,
+            and a rental layout that gives everyone space.
+          </p>
+          <p><strong>Good fit:</strong> Bethany, Rehoboth, Lewes, Fenwick, South Bethany.</p>
+        </article>
+
+        <article class="trip-card">
+          <span>Group Weekend</span>
+          <h3>Social, walkable, energetic</h3>
+          <p>
+            Choose a location close to bars, restaurants, live music, rideshare-friendly areas,
+            and enough food options to keep the group moving.
+          </p>
+          <p><strong>Good fit:</strong> Dewey and Rehoboth.</p>
+        </article>
+
+        <article class="trip-card">
+          <span>Quiet Escape</span>
+          <h3>Slow mornings, calm evenings</h3>
+          <p>
+            Look for quieter neighborhoods, scenic walks, coffee, porches, peaceful beach time,
+            and a rental that feels like a true retreat.
+          </p>
+          <p><strong>Good fit:</strong> Lewes, Bethany, Fenwick, South Bethany.</p>
+        </article>
+
+        <article class="trip-card">
+          <span>First-Time Visit</span>
+          <h3>Balanced, flexible, classic</h3>
+          <p>
+            Keep it simple: one boardwalk day, one restaurant night, one beach day,
+            one explore day, and time to figure out what you like.
+          </p>
+          <p><strong>Good fit:</strong> Rehoboth as a central starting point.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-banner">
       <h2>Best Times to Visit</h2>
 
       <p>
-        <strong>Summer:</strong> Best for full beach energy, restaurants, rentals, family trips,
-        events, and classic vacation atmosphere. Expect more traffic and higher demand.
+        Delaware beach trips feel different depending on the season. Choose the timing that matches
+        your budget, crowd tolerance, schedule, and trip mood.
       </p>
 
-      <p>
-        <strong>Late spring and early fall:</strong> Great for quieter trips, milder weather,
-        easier restaurant access, and a more relaxed coastal pace.
-      </p>
+      <div class="season-grid">
+        <div class="season-card">
+          <h3>Summer</h3>
+          <p>
+            Full beach energy, restaurants, events, rentals, crowds, traffic, family weeks,
+            and peak vacation atmosphere.
+          </p>
+        </div>
 
-      <p>
-        <strong>Off-season:</strong> Best for peaceful weekends, walking, local restaurants,
-        lower crowds, home projects, and slower coastal resets.
-      </p>
+        <div class="season-card">
+          <h3>Late Spring</h3>
+          <p>
+            Great for easier walks, lighter crowds, early-season trips, and getting the beach feeling
+            without peak summer intensity.
+          </p>
+        </div>
+
+        <div class="season-card">
+          <h3>Early Fall</h3>
+          <p>
+            One of the best windows for calmer trips, warm days, easier restaurants,
+            and a more relaxed coastal pace.
+          </p>
+        </div>
+
+        <div class="season-card">
+          <h3>Off-Season</h3>
+          <p>
+            Peaceful weekends, scenic drives, home projects, local restaurants, beach walks,
+            and slower reset trips.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>What to Pack for a Delaware Beach Stay</h2>
+      <h2>Pack Like You Actually Want the Trip to Be Easy</h2>
+
+      <p class="section-intro">
+        Good packing is not about bringing everything. It is about avoiding preventable friction:
+        beach basics, rental-house essentials, comfort upgrades, and rainy-day backup items.
+      </p>
 
       <div class="trip-grid">
-
         <article class="trip-card">
-          <h3>Beach Basics</h3>
+          <span>Beach Basics</span>
+          <h3>For the sand</h3>
           <ul>
             <li>Beach towels</li>
             <li>Sunscreen</li>
@@ -296,7 +665,8 @@
         </article>
 
         <article class="trip-card">
-          <h3>Rental House Essentials</h3>
+          <span>Rental House</span>
+          <h3>For the stay</h3>
           <ul>
             <li>Phone chargers</li>
             <li>Basic groceries</li>
@@ -304,110 +674,149 @@
             <li>Toiletries</li>
             <li>Laundry detergent</li>
             <li>Reusable grocery bags</li>
-            <li>Games, books, or rainy day activities</li>
+            <li>Simple breakfast supplies</li>
           </ul>
         </article>
 
         <article class="trip-card">
-          <h3>Comfort Upgrades</h3>
+          <span>Comfort</span>
+          <h3>For better downtime</h3>
           <ul>
             <li>Extra blanket or throw</li>
             <li>Portable speaker</li>
             <li>Favorite coffee or tea</li>
             <li>Small first-aid kit</li>
             <li>Bug spray</li>
-            <li>Favorite snacks</li>
-            <li>Decor touches for longer stays</li>
+            <li>Books, cards, or games</li>
+            <li>Rainy-day backup ideas</li>
           </ul>
         </article>
-
       </div>
     </section>
 
     <section>
-      <h2>Traffic, Parking & Arrival Tips</h2>
+      <h2>Traffic, Parking & Arrival Strategy</h2>
 
-      <p>
-        Delaware beach traffic can build quickly during peak weekends. If possible,
-        travel earlier in the day, avoid the busiest arrival windows, and give yourself
-        more time than you think you need.
-      </p>
-
-      <ul>
-        <li>Check your rental check-in time before leaving.</li>
-        <li>Pack a small arrival bag with water, snacks, chargers, and beach basics.</li>
-        <li>Expect delays on major beach routes during summer weekends.</li>
-        <li>Review parking rules before heading into town or to the beach.</li>
-        <li>Have a backup dinner plan in case restaurants are crowded.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Rainy Day Backup Ideas</h2>
-
-      <p>
-        Even a beach trip needs a backup plan. Rainy days can still be useful, relaxing,
-        or memorable if you have a few low-pressure options ready.
+      <p class="section-intro">
+        Beach traffic and parking can shape the whole mood of arrival day. A little planning
+        goes a long way, especially during peak summer weekends.
       </p>
 
       <div class="trip-grid">
-
         <article class="trip-card">
-          <h3>Low-Key Indoor Ideas</h3>
-          <ul>
-            <li>Board games or cards</li>
-            <li>Movie night</li>
-            <li>Local coffee shop</li>
-            <li>Cooking dinner at the rental</li>
-            <li>Reading or quiet reset time</li>
-          </ul>
+          <span>Arrival</span>
+          <h3>Give yourself room</h3>
+          <p>
+            Check the rental check-in time, pack water and snacks, expect delays,
+            and avoid trying to squeeze too much into arrival day.
+          </p>
         </article>
 
         <article class="trip-card">
-          <h3>Out-and-About Ideas</h3>
-          <ul>
-            <li>Shopping</li>
-            <li>Restaurant hopping</li>
-            <li>Local museums or historic areas</li>
-            <li>Scenic drives</li>
-            <li>Exploring another beach town</li>
-          </ul>
+          <span>Parking</span>
+          <h3>Know before you go</h3>
+          <p>
+            Review town parking rules, meters, permits, and beach access options before
+            heading into town or to the beach.
+          </p>
         </article>
 
+        <article class="trip-card">
+          <span>Food</span>
+          <h3>Have a backup dinner</h3>
+          <p>
+            On busy weekends, restaurants can fill quickly. Have a takeout option,
+            grocery option, or simple rental-house dinner ready.
+          </p>
+        </article>
       </div>
     </section>
 
     <section>
-      <h2>Make Your Beach Rental Feel More Finished</h2>
+      <h2>Rainy Day Backup Plans</h2>
 
-      <p>
-        Small decor details can make a beach rental, guest room, entryway, kitchen,
-        or porch feel more intentional. Printable wall art, welcome signs, and custom
-        hand-built house signs are easy ways to add personality without overcomplicating
-        the space.
+      <p class="section-intro">
+        Rain does not have to ruin a beach trip. It just changes the rhythm.
+        The best rainy-day plans are low-pressure, flexible, and easy.
       </p>
 
-      <p>
-        The Blue Hen Basement catalog includes beach-themed printable wall art and
-        custom sign options for beach homes, rentals, cottages, garages, patios,
-        and coastal spaces.
-      </p>
+      <div class="trip-grid">
+        <article class="trip-card">
+          <span>At the Rental</span>
+          <h3>Slow and cozy</h3>
+          <p>
+            Board games, movie night, cooking dinner, reading, porch time, planning the next day,
+            or making the rental feel more comfortable.
+          </p>
+        </article>
 
-      <a class="button secondary-button" href="decor.html">Browse Decor & Custom Signs</a>
+        <article class="trip-card">
+          <span>Out and About</span>
+          <h3>Explore without the beach</h3>
+          <p>
+            Shopping, restaurants, coffee shops, historic areas, scenic drives, local markets,
+            another beach town, or indoor attractions.
+          </p>
+        </article>
+
+        <article class="trip-card">
+          <span>Content Day</span>
+          <h3>Make something useful</h3>
+          <p>
+            Film a beach-town clip, take rental photos, plan a decor upgrade, capture a restaurant stop,
+            or submit a local tip to the community board.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="callout">
-      <h2>Simple Trip Formula</h2>
+    <section>
+      <div class="split-section">
+        <div>
+          <h2>Make the Rental Feel Like Part of the Trip</h2>
+
+          <p class="section-intro">
+            A great beach trip is not just the beach. The rental, porch, kitchen,
+            entryway, guest room, and small personal touches shape the whole stay.
+          </p>
+
+          <p>
+            Printable wall art, custom house signs, rental welcome signs, address signs,
+            and coastal decor can make a beach house feel more finished, memorable, and guest-ready.
+          </p>
+
+          <div class="cta-row">
+            <a class="button gold" href="decor.html">Browse Decor & Custom Signs</a>
+            <a class="button" href="videos.html">Watch Beach Videos</a>
+          </div>
+        </div>
+
+        <div class="decor-preview">
+          <div>
+            <span class="eyebrow">Beach House Details</span>
+            <h3>Custom Signs, Prints & Rental Decor</h3>
+            <p>
+              Small visual details can turn a plain rental into a beach place people remember.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-banner">
+      <h2>Simple Delaware Beach Trip Formula</h2>
 
       <p>
-        For a balanced Delaware beach trip, plan one classic beach day, one restaurant
-        night, one explore day, one slow morning, and one flexible backup plan.
+        Plan one classic beach day, one restaurant night, one explore day, one slow morning,
+        and one rainy-day backup. That is enough structure to make the trip easy without
+        over-scheduling the whole thing.
       </p>
 
-      <p>
-        The goal is not to over-schedule the trip. The goal is to give yourself enough
-        structure that the trip feels easy once you arrive.
-      </p>
+      <div class="cta-row">
+        <a class="button gold" href="beach-towns.html">Compare Beach Towns</a>
+        <a class="button light" href="restaurants.html">Find Restaurants</a>
+        <a class="button" href="things-to-do.html">Things To Do</a>
+      </div>
     </section>
 
   </main>
@@ -415,11 +824,13 @@
   <footer>
     <p>
       © 2026 Rent Delaware Beaches |
-      <a href="beach-towns.html">Beach Towns</a> |
-      <a href="decor.html">Beach House Decor</a> |
-      <a href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
-        Shop The Blue Hen Basement on Etsy
-      </a>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
     </p>
   </footer>
 
