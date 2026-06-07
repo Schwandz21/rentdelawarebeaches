@@ -415,41 +415,49 @@
       title: "America the Beautiful Vintage Poster",
       category: "printable-art",
       tag: "Printable Art",
+      status: "Available",
       description: "A vintage-inspired patriotic landscape print with mountain-lake scenery, golden sunrise tones, and timeless Americana style.",
       price: "Digital download",
       image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
       video: "",
-      link: "https://www.etsy.com/shop/TheBlueHenBasement"
+      link: "https://www.etsy.com/shop/TheBlueHenBasement",
+      buttonText: "View on Etsy"
     },
     {
       title: "Today’s Menu: Take It Or Leave It",
       category: "kitchen-decor",
       tag: "Kitchen Decor",
+      status: "Available",
       description: "A funny farmhouse-style kitchen print with mom/dad humor. Perfect for kitchens, dining rooms, beach rentals, and family homes.",
       price: "Digital download",
       image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1200&q=80",
       video: "",
-      link: "https://www.etsy.com/shop/TheBlueHenBasement"
+      link: "https://www.etsy.com/shop/TheBlueHenBasement",
+      buttonText: "View on Etsy"
     },
     {
       title: "Custom Hand-Built House Signs",
       category: "custom-signs",
       tag: "Custom Signs",
+      status: "Custom Order",
       description: "Custom handmade signs for beach houses, rental properties, family homes, garages, patios, basements, bars, sheds, and entryways.",
-      price: "Custom order",
+      price: "Custom quote",
       image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80",
       video: "",
-      link: "https://www.etsy.com/shop/TheBlueHenBasement"
+      link: "https://www.etsy.com/shop/TheBlueHenBasement",
+      buttonText: "Request Custom Quote"
     },
     {
       title: "Beach Rental Welcome Sign",
       category: "beach-rentals",
       tag: "Beach Rentals",
+      status: "Coming Soon",
       description: "A coastal-inspired welcome sign idea for Airbnb, Vrbo, guest houses, beach cottages, and Delaware vacation rentals.",
       price: "Custom order",
       image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
       video: "",
-      link: "https://www.etsy.com/shop/TheBlueHenBasement"
+      link: "https://www.etsy.com/shop/TheBlueHenBasement",
+      buttonText: "Request Custom Quote"
     }
   ];
 
@@ -468,11 +476,12 @@
           ${media}
           <div class="catalog-card-content">
             <span class="catalog-tag">${product.tag}</span>
+            <span class="catalog-status">${product.status}</span>
             <h3>${product.title}</h3>
             <p>${product.description}</p>
             <p class="catalog-price">${product.price}</p>
             <div class="catalog-buttons">
-              <a class="button" href="${product.link}" target="_blank" rel="noopener">View on Etsy</a>
+              <a class="button" href="${product.link}" target="_blank" rel="noopener">${product.buttonText}</a>
             </div>
           </div>
         </article>
