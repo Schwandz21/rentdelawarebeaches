@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Things To Do at the Delaware Beaches | Rent Delaware Beaches</title>
+
+  <meta name="description" content="Explore things to do at the Delaware beaches including beach days, boardwalks, rainy day ideas, family activities, restaurants, shopping, videos, and beach house decor inspiration." />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f0e3;
+      color: #102f45;
+      line-height: 1.6;
+    }
+
+    .top-strip {
+      background: #d8903d;
+      color: #102f45;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+
+    header {
+      background:
+        linear-gradient(rgba(8, 35, 54, 0.38), rgba(8, 35, 54, 0.78)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 34px 20px 95px;
+      text-align: center;
+    }
+
+    nav {
+      max-width: 1180px;
+      margin: 0 auto 70px;
+      padding: 14px 18px;
+      background: rgba(16, 47, 69, 0.86);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    header h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1.04;
+      margin: 0 0 22px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
+    }
+
+    header p {
+      max-width: 790px;
+      margin: 0 auto 28px;
+      font-size: 21px;
+      color: #fff7e8;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #1f6f9b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: 0.2s ease;
+      margin: 8px 6px 0 0;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #185879;
+    }
+
+    .button.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .button.gold:hover {
+      background: #c17c30;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -58px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      margin-top: 34px;
+      background: #fffaf2;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
+      border: 1px solid #eadfcd;
+    }
+
+    h2 {
+      color: #1f6f9b;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      color: #102f45;
+      margin-top: 0;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: #425466;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .activity-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #eadfcd;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+      transition: 0.22s ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
+    }
+
+    .activity-image {
+      height: 165px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .activity-body {
+      padding: 22px;
+    }
+
+    .activity-body p {
+      color: #425466;
+      margin-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f1eadc;
+      color: #102f45;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .callout {
+      background: linear-gradient(135deg, #102f45, #1f6f9b);
+      color: white;
+      border: none;
+    }
+
+    .callout h2,
+    .callout h3 {
+      color: white;
+    }
+
+    .callout p,
+    .callout li {
+      color: #e9f3f8;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini-item {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .decor-preview {
+      min-height: 390px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.68), rgba(16, 47, 69, 0.76)),
+        url("images/2092 Address Sign Hero.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      padding: 28px;
+      color: white;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .decor-preview h3 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .decor-preview p {
+      color: #fff7e8;
+    }
+
+    footer {
+      background: #102f45;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    footer a {
+      color: white;
+      font-weight: bold;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        border-radius: 22px;
+        margin-bottom: 50px;
+      }
+
+      nav a {
+        display: inline-block;
+      }
+
+      header {
+        padding-bottom: 80px;
+      }
+
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    Summer 2026 Delaware Beach Guide • Activities • Local Ideas • Rainy Day Plans
+  </div>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+    </nav>
+
+    <span class="eyebrow">Delaware Beach Activities</span>
+
+    <h1>Things To Do at the Delaware Beaches</h1>
+
+    <p>
+      Beach days, boardwalk stops, family activities, rainy-day backup plans,
+      local exploring, video inspiration, and beach-house ideas for a better coastal trip.
+    </p>
+
+    <a class="button gold" href="plan-your-trip.html">Plan Your Trip</a>
+    <a class="button" href="videos.html">Watch Beach Videos</a>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Start With the Kind of Day You Want</h2>
+      <p class="section-intro">
+        The Delaware beaches can be relaxed, busy, family-friendly, social, quiet,
+        outdoorsy, food-focused, or completely spontaneous. Use this guide to match
+        your day to the right activity.
+      </p>
+
+      <div class="activity-grid">
+        <article class="activity-card">
+          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="activity-body">
+            <span class="tag">Classic</span>
+            <h3>Beach Day</h3>
+            <p>Pack towels, chairs, sunscreen, snacks, and water. Keep the day simple: sun, sand, swimming, reading, and slow time.</p>
+          </div>
+        </article>
+
+        <article class="activity-card">
+          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="activity-body">
+            <span class="tag">Explore</span>
+            <h3>Boardwalk & Town Walks</h3>
+            <p>Walk the boardwalk, browse shops, grab ice cream, people-watch, and explore the personality of each beach town.</p>
+          </div>
+        </article>
+
+        <article class="activity-card">
+          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="activity-body">
+            <span class="tag">Family</span>
+            <h3>Family-Friendly Stops</h3>
+            <p>Build the day around easy food, short drives, flexible timing, beach breaks, and activities that do not require over-planning.</p>
+          </div>
+        </article>
+
+        <article class="activity-card">
+          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="activity-body">
+            <span class="tag">Nature</span>
+            <h3>Outdoor Exploring</h3>
+            <p>Look for parks, trails, scenic drives, sunrise walks, bike rides, fishing spots, and quieter stretches of coast.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="callout">
+      <h2>Quick Pick Activity Guide</h2>
+
+      <div class="mini-list">
+        <div class="mini-item">
+          <h3>Best relaxed day</h3>
+          <p>Beach morning, easy lunch, slow afternoon, dinner near the rental.</p>
+        </div>
+
+        <div class="mini-item">
+          <h3>Best family rhythm</h3>
+          <p>Beach early, break midday, simple dinner, ice cream or boardwalk walk at night.</p>
+        </div>
+
+        <div class="mini-item">
+          <h3>Best rainy day plan</h3>
+          <p>Shopping, coffee, restaurants, scenic drive, games at the rental, or a movie night.</p>
+        </div>
+
+        <div class="mini-item">
+          <h3>Best local-content day</h3>
+          <p>Film a beach walk, town preview, rental upgrade, food stop, or custom sign/decor project.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Rainy Day Backup Ideas</h2>
+      <p class="section-intro">
+        Rain does not have to ruin the trip. A good backup plan keeps the day relaxed
+        and gives everyone something to do without scrambling.
+      </p>
+
+      <div class="activity-grid">
+        <article class="activity-card">
+          <div class="activity-body">
+            <span class="tag">Indoor</span>
+            <h3>At the Rental</h3>
+            <p>Board games, cooking, movies, reading, porch time, planning the next day, or organizing a cozy dinner.</p>
+          </div>
+        </article>
+
+        <article class="activity-card">
+          <div class="activity-body">
+            <span class="tag">Town</span>
+            <h3>Out and About</h3>
+            <p>Shopping, coffee shops, restaurants, historic areas, local markets, arcades, or another beach town.</p>
+          </div>
+        </article>
+
+        <article class="activity-card">
+          <div class="activity-body">
+            <span class="tag">Creative</span>
+            <h3>Make the Space Better</h3>
+            <p>Use downtime to style a rental, hang a print, plan a custom sign, or take photos/video for future listing content.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="split-section">
+        <div>
+          <h2>Turn Activities Into Video Content</h2>
+          <p class="section-intro">
+            Beach walks, boardwalk clips, rental upgrades, restaurant stops, and custom sign builds
+            can all become useful video content for visitors and homeowners.
+          </p>
+
+          <p>
+            The video hub is designed to grow into a visual library of Delaware beach life:
+            trip ideas, local tips, town previews, and behind-the-scenes coastal projects.
+          </p>
+
+          <a class="button" href="videos.html">Browse Videos</a>
+          <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Delaware%20Beach%20Video%20Idea">Submit Video Idea</a>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-body">
+            <span class="tag">Content Ideas</span>
+            <h3>Easy Videos To Make</h3>
+            <p>“Morning in Rehoboth,” “Rainy day beach plan,” “Custom sign build,” “Best rental entryway upgrades,” or “One-day Bethany trip.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split-section">
+        <div>
+          <h2>Make the Rental Part of the Experience</h2>
+          <p class="section-intro">
+            A beach trip is not just the beach. The rental, porch, kitchen, entryway,
+            guest room, and small personal touches shape the whole stay.
+          </p>
+
+          <p>
+            Custom signs, printable wall art, and coastal decor help a rental or beach house
+            feel more finished, memorable, and photo-worthy.
+          </p>
+
+          <a class="button gold" href="decor.html">Browse Decor & Custom Signs</a>
+        </div>
+
+        <div class="decor-preview">
+          <div>
+            <h3>Custom Signs for Beach Homes</h3>
+            <p>Hand-built signs for house numbers, rental names, porches, patios, garages, bars, and entryways.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Rent Delaware Beaches |
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+    </p>
+  </footer>
+
+</body>
+</html>
