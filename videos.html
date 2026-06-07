@@ -6,7 +6,7 @@
 
   <title>Delaware Beach Videos | Rent Delaware Beaches</title>
 
-  <meta name="description" content="Watch Delaware beach videos, town previews, rental ideas, custom sign builds, local food clips, beach house decor inspiration, and coastal lifestyle content." />
+  <meta name="description" content="Watch Delaware beach videos, local stories, town previews, rental upgrades, custom sign builds, restaurant clips, and coastal lifestyle content." />
 
   <style>
     * {
@@ -20,8 +20,8 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f0e3;
-      color: #102f45;
+      background: #071b29;
+      color: #fffaf2;
       line-height: 1.6;
     }
 
@@ -31,23 +31,35 @@
 
     .top-strip {
       background: #d8903d;
-      color: #102f45;
+      color: #071b29;
       text-align: center;
       padding: 10px 16px;
       font-weight: bold;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
 
     header {
-      min-height: 76vh;
+      min-height: 92vh;
       background:
-        linear-gradient(rgba(8, 35, 54, 0.38), rgba(8, 35, 54, 0.82)),
+        radial-gradient(circle at top left, rgba(216, 144, 61, 0.28), transparent 34%),
+        linear-gradient(rgba(7, 27, 41, 0.18), rgba(7, 27, 41, 0.94)),
         url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
       background-size: cover;
       background-position: center;
       color: white;
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background: linear-gradient(transparent, #071b29);
+      pointer-events: none;
     }
 
     nav {
@@ -55,14 +67,16 @@
       max-width: 1180px;
       margin: 20px auto 0;
       padding: 14px 18px;
-      background: rgba(16, 47, 69, 0.86);
-      backdrop-filter: blur(8px);
+      background: rgba(7, 27, 41, 0.78);
+      backdrop-filter: blur(10px);
       border-radius: 999px;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 8px 18px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 2;
     }
 
     nav a {
@@ -76,50 +90,54 @@
     }
 
     nav a:hover {
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(216, 144, 61, 0.22);
       transform: translateY(-1px);
     }
 
-    .hero-content {
-      max-width: 1040px;
+    .hero {
+      max-width: 1180px;
+      width: 100%;
       margin: auto;
-      padding: 80px 24px 105px;
-      text-align: center;
+      padding: 80px 24px 120px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+      z-index: 2;
     }
 
     .eyebrow {
       display: inline-block;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(216, 144, 61, 0.18);
+      border: 1px solid rgba(216, 144, 61, 0.42);
       font-weight: bold;
-      margin-bottom: 20px;
-      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 13px;
+      color: #ffd18b;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 1.02;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: 0.98;
       margin: 0 0 22px;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
+      text-shadow: 0 5px 30px rgba(0, 0, 0, 0.48);
     }
 
-    .hero-content p {
-      max-width: 800px;
-      margin: 0 auto 28px;
+    .hero p {
       font-size: 21px;
-      color: #fff7e8;
+      color: #e9f3f8;
+      max-width: 650px;
+      margin: 0 0 28px;
     }
 
     .hero-buttons {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
     }
 
     .button {
@@ -130,124 +148,45 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
       transition: 0.2s ease;
-      border: none;
-      cursor: pointer;
     }
 
     .button:hover {
       transform: translateY(-2px);
-      background: #185879;
+      background: #2582b5;
     }
 
     .button.gold {
       background: #d8903d;
-      color: #102f45;
+      color: #071b29;
     }
 
     .button.gold:hover {
-      background: #c17c30;
+      background: #f0a64a;
     }
 
     .button.light {
       background: #fffaf2;
-      color: #102f45;
+      color: #071b29;
     }
 
-    main {
-      max-width: 1180px;
-      margin: -58px auto 0;
-      padding: 0 20px 60px;
-      position: relative;
-      z-index: 2;
+    .hero-player {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 28px;
+      padding: 14px;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(10px);
+      transform: rotate(1deg);
     }
 
-    section {
-      margin-top: 34px;
-      background: #fffaf2;
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
-      border: 1px solid #eadfcd;
-    }
-
-    h2 {
-      color: #1f6f9b;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-
-    h3 {
-      color: #102f45;
-      margin-top: 0;
-    }
-
-    .section-intro {
-      max-width: 780px;
-      color: #425466;
-      font-size: 18px;
-      margin-bottom: 24px;
-    }
-
-    .quick-panel {
-      background: rgba(255, 250, 242, 0.96);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      border: 1px solid rgba(216, 144, 61, 0.22);
-    }
-
-    .quick-card {
-      padding: 20px;
-      border-radius: 18px;
-      background: white;
-      border: 1px solid #eadfcd;
-      text-decoration: none;
-      transition: 0.22s ease;
-    }
-
-    .quick-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
-    }
-
-    .quick-card span {
-      color: #d8903d;
-      font-weight: bold;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .quick-card h3 {
-      margin: 8px 0 6px;
-      font-size: 20px;
-      color: #102f45;
-    }
-
-    .quick-card p {
-      margin: 0;
-      color: #425466;
-      font-size: 15px;
-    }
-
-    .featured-video-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .video-frame-wrap {
-      border-radius: 24px;
+    .player-inner {
+      border-radius: 20px;
       overflow: hidden;
-      background: #102f45;
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+      background: #000;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
 
     .video-frame {
@@ -264,69 +203,264 @@
       border: 0;
     }
 
-    .video-info-panel {
+    .player-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 4px 2px;
+      color: #e9f3f8;
+      font-size: 14px;
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background: #d8903d;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+      box-shadow: 0 0 14px #d8903d;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -56px auto 0;
+      padding: 0 20px 70px;
+      position: relative;
+      z-index: 3;
+    }
+
+    section {
+      margin-top: 34px;
+      border-radius: 28px;
+      padding: 36px;
+      background: rgba(255, 250, 242, 0.96);
+      color: #102f45;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(216, 144, 61, 0.18);
+    }
+
+    .dark-section {
+      background: linear-gradient(135deg, #102f45, #071b29);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .dark-section h2,
+    .dark-section h3 {
+      color: white;
+    }
+
+    .dark-section p {
+      color: #d9e9f1;
+    }
+
+    h2 {
+      color: #1f6f9b;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      color: #102f45;
+      margin-top: 0;
+    }
+
+    .section-intro {
+      max-width: 780px;
+      color: #425466;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .channel-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .channel-card {
       background: white;
       border: 1px solid #eadfcd;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(16, 47, 69, 0.08);
+      border-radius: 22px;
+      padding: 22px;
+      text-decoration: none;
+      transition: 0.22s ease;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.08);
+    }
+
+    .channel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.15);
+    }
+
+    .channel-card span {
+      color: #d8903d;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .channel-card h3 {
+      margin: 8px 0 6px;
+      font-size: 21px;
+    }
+
+    .channel-card p {
+      margin: 0;
+      color: #425466;
+      font-size: 15px;
+    }
+
+    .video-wall {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .video-feature-card,
+    .side-stack-card {
+      border-radius: 26px;
+      overflow: hidden;
+      background: #071b29;
+      color: white;
+      position: relative;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+      min-height: 360px;
+      display: flex;
+      align-items: end;
+    }
+
+    .video-feature-card {
+      min-height: 520px;
+      background:
+        linear-gradient(transparent, rgba(7, 27, 41, 0.92)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .side-stack-card {
+      min-height: 248px;
+    }
+
+    .side-stack-card.signs {
+      background:
+        linear-gradient(transparent, rgba(7, 27, 41, 0.92)),
+        url("images/2092 Address Sign Hero.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .side-stack-card.food {
+      background:
+        linear-gradient(transparent, rgba(7, 27, 41, 0.92)),
+        url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .video-card-content {
+      padding: 26px;
+      width: 100%;
     }
 
     .tag {
       display: inline-block;
-      background: #f1eadc;
-      color: #102f45;
-      padding: 6px 10px;
+      background: rgba(216, 144, 61, 0.95);
+      color: #071b29;
+      padding: 7px 11px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: bold;
-      margin: 0 6px 10px 0;
+      margin: 0 6px 12px 0;
     }
 
-    .tag.gold {
+    .tag.dark {
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .play-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      font-weight: bold;
+      color: #fffaf2;
+    }
+
+    .play-button {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
       background: #d8903d;
-      color: #102f45;
+      color: #071b29;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 22px rgba(216, 144, 61, 0.55);
+      font-weight: bold;
     }
 
-    .category-grid,
-    .video-grid {
+    .episode-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
       gap: 22px;
       margin-top: 24px;
     }
 
-    .category-card,
-    .video-card {
+    .episode-card {
       background: white;
-      border-radius: 22px;
-      overflow: hidden;
       border: 1px solid #eadfcd;
-      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(16, 47, 69, 0.09);
       transition: 0.22s ease;
     }
 
-    .category-card {
-      padding: 24px;
-    }
-
-    .category-card:hover,
-    .video-card:hover {
+    .episode-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
+      box-shadow: 0 14px 32px rgba(16, 47, 69, 0.16);
     }
 
-    .video-card .video-frame-wrap {
-      border-radius: 0;
-      box-shadow: none;
+    .episode-thumb {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
 
-    .video-content {
+    .episode-thumb::after {
+      content: "▶";
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #d8903d;
+      color: #071b29;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(216, 144, 61, 0.5);
+    }
+
+    .episode-body {
       padding: 22px;
     }
 
-    .video-content p,
-    .category-card p {
+    .episode-body p {
       color: #425466;
       margin-bottom: 0;
     }
@@ -338,44 +472,20 @@
       align-items: center;
     }
 
-    .decor-preview {
-      min-height: 390px;
+    .submit-panel {
       background:
-        linear-gradient(rgba(16, 47, 69, 0.62), rgba(16, 47, 69, 0.78)),
-        url("images/2092 Address Sign Hero.png");
-      background-size: cover;
-      background-position: center;
-      border-radius: 24px;
-      padding: 28px;
+        radial-gradient(circle at top right, rgba(216, 144, 61, 0.2), transparent 32%),
+        linear-gradient(135deg, #102f45, #071b29);
       color: white;
-      display: flex;
-      align-items: end;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .decor-preview h3 {
-      color: white;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .decor-preview p {
-      color: #fff7e8;
-    }
-
-    .feature-banner {
-      background: linear-gradient(135deg, #102f45, #1f6f9b);
-      color: white;
-      border: none;
-    }
-
-    .feature-banner h2,
-    .feature-banner h3 {
+    .submit-panel h2 {
       color: white;
     }
 
-    .feature-banner p {
-      color: #e9f3f8;
+    .submit-panel p {
+      color: #d9e9f1;
     }
 
     .submission-grid {
@@ -386,10 +496,11 @@
     }
 
     .submission-card {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 18px;
       padding: 20px;
+      color: white;
     }
 
     .submission-card h3 {
@@ -401,11 +512,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 20px;
+      margin-top: 22px;
     }
 
     footer {
-      background: #102f45;
+      background: #04131d;
       color: white;
       text-align: center;
       padding: 28px 20px;
@@ -417,9 +528,15 @@
       margin: 0 6px;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
+      .hero,
+      .video-wall,
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
       header {
-        min-height: 72vh;
+        min-height: auto;
       }
 
       nav {
@@ -427,16 +544,19 @@
       }
 
       main {
-        margin-top: -44px;
-      }
-
-      .featured-video-layout,
-      .split-section {
-        grid-template-columns: 1fr;
+        margin-top: -40px;
       }
 
       section {
         padding: 26px;
+      }
+
+      .hero-player {
+        transform: none;
+      }
+
+      .video-feature-card {
+        min-height: 420px;
       }
     }
   </style>
@@ -445,7 +565,7 @@
 <body>
 
   <div class="top-strip">
-    Delaware Beach Video Hub • Town Previews • Rental Ideas • Local Clips • Custom Builds
+    Delaware Beach Video Network • Town Walkthroughs • Rental Upgrades • Local Clips • Coastal Builds
   </div>
 
   <header>
@@ -460,55 +580,24 @@
       <a href="community.html">Community</a>
     </nav>
 
-    <div class="hero-content">
-      <span class="eyebrow">Watch the Delaware Coast</span>
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Coastal Media Hub</span>
+        <h1>Watch the Delaware Beaches Come Alive.</h1>
+        <p>
+          Town previews, beach walks, food clips, rental upgrades, custom sign builds,
+          local tips, and coastal stories — all in one growing visual hub.
+        </p>
 
-      <h1>Beach Videos, Local Stories & Coastal Ideas.</h1>
-
-      <p>
-        Watch Delaware beach town previews, rental upgrade ideas, custom sign builds,
-        restaurant clips, local tips, and visual inspiration for better beach days.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="button gold" href="#featured-video">Watch Featured Video</a>
-        <a class="button light" href="#latest-videos">Browse Video Guides</a>
-        <a class="button" href="community.html">Submit a Local Tip</a>
+        <div class="hero-buttons">
+          <a class="button gold" href="#watch-now">Watch Now</a>
+          <a class="button light" href="#series">Explore Series</a>
+          <a class="button" href="community.html">Submit a Clip</a>
+        </div>
       </div>
-    </div>
-  </header>
 
-  <main>
-
-    <div class="quick-panel">
-      <a class="quick-card" href="#town-videos">
-        <span>Explore</span>
-        <h3>Beach Town Videos</h3>
-        <p>Rehoboth, Dewey, Bethany, Lewes, Fenwick, and local coastal walkthroughs.</p>
-      </a>
-
-      <a class="quick-card" href="#latest-videos">
-        <span>Watch</span>
-        <h3>Latest Video Guides</h3>
-        <p>Trip ideas, town previews, rainy-day plans, and beach-house inspiration.</p>
-      </a>
-
-      <a class="quick-card" href="decor.html">
-        <span>Build</span>
-        <h3>Custom Sign Videos</h3>
-        <p>Behind-the-scenes custom signs, beach decor, and rental upgrade projects.</p>
-      </a>
-
-      <a class="quick-card" href="community.html">
-        <span>Submit</span>
-        <h3>Community Clips</h3>
-        <p>Send local tips, beach videos, restaurant clips, and seasonal updates.</p>
-      </a>
-    </div>
-
-    <section id="featured-video">
-      <div class="featured-video-layout">
-        <div class="video-frame-wrap">
+      <div class="hero-player">
+        <div class="player-inner">
           <div class="video-frame">
             <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -517,213 +606,182 @@
             </iframe>
           </div>
         </div>
-
-        <div class="video-info-panel">
-          <span class="tag gold">Featured Video</span>
-          <span class="tag">Delaware Beach Guide</span>
-
-          <h2>Featured Delaware Beach Video</h2>
-
-          <p>
-            This is the main spotlight video. Use it for your strongest video:
-            a beach town preview, a Delaware coast montage, a custom sign build,
-            a rental upgrade walkthrough, or a seasonal beach update.
-          </p>
-
-          <p>
-            Once you start creating your own videos, this is where the best one goes.
-            Video makes the whole site feel active, current, and real.
-          </p>
-
-          <div class="cta-row">
-            <a class="button gold" href="community.html">Submit a Video Idea</a>
-            <a class="button" href="decor.html">See Custom Signs</a>
-          </div>
+        <div class="player-caption">
+          <span><span class="live-dot"></span>Featured beach video</span>
+          <span>Replace with your best clip</span>
         </div>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section id="town-videos">
-      <h2>Video Categories</h2>
-
-      <p class="section-intro">
-        This page is built to become a visual library for Delaware beach visitors,
-        rental owners, local businesses, homeowners, and anyone who wants a better feel
-        for the coast before they go.
-      </p>
-
-      <div class="category-grid">
-        <article class="category-card">
-          <span class="tag gold">Towns</span>
-          <h3>Beach Town Previews</h3>
-          <p>
-            Rehoboth, Dewey, Bethany, Lewes, Fenwick, South Bethany, and nearby coastal areas.
-          </p>
-        </article>
-
-        <article class="category-card">
-          <span class="tag gold">Rentals</span>
-          <h3>Rental Upgrade Ideas</h3>
-          <p>
-            Simple improvements that help beach rentals feel cleaner, warmer, more finished, and more memorable.
-          </p>
-        </article>
-
-        <article class="category-card">
-          <span class="tag gold">Builds</span>
-          <h3>Custom Signs & Decor</h3>
-          <p>
-            Behind-the-scenes custom sign builds, printable wall art ideas, entryway upgrades, and coastal styling.
-          </p>
-        </article>
-
-        <article class="category-card">
-          <span class="tag gold">Local</span>
-          <h3>Food, Tips & Things To Do</h3>
-          <p>
-            Restaurant clips, rainy-day ideas, family stops, beach walks, boardwalk moments, and seasonal finds.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="latest-videos">
-      <h2>Latest Video Guides</h2>
-
-      <p class="section-intro">
-        Replace these placeholder videos with your own YouTube videos as you make them.
-        Each card can become a town preview, project walkthrough, restaurant clip, or local guide.
-      </p>
-
-      <div class="video-grid">
-
-        <article class="video-card">
-          <div class="video-frame-wrap">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Rehoboth Beach Video Guide"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-
-          <div class="video-content">
-            <span class="tag">Beach Towns</span>
-            <h3>Rehoboth Beach Video Guide</h3>
-            <p>
-              Add a walkthrough, boardwalk preview, beach-town montage, or first-time visitor guide here.
-            </p>
-          </div>
-        </article>
-
-        <article class="video-card">
-          <div class="video-frame-wrap">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Beach Rental Decor Ideas"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-
-          <div class="video-content">
-            <span class="tag">Rental Decor</span>
-            <h3>Beach Rental Decor Ideas</h3>
-            <p>
-              Use this spot for entryway upgrades, custom signs, printable wall art, guest room decor,
-              or rental styling tips.
-            </p>
-          </div>
-        </article>
-
-        <article class="video-card">
-          <div class="video-frame-wrap">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Delaware Beach Weekend Ideas"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-
-          <div class="video-content">
-            <span class="tag">Trip Ideas</span>
-            <h3>Weekend Trip Ideas</h3>
-            <p>
-              Add a short itinerary video, seasonal trip idea, or “what to do this weekend”
-              style clip here.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </section>
+  <main>
 
     <section>
-      <div class="split-section">
-        <div>
-          <h2>Turn Beach Projects Into Content</h2>
+      <div class="channel-strip">
+        <a class="channel-card" href="#towns">
+          <span>Series</span>
+          <h3>Beach Towns</h3>
+          <p>Rehoboth, Dewey, Bethany, Lewes, Fenwick, and coastal walkthroughs.</p>
+        </a>
 
-          <p class="section-intro">
-            Beach walks, local food stops, rental upgrades, custom house signs, porch improvements,
-            and decor projects can all become useful video content.
-          </p>
+        <a class="channel-card" href="#rentals">
+          <span>Series</span>
+          <h3>Rental Upgrades</h3>
+          <p>Entryways, signs, guest rooms, patios, porches, and better stays.</p>
+        </a>
 
-          <p>
-            This is how the site becomes more than a directory. It becomes a living Delaware beach
-            media hub with real visuals, real projects, and real local momentum.
-          </p>
+        <a class="channel-card" href="decor.html">
+          <span>Builds</span>
+          <h3>Custom Signs</h3>
+          <p>Behind-the-scenes projects, product launches, and coastal decor builds.</p>
+        </a>
 
-          <div class="cta-row">
-            <a class="button gold" href="decor.html">Browse Custom Signs</a>
-            <a class="button" href="community.html">Submit a Video Idea</a>
+        <a class="channel-card" href="community.html">
+          <span>Community</span>
+          <h3>Local Clips</h3>
+          <p>Food stops, tips, events, questions, and beach-life moments.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="watch-now" class="dark-section">
+      <h2>Featured Watchlist</h2>
+      <p class="section-intro">
+        This is the visual heartbeat of the site. Replace the placeholders with your own beach walks,
+        local clips, rental upgrades, or custom sign builds as you make them.
+      </p>
+
+      <div class="video-wall">
+        <a class="video-feature-card" href="videos.html">
+          <div class="video-card-content">
+            <span class="tag">Feature</span>
+            <span class="tag dark">Town Preview</span>
+            <h3>Delaware Beach Weekend Energy</h3>
+            <p>Use this main card for your strongest beach montage, Rehoboth walkthrough, or seasonal coastal update.</p>
+            <div class="play-row">
+              <div class="play-button">▶</div>
+              <span>Watch featured story</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="decor-preview">
-          <div>
-            <span class="eyebrow">Behind the Scenes</span>
-            <h3>Custom Signs, Rental Decor & Coastal Builds</h3>
-            <p>
-              Use video to show the process behind custom signs, beach-house upgrades,
-              product launches, and rental transformations.
-            </p>
-          </div>
+        <div class="side-stack">
+          <a class="side-stack-card signs" href="decor.html">
+            <div class="video-card-content">
+              <span class="tag">Build</span>
+              <h3>Custom Sign Projects</h3>
+              <p>Show the making of house signs, address signs, rental signs, and decor upgrades.</p>
+              <div class="play-row">
+                <div class="play-button">▶</div>
+                <span>See project ideas</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="side-stack-card food" href="restaurants.html">
+            <div class="video-card-content">
+              <span class="tag">Food</span>
+              <h3>Local Food Clips</h3>
+              <p>Restaurant stops, seafood nights, coffee runs, beach bars, and casual meals.</p>
+              <div class="play-row">
+                <div class="play-button">▶</div>
+                <span>Browse food ideas</span>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="feature-banner">
-      <h2>Want Your Delaware Beach Video Featured?</h2>
+    <section id="series">
+      <h2>Video Series</h2>
+      <p class="section-intro">
+        Build the site like a channel, not a brochure. Each series gives visitors a reason to come back.
+      </p>
 
+      <div class="episode-grid">
+        <article class="episode-card" id="towns">
+          <div class="episode-thumb" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="episode-body">
+            <span class="tag">Beach Towns</span>
+            <h3>Town Walkthroughs</h3>
+            <p>Short previews of Rehoboth, Dewey, Bethany, Lewes, Fenwick, and the surrounding beach areas.</p>
+          </div>
+        </article>
+
+        <article class="episode-card" id="rentals">
+          <div class="episode-thumb" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="episode-body">
+            <span class="tag">Rentals</span>
+            <h3>Rental Upgrade Ideas</h3>
+            <p>Small upgrades that make beach rentals feel more welcoming, memorable, and guest-ready.</p>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-thumb" style="background-image: url('images/2092 Address Sign Hero.png');"></div>
+          <div class="episode-body">
+            <span class="tag">Custom Builds</span>
+            <h3>Custom Sign Builds</h3>
+            <p>Behind-the-scenes clips of signs, wood projects, entryway pieces, and coastal decor builds.</p>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-thumb" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="episode-body">
+            <span class="tag">Food</span>
+            <h3>Restaurant Clips</h3>
+            <p>Casual food stops, seafood nights, breakfast ideas, beach bars, coffee, and local favorites.</p>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-thumb" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="episode-body">
+            <span class="tag">Trip Ideas</span>
+            <h3>Weekend Itineraries</h3>
+            <p>Simple visual plans for one-day, weekend, family, rainy-day, or low-key Delaware beach trips.</p>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-thumb" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85');"></div>
+          <div class="episode-body">
+            <span class="tag">Local Tips</span>
+            <h3>Beach Notes & Updates</h3>
+            <p>Seasonal notes, local reminders, beach-week tips, parking ideas, and community-submitted clips.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="submit-panel">
+      <h2>Make This a Real Local Beach Channel</h2>
       <p>
-        Have a beach town walkthrough, rental transformation, restaurant clip, custom sign project,
-        local tip, beach update, or coastal lifestyle video? This page is built to grow into a
-        visual community hub for Delaware beach lovers, visitors, homeowners, rental owners, and local businesses.
+        The long-term vision is a visual Delaware beach hub: town walkthroughs, rental transformations,
+        restaurant clips, custom sign builds, visitor questions, and local community tips.
       </p>
 
       <div class="submission-grid">
         <div class="submission-card">
-          <h3>Town Walkthroughs</h3>
-          <p>Rehoboth, Dewey, Bethany, Lewes, Fenwick, and surrounding coastal areas.</p>
+          <h3>Submit a Beach Clip</h3>
+          <p>Beach walks, boardwalk shots, sunsets, fishing, rainy days, or seasonal updates.</p>
         </div>
 
         <div class="submission-card">
-          <h3>Restaurant Clips</h3>
-          <p>Seafood stops, coffee shops, breakfast places, beach bars, casual meals, and local favorites.</p>
+          <h3>Feature a Local Business</h3>
+          <p>Restaurants, coffee shops, shops, services, rentals, builders, artists, and local makers.</p>
         </div>
 
         <div class="submission-card">
-          <h3>Rental Upgrades</h3>
-          <p>Entryways, signs, guest rooms, patios, welcome areas, and beach-house details.</p>
+          <h3>Show a Rental Upgrade</h3>
+          <p>Before/after improvements, decor, signs, entryways, guest rooms, patios, and porch projects.</p>
         </div>
 
         <div class="submission-card">
-          <h3>Local Tips</h3>
-          <p>Parking, rainy-day plans, quiet spots, family ideas, and seasonal beach notes.</p>
+          <h3>Build in Public</h3>
+          <p>Use your own progress: custom signs, Etsy products, website updates, and Delaware beach ideas.</p>
         </div>
       </div>
 
