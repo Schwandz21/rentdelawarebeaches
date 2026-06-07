@@ -6,140 +6,362 @@
 
   <title>Delaware Beach Restaurants | Rent Delaware Beaches</title>
 
-  <meta name="description" content="Explore Delaware beach restaurant ideas by town, trip style, meal type, and vacation mood. Find seafood, casual family dining, date-night restaurants, breakfast spots, beach bars, and rental-friendly food ideas." />
+  <meta name="description" content="Explore Delaware beach restaurants by trip style, town, meal type, and vacation mood. Find seafood, casual family dining, date-night ideas, breakfast spots, beach bars, takeout, and rental-house meal planning tips." />
 
   <style>
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f3ea;
-      color: #18344a;
+      background: #f7f0e3;
+      color: #102f45;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .top-strip {
+      background: #d8903d;
+      color: #102f45;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+
     header {
-      background: linear-gradient(rgba(12, 48, 70, 0.75), rgba(12, 48, 70, 0.75)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+      min-height: 82vh;
+      background:
+        linear-gradient(rgba(8, 35, 54, 0.34), rgba(8, 35, 54, 0.82)),
+        url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=85");
       background-size: cover;
       background-position: center;
       color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 44px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 20px;
-      max-width: 780px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
     }
 
     nav {
-      background: #18344a;
-      text-align: center;
-      padding: 14px;
+      width: calc(100% - 40px);
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding: 14px 18px;
+      background: rgba(16, 47, 69, 0.86);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 14px;
       font-weight: bold;
+      font-size: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .hero-content {
+      max-width: 1040px;
+      margin: auto;
+      padding: 80px 24px 110px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: 1.02;
+      margin: 0 0 22px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
+    }
+
+    .hero-content p {
+      max-width: 800px;
+      margin: 0 auto 28px;
+      font-size: 21px;
+      color: #fff7e8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #1f6f9b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #185879;
+    }
+
+    .button.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .button.gold:hover {
+      background: #c17c30;
+    }
+
+    .button.light {
+      background: #fffaf2;
+      color: #102f45;
     }
 
     main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      max-width: 1180px;
+      margin: -58px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 2;
     }
 
     section {
-      background: white;
-      margin-bottom: 32px;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      margin-top: 34px;
+      background: #fffaf2;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
+      border: 1px solid #eadfcd;
     }
 
     h2 {
-      color: #1f5f8b;
-      margin-top: 0;
-      font-size: 30px;
+      color: #1f6f9b;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      margin: 0 0 16px;
     }
 
     h3 {
-      color: #18344a;
+      color: #102f45;
       margin-top: 0;
     }
 
-    .restaurant-grid {
+    .section-intro {
+      max-width: 790px;
+      color: #425466;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .quick-panel {
+      background: rgba(255, 250, 242, 0.96);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      border: 1px solid rgba(216, 144, 61, 0.22);
+    }
+
+    .quick-card {
+      padding: 20px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid #eadfcd;
+      text-decoration: none;
+      transition: 0.22s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
+    }
+
+    .quick-card span {
+      color: #d8903d;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .quick-card h3 {
+      margin: 8px 0 6px;
+      font-size: 20px;
+      color: #102f45;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: #425466;
+      font-size: 15px;
+    }
+
+    .dining-grid,
+    .town-grid,
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 22px;
       margin-top: 24px;
     }
 
-    .restaurant-card {
-      background: #fffaf1;
-      border: 1px solid #e4ded1;
-      border-radius: 16px;
+    .dining-card,
+    .town-card,
+    .strategy-card {
+      background: white;
+      border: 1px solid #eadfcd;
+      border-radius: 22px;
       padding: 24px;
+      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
+      transition: 0.22s ease;
     }
 
-    .restaurant-card h3 {
-      color: #1f5f8b;
+    .dining-card:hover,
+    .town-card:hover,
+    .strategy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
     }
 
     .tag {
       display: inline-block;
       background: #f1eadc;
-      color: #18344a;
+      color: #102f45;
       padding: 6px 10px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: bold;
+      margin: 0 6px 10px 0;
+    }
+
+    .tag.gold {
+      background: #d8903d;
+      color: #102f45;
+    }
+
+    .dining-card p,
+    .town-card p,
+    .strategy-card p,
+    .strategy-card li {
+      color: #425466;
+    }
+
+    .feature-banner {
+      background: linear-gradient(135deg, #102f45, #1f6f9b);
+      color: white;
+      border: none;
+    }
+
+    .feature-banner h2,
+    .feature-banner h3 {
+      color: white;
+    }
+
+    .feature-banner p,
+    .feature-banner li {
+      color: #e9f3f8;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .food-feature {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.30), rgba(16, 47, 69, 0.86)),
+        url("https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=85");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      padding: 28px;
+      color: white;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .food-feature h3 {
+      color: white;
+      font-size: 30px;
       margin-bottom: 10px;
     }
 
-    .callout {
-      background: #f1eadc;
-      border-left: 6px solid #1f5f8b;
+    .food-feature p {
+      color: #fff7e8;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 14px;
-      margin-right: 10px;
-      padding: 12px 18px;
-      border-radius: 8px;
-      background: #1f5f8b;
+    .decor-preview {
+      min-height: 390px;
+      background:
+        linear-gradient(rgba(16, 47, 69, 0.62), rgba(16, 47, 69, 0.78)),
+        url("images/2092 Address Sign Hero.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      padding: 28px;
       color: white;
-      text-decoration: none;
-      font-weight: bold;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
     }
 
-    .button:hover {
-      background: #164766;
+    .decor-preview h3 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
 
-    .secondary-button {
-      background: #c9822b;
+    .decor-preview p {
+      color: #fff7e8;
     }
 
-    .secondary-button:hover {
-      background: #a86822;
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
     }
 
     ul {
@@ -147,30 +369,37 @@
     }
 
     footer {
-      background: #18344a;
+      background: #102f45;
       color: white;
       text-align: center;
-      padding: 24px;
-      margin-top: 40px;
+      padding: 28px 20px;
     }
 
     footer a {
       color: white;
       font-weight: bold;
+      margin: 0 6px;
     }
 
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 34px;
+    @media (max-width: 850px) {
+      header {
+        min-height: 74vh;
       }
 
-      nav a {
-        display: block;
-        margin: 8px 0;
+      nav {
+        border-radius: 22px;
+      }
+
+      main {
+        margin-top: -44px;
+      }
+
+      .split-section {
+        grid-template-columns: 1fr;
       }
 
       section {
-        padding: 24px;
+        padding: 26px;
       }
     }
   </style>
@@ -178,238 +407,326 @@
 
 <body>
 
-  <header>
-    <h1>Delaware Beach Restaurants</h1>
-    <p>
-      A practical restaurant guide for beach weekends, family rentals, date nights,
-      seafood cravings, casual lunches, rainy days, and coastal vacation meals.
-    </p>
-  </header>
+  <div class="top-strip">
+    Delaware Beach Dining Guide • Seafood • Family Meals • Date Nights • Takeout • Beach Bars
+  </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="beach-towns.html">Beach Towns</a>
-    <a href="plan-your-trip.html">Plan Your Trip</a>
-    <a href="restaurants.html">Restaurants</a>
-    <a href="things-to-do.html">Things To Do</a>
-    <a href="decor.html">Beach House Decor</a>
-  </nav>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
+    </nav>
+
+    <div class="hero-content">
+      <span class="eyebrow">Coastal Dining Guide</span>
+
+      <h1>Find the Right Meal for the Beach Day You’re Having.</h1>
+
+      <p>
+        Seafood nights, boardwalk food, beach bars, family dinners, casual takeout,
+        date-night meals, breakfast stops, and rental-house food strategy for Delaware beach trips.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button gold" href="#dining-moods">Choose Dining Mood</a>
+        <a class="button light" href="#towns">Dining by Town</a>
+        <a class="button" href="plan-your-trip.html">Plan Your Trip</a>
+      </div>
+    </div>
+  </header>
 
   <main>
 
-    <section>
-      <h2>Find the Right Restaurant for the Kind of Beach Day You’re Having</h2>
+    <div class="quick-panel">
+      <a class="quick-card" href="#seafood">
+        <span>Classic</span>
+        <h3>Seafood Night</h3>
+        <p>Crab cakes, shrimp, fish, oysters, seafood platters, and coastal dinner energy.</p>
+      </a>
 
-      <p>
-        Delaware beach dining is not one single thing. Some meals are casual and sandy,
-        some are seafood-focused, some are date-night worthy, and some are just about
-        feeding a group after a long beach day without making it complicated.
+      <a class="quick-card" href="#family">
+        <span>Easy</span>
+        <h3>Family Dinner</h3>
+        <p>Simple menus, group-friendly spots, casual dining, and low-stress beach meals.</p>
+      </a>
+
+      <a class="quick-card" href="#date-night">
+        <span>Special</span>
+        <h3>Date Night</h3>
+        <p>Atmosphere, reservations, cocktails, seafood, outdoor seating, and vacation dinners.</p>
+      </a>
+
+      <a class="quick-card" href="#rental-meals">
+        <span>Smart</span>
+        <h3>Rental House Meals</h3>
+        <p>Groceries, takeout, easy breakfasts, beach snacks, and simple dinners at the house.</p>
+      </a>
+    </div>
+
+    <section id="dining-moods">
+      <h2>Choose the Meal Before You Choose the Restaurant</h2>
+
+      <p class="section-intro">
+        Beach dining works best when you match the meal to the moment. A sandy lunch,
+        a tired-family dinner, a seafood night, and a date night all need different plans.
       </p>
 
-      <p>
-        This guide organizes restaurant planning by mood, town, and vacation situation
-        so visitors can quickly narrow down what kind of meal fits their trip.
-      </p>
-
-      <a class="button" href="beach-towns.html">Compare Beach Towns</a>
-      <a class="button secondary-button" href="plan-your-trip.html">Plan Your Trip</a>
-    </section>
-
-    <section>
-      <h2>Restaurant Ideas by Trip Style</h2>
-
-      <div class="restaurant-grid">
-
-        <article class="restaurant-card">
-          <span class="tag">Family Friendly</span>
-          <h3>Easy Family Dinners</h3>
+      <div class="dining-grid">
+        <article class="dining-card" id="seafood">
+          <span class="tag gold">Seafood</span>
+          <h3>Seafood Night</h3>
           <p>
-            Look for restaurants with broad menus, simple parking, reasonable wait times,
-            kid-friendly options, and enough space for a group that just came off the beach.
+            A Delaware beach trip almost always deserves at least one seafood-focused meal:
+            crab cakes, shrimp, fresh fish, oysters, raw bars, fried seafood, or waterfront-style plates.
           </p>
-          <ul>
-            <li>Pizza and casual Italian</li>
-            <li>Seafood baskets</li>
-            <li>Burger spots</li>
-            <li>Boardwalk food</li>
-            <li>Casual sit-down restaurants</li>
-          </ul>
+          <p><strong>Best when:</strong> you want the meal to feel like part of the vacation.</p>
         </article>
 
-        <article class="restaurant-card">
-          <span class="tag">Seafood</span>
-          <h3>Seafood Nights</h3>
+        <article class="dining-card" id="family">
+          <span class="tag gold">Family Friendly</span>
+          <h3>Easy Family Dinner</h3>
           <p>
-            A Delaware beach trip almost always deserves at least one seafood-focused meal.
-            Think crab, shrimp, fish, oysters, raw bars, fried seafood, and waterfront-style plates.
+            Look for broad menus, reasonable wait times, kid-friendly options, enough space,
+            and a place where everyone can relax after a long beach day.
           </p>
-          <ul>
-            <li>Crab cakes</li>
-            <li>Steamed shrimp</li>
-            <li>Fresh fish specials</li>
-            <li>Raw bar options</li>
-            <li>Casual seafood platters</li>
-          </ul>
+          <p><strong>Best when:</strong> the group is hungry, sandy, tired, and not trying to be fancy.</p>
         </article>
 
-        <article class="restaurant-card">
-          <span class="tag">Date Night</span>
+        <article class="dining-card" id="date-night">
+          <span class="tag gold">Date Night</span>
           <h3>Dinner Out</h3>
           <p>
-            For date nights or nicer vacation dinners, prioritize atmosphere, reservations,
-            cocktails, seafood, outdoor seating, and places where the meal feels like part of the trip.
+            For nicer vacation dinners, prioritize atmosphere, reservations, cocktails,
+            seafood, outdoor seating, and places where the meal feels like an event.
           </p>
-          <ul>
-            <li>Higher-end coastal dining</li>
-            <li>Wine and cocktail menus</li>
-            <li>Outdoor seating</li>
-            <li>Walkable town centers</li>
-            <li>Reservation-friendly spots</li>
-          </ul>
+          <p><strong>Best when:</strong> you want the night to feel more elevated.</p>
         </article>
 
-        <article class="restaurant-card">
-          <span class="tag">Quick Bite</span>
-          <h3>Beach-Day Lunches</h3>
+        <article class="dining-card">
+          <span class="tag gold">Quick Bite</span>
+          <h3>Beach-Day Lunch</h3>
           <p>
-            Some meals should be quick. If you’re sandy, hot, tired, or trying to get back
-            to the beach, look for fast casual food, takeout, sandwiches, tacos, pizza, or boardwalk eats.
+            Some meals should be fast: sandwiches, tacos, pizza slices, boardwalk eats,
+            ice cream, coffee, snacks, and takeout that gets you back to the beach.
           </p>
-          <ul>
-            <li>Sandwich shops</li>
-            <li>Tacos</li>
-            <li>Pizza slices</li>
-            <li>Ice cream</li>
-            <li>Takeout-friendly meals</li>
-          </ul>
+          <p><strong>Best when:</strong> speed matters more than atmosphere.</p>
         </article>
-
       </div>
     </section>
 
-    <section class="callout">
-      <h2>Quick Pick Guide</h2>
+    <section class="feature-banner">
+      <h2>Quick Pick Dining Guide</h2>
 
-      <p><strong>Best for a classic boardwalk food day:</strong> Rehoboth Beach</p>
-      <p><strong>Best for nightlife and beach bars:</strong> Dewey Beach</p>
-      <p><strong>Best for quieter family meals:</strong> Bethany Beach and Fenwick Island</p>
-      <p><strong>Best for historic-town dining and day trips:</strong> Lewes</p>
-      <p><strong>Best plan for large groups:</strong> choose one reservation meal and one easy takeout meal</p>
-    </section>
+      <p><strong>Classic boardwalk food day:</strong> Rehoboth Beach</p>
+      <p><strong>Nightlife and beach-bar energy:</strong> Dewey Beach</p>
+      <p><strong>Quieter family meals:</strong> Bethany Beach and Fenwick Island</p>
+      <p><strong>Historic-town dining and day trips:</strong> Lewes</p>
+      <p><strong>Large group strategy:</strong> pick one reservation meal and one easy takeout meal</p>
 
-    <section>
-      <h2>Restaurant Planning by Town</h2>
-
-      <div class="restaurant-grid">
-
-        <article class="restaurant-card">
-          <h3>Rehoboth Beach</h3>
-          <p>
-            Rehoboth is a strong choice for visitors who want variety: boardwalk food,
-            sit-down restaurants, seafood, casual lunches, sweets, coffee, and walkable town dining.
-          </p>
-        </article>
-
-        <article class="restaurant-card">
-          <h3>Dewey Beach</h3>
-          <p>
-            Dewey fits groups looking for beach bars, music, casual dinners, and a more social
-            restaurant scene close to nightlife.
-          </p>
-        </article>
-
-        <article class="restaurant-card">
-          <h3>Bethany Beach</h3>
-          <p>
-            Bethany works well for family dinners, quieter meals, casual coastal food,
-            and relaxed nights near a rental home.
-          </p>
-        </article>
-
-        <article class="restaurant-card">
-          <h3>Lewes</h3>
-          <p>
-            Lewes is a good fit for charming town dining, scenic day trips, calmer meals,
-            and pairing food with history, shopping, or Cape Henlopen.
-          </p>
-        </article>
-
-        <article class="restaurant-card">
-          <h3>Fenwick Island</h3>
-          <p>
-            Fenwick offers quieter beach-town dining while still keeping visitors close
-            to nearby attractions and the Maryland line.
-          </p>
-        </article>
-
-        <article class="restaurant-card">
-          <h3>Rental House Meals</h3>
-          <p>
-            Not every meal needs to be out. A good beach rental plan includes groceries,
-            easy breakfasts, simple lunches, snacks, and one or two relaxed dinners at the house.
-          </p>
-        </article>
-
+      <div class="cta-row">
+        <a class="button gold" href="beach-towns.html">Compare Beach Towns</a>
+        <a class="button light" href="videos.html">Watch Local Videos</a>
       </div>
     </section>
 
-    <section>
-      <h2>Simple Food Strategy for a Beach Rental Week</h2>
+    <section id="towns">
+      <h2>Dining by Delaware Beach Town</h2>
 
-      <p>
-        A good rental-house food plan keeps the trip easy. Mix restaurant meals with
-        simple at-home meals so you are not fighting crowds, traffic, and wait times
-        every single night.
+      <p class="section-intro">
+        Each beach town has its own dining rhythm. Some are better for boardwalk food,
+        some for nightlife, some for quieter family meals, and some for scenic day-trip dining.
       </p>
 
-      <div class="restaurant-grid">
+      <div class="town-grid">
+        <article class="town-card">
+          <span class="tag gold">Rehoboth</span>
+          <h3>Boardwalk, variety, and vacation energy</h3>
+          <p>
+            Rehoboth is strong for visitors who want options: boardwalk food, sit-down restaurants,
+            casual lunches, sweets, coffee, seafood, shops, and walkable town dining.
+          </p>
+        </article>
 
-        <article class="restaurant-card">
-          <h3>At the Rental</h3>
+        <article class="town-card">
+          <span class="tag gold">Dewey</span>
+          <h3>Beach bars, groups, and nightlife</h3>
+          <p>
+            Dewey fits groups looking for casual dinners, music, social energy,
+            beach bars, late nights, and food close to the action.
+          </p>
+        </article>
+
+        <article class="town-card">
+          <span class="tag gold">Bethany</span>
+          <h3>Family meals and calmer nights</h3>
+          <p>
+            Bethany works well for quieter family dinners, casual coastal food,
+            rental-house weeks, and relaxed nights close to where you’re staying.
+          </p>
+        </article>
+
+        <article class="town-card">
+          <span class="tag gold">Lewes</span>
+          <h3>Charming town dining and day trips</h3>
+          <p>
+            Lewes is a good fit for scenic town dining, coffee, restaurants,
+            historic charm, Cape Henlopen day trips, and calmer coastal meals.
+          </p>
+        </article>
+
+        <article class="town-card">
+          <span class="tag gold">Fenwick</span>
+          <h3>Quiet southern beach dining</h3>
+          <p>
+            Fenwick offers quieter beach-town food while keeping visitors close to
+            family attractions, restaurants, and the Maryland line.
+          </p>
+        </article>
+
+        <article class="town-card">
+          <span class="tag gold">Rental House</span>
+          <h3>Not every meal needs to be out</h3>
+          <p>
+            A good rental plan includes easy breakfasts, beach snacks, takeout,
+            simple dinners, and one or two meals that happen comfortably at the house.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="rental-meals">
+      <div class="split-section">
+        <div>
+          <h2>Smart Food Strategy for a Beach Rental Week</h2>
+
+          <p class="section-intro">
+            A good rental-house food plan keeps the trip easy. Mix restaurant meals
+            with simple at-home meals so you are not fighting traffic, wait times,
+            crowds, and decision fatigue every night.
+          </p>
+
+          <p>
+            The best plan is simple: groceries for mornings and beach snacks, a few
+            easy lunches, one seafood dinner, one casual group meal, one takeout night,
+            and one flexible backup.
+          </p>
+
+          <div class="cta-row">
+            <a class="button gold" href="plan-your-trip.html">Plan the Whole Trip</a>
+            <a class="button" href="things-to-do.html">Find Things To Do</a>
+          </div>
+        </div>
+
+        <div class="food-feature">
+          <div>
+            <span class="eyebrow">Rental Week Strategy</span>
+            <h3>Restaurants + Takeout + Easy Meals</h3>
+            <p>
+              The goal is not to eat out every meal. The goal is to keep the trip easy,
+              relaxed, and memorable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Simple Meal Plan for a Beach Week</h2>
+
+      <div class="strategy-grid">
+        <article class="strategy-card">
+          <span class="tag gold">At the Rental</span>
+          <h3>Keep mornings easy</h3>
           <ul>
-            <li>Easy breakfasts</li>
-            <li>Coffee and fruit</li>
-            <li>Sandwich supplies</li>
-            <li>Beach snacks</li>
-            <li>One simple grill or sheet-pan dinner</li>
+            <li>Coffee</li>
+            <li>Fruit</li>
+            <li>Eggs or yogurt</li>
+            <li>Bagels or toast</li>
+            <li>Simple breakfast supplies</li>
+            <li>Reusable water bottles</li>
           </ul>
         </article>
 
-        <article class="restaurant-card">
-          <h3>Out to Eat</h3>
+        <article class="strategy-card">
+          <span class="tag gold">Beach Day</span>
+          <h3>Make lunch low-friction</h3>
+          <ul>
+            <li>Sandwich supplies</li>
+            <li>Cooler snacks</li>
+            <li>Fruit</li>
+            <li>Chips or trail mix</li>
+            <li>Plenty of water</li>
+            <li>Quick takeout backup</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card">
+          <span class="tag gold">Dinner</span>
+          <h3>Mix restaurants and rest</h3>
           <ul>
             <li>One seafood dinner</li>
             <li>One casual family meal</li>
-            <li>One boardwalk or town lunch</li>
+            <li>One takeout night</li>
+            <li>One simple rental-house dinner</li>
+            <li>One flexible backup</li>
             <li>One ice cream stop</li>
-            <li>One flexible backup option</li>
           </ul>
         </article>
-
-        <article class="restaurant-card">
-          <h3>For Groups</h3>
-          <ul>
-            <li>Decide dinner plans earlier in the day</li>
-            <li>Check whether reservations are needed</li>
-            <li>Use takeout when everyone is tired</li>
-            <li>Have backup snacks at the house</li>
-            <li>Do not over-schedule every meal</li>
-          </ul>
-        </article>
-
       </div>
     </section>
 
     <section>
-      <h2>Make the Rental Feel Like Part of the Trip</h2>
+      <div class="split-section">
+        <div>
+          <h2>Make the Rental Feel Like Part of Dinner</h2>
+
+          <p class="section-intro">
+            Food, decor, and atmosphere all work together. A few beach-themed prints,
+            a custom welcome sign, a stocked kitchen, and a simple dinner plan can make
+            a rental feel more comfortable and memorable.
+          </p>
+
+          <p>
+            Small details can turn “just a place to sleep” into a real beach-house experience:
+            entryway signs, kitchen prints, patio signs, guest-room art, and a space that feels intentional.
+          </p>
+
+          <div class="cta-row">
+            <a class="button gold" href="decor.html">Browse Beach House Decor</a>
+            <a class="button" href="community.html">Recommend a Restaurant</a>
+          </div>
+        </div>
+
+        <div class="decor-preview">
+          <div>
+            <span class="eyebrow">Beach House Mood</span>
+            <h3>Custom Signs & Coastal Decor</h3>
+            <p>
+              Make the kitchen, entryway, porch, or dining area feel more finished and guest-ready.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-banner">
+      <h2>Future Upgrade: Real Restaurant Cards</h2>
 
       <p>
-        Food, decor, and atmosphere all work together. A few beach-themed prints,
-        a custom welcome sign, a stocked kitchen, and a simple dinner plan can make
-        a rental feel more memorable and comfortable.
+        This page is built to grow. Later, you can add specific restaurant cards with photos,
+        town filters, meal categories, visitor ratings, video clips, and community recommendations.
       </p>
 
-      <a class="button secondary-button" href="decor.html">Browse Beach House Decor</a>
+      <div class="cta-row">
+        <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Restaurant%20Recommendation">Submit Restaurant Recommendation</a>
+        <a class="button light" href="community.html">Visit Community Board</a>
+      </div>
     </section>
 
   </main>
@@ -417,12 +734,13 @@
   <footer>
     <p>
       © 2026 Rent Delaware Beaches |
-      <a href="beach-towns.html">Beach Towns</a> |
-      <a href="plan-your-trip.html">Plan Your Trip</a> |
-      <a href="decor.html">Beach House Decor</a> |
-      <a href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
-        Shop The Blue Hen Basement on Etsy
-      </a>
+      <a href="index.html">Home</a>
+      <a href="beach-towns.html">Beach Towns</a>
+      <a href="plan-your-trip.html">Plan Your Trip</a>
+      <a href="things-to-do.html">Things To Do</a>
+      <a href="videos.html">Videos</a>
+      <a href="decor.html">Beach House Decor</a>
+      <a href="community.html">Community</a>
     </p>
   </footer>
 
