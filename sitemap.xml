@@ -92,7 +92,10 @@
   <loc>https://rentdelawarebeaches.com/delaware-beach-rental-checklist.html</loc>
   <priority>0.85</priority>
 </url>
-
+<url>
+  <loc>https://rentdelawarebeaches.com/delaware-beach-rental-owner-checklist.html</loc>
+  <priority>0.85</priority>
+</url>
 
   <url>
     <loc>https://rentdelawarebeaches.com/advertise.html</loc>
