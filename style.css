@@ -710,3 +710,83 @@ footer {
     font-size: 1.95rem !important;
   }
 }
+/* =========================================================
+   Mobile Local Services Intro
+   Stronger first impression for beach property owners
+   ========================================================= */
+
+.mobile-local-services-intro {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-local-services-intro {
+    display: block;
+    padding: 28px 18px 26px;
+    text-align: center;
+    background:
+      radial-gradient(circle at top left, rgba(255, 244, 216, 0.24), transparent 34%),
+      linear-gradient(135deg, #064c49, #00857f);
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .mobile-local-services-intro .mini-label {
+    display: inline-block;
+    margin: 0 0 12px;
+    padding: 7px 13px;
+    border-radius: 999px;
+    background: #fff4d8;
+    color: #064c49;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .mobile-local-services-intro h1 {
+    max-width: 620px;
+    margin: 0 auto 12px;
+    font-size: 2rem;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+  }
+
+  .mobile-local-services-intro p {
+    max-width: 620px;
+    margin: 0 auto 18px;
+    font-size: 1rem;
+    line-height: 1.55;
+    opacity: 0.96;
+  }
+
+  .service-chip-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .service-chip-row a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 9px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .service-chip-row a:first-child {
+    background: #fff4d8;
+    color: #064c49;
+  }
+}
