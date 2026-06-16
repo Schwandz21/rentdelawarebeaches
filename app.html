@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>RDB Local Rentals App | Tools, Custom Signs & Property Services</title>
-  <meta name="description" content="RDB Local Rentals helps Delaware homeowners, landlords, and property managers request local tool rentals, custom signs, and property services." />
+  <meta name="description" content="Mobile-friendly local rental and property service app for Delaware homeowners, landlords, property managers, and beach house owners." />
   <meta name="robots" content="index, follow" />
 
   <link rel="manifest" href="manifest.json">
@@ -26,39 +26,50 @@
       --navy: #173f44;
       --teal: #2f6f73;
       --sand: #f7f3ea;
+      --cream: #fffaf0;
       --white: #ffffff;
       --soft: #eef6f7;
-      --text: #334145;
-      --muted: #607276;
+      --text: #2f3e42;
+      --muted: #66787d;
       --gold: #d6a84f;
-      --danger: #9b3d30;
-      --shadow: 0 18px 42px rgba(23, 63, 68, 0.14);
+      --line: rgba(23, 63, 68, 0.12);
+      --shadow: 0 18px 44px rgba(23, 63, 68, 0.14);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: linear-gradient(135deg, var(--sand), #ffffff 48%, #e8f3f5);
+      background: #f4f7f7;
+      padding-bottom: 86px;
     }
 
-    header {
+    .app-shell {
+      max-width: 560px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #f7f3ea 0%, #ffffff 28%, #eef6f7 100%);
+    }
+
+    .app-header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(23, 63, 68, 0.1);
-      padding: 14px 18px;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 16px;
     }
 
-    .topbar {
-      max-width: 1180px;
-      margin: 0 auto;
+    .header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -69,205 +80,328 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 900;
-      color: var(--navy);
       text-decoration: none;
+      color: var(--navy);
+      min-width: 0;
     }
 
     .brand-mark {
       width: 42px;
       height: 42px;
-      border-radius: 13px;
+      border-radius: 15px;
       background: var(--navy);
-      color: var(--white);
+      color: white;
       display: grid;
       place-items: center;
       font-weight: 900;
       letter-spacing: -0.04em;
+      flex: 0 0 auto;
     }
 
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .brand-text strong {
+      display: block;
+      line-height: 1.05;
+      font-size: 1rem;
     }
 
-    .pill-link,
-    .small-button {
-      border: none;
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+
+    .mini-button {
+      border: 0;
       border-radius: 999px;
-      padding: 10px 14px;
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .pill-link {
       background: var(--soft);
       color: var(--navy);
-    }
-
-    .small-button {
-      background: var(--navy);
-      color: var(--white);
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
     .hero {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 46px 18px 26px;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 26px;
-      align-items: center;
+      padding: 24px 16px 18px;
     }
 
     .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      margin: 0 0 10px;
       color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.76rem;
       font-weight: 900;
-      font-size: 0.82rem;
-      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: clamp(2.35rem, 6vw, 4.9rem);
-      line-height: 0.98;
-      color: var(--navy);
-      margin: 0 0 16px;
-      letter-spacing: -0.055em;
-    }
-
-    .hero p {
-      font-size: 1.12rem;
-      line-height: 1.7;
-      max-width: 720px;
-      color: #415459;
-    }
-
-    .hero-card {
-      background: var(--white);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 24px;
-      border: 1px solid rgba(23, 63, 68, 0.08);
-    }
-
-    .status-card {
-      background: var(--soft);
-      border-left: 5px solid var(--teal);
-      border-radius: 18px;
-      padding: 16px;
-      margin-top: 16px;
-    }
-
-    .status-card p {
       margin: 0;
-      font-size: 0.95rem;
+      color: var(--navy);
+      font-size: clamp(2.2rem, 11vw, 3.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
     }
 
-    .quick-grid {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 12px 18px 34px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .hero-subtitle {
+      margin: 14px 0 0;
+      color: #455a5f;
+      line-height: 1.55;
+      font-size: 1rem;
     }
 
-    .quick-card {
+    .location-chip {
+      margin-top: 16px;
       background: var(--white);
-      border-radius: 22px;
-      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 12px;
+      box-shadow: 0 10px 28px rgba(23, 63, 68, 0.08);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .location-chip p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .location-chip strong {
+      color: var(--navy);
+    }
+
+    .primary-action {
+      border: 0;
+      background: var(--navy);
+      color: white;
+      border-radius: 999px;
+      padding: 12px 14px;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .quick-actions {
+      padding: 6px 16px 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .action-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(23, 63, 68, 0.08);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: center;
       text-decoration: none;
       color: inherit;
     }
 
-    .quick-card h3 {
-      margin: 0 0 8px;
+    .icon-badge {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: var(--soft);
       color: var(--navy);
+      font-size: 1.55rem;
+      font-weight: 900;
     }
 
-    .quick-card p {
+    .action-card h2 {
+      margin: 0 0 4px;
+      color: var(--navy);
+      font-size: 1.18rem;
+    }
+
+    .action-card p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.35;
+      font-size: 0.92rem;
     }
 
-    main {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 18px 70px;
+    .section {
+      padding: 18px 16px;
     }
 
-    .app-section {
-      background: var(--white);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-      margin: 24px 0;
-      border: 1px solid rgba(23, 63, 68, 0.08);
-    }
-
-    .section-head {
+    .section-title {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 18px;
-      margin-bottom: 20px;
+      align-items: end;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
-    .section-head h2 {
-      color: var(--navy);
-      margin: 0 0 8px;
-      font-size: clamp(1.7rem, 4vw, 2.6rem);
-      letter-spacing: -0.035em;
-    }
-
-    .section-head p {
+    .section-title h2 {
       margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 760px;
+      color: var(--navy);
+      letter-spacing: -0.035em;
+      font-size: 1.65rem;
     }
 
-    .media-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-bottom: 22px;
+    .section-title a {
+      color: var(--teal);
+      font-weight: 900;
+      text-decoration: none;
+      font-size: 0.88rem;
     }
 
-    .media-box {
-      min-height: 220px;
-      border-radius: 22px;
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 12px 34px rgba(23, 63, 68, 0.11);
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .media-placeholder {
+      min-height: 150px;
       background:
         linear-gradient(rgba(23, 63, 68, 0.18), rgba(23, 63, 68, 0.18)),
         repeating-linear-gradient(45deg, #e8eeee, #e8eeee 12px, #d8e4e5 12px, #d8e4e5 24px);
       display: grid;
       place-items: center;
       color: var(--navy);
-      font-weight: 900;
       text-align: center;
-      padding: 20px;
+      font-weight: 900;
+      padding: 18px;
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .card-body h3 {
+      margin: 0 0 6px;
+      color: var(--navy);
+      font-size: 1.25rem;
+    }
+
+    .card-body p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .rate-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .rate-pill {
+      background: var(--soft);
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.92rem;
+    }
+
+    .button.dark {
+      background: var(--navy);
+      color: white;
+    }
+
+    .button.teal {
+      background: var(--teal);
+      color: white;
+    }
+
+    .button.light {
+      background: var(--soft);
+      color: var(--navy);
+    }
+
+    .request-panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      margin: 18px 16px;
+      padding: 18px;
+    }
+
+    .request-panel h2 {
+      margin: 0 0 6px;
+      color: var(--navy);
+      letter-spacing: -0.035em;
+    }
+
+    .request-panel p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      background: var(--soft);
+      border-radius: 18px;
+      padding: 6px;
+      margin: 12px 0 16px;
+    }
+
+    .segmented button {
+      border: 0;
+      border-radius: 14px;
+      padding: 10px 6px;
+      font-weight: 900;
+      color: var(--navy);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .segmented button.active {
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(23, 63, 68, 0.11);
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      gap: 11px;
     }
 
     label {
       display: block;
       font-weight: 900;
       color: var(--navy);
-      margin: 0 0 7px;
-      font-size: 0.92rem;
+      font-size: 0.86rem;
+      margin-bottom: 6px;
     }
 
     input,
@@ -279,7 +413,7 @@
       padding: 13px 14px;
       font-size: 1rem;
       font-family: inherit;
-      background: #fff;
+      background: white;
     }
 
     textarea {
@@ -289,169 +423,461 @@
     input:focus,
     select:focus,
     textarea:focus {
-      outline: 3px solid rgba(47, 111, 115, 0.17);
+      outline: 3px solid rgba(47, 111, 115, 0.18);
       border-color: var(--teal);
     }
 
-    .full {
-      grid-column: 1 / -1;
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
-    .estimate-box {
+    .estimate-card {
+      margin-top: 12px;
       background: #f3f8f8;
       border-left: 5px solid var(--teal);
       border-radius: 18px;
-      padding: 16px 18px;
-      margin: 16px 0;
+      padding: 14px;
     }
 
-    .estimate-box strong {
+    .estimate-card span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.84rem;
+    }
+
+    .estimate-card strong {
       display: block;
       color: var(--navy);
-      font-size: 1.8rem;
-      margin-top: 4px;
+      font-size: 2rem;
+      margin: 2px 0;
     }
 
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
+    .estimate-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .trust-strip {
+      padding: 2px 16px 20px;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 10px;
-      margin-top: 16px;
     }
 
-    .primary-btn,
-    .secondary-btn,
-    .ghost-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 13px 18px;
-      font-weight: 900;
-      cursor: pointer;
+    .trust-item {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 13px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .trust-item strong {
+      color: var(--navy);
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--line);
+      padding: 8px 8px 10px;
+    }
+
+    .bottom-nav-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .bottom-nav a {
+      text-align: center;
       text-decoration: none;
-      font-size: 0.96rem;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 0.75rem;
+      border-radius: 16px;
+      padding: 8px 4px;
     }
 
-    .primary-btn {
-      background: var(--navy);
-      color: var(--white);
+    .bottom-nav span {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 2px;
     }
 
-    .secondary-btn {
-      background: var(--teal);
-      color: var(--white);
-    }
-
-    .ghost-btn {
+    .bottom-nav a.active {
       background: var(--soft);
       color: var(--navy);
     }
 
-    .location-box {
-      background: #fffaf0;
-      border-left: 5px solid var(--gold);
-      border-radius: 18px;
-      padding: 16px 18px;
-      margin-top: 16px;
+    .profile-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(23, 63, 68, 0.35);
+      padding: 18px;
+      align-items: end;
     }
 
-    .location-box p {
-      margin: 0;
-      color: #5a4b2d;
-      line-height: 1.55;
+    .profile-drawer.open {
+      display: flex;
     }
 
-    .notice {
-      background: #fff6f3;
-      border-left: 5px solid var(--danger);
+    .drawer-card {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px 28px 18px 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .drawer-card h2 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .drawer-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 92px;
+      transform: translateX(-50%);
+      max-width: 520px;
+      width: calc(100% - 32px);
+      background: var(--navy);
+      color: white;
       border-radius: 18px;
-      padding: 15px 18px;
-      margin-top: 16px;
-      font-size: 0.92rem;
-      color: #6b3b33;
-      line-height: 1.55;
+      padding: 13px 15px;
+      box-shadow: var(--shadow);
+      z-index: 300;
+      display: none;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .toast.show {
+      display: block;
     }
 
     footer {
+      padding: 30px 16px;
       text-align: center;
-      padding: 30px 18px 42px;
       color: var(--muted);
+      font-size: 0.88rem;
     }
 
     footer a {
       color: var(--navy);
-      font-weight: 800;
+      font-weight: 900;
       text-decoration: none;
     }
 
-    @media (max-width: 850px) {
-      .hero,
-      .quick-grid,
-      .media-grid,
-      .form-grid {
-        grid-template-columns: 1fr;
+    @media (min-width: 700px) {
+      body {
+        padding: 24px 0 100px;
       }
 
-      .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .top-actions {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
-
-      .app-section {
-        padding: 22px;
-      }
-
-      .section-head {
-        flex-direction: column;
+      .app-shell {
+        border-radius: 34px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(23, 63, 68, 0.17);
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="topbar">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">RDB</span>
-        <span>RDB Local Rentals</span>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="header-row">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">RDB</span>
+          <span class="brand-text">
+            <strong>Local Rentals</strong>
+            <span>Tools • Signs • Property Help</span>
+          </span>
+        </a>
+
+        <button class="mini-button" onclick="openProfile()">Profile</button>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <p class="eyebrow">Fast local property help</p>
+      <h1>What do you need today?</h1>
+      <p class="hero-subtitle">
+        Request a tool rental, custom sign, or property service in under a minute.
+        Built for Delaware homeowners, landlords, and property managers on the go.
+      </p>
+
+      <div class="location-chip">
+        <p id="locationText"><strong>Location:</strong> Not added yet. Add it once and include it in your inquiry.</p>
+        <button class="primary-action" onclick="getUserLocation()">Find Me</button>
+      </div>
+    </section>
+
+    <section class="quick-actions">
+      <a class="action-card" href="#request" onclick="setRequestType('rental')">
+        <div class="icon-badge">🛠</div>
+        <div>
+          <h2>Rent Equipment</h2>
+          <p>Leaf blower, mobility scooter, beach gear, and future short-term rentals.</p>
+        </div>
       </a>
 
-      <div class="top-actions">
-        <a class="pill-link" href="#rentals">Rentals</a>
-        <a class="pill-link" href="#signs">Custom Signs</a>
-        <a class="pill-link" href="#services">Property Services</a>
-        <button class="small-button" onclick="saveUserProfile()">Save Profile</button>
-      </div>
-    </div>
-  </header>
+      <a class="action-card" href="#request" onclick="setRequestType('sign')">
+        <div class="icon-badge">🏠</div>
+        <div>
+          <h2>Build a Custom Sign</h2>
+          <p>Beach house signs, address signs, property labels, and 3D printed items.</p>
+        </div>
+      </a>
 
-  <section class="hero">
-    <div>
-      <p class="eyebrow">Tools • Custom Signs • Property Services</p>
-      <h1>Local help for Delaware property owners.</h1>
-      <p>
-        RDB Local Rentals helps homeowners, landlords, beach-house owners, and property managers
-        request short-term equipment rentals, custom property signs, and practical local services.
-      </p>
+      <a class="action-card" href="#request" onclick="setRequestType('service')">
+        <div class="icon-badge">📍</div>
+        <div>
+          <h2>Request Property Help</h2>
+          <p>Cleanup, turnover support, staging, content, and local property-owner services.</p>
+        </div>
+      </a>
+    </section>
+
+    <section class="section" id="rentals">
+      <div class="section-title">
+        <h2>Available Rentals</h2>
+        <a href="#request" onclick="setRequestType('rental')">Request one</a>
+      </div>
+
+      <div class="card">
+        <div class="media-placeholder">Leaf blower photo/video coming soon</div>
+        <div class="card-body">
+          <h3>Gas-Powered Leaf Blower</h3>
+          <p>For yard cleanup, driveways, patios, sidewalks, and rental property maintenance.</p>
+          <div class="rate-row">
+            <span class="rate-pill">$25 / 4 hrs</span>
+            <span class="rate-pill">$35 / day</span>
+            <span class="rate-pill">$60 / weekend</span>
+            <span class="rate-pill">$110 / week</span>
+          </div>
+          <div class="button-row">
+            <a class="button dark" href="#request" onclick="setRentalItem('leafBlower')">Request Leaf Blower</a>
+            <button class="button light" onclick="quickRental('leafBlower','today')">Need it today</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="media-placeholder">Mobility scooter photo/video coming soon</div>
+        <div class="card-body">
+          <h3>Mobility Scooter</h3>
+          <p>For temporary local mobility needs, guest use, errands, events, and property access.</p>
+          <div class="rate-row">
+            <span class="rate-pill">$40 / day</span>
+            <span class="rate-pill">$75 / weekend</span>
+            <span class="rate-pill">$150 / week</span>
+          </div>
+          <div class="button-row">
+            <a class="button dark" href="#request" onclick="setRentalItem('mobilityScooter')">Request Scooter</a>
+            <button class="button light" onclick="quickRental('mobilityScooter','weekend')">This weekend</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="request-panel" id="request">
+      <h2>Fast Request</h2>
+      <p>Pick what you need, add timing, and send a detailed inquiry to Rent Delaware Beaches, LLC.</p>
+
+      <div class="segmented">
+        <button id="tabRental" class="active" onclick="setRequestType('rental')" type="button">Rental</button>
+        <button id="tabSign" onclick="setRequestType('sign')" type="button">Sign</button>
+        <button id="tabService" onclick="setRequestType('service')" type="button">Service</button>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="requestName">Name</label>
+          <input id="requestName" type="text" placeholder="Your name">
+        </div>
+
+        <div>
+          <label for="requestEmail">Email</label>
+          <input id="requestEmail" type="email" placeholder="you@example.com">
+        </div>
+
+        <div>
+          <label for="requestPhone">Phone</label>
+          <input id="requestPhone" type="tel" placeholder="Optional but helpful">
+        </div>
+
+        <div id="rentalFields">
+          <label for="rentalItem">Rental Item</label>
+          <select id="rentalItem" onchange="calculateEstimate()">
+            <option value="leafBlower">Gas-Powered Leaf Blower</option>
+            <option value="mobilityScooter">Mobility Scooter</option>
+            <option value="beachGear">Beach Gear Bundle</option>
+          </select>
+        </div>
+
+        <div id="signFields" style="display:none;">
+          <label for="signType">Custom Item</label>
+          <select id="signType">
+            <option>Beach house sign</option>
+            <option>Address sign</option>
+            <option>Rental property sign</option>
+            <option>3D printed cup holder</option>
+            <option>Property label / marker</option>
+            <option>Other custom item</option>
+          </select>
+        </div>
+
+        <div id="serviceFields" style="display:none;">
+          <label for="serviceType">Service Needed</label>
+          <select id="serviceType">
+            <option>Seasonal cleanup</option>
+            <option>Rental turnover help</option>
+            <option>Small property maintenance request</option>
+            <option>Decor / staging help</option>
+            <option>Photography / listing content</option>
+            <option>Custom sign installation inquiry</option>
+            <option>Other property-owner service</option>
+          </select>
+        </div>
+
+        <div class="two-col" id="dateFields">
+          <div>
+            <label for="startDate">Start</label>
+            <input id="startDate" type="datetime-local" onchange="calculateEstimate()">
+          </div>
+
+          <div>
+            <label for="endDate">End</label>
+            <input id="endDate" type="datetime-local" onchange="calculateEstimate()">
+          </div>
+        </div>
+
+        <div>
+          <label for="propertyArea">Property Area</label>
+          <input id="propertyArea" type="text" placeholder="Wilmington, Newark, Rehoboth, etc.">
+        </div>
+
+        <div>
+          <label for="timeline">Timeline</label>
+          <select id="timeline">
+            <option>Today</option>
+            <option>This weekend</option>
+            <option>This week</option>
+            <option>This month</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="requestNotes">Details</label>
+          <textarea id="requestNotes" rows="5" placeholder="Tell RDB what you need, timing, property details, sign text, project notes, or questions."></textarea>
+        </div>
+      </div>
+
+      <div class="estimate-card" id="estimateBox">
+        <span>Estimated rental price</span>
+        <strong id="estimatePrice">$0.00</strong>
+        <p id="estimateDetails">Choose rental start and end times to calculate an estimate.</p>
+      </div>
 
       <div class="button-row">
-        <a class="primary-btn" href="#rentals">Request a Rental</a>
-        <a class="secondary-btn" href="#signs">Build a Custom Sign</a>
-        <a class="ghost-btn" href="#services">Request Property Help</a>
+        <button class="button dark" onclick="sendInquiry()" type="button">Send Inquiry</button>
+        <button class="button teal" onclick="saveProfile()" type="button">Save Info</button>
+        <button class="button light" onclick="callRDB()" type="button">Call / Email</button>
       </div>
-    </div>
+    </section>
 
-    <div class="hero-card">
-      <h2 style="margin-top:0;color:var(--navy);">Your RDB Profile</h2>
-      <p style="color:var(--muted);line-height:1.6;">
-        Save your basic info on this device so forms fill faster. This is a local prototype profile,
-        not a secure account system yet.
+    <section class="section" id="signs">
+      <div class="section-title">
+        <h2>Custom Signs</h2>
+        <a href="#request" onclick="setRequestType('sign')">Start build</a>
+      </div>
+
+      <div class="card">
+        <div class="media-placeholder">Custom sign and 3D print examples coming soon</div>
+        <div class="card-body">
+          <h3>Property Signs & Printed Items</h3>
+          <p>Request address signs, beach-house signs, rental property labels, cup holders, and practical 3D printed accessories.</p>
+          <div class="button-row">
+            <a class="button dark" href="#request" onclick="setRequestType('sign')">Build a Sign</a>
+            <button class="button light" onclick="setSignTemplate()">Use sign template</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-title">
+        <h2>Property Services</h2>
+        <a href="#request" onclick="setRequestType('service')">Request help</a>
+      </div>
+
+      <div class="card">
+        <div class="media-placeholder">Before/after property photos and videos coming soon</div>
+        <div class="card-body">
+          <h3>Owner & Manager Help</h3>
+          <p>Request local help for cleanup, turnover prep, light maintenance inquiries, staging, photos, signs, and property-owner needs.</p>
+          <div class="button-row">
+            <a class="button dark" href="#request" onclick="setRequestType('service')">Request Service</a>
+            <button class="button light" onclick="setServiceTemplate()">Use property template</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="trust-item"><strong>Local-first:</strong> Built for Delaware homeowners, landlords, beach-house owners, and property managers.</div>
+      <div class="trust-item"><strong>Fast inquiries:</strong> No giant contact form. Pick what you need and send a complete request from your phone.</div>
+      <div class="trust-item"><strong>Real media coming next:</strong> Photos and videos will be added for each rental, sign, and service category.</div>
+    </section>
+
+    <footer>
+      <p>
+        © 2026 Rent Delaware Beaches, LLC<br>
+        <a href="index.html">Home</a> •
+        <a href="contact.html">Contact</a> •
+        <a href="mailto:michael@rentdelawarebeaches.com">Email RDB</a>
       </p>
+    </footer>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a class="active" href="#home"><span>🏠</span>Home</a>
+      <a href="#rentals"><span>🛠</span>Rentals</a>
+      <a href="#request"><span>⚡</span>Request</a>
+      <a href="#services"><span>📍</span>Services</a>
+    </div>
+  </nav>
+
+  <div class="profile-drawer" id="profileDrawer">
+    <div class="drawer-card">
+      <h2>Your Quick Profile</h2>
+      <p>Save your info on this device so future requests are faster. This is not a secure login system yet.</p>
 
       <div class="form-grid">
         <div>
@@ -470,7 +896,7 @@
         </div>
 
         <div>
-          <label for="profileType">I am a...</label>
+          <label for="profileType">User Type</label>
           <select id="profileType">
             <option>Homeowner</option>
             <option>Landlord</option>
@@ -481,275 +907,17 @@
         </div>
       </div>
 
-      <div class="status-card">
-        <p id="profileStatus">Profile not saved yet.</p>
+      <div class="button-row">
+        <button class="button dark" onclick="saveProfile()" type="button">Save Profile</button>
+        <button class="button light" onclick="closeProfile()" type="button">Close</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="quick-grid">
-    <a class="quick-card" href="#rentals">
-      <h3>Equipment Rentals</h3>
-      <p>Leaf blower, mobility scooter, beach gear, and future tool rentals.</p>
-    </a>
-
-    <a class="quick-card" href="#signs">
-      <h3>Custom Signs</h3>
-      <p>Request beach-house signs, address signs, property signs, and 3D printed items.</p>
-    </a>
-
-    <a class="quick-card" href="#services">
-      <h3>Property Services</h3>
-      <p>Request help for local property maintenance, staging, cleanup, and owner services.</p>
-    </a>
-  </section>
-
-  <main>
-    <section id="location" class="app-section">
-      <div class="section-head">
-        <div>
-          <h2>Find Me</h2>
-          <p>
-            Use your current location to help RDB understand where the rental, sign, or property service is needed.
-          </p>
-        </div>
-        <button class="secondary-btn" onclick="getUserLocation()">Use My Current Location</button>
-      </div>
-
-      <div class="location-box">
-        <p id="locationOutput">
-          Location not added yet. Tap “Use My Current Location” to include GPS coordinates in your inquiry.
-        </p>
-      </div>
-
-      <div class="notice">
-        Location is only added when you tap the button and approve browser/device permission.
-        Do not use this for emergencies or urgent service requests.
-      </div>
-    </section>
-
-    <section id="rentals" class="app-section">
-      <div class="section-head">
-        <div>
-          <h2>Equipment Rentals</h2>
-          <p>
-            Request short-term local equipment rentals for yard cleanup, property maintenance,
-            mobility needs, and practical homeowner projects.
-          </p>
-        </div>
-      </div>
-
-      <div class="media-grid">
-        <div class="media-box">Real leaf blower photo/video goes here</div>
-        <div class="media-box">Mobility scooter or future equipment media goes here</div>
-      </div>
-
-      <form id="rentalForm">
-        <div class="form-grid">
-          <div>
-            <label for="rentalItem">Rental Item</label>
-            <select id="rentalItem" onchange="calculateRentalEstimate()">
-              <option value="leafBlower">Gas-Powered Leaf Blower</option>
-              <option value="mobilityScooter">Mobility Scooter</option>
-              <option value="beachGear">Beach Gear Bundle</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="rentalUse">Project Type</label>
-            <select id="rentalUse">
-              <option>Yard cleanup</option>
-              <option>Driveway / patio cleanup</option>
-              <option>Rental property maintenance</option>
-              <option>Temporary mobility need</option>
-              <option>Beach trip / guest use</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="rentalStart">Pickup Date & Time</label>
-            <input id="rentalStart" type="datetime-local" onchange="calculateRentalEstimate()">
-          </div>
-
-          <div>
-            <label for="rentalEnd">Return Date & Time</label>
-            <input id="rentalEnd" type="datetime-local" onchange="calculateRentalEstimate()">
-          </div>
-
-          <div class="full">
-            <label for="rentalNotes">Rental Notes</label>
-            <textarea id="rentalNotes" rows="4" placeholder="Tell RDB what you need, timing, project details, and any questions."></textarea>
-          </div>
-        </div>
-
-        <div class="estimate-box">
-          Estimated Rental Price
-          <strong id="rentalEstimate">$0.00</strong>
-          <span id="rentalEstimateDetails">Choose rental dates to calculate an estimate.</span>
-        </div>
-
-        <div class="button-row">
-          <button class="primary-btn" type="button" onclick="sendInquiry('rental')">Email Rental Inquiry</button>
-          <button class="ghost-btn" type="button" onclick="fillProfileIntoForms()">Use Saved Profile</button>
-        </div>
-      </form>
-    </section>
-
-    <section id="signs" class="app-section">
-      <div class="section-head">
-        <div>
-          <h2>Custom Signs & 3D Printed Items</h2>
-          <p>
-            Request custom beach-house signs, property signs, address signs, rental labels,
-            3D printed cup holders, and small practical property accessories.
-          </p>
-        </div>
-      </div>
-
-      <div class="media-grid">
-        <div class="media-box">Custom sign example photo goes here</div>
-        <div class="media-box">3D printed product demo video goes here</div>
-      </div>
-
-      <form id="signForm">
-        <div class="form-grid">
-          <div>
-            <label for="signType">Product Type</label>
-            <select id="signType">
-              <option>Beach house sign</option>
-              <option>Address sign</option>
-              <option>Rental property sign</option>
-              <option>3D printed cup holder</option>
-              <option>Property label / marker</option>
-              <option>Other custom item</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="signBudget">Budget Range</label>
-            <select id="signBudget">
-              <option>Under $50</option>
-              <option>$50 - $100</option>
-              <option>$100 - $250</option>
-              <option>$250+</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="signText">Text on Sign / Item</label>
-            <input id="signText" type="text" placeholder="Example: The Schwander Beach House">
-          </div>
-
-          <div>
-            <label for="signDeadline">Desired Deadline</label>
-            <input id="signDeadline" type="date">
-          </div>
-
-          <div class="full">
-            <label for="signNotes">Design Notes</label>
-            <textarea id="signNotes" rows="5" placeholder="Describe size, colors, style, property use, beach theme, or inspiration. You can email photos after submitting."></textarea>
-          </div>
-        </div>
-
-        <div class="button-row">
-          <button class="primary-btn" type="button" onclick="sendInquiry('sign')">Email Custom Sign Inquiry</button>
-          <button class="ghost-btn" type="button" onclick="fillProfileIntoForms()">Use Saved Profile</button>
-        </div>
-      </form>
-    </section>
-
-    <section id="services" class="app-section">
-      <div class="section-head">
-        <div>
-          <h2>Property Owner & Manager Services</h2>
-          <p>
-            Request local help for rental turnover, seasonal cleanup, staging, small property tasks,
-            content/photos, decor support, and property-owner visibility.
-          </p>
-        </div>
-      </div>
-
-      <div class="media-grid">
-        <div class="media-box">Before/after property service photos go here</div>
-        <div class="media-box">Local service walkthrough video goes here</div>
-      </div>
-
-      <form id="serviceForm">
-        <div class="form-grid">
-          <div>
-            <label for="serviceType">Service Needed</label>
-            <select id="serviceType">
-              <option>Seasonal cleanup</option>
-              <option>Rental turnover help</option>
-              <option>Small property maintenance request</option>
-              <option>Decor / staging help</option>
-              <option>Photography / listing content</option>
-              <option>Custom sign installation inquiry</option>
-              <option>Other property-owner service</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="serviceTimeline">Timeline</label>
-            <select id="serviceTimeline">
-              <option>As soon as available</option>
-              <option>This week</option>
-              <option>This month</option>
-              <option>Before guest arrival</option>
-              <option>Flexible</option>
-            </select>
-          </div>
-
-          <div class="full">
-            <label for="propertyAddress">Property Location / Area</label>
-            <input id="propertyAddress" type="text" placeholder="Example: Wilmington, Newark, Rehoboth, Dewey, Bethany, etc.">
-          </div>
-
-          <div class="full">
-            <label for="serviceNotes">Service Notes</label>
-            <textarea id="serviceNotes" rows="5" placeholder="Describe the property, what needs to be done, access details, timing, and any questions."></textarea>
-          </div>
-        </div>
-
-        <div class="button-row">
-          <button class="primary-btn" type="button" onclick="sendInquiry('service')">Email Property Service Inquiry</button>
-          <button class="ghost-btn" type="button" onclick="fillProfileIntoForms()">Use Saved Profile</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="app-section">
-      <div class="section-head">
-        <div>
-          <h2>App Status</h2>
-          <p>
-            This is the first working web-app version of RDB Local Rentals. It is functional now
-            for inquiries and can later be upgraded with secure login, a real database, uploaded photos/videos,
-            payment processing, booking calendars, and Google Play packaging.
-          </p>
-        </div>
-      </div>
-
-      <div class="notice">
-        Current version uses email inquiries and local device profile saving. Do not treat this as a secure
-        account system yet. The next serious backend upgrade should use Firebase Authentication, Firestore,
-        Firebase Storage, and server-side email notifications.
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>
-      © 2026 Rent Delaware Beaches, LLC |
-      <a href="index.html">Home</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="mailto:michael@rentdelawarebeaches.com">michael@rentdelawarebeaches.com</a>
-    </p>
-  </footer>
+  <div class="toast" id="toast"></div>
 
   <script>
+    let requestType = "rental";
     let savedLocationText = "No GPS location provided.";
 
     const rentalRates = {
@@ -776,51 +944,153 @@
       }
     };
 
-    function saveUserProfile() {
-      const profile = {
-        name: document.getElementById("profileName").value,
-        email: document.getElementById("profileEmail").value,
-        phone: document.getElementById("profilePhone").value,
-        type: document.getElementById("profileType").value
-      };
-
-      localStorage.setItem("rdbUserProfile", JSON.stringify(profile));
-      document.getElementById("profileStatus").textContent = "Profile saved on this device for faster inquiries.";
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(function () {
+        toast.classList.remove("show");
+      }, 3200);
     }
 
-    function loadUserProfile() {
-      const saved = localStorage.getItem("rdbUserProfile");
+    function openProfile() {
+      document.getElementById("profileDrawer").classList.add("open");
+    }
+
+    function closeProfile() {
+      document.getElementById("profileDrawer").classList.remove("open");
+    }
+
+    function saveProfile() {
+      const profile = {
+        name: document.getElementById("profileName").value || document.getElementById("requestName").value,
+        email: document.getElementById("profileEmail").value || document.getElementById("requestEmail").value,
+        phone: document.getElementById("profilePhone").value || document.getElementById("requestPhone").value,
+        type: document.getElementById("profileType").value || "Homeowner"
+      };
+
+      localStorage.setItem("rdbQuickProfile", JSON.stringify(profile));
+      loadProfile();
+      closeProfile();
+      showToast("Profile saved on this device.");
+    }
+
+    function loadProfile() {
+      const saved = localStorage.getItem("rdbQuickProfile");
       if (!saved) return;
 
       const profile = JSON.parse(saved);
+
       document.getElementById("profileName").value = profile.name || "";
       document.getElementById("profileEmail").value = profile.email || "";
       document.getElementById("profilePhone").value = profile.phone || "";
       document.getElementById("profileType").value = profile.type || "Homeowner";
-      document.getElementById("profileStatus").textContent = "Saved profile loaded from this device.";
+
+      document.getElementById("requestName").value = profile.name || "";
+      document.getElementById("requestEmail").value = profile.email || "";
+      document.getElementById("requestPhone").value = profile.phone || "";
     }
 
-    function fillProfileIntoForms() {
-      const saved = localStorage.getItem("rdbUserProfile");
-      if (!saved) {
-        alert("No saved profile yet. Add your profile at the top and tap Save Profile.");
-        return;
+    function setRequestType(type) {
+      requestType = type;
+
+      document.getElementById("tabRental").classList.toggle("active", type === "rental");
+      document.getElementById("tabSign").classList.toggle("active", type === "sign");
+      document.getElementById("tabService").classList.toggle("active", type === "service");
+
+      document.getElementById("rentalFields").style.display = type === "rental" ? "block" : "none";
+      document.getElementById("signFields").style.display = type === "sign" ? "block" : "none";
+      document.getElementById("serviceFields").style.display = type === "service" ? "block" : "none";
+      document.getElementById("dateFields").style.display = type === "rental" ? "grid" : "none";
+      document.getElementById("estimateBox").style.display = type === "rental" ? "block" : "none";
+
+      if (type === "rental") {
+        document.getElementById("requestNotes").placeholder = "Tell RDB what you need the rental for, pickup timing, return timing, and any questions.";
       }
 
-      const profile = JSON.parse(saved);
-      alert("Saved profile ready: " + (profile.name || "User") + ". Your inquiry email will include this profile.");
+      if (type === "sign") {
+        document.getElementById("requestNotes").placeholder = "Describe the sign text, size, color, beach/property style, deadline, and budget.";
+      }
+
+      if (type === "service") {
+        document.getElementById("requestNotes").placeholder = "Describe the property, what needs to be done, access details, and timeline.";
+      }
+    }
+
+    function setRentalItem(itemKey) {
+      setRequestType("rental");
+      document.getElementById("rentalItem").value = itemKey;
+      calculateEstimate();
+    }
+
+    function quickRental(itemKey, timing) {
+      setRentalItem(itemKey);
+
+      const now = new Date();
+      let start = new Date(now);
+      let end = new Date(now);
+
+      if (timing === "today") {
+        start.setHours(now.getHours() + 2, 0, 0, 0);
+        end.setHours(start.getHours() + 4, 0, 0, 0);
+        document.getElementById("timeline").value = "Today";
+      }
+
+      if (timing === "weekend") {
+        const day = now.getDay();
+        const daysUntilSaturday = (6 - day + 7) % 7 || 7;
+        start.setDate(now.getDate() + daysUntilSaturday);
+        start.setHours(9, 0, 0, 0);
+        end = new Date(start);
+        end.setDate(start.getDate() + 2);
+        end.setHours(18, 0, 0, 0);
+        document.getElementById("timeline").value = "This weekend";
+      }
+
+      document.getElementById("startDate").value = toDateTimeLocal(start);
+      document.getElementById("endDate").value = toDateTimeLocal(end);
+      calculateEstimate();
+      showToast("Timing filled. Review and send your request.");
+    }
+
+    function toDateTimeLocal(date) {
+      const pad = function (number) {
+        return String(number).padStart(2, "0");
+      };
+
+      return (
+        date.getFullYear() + "-" +
+        pad(date.getMonth() + 1) + "-" +
+        pad(date.getDate()) + "T" +
+        pad(date.getHours()) + ":" +
+        pad(date.getMinutes())
+      );
+    }
+
+    function setSignTemplate() {
+      setRequestType("sign");
+      document.getElementById("requestNotes").value =
+        "I would like a custom sign. Text to include: ____. Style: coastal / clean / professional. Approximate size: ____. Budget: ____. Desired deadline: ____.";
+      showToast("Custom sign template added.");
+    }
+
+    function setServiceTemplate() {
+      setRequestType("service");
+      document.getElementById("requestNotes").value =
+        "I need help with a property. Property area: ____. Service needed: ____. Timeline: ____. Access details: ____. Photos/videos can be sent by email if needed.";
+      showToast("Property service template added.");
     }
 
     function getUserLocation() {
-      const output = document.getElementById("locationOutput");
+      const locationText = document.getElementById("locationText");
 
       if (!navigator.geolocation) {
-        output.textContent = "GPS is not supported by this browser/device.";
-        savedLocationText = "GPS not supported.";
+        savedLocationText = "GPS not supported by this device/browser.";
+        locationText.innerHTML = "<strong>Location:</strong> GPS not supported.";
         return;
       }
 
-      output.textContent = "Requesting location permission...";
+      locationText.innerHTML = "<strong>Location:</strong> Requesting permission...";
 
       navigator.geolocation.getCurrentPosition(
         function(position) {
@@ -829,25 +1099,26 @@
           const accuracy = Math.round(position.coords.accuracy);
 
           savedLocationText = "Latitude: " + lat + ", Longitude: " + lng + ", Accuracy: approx. " + accuracy + " meters";
-          output.textContent = savedLocationText;
+          locationText.innerHTML = "<strong>Location added:</strong> " + lat + ", " + lng + " • approx. " + accuracy + "m accuracy";
+          showToast("Location added to future inquiries.");
         },
-        function(error) {
-          output.textContent = "Location was not added. Permission may have been denied or unavailable.";
+        function() {
           savedLocationText = "Location permission denied or unavailable.";
+          locationText.innerHTML = "<strong>Location:</strong> Permission denied or unavailable.";
         }
       );
     }
 
-    function calculateRentalEstimate() {
+    function calculateEstimate() {
       const itemKey = document.getElementById("rentalItem").value;
-      const startValue = document.getElementById("rentalStart").value;
-      const endValue = document.getElementById("rentalEnd").value;
-      const estimateEl = document.getElementById("rentalEstimate");
-      const detailsEl = document.getElementById("rentalEstimateDetails");
+      const startValue = document.getElementById("startDate").value;
+      const endValue = document.getElementById("endDate").value;
+      const estimatePrice = document.getElementById("estimatePrice");
+      const estimateDetails = document.getElementById("estimateDetails");
 
       if (!itemKey || !startValue || !endValue || !rentalRates[itemKey]) {
-        estimateEl.textContent = "$0.00";
-        detailsEl.textContent = "Choose rental dates to calculate an estimate.";
+        estimatePrice.textContent = "$0.00";
+        estimateDetails.textContent = "Choose rental start and end times to calculate an estimate.";
         return;
       }
 
@@ -855,8 +1126,8 @@
       const end = new Date(endValue);
 
       if (end <= start) {
-        estimateEl.textContent = "$0.00";
-        detailsEl.textContent = "Return time must be after pickup time.";
+        estimatePrice.textContent = "$0.00";
+        estimateDetails.textContent = "Return time must be after pickup time.";
         return;
       }
 
@@ -884,79 +1155,73 @@
         label = weeks + " week estimate";
       }
 
-      estimateEl.textContent = "$" + price.toFixed(2);
-      detailsEl.textContent = rates.name + " • " + hours + " estimated rental hours • " + label;
+      estimatePrice.textContent = "$" + price.toFixed(2);
+      estimateDetails.textContent = rates.name + " • " + hours + " estimated rental hours • " + label;
     }
 
     function getProfileSummary() {
-      const saved = localStorage.getItem("rdbUserProfile");
-      if (!saved) {
-        return "No saved profile provided.";
-      }
-
-      const profile = JSON.parse(saved);
       return (
-        "Name: " + (profile.name || "") + "\n" +
-        "Email: " + (profile.email || "") + "\n" +
-        "Phone: " + (profile.phone || "") + "\n" +
-        "User Type: " + (profile.type || "")
+        "Name: " + document.getElementById("requestName").value + "\n" +
+        "Email: " + document.getElementById("requestEmail").value + "\n" +
+        "Phone: " + document.getElementById("requestPhone").value + "\n" +
+        "Property Area: " + document.getElementById("propertyArea").value + "\n" +
+        "Timeline: " + document.getElementById("timeline").value
       );
     }
 
-    function sendInquiry(type) {
+    function sendInquiry() {
+      const name = document.getElementById("requestName").value;
+      const email = document.getElementById("requestEmail").value;
+
+      if (!name || !email) {
+        showToast("Please add your name and email first.");
+        return;
+      }
+
       let subject = "";
       let body = "";
 
-      const profileSummary = getProfileSummary();
-
-      if (type === "rental") {
-        calculateRentalEstimate();
+      if (requestType === "rental") {
+        calculateEstimate();
 
         const itemKey = document.getElementById("rentalItem").value;
         const rates = rentalRates[itemKey];
-        const estimate = document.getElementById("rentalEstimate").textContent;
-        const details = document.getElementById("rentalEstimateDetails").textContent;
 
-        subject = "RDB App Rental Inquiry - " + rates.name;
+        subject = "RDB Mobile Rental Inquiry - " + rates.name;
         body =
-          "New RDB Local Rentals inquiry\n\n" +
+          "New mobile inquiry from RDB Local Rentals\n\n" +
           "Inquiry Type: Equipment Rental\n" +
           "Rental Item: " + rates.name + "\n" +
-          "Project Type: " + document.getElementById("rentalUse").value + "\n" +
-          "Pickup: " + document.getElementById("rentalStart").value + "\n" +
-          "Return: " + document.getElementById("rentalEnd").value + "\n" +
-          "Estimated Price: " + estimate + "\n" +
-          "Estimate Details: " + details + "\n\n" +
-          "Notes:\n" + document.getElementById("rentalNotes").value + "\n\n";
+          "Start: " + document.getElementById("startDate").value + "\n" +
+          "End: " + document.getElementById("endDate").value + "\n" +
+          "Estimated Price: " + document.getElementById("estimatePrice").textContent + "\n" +
+          "Estimate Details: " + document.getElementById("estimateDetails").textContent + "\n\n";
       }
 
-      if (type === "sign") {
-        subject = "RDB App Custom Sign Inquiry";
+      if (requestType === "sign") {
+        subject = "RDB Mobile Custom Sign Inquiry";
         body =
-          "New RDB Local Rentals inquiry\n\n" +
+          "New mobile inquiry from RDB Local Rentals\n\n" +
           "Inquiry Type: Custom Sign / 3D Printed Item\n" +
-          "Product Type: " + document.getElementById("signType").value + "\n" +
-          "Budget Range: " + document.getElementById("signBudget").value + "\n" +
-          "Text on Sign / Item: " + document.getElementById("signText").value + "\n" +
-          "Desired Deadline: " + document.getElementById("signDeadline").value + "\n\n" +
-          "Design Notes:\n" + document.getElementById("signNotes").value + "\n\n";
+          "Custom Item: " + document.getElementById("signType").value + "\n\n";
       }
 
-      if (type === "service") {
-        subject = "RDB App Property Service Inquiry";
+      if (requestType === "service") {
+        subject = "RDB Mobile Property Service Inquiry";
         body =
-          "New RDB Local Rentals inquiry\n\n" +
+          "New mobile inquiry from RDB Local Rentals\n\n" +
           "Inquiry Type: Property Owner / Manager Service\n" +
-          "Service Needed: " + document.getElementById("serviceType").value + "\n" +
-          "Timeline: " + document.getElementById("serviceTimeline").value + "\n" +
-          "Property Location / Area: " + document.getElementById("propertyAddress").value + "\n\n" +
-          "Service Notes:\n" + document.getElementById("serviceNotes").value + "\n\n";
+          "Service Needed: " + document.getElementById("serviceType").value + "\n\n";
       }
 
       body +=
-        "Saved User Profile:\n" + profileSummary + "\n\n" +
-        "GPS / Find Me Info:\n" + savedLocationText + "\n\n" +
-        "Source: RDB Local Rentals app page on rentdelawarebeaches.com";
+        "Contact / Property Info:\n" +
+        getProfileSummary() + "\n\n" +
+        "Request Notes:\n" +
+        document.getElementById("requestNotes").value + "\n\n" +
+        "GPS / Find Me Info:\n" +
+        savedLocationText + "\n\n" +
+        "Source: Mobile RDB Local Rentals app page on rentdelawarebeaches.com";
 
       window.location.href =
         "mailto:michael@rentdelawarebeaches.com?subject=" +
@@ -965,9 +1230,14 @@
         encodeURIComponent(body);
     }
 
+    function callRDB() {
+      window.location.href = "mailto:michael@rentdelawarebeaches.com?subject=RDB Local Rentals Question";
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
-      loadUserProfile();
-      calculateRentalEstimate();
+      loadProfile();
+      setRequestType("rental");
+      calculateEstimate();
     });
   </script>
 </body>
