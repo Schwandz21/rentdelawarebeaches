@@ -1108,6 +1108,218 @@
     </div>
   </div>
 </section>
+  </section>
+
+```html
+<section id="local-tool-rentals" class="rdb-tool-rentals">
+  <div class="rdb-rental-wrap">
+    <p class="rdb-eyebrow">Local Tool & Equipment Rentals</p>
+
+    <h2>Rent Tools & Equipment in the Wilmington, Delaware Area</h2>
+
+    <p class="rdb-rental-intro">
+      Rent Delaware Beaches, LLC is building a local rental inventory for homeowners,
+      landlords, and property managers who need reliable equipment for short-term projects
+      without buying tools they may only use once or twice.
+    </p>
+
+    <div class="rdb-rental-layout">
+      <div class="rdb-rental-card">
+        <div class="rdb-rental-photo">
+          <span>Leaf Blower Photo Coming Soon</span>
+        </div>
+
+        <div class="rdb-rental-card-body">
+          <h3>Gas-Powered Leaf Blower</h3>
+          <p>
+            Great for seasonal leaf cleanup, driveways, sidewalks, patios, decks,
+            rental property maintenance, and weekend yard projects.
+          </p>
+
+          <ul>
+            <li>Local Wilmington-area pickup by appointment</li>
+            <li>Short-term rental options available</li>
+            <li>Ideal for homeowners, landlords, and property managers</li>
+            <li>Written rental terms and safe-use requirements apply</li>
+          </ul>
+
+          <p class="rdb-price-highlight">Starting at $25 for 4 hours / $35 per day</p>
+        </div>
+      </div>
+
+      <div class="rdb-rental-form-box">
+        <h3>Get an Instant Rental Estimate</h3>
+        <p>
+          Select an item and rental window below. The estimate updates instantly.
+          You can then send the inquiry directly to Rent Delaware Beaches, LLC.
+        </p>
+
+        <form id="rdbRentalForm">
+          <label for="equipmentSelect">Equipment</label>
+          <select id="equipmentSelect" required>
+            <option value="leafBlower">Gas-Powered Leaf Blower</option>
+            <option value="mobilityScooter">Mobility Scooter</option>
+            <option value="comingSoon" disabled>More equipment coming soon</option>
+          </select>
+
+          <label for="renterName">Your Name</label>
+          <input id="renterName" type="text" placeholder="Your name" required>
+
+          <label for="renterEmail">Your Email</label>
+          <input id="renterEmail" type="email" placeholder="you@example.com" required>
+
+          <label for="renterPhone">Phone Number</label>
+          <input id="renterPhone" type="tel" placeholder="Optional but recommended">
+
+          <label for="startDateTime">Requested Pickup Date & Time</label>
+          <input id="startDateTime" type="datetime-local" required>
+
+          <label for="endDateTime">Requested Return Date & Time</label>
+          <input id="endDateTime" type="datetime-local" required>
+
+          <label for="rentalNotes">Project Notes</label>
+          <textarea id="rentalNotes" rows="4" placeholder="Tell us what you need it for, pickup timing, or any questions."></textarea>
+
+          <div class="rdb-estimate-box">
+            <p class="rdb-estimate-label">Estimated Rental Price</p>
+            <p id="rentalEstimate" class="rdb-estimate-price">$0.00</p>
+            <p id="rentalEstimateDetails" class="rdb-estimate-details">
+              Choose pickup and return times to calculate an estimate.
+            </p>
+          </div>
+
+          <button type="button" class="rdb-rental-button" onclick="sendRentalInquiry()">
+            Email Rental Inquiry
+          </button>
+
+          <p class="rdb-rental-disclaimer">
+            Estimate is not a confirmed reservation. Rentals are subject to availability,
+            safe-use requirements, written rental terms, and approval by Rent Delaware Beaches, LLC.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const rentalRates = {
+    leafBlower: {
+      name: "Gas-Powered Leaf Blower",
+      fourHour: 25,
+      day: 35,
+      weekend: 60,
+      week: 110
+    },
+    mobilityScooter: {
+      name: "Mobility Scooter",
+      fourHour: 25,
+      day: 40,
+      weekend: 75,
+      week: 150
+    }
+  };
+
+  function calculateRentalEstimate() {
+    const equipmentKey = document.getElementById("equipmentSelect").value;
+    const startValue = document.getElementById("startDateTime").value;
+    const endValue = document.getElementById("endDateTime").value;
+    const estimateEl = document.getElementById("rentalEstimate");
+    const detailsEl = document.getElementById("rentalEstimateDetails");
+
+    if (!equipmentKey || !startValue || !endValue || !rentalRates[equipmentKey]) {
+      estimateEl.textContent = "$0.00";
+      detailsEl.textContent = "Choose pickup and return times to calculate an estimate.";
+      return;
+    }
+
+    const start = new Date(startValue);
+    const end = new Date(endValue);
+
+    if (end <= start) {
+      estimateEl.textContent = "$0.00";
+      detailsEl.textContent = "Return time must be after pickup time.";
+      return;
+    }
+
+    const hours = Math.ceil((end - start) / (1000 * 60 * 60));
+    const rates = rentalRates[equipmentKey];
+
+    let price = 0;
+    let rateLabel = "";
+
+    if (hours <= 4) {
+      price = rates.fourHour;
+      rateLabel = "4-hour rental rate";
+    } else if (hours <= 24) {
+      price = rates.day;
+      rateLabel = "daily rental rate";
+    } else if (hours <= 72) {
+      price = rates.weekend;
+      rateLabel = "weekend / multi-day rental rate";
+    } else if (hours <= 168) {
+      price = rates.week;
+      rateLabel = "weekly rental rate";
+    } else {
+      const weeks = Math.ceil(hours / 168);
+      price = weeks * rates.week;
+      rateLabel = weeks + " week rental estimate";
+    }
+
+    estimateEl.textContent = "$" + price.toFixed(2);
+    detailsEl.textContent = rates.name + " • " + hours + " estimated rental hours • " + rateLabel;
+  }
+
+  function sendRentalInquiry() {
+    calculateRentalEstimate();
+
+    const equipmentKey = document.getElementById("equipmentSelect").value;
+    const rates = rentalRates[equipmentKey];
+    const renterName = document.getElementById("renterName").value;
+    const renterEmail = document.getElementById("renterEmail").value;
+    const renterPhone = document.getElementById("renterPhone").value;
+    const startValue = document.getElementById("startDateTime").value;
+    const endValue = document.getElementById("endDateTime").value;
+    const notes = document.getElementById("rentalNotes").value;
+    const estimate = document.getElementById("rentalEstimate").textContent;
+    const estimateDetails = document.getElementById("rentalEstimateDetails").textContent;
+
+    if (!renterName || !renterEmail || !startValue || !endValue) {
+      alert("Please complete your name, email, pickup time, and return time before sending.");
+      return;
+    }
+
+    const subject = encodeURIComponent("Tool Rental Inquiry - " + rates.name);
+
+    const body = encodeURIComponent(
+      "New rental inquiry from rentdelawarebeaches.com\n\n" +
+      "Equipment: " + rates.name + "\n" +
+      "Estimated Price: " + estimate + "\n" +
+      "Estimate Details: " + estimateDetails + "\n\n" +
+      "Name: " + renterName + "\n" +
+      "Email: " + renterEmail + "\n" +
+      "Phone: " + renterPhone + "\n\n" +
+      "Requested Pickup: " + startValue + "\n" +
+      "Requested Return: " + endValue + "\n\n" +
+      "Project Notes:\n" + notes + "\n\n" +
+      "Note: This inquiry was generated from the Local Tool Rentals section of rentdelawarebeaches.com."
+    );
+
+    window.location.href = "mailto:michael@rentdelawarebeaches.com?subject=" + subject + "&body=" + body;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const fields = ["equipmentSelect", "startDateTime", "endDateTime"];
+    fields.forEach(function (id) {
+      const field = document.getElementById(id);
+      if (field) {
+        field.addEventListener("change", calculateRentalEstimate);
+      }
+    });
+  });
+</script>
+
+<footer>
   <footer>
   <p>
     © 2026 Rent Delaware Beaches |
