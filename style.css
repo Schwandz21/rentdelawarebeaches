@@ -1,0 +1,420 @@
+/* =========================================================
+   Rent Delaware Beaches - Local Tool Rentals Styling
+   ========================================================= */
+
+:root {
+  --ocean: #007f7a;
+  --deep-ocean: #064c49;
+  --sand: #fff4d8;
+  --soft-sand: #fffaf0;
+  --seafoam: #e7f7f3;
+  --ink: #143331;
+  --muted: #5f706f;
+  --white: #ffffff;
+  --border: #d7e8e3;
+  --shadow: 0 14px 35px rgba(0, 0, 0, 0.09);
+  --soft-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--soft-sand);
+}
+
+a {
+  color: inherit;
+}
+
+/* Header / Nav */
+
+.site-header {
+  background: linear-gradient(135deg, var(--deep-ocean), var(--ocean));
+  color: var(--white);
+  text-align: center;
+  padding: 34px 18px 24px;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: -0.03em;
+}
+
+.site-header p {
+  margin: 10px auto 22px;
+  max-width: 850px;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.site-header nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: 0.2s ease;
+}
+
+.site-header nav a:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* General Buttons */
+
+.button {
+  display: inline-block;
+  background: var(--ocean);
+  color: var(--white);
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  margin-top: 14px;
+  box-shadow: 0 7px 18px rgba(0, 127, 122, 0.22);
+  transition: 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.secondary-button {
+  background: var(--white);
+  color: var(--deep-ocean);
+  border: 2px solid var(--ocean);
+  box-shadow: none;
+}
+
+/* Homepage Tool Promo */
+
+.homepage-tool-promo {
+  max-width: 1120px;
+  margin: 58px auto;
+  padding: 54px 22px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top left, rgba(0, 127, 122, 0.12), transparent 35%),
+    linear-gradient(135deg, var(--seafoam), var(--sand));
+  border-radius: 26px;
+  border: 1px solid var(--border);
+  box-shadow: var(--soft-shadow);
+}
+
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  color: var(--deep-ocean);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.78rem;
+  margin-bottom: 12px;
+}
+
+.homepage-tool-promo h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 10px 0 16px;
+  letter-spacing: -0.04em;
+}
+
+.homepage-tool-promo > p {
+  max-width: 830px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+
+.promo-card {
+  max-width: 760px;
+  margin: 30px auto 0;
+  background: var(--white);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.promo-card h3 {
+  margin-top: 0;
+  font-size: 1.7rem;
+  color: var(--deep-ocean);
+}
+
+.promo-card p {
+  line-height: 1.7;
+}
+
+/* Tool Rentals Page Hero */
+
+.tool-hero {
+  position: relative;
+  padding: 86px 20px;
+  background:
+    linear-gradient(rgba(6, 76, 73, 0.82), rgba(6, 76, 73, 0.82)),
+    linear-gradient(135deg, var(--deep-ocean), var(--ocean));
+  text-align: center;
+  color: var(--white);
+}
+
+.tool-hero-content {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.tool-hero .eyebrow {
+  color: var(--deep-ocean);
+  background: var(--sand);
+  border: none;
+}
+
+.tool-hero h2 {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin: 16px 0 20px;
+  letter-spacing: -0.05em;
+}
+
+.tool-hero p {
+  font-size: 1.16rem;
+  line-height: 1.75;
+  max-width: 850px;
+  margin: 0 auto;
+  opacity: 0.96;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.tool-hero .button {
+  background: var(--sand);
+  color: var(--deep-ocean);
+}
+
+.tool-hero .secondary-button {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Page Sections */
+
+.content-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 62px 20px;
+}
+
+.content-section h2 {
+  text-align: center;
+  margin: 0 0 24px;
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+  letter-spacing: -0.035em;
+  color: var(--deep-ocean);
+}
+
+.intro-section p,
+.policy-section p,
+.contact-cta p {
+  font-size: 1.06rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* Rental Cards */
+
+.rental-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 34px;
+}
+
+.rental-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: var(--soft-shadow);
+  position: relative;
+}
+
+.rental-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.55rem;
+  color: var(--deep-ocean);
+}
+
+.rental-card p,
+.rental-card li {
+  line-height: 1.65;
+}
+
+.rental-card ul {
+  padding-left: 21px;
+}
+
+.featured-rental {
+  border: 3px solid var(--ocean);
+  background:
+    radial-gradient(circle at top right, rgba(0, 127, 122, 0.12), transparent 32%),
+    var(--white);
+  box-shadow: var(--shadow);
+}
+
+.rental-tag {
+  display: inline-block;
+  background: var(--ocean);
+  color: var(--white);
+  font-weight: 900;
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: 0.8rem;
+  margin-bottom: 14px;
+}
+
+.rental-price {
+  font-weight: 900;
+  color: var(--ocean);
+  font-size: 1.14rem;
+}
+
+.deposit-note {
+  font-weight: 800;
+  color: var(--ink);
+  background: var(--sand);
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 10px;
+}
+
+.pending-rental {
+  opacity: 0.82;
+  background: #f7f7f7;
+}
+
+/* How It Works */
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.step-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--soft-shadow);
+}
+
+.step-card h3 {
+  margin-top: 0;
+  color: var(--ocean);
+}
+
+/* Policies */
+
+.policy-box {
+  background: var(--white);
+  border-left: 6px solid var(--ocean);
+  padding: 24px;
+  margin: 22px 0;
+  border-radius: 16px;
+  box-shadow: var(--soft-shadow);
+}
+
+.policy-box ul {
+  padding-left: 21px;
+}
+
+.small-note {
+  font-size: 0.94rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* Final CTA */
+
+.contact-cta {
+  text-align: center;
+  background:
+    radial-gradient(circle at top left, rgba(0, 127, 122, 0.12), transparent 30%),
+    linear-gradient(135deg, var(--sand), var(--seafoam));
+  border-radius: 26px;
+  margin-bottom: 58px;
+  border: 1px solid var(--border);
+  box-shadow: var(--soft-shadow);
+}
+
+.contact-cta p {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  background: var(--deep-ocean);
+  color: var(--white);
+  padding: 24px 16px;
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+  .site-header h1 {
+    font-size: 2rem;
+  }
+
+  .tool-hero {
+    padding: 62px 18px;
+  }
+
+  .rental-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-section {
+    padding: 46px 18px;
+  }
+
+  .homepage-tool-promo {
+    margin: 38px 12px;
+    padding: 38px 18px;
+  }
+
+  .promo-card {
+    padding: 24px 18px;
+  }
+}
