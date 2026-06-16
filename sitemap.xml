@@ -101,5 +101,7 @@
     <loc>https://rentdelawarebeaches.com/advertise.html</loc>
     <priority>0.70</priority>
   </url>
-
+<url>
+  <loc>https://rentdelawarebeaches.com/tool-rentals.html</loc>
+</url>
 </urlset>
