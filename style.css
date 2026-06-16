@@ -418,3 +418,176 @@ footer {
     padding: 24px 18px;
   }
 }
+/* =========================================================
+   Mobile Polish Layer - Rent Delaware Beaches
+   Makes the site cleaner and more natural on phones
+   ========================================================= */
+
+@media (max-width: 700px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    padding: 26px 14px 18px;
+  }
+
+  .site-header h1 {
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+
+  .site-header p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin: 10px auto 16px;
+  }
+
+  .site-header nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .site-header nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 0.86rem;
+    border-radius: 14px;
+  }
+
+  .tool-hero {
+    padding: 48px 16px;
+  }
+
+  .tool-hero h2 {
+    font-size: 2.05rem;
+    line-height: 1.08;
+    margin: 14px 0 16px;
+  }
+
+  .tool-hero p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 330px;
+    margin: 24px auto 0;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+    padding: 13px 18px;
+  }
+
+  .homepage-tool-promo {
+    margin: 28px 12px;
+    padding: 32px 16px;
+    border-radius: 22px;
+  }
+
+  .homepage-tool-promo h2 {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .homepage-tool-promo > p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .promo-card {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  .promo-card h3 {
+    font-size: 1.45rem;
+    line-height: 1.15;
+  }
+
+  .content-section {
+    padding: 38px 16px;
+  }
+
+  .content-section h2 {
+    font-size: 1.85rem;
+    line-height: 1.12;
+  }
+
+  .intro-section p,
+  .policy-section p,
+  .contact-cta p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .rental-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .rental-card,
+  .step-card,
+  .policy-box {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  .rental-card h3 {
+    font-size: 1.38rem;
+    line-height: 1.15;
+  }
+
+  .rental-price {
+    font-size: 1.03rem;
+  }
+
+  .rental-card p,
+  .rental-card li,
+  .step-card p,
+  .policy-box li {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .contact-cta {
+    margin: 22px 12px 42px;
+    padding: 34px 16px;
+    border-radius: 22px;
+  }
+
+  footer {
+    padding: 22px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small phone screens */
+
+@media (max-width: 390px) {
+  .site-header nav {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-hero h2,
+  .homepage-tool-promo h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.65rem;
+  }
+}
