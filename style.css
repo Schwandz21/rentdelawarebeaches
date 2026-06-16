@@ -591,3 +591,122 @@ footer {
     font-size: 1.65rem;
   }
 }
+/* =========================================================
+   Mobile Homepage Header / Nav Cleanup
+   Makes mobile feel cleaner, tighter, and more app-like
+   ========================================================= */
+
+@media (max-width: 700px) {
+  /* Tighten the top orange/intro band if used on homepage */
+  .top-bar,
+  .announcement-bar,
+  .site-tagline,
+  .hero-topline {
+    font-size: 1rem !important;
+    line-height: 1.35 !important;
+    padding: 14px 16px !important;
+    text-align: center !important;
+  }
+
+  /* Make header/navigation less dominant on mobile */
+  header,
+  .site-header {
+    padding: 18px 14px !important;
+  }
+
+  header h1,
+  .site-header h1 {
+    font-size: 1.65rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 8px !important;
+  }
+
+  header p,
+  .site-header p {
+    font-size: 0.92rem !important;
+    line-height: 1.35 !important;
+    margin: 6px auto 12px !important;
+  }
+
+  /* Compact mobile nav */
+  nav,
+  .site-header nav {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    padding: 14px !important;
+    border-radius: 22px !important;
+  }
+
+  nav a,
+  .site-header nav a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 42px !important;
+    padding: 9px 8px !important;
+    font-size: 0.88rem !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    border-radius: 14px !important;
+    white-space: normal !important;
+  }
+
+  /* Make long nav labels less awkward */
+  nav a[href*="decor"],
+  .site-header nav a[href*="decor"] {
+    grid-column: span 2;
+  }
+
+  /* Pull hero content higher on mobile */
+  .hero,
+  .main-hero,
+  .tool-hero {
+    padding-top: 42px !important;
+    padding-bottom: 46px !important;
+  }
+
+  .hero h1,
+  .hero h2,
+  .main-hero h1,
+  .main-hero h2,
+  .tool-hero h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.05 !important;
+    margin-top: 14px !important;
+  }
+
+  .hero p,
+  .main-hero p,
+  .tool-hero p {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 390px) {
+  nav,
+  .site-header nav {
+    max-width: 330px !important;
+    gap: 7px !important;
+    padding: 12px !important;
+  }
+
+  nav a,
+  .site-header nav a {
+    font-size: 0.82rem !important;
+    min-height: 40px !important;
+  }
+
+  .hero h1,
+  .hero h2,
+  .main-hero h1,
+  .main-hero h2,
+  .tool-hero h2 {
+    font-size: 1.95rem !important;
+  }
+}
