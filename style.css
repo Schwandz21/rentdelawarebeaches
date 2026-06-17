@@ -1369,3 +1369,313 @@ footer {
     padding: 8px 10px;
   }
 }
+/* =========================================================
+   RDB LIVE HEADER STABILIZER PATCH
+   Prevent old page-specific CSS from hijacking the new header.
+   ========================================================= */
+
+.rdb-header,
+.rdb-header * {
+  box-sizing: border-box !important;
+}
+
+.rdb-header {
+  position: relative !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 14% 5%, rgba(255,246,214,.94) 0 15%, transparent 34%),
+    radial-gradient(circle at 82% 16%, rgba(125,219,213,.64) 0 18%, transparent 44%),
+    linear-gradient(145deg,#073746 0%,#087f88 42%,#20bcb0 74%,#f2d991 138%) !important;
+  border-radius: 0 0 30px 30px !important;
+  box-shadow: 0 20px 55px rgba(6, 47, 61, 0.22) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.rdb-header::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: auto -30% -38% -30% !important;
+  height: 220px !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  transform: rotate(-7deg) !important;
+  pointer-events: none !important;
+}
+
+.rdb-header .brand-row {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 16px 16px 10px !important;
+  margin: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.13) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02)) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.rdb-header .brand {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  max-width: calc(100% - 92px) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.rdb-header .brand-badge {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  background:
+    linear-gradient(180deg,#ffffff 0%,#eef2f5 34%,#cbd3da 55%,#ffffff 56%,#b9c3cc 100%) !important;
+  color: #062f3d !important;
+  border: 1px solid rgba(255,255,255,.78) !important;
+  font-weight: 950 !important;
+  font-size: .68rem !important;
+  letter-spacing: .08em !important;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -8px 12px rgba(0,0,0,.07) !important;
+  flex: 0 0 auto !important;
+}
+
+.rdb-header .brand-copy {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-top: 1px !important;
+}
+
+.rdb-header .brand-copy strong {
+  display: block !important;
+  color: #ffffff !important;
+  font-size: .98rem !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.02em !important;
+  white-space: normal !important;
+  text-decoration: none !important;
+}
+
+.rdb-header .brand-copy span {
+  display: block !important;
+  margin-top: 4px !important;
+  color: rgba(255,255,255,.82) !important;
+  font-size: .70rem !important;
+  line-height: 1.18 !important;
+  white-space: normal !important;
+  text-decoration: none !important;
+}
+
+.rdb-header .contact-chip {
+  flex: 0 0 auto !important;
+  border: 1px solid rgba(255,255,255,.74) !important;
+  background:
+    linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%) !important;
+  color: #062f3d !important;
+  border-radius: 999px !important;
+  padding: 9px 11px !important;
+  font-size: .76rem !important;
+  font-weight: 950 !important;
+  margin-top: 1px !important;
+  text-decoration: none !important;
+  box-shadow:
+    0 10px 22px rgba(0,0,0,.15),
+    inset 0 1px 0 rgba(255,255,255,.96) !important;
+}
+
+.rdb-header .offer {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 24px 18px 18px !important;
+  margin: 0 !important;
+  text-align: left !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  max-width: none !important;
+}
+
+.rdb-header .eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: rgba(255,243,200,.96) !important;
+  color: #062f3d !important;
+  border-radius: 999px !important;
+  padding: 9px 13px !important;
+  font-size: .72rem !important;
+  font-weight: 950 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,.12) !important;
+}
+
+.rdb-header .offer h1 {
+  margin: 17px 0 12px !important;
+  color: #ffffff !important;
+  font-size: clamp(2.45rem, 11vw, 4.2rem) !important;
+  line-height: .96 !important;
+  letter-spacing: -.075em !important;
+  background: transparent !important;
+  text-shadow: 0 10px 30px rgba(0,0,0,.22) !important;
+}
+
+.rdb-header .offer p {
+  margin: 0 !important;
+  color: rgba(255,255,255,.92) !important;
+  font-size: 1.08rem !important;
+  line-height: 1.45 !important;
+  max-width: 36ch !important;
+  background: transparent !important;
+  text-shadow: none !important;
+}
+
+.rdb-header .service-card {
+  position: relative !important;
+  z-index: 1 !important;
+  margin: 18px !important;
+  padding: 14px !important;
+  border-radius: 26px !important;
+  background: rgba(255,255,255,.15) !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: none !important;
+  max-width: none !important;
+}
+
+.rdb-header .service-card h2 {
+  margin: 0 0 11px !important;
+  color: #ffffff !important;
+  font-size: .82rem !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+}
+
+.rdb-header .service-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+
+.rdb-header .service-grid a {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 56px !important;
+  border-radius: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 12px 9px !important;
+  font-weight: 950 !important;
+  line-height: 1.08 !important;
+  color: #16333d !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255,255,255,.72) !important;
+  background:
+    linear-gradient(180deg,
+      #ffffff 0%,
+      #eef2f5 24%,
+      #d8dde2 50%,
+      #fbfcfd 52%,
+      #c9d0d7 100%) !important;
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -10px 14px rgba(0,0,0,.05) !important;
+}
+
+.rdb-header .service-grid a:nth-child(2),
+.rdb-header .service-grid a:nth-child(4) {
+  color: #0f2d36 !important;
+  background:
+    linear-gradient(180deg,
+      #f7f9fb 0%,
+      #dfe5ea 22%,
+      #b8c1ca 50%,
+      #f8fafb 52%,
+      #a7b2bc 100%) !important;
+}
+
+/* Make the scroll nav obvious and start at the beginning */
+.rdb-header .scroll-nav {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 9px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 0 16px 18px !important;
+  margin: 0 !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  scroll-snap-type: x proximity !important;
+  justify-content: flex-start !important;
+}
+
+.rdb-header .scroll-nav::after {
+  content: "Swipe →" !important;
+  flex: 0 0 auto !important;
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  color: rgba(255,255,255,.92) !important;
+  font-size: .78rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .04em !important;
+  background: rgba(6,47,61,.26) !important;
+  border: 1px solid rgba(255,255,255,.20) !important;
+}
+
+.rdb-header .scroll-nav::-webkit-scrollbar {
+  display: none !important;
+}
+
+.rdb-header .scroll-nav a {
+  flex: 0 0 auto !important;
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(180deg,
+      #fbfcfd 0%,
+      #edf1f4 35%,
+      #d5dbe1 51%,
+      #fefefe 52%,
+      #c7cfd6 100%) !important;
+  color: #062f3d !important;
+  border: 1px solid rgba(255,255,255,.72) !important;
+  font-size: .84rem !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -8px 12px rgba(0,0,0,.05) !important;
+  white-space: nowrap !important;
+  scroll-snap-align: start !important;
+}
+
+/* Hide any old nav/header blocks if they accidentally remain */
+.rdb-header + .top-strip {
+  display: none !important;
+}
