@@ -1,769 +1,833 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Delaware Beach Community Board | Rent Delaware Beaches</title>
-
-  <meta name="description" content="Join the Delaware Beach Community Board for local tips, visitor questions, restaurant recommendations, rental owner ideas, beach updates, video submissions, custom sign requests, and coastal community notes." />
+  <meta name="description" content="Join the Delaware Beach Community Board for local tips, visitor questions, restaurant recommendations, rental owner ideas, beach updates, video submissions, custom sign requests, and community tips." />
 
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --rdbx-deep: #062f3d;
+      --rdbx-teal: #087f88;
+      --rdbx-teal-bright: #20bcb0;
+      --rdbx-sand: #f2d991;
+      --rdbx-cream: #fffaf0;
+      --rdbx-ink: #173743;
+      --rdbx-muted: #54707a;
+      --rdbx-line: rgba(6, 47, 61, 0.10);
+      --rdbx-shadow: 0 20px 55px rgba(6, 47, 61, 0.22);
+      --rdbx-soft-shadow: 0 10px 30px rgba(6, 47, 61, 0.13);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f0e3;
-      color: #102f45;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rdbx-ink);
+      background:
+        radial-gradient(circle at top left, rgba(32, 188, 176, 0.10), transparent 34%),
+        linear-gradient(180deg, #f7f1df 0%, #fffaf0 44%, #f7f1df 100%);
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    .top-strip {
-      background: #d8903d;
-      color: #102f45;
-      text-align: center;
-      padding: 10px 16px;
-      font-weight: bold;
-      letter-spacing: 0.02em;
-    }
-
-    header {
-      min-height: 84vh;
+    .rdbx-shell {
+      position: relative;
+      width: 100%;
+      color: #ffffff;
+      overflow: hidden;
       background:
-        radial-gradient(circle at top left, rgba(216, 144, 61, 0.26), transparent 34%),
-        linear-gradient(rgba(8, 35, 54, 0.35), rgba(8, 35, 54, 0.84)),
-        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      flex-direction: column;
+        radial-gradient(circle at 14% 5%, rgba(255,246,214,.94) 0 15%, transparent 34%),
+        radial-gradient(circle at 82% 16%, rgba(125,219,213,.64) 0 18%, transparent 44%),
+        linear-gradient(145deg,#073746 0%,#087f88 42%,#20bcb0 74%,#f2d991 138%);
+      border-radius: 0 0 30px 30px;
+      box-shadow: var(--rdbx-shadow);
+      margin: 0;
+      padding: 0;
     }
 
-    nav {
-      width: calc(100% - 40px);
-      max-width: 1180px;
-      margin: 20px auto 0;
-      padding: 14px 18px;
-      background: rgba(16, 47, 69, 0.86);
-      backdrop-filter: blur(8px);
-      border-radius: 999px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 18px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    .rdbx-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -38% -30%;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.10);
+      transform: rotate(-7deg);
+      pointer-events: none;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      transition: 0.2s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.14);
-      transform: translateY(-1px);
-    }
-
-    .hero-content {
-      max-width: 1040px;
-      margin: auto;
-      padding: 80px 24px 112px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      font-weight: bold;
-      margin-bottom: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 7vw, 80px);
-      line-height: 1.02;
-      margin: 0 0 22px;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
-    }
-
-    .hero-content p {
-      max-width: 820px;
-      margin: 0 auto 28px;
-      font-size: 21px;
-      color: #fff7e8;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 999px;
-      background: #1f6f9b;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-      transition: 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: #185879;
-    }
-
-    .button.gold {
-      background: #d8903d;
-      color: #102f45;
-    }
-
-    .button.gold:hover {
-      background: #c17c30;
-    }
-
-    .button.light {
-      background: #fffaf2;
-      color: #102f45;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: -58px auto 0;
-      padding: 0 20px 60px;
+    .rdbx-brand-row {
       position: relative;
       z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      backdrop-filter: blur(12px);
     }
 
-    section {
-      margin-top: 34px;
-      background: #fffaf2;
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
-      border: 1px solid #eadfcd;
+    .rdbx-brand-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+      flex: 1 1 auto;
+      max-width: calc(100% - 92px);
+      color: #ffffff;
     }
 
-    h2 {
-      color: #1f6f9b;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-
-    h3 {
-      color: #102f45;
-      margin-top: 0;
-    }
-
-    .section-intro {
-      max-width: 790px;
-      color: #425466;
-      font-size: 18px;
-      margin-bottom: 24px;
-    }
-
-    .quick-panel {
-      background: rgba(255, 250, 242, 0.96);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
+    .rdbx-badge {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      border: 1px solid rgba(216, 144, 61, 0.22);
+      place-items: center;
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 34%,#cbd3da 55%,#ffffff 56%,#b9c3cc 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.78);
+      font-weight: 950;
+      font-size: .68rem;
+      letter-spacing: .08em;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -8px 12px rgba(0,0,0,.07);
     }
 
-    .quick-card {
-      padding: 20px;
-      border-radius: 18px;
-      background: white;
-      border: 1px solid #eadfcd;
-      text-decoration: none;
-      transition: 0.22s ease;
+    .rdbx-brand-text {
+      min-width: 0;
+      max-width: 100%;
+      padding-top: 1px;
     }
 
-    .quick-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
+    .rdbx-brand-text strong {
+      display: block;
+      color: #ffffff;
+      font-size: .98rem;
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      white-space: normal;
     }
 
-    .quick-card span {
-      color: #d8903d;
-      font-weight: bold;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .rdbx-brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.84);
+      font-size: .70rem;
+      line-height: 1.18;
+      white-space: normal;
     }
 
-    .quick-card h3 {
-      margin: 8px 0 6px;
-      font-size: 20px;
-      color: #102f45;
-    }
-
-    .quick-card p {
-      margin: 0;
-      color: #425466;
-      font-size: 15px;
-    }
-
-    .board-grid,
-    .prompt-grid,
-    .roadmap-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-
-    .board-card,
-    .prompt-card,
-    .roadmap-card {
-      background: white;
-      border: 1px solid #eadfcd;
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
-      transition: 0.22s ease;
-    }
-
-    .board-card:hover,
-    .prompt-card:hover,
-    .roadmap-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
-    }
-
-    .tag {
-      display: inline-block;
-      background: #f1eadc;
-      color: #102f45;
-      padding: 6px 10px;
+    .rdbx-contact {
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,.74);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      color: #062f3d;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-      margin: 0 6px 10px 0;
+      padding: 9px 11px;
+      font-size: .76rem;
+      font-weight: 950;
+      margin-top: 1px;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.96);
     }
 
-    .tag.gold {
-      background: #d8903d;
-      color: #102f45;
+    .rdbx-hero {
+      position: relative;
+      z-index: 2;
+      padding: 24px 18px 18px;
+      margin: 0;
+      text-align: left;
+      background: transparent;
     }
 
-    .board-card p,
-    .prompt-card p,
-    .roadmap-card p,
-    .roadmap-card li {
-      color: #425466;
-    }
-
-    .feature-banner {
-      background: linear-gradient(135deg, #102f45, #1f6f9b);
-      color: white;
-      border: none;
-    }
-
-    .feature-banner h2,
-    .feature-banner h3 {
-      color: white;
-    }
-
-    .feature-banner p,
-    .feature-banner li {
-      color: #e9f3f8;
-    }
-
-    .bulletin-layout {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
+    .rdbx-kicker {
+      display: inline-flex;
       align-items: center;
+      background: rgba(255,243,200,.96);
+      color: #062f3d;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
     }
 
-    .bulletin-visual {
-      min-height: 430px;
-      background:
-        linear-gradient(rgba(16, 47, 69, 0.42), rgba(16, 47, 69, 0.86)),
-        url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=85");
-      background-size: cover;
-      background-position: center;
-      border-radius: 24px;
-      padding: 28px;
-      color: white;
-      display: flex;
-      align-items: end;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    .rdbx-hero-title {
+      margin: 17px 0 12px;
+      color: #ffffff;
+      font-size: clamp(2.45rem, 11vw, 4.2rem);
+      line-height: .96;
+      letter-spacing: -.075em;
+      text-shadow: 0 10px 30px rgba(0,0,0,.22);
     }
 
-    .bulletin-visual h3 {
-      color: white;
-      font-size: 30px;
-      margin-bottom: 10px;
+    .rdbx-hero-copy {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      font-size: 1.08rem;
+      line-height: 1.45;
+      max-width: 36ch;
     }
 
-    .bulletin-visual p {
-      color: #fff7e8;
+    .rdbx-services {
+      position: relative;
+      z-index: 2;
+      margin: 18px;
+      padding: 14px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
     }
 
-    .submit-box {
-      background: #fffaf2;
-      border-radius: 24px;
-      padding: 28px;
-      border: 2px dashed rgba(216, 144, 61, 0.75);
-      box-shadow: inset 0 0 0 1px rgba(16, 47, 69, 0.04);
+    .rdbx-services-title {
+      margin: 0 0 11px;
+      color: #ffffff;
+      font-size: .82rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
     }
 
-    .submit-box p {
-      color: #425466;
-    }
-
-    .decor-preview {
-      min-height: 390px;
-      background:
-        linear-gradient(rgba(16, 47, 69, 0.62), rgba(16, 47, 69, 0.78)),
-        url("images/2092 Address Sign Hero.png");
-      background-size: cover;
-      background-position: center;
-      border-radius: 24px;
-      padding: 28px;
-      color: white;
-      display: flex;
-      align-items: end;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
-    }
-
-    .decor-preview h3 {
-      color: white;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .decor-preview p {
-      color: #fff7e8;
-    }
-
-    .split-section {
+    .rdbx-service-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
-    .cta-row {
+    .rdbx-service-grid a {
+      position: relative;
+      overflow: hidden;
+      min-height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 9px;
+      font-weight: 950;
+      line-height: 1.08;
+      color: #16333d;
+      border: 1px solid rgba(255,255,255,.72);
+      background:
+        linear-gradient(180deg,
+          #ffffff 0%,
+          #eef2f5 24%,
+          #d8dde2 50%,
+          #fbfcfd 52%,
+          #c9d0d7 100%);
+      box-shadow:
+        0 12px 24px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -10px 14px rgba(0,0,0,.05);
+    }
+
+    .rdbx-service-grid a::before {
+      content: "";
+      position: absolute;
+      inset: 1px 1px auto 1px;
+      height: 46%;
+      border-radius: 16px 16px 40px 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.08));
+      pointer-events: none;
+    }
+
+    .rdbx-service-grid a:nth-child(2),
+    .rdbx-service-grid a:nth-child(4) {
+      color: #0f2d36;
+      background:
+        linear-gradient(180deg,
+          #f7f9fb 0%,
+          #dfe5ea 22%,
+          #b8c1ca 50%,
+          #f8fafb 52%,
+          #a7b2bc 100%);
+    }
+
+    .rdbx-nav-wrap {
+      position: relative;
+      z-index: 3;
+      padding: 0 0 18px;
+    }
+
+    .rdbx-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 9px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 16px;
+      margin: 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      justify-content: flex-start;
+    }
+
+    .rdbx-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .rdbx-nav a,
+    .rdbx-swipe {
+      flex: 0 0 auto;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+
+    .rdbx-nav a {
+      background:
+        linear-gradient(180deg,
+          #fbfcfd 0%,
+          #edf1f4 35%,
+          #d5dbe1 51%,
+          #fefefe 52%,
+          #c7cfd6 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.72);
+      font-size: .84rem;
+      font-weight: 900;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -8px 12px rgba(0,0,0,.05);
+    }
+
+    .rdbx-swipe {
+      color: rgba(255,255,255,.92);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      background: rgba(6,47,61,.26);
+      border: 1px solid rgba(255,255,255,.20);
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section {
+      margin: 22px auto 18px;
+      padding: 22px 18px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(32,188,176,.14), transparent 34%),
+        linear-gradient(180deg,#ffffff 0%,#fffaf0 100%);
+      border: 1px solid var(--rdbx-line);
+      box-shadow: var(--rdbx-soft-shadow);
+    }
+
+    .section.dark {
+      background:
+        radial-gradient(circle at top right, rgba(32,188,176,.24), transparent 36%),
+        linear-gradient(145deg, #062f3d 0%, #083846 60%, #087f88 130%);
+      color: #ffffff;
+    }
+
+    .section-label {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section.dark .section-label {
+      background: rgba(255,243,200,.95);
+      color: var(--rdbx-deep);
+    }
+
+    .section h2 {
+      margin: 14px 0 10px;
+      color: var(--rdbx-deep);
+      font-size: clamp(2rem, 8vw, 3.3rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .section.dark h2 {
+      color: #ffffff;
+    }
+
+    .section p {
+      margin: 0;
+      color: #4b6870;
+      font-size: 1.03rem;
+      line-height: 1.55;
+      max-width: 800px;
+    }
+
+    .section.dark p {
+      color: rgba(255,255,255,.82);
+    }
+
+    .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 18px;
     }
 
-    ul {
-      padding-left: 22px;
-    }
-
-    footer {
-      background: #102f45;
-      color: white;
+    .primary-btn,
+    .secondary-btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 950;
       text-align: center;
-      padding: 28px 20px;
     }
 
-    footer a {
-      color: white;
-      font-weight: bold;
-      margin: 0 6px;
+    .primary-btn {
+      color: #ffffff;
+      background: var(--rdbx-deep);
+      box-shadow: 0 10px 22px rgba(6,47,61,.18);
     }
 
-    @media (max-width: 850px) {
-      header {
-        min-height: 74vh;
+    .secondary-btn {
+      color: var(--rdbx-deep);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .community-card {
+      background: #ffffff;
+      border: 1px solid var(--rdbx-line);
+      border-radius: 26px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(6,47,61,.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .community-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--rdbx-teal-bright), var(--rdbx-sand));
+    }
+
+    .community-card h3 {
+      margin: 0 0 8px;
+      color: var(--rdbx-deep);
+      font-size: 1.28rem;
+      letter-spacing: -.025em;
+    }
+
+    .community-card p {
+      margin: 0 0 14px;
+      color: var(--rdbx-muted);
+      line-height: 1.48;
+      font-size: .98rem;
+    }
+
+    .community-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--rdbx-muted);
+      line-height: 1.5;
+    }
+
+    .community-card li {
+      margin-bottom: 5px;
+    }
+
+    .community-tag {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .82rem;
+      margin-bottom: 12px;
+    }
+
+    .final-cta {
+      margin: 20px auto 28px;
+      padding: 24px 20px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(242,217,145,.25), transparent 34%),
+        linear-gradient(145deg, #062f3d 0%, #087f88 92%);
+      color: #ffffff;
+      box-shadow: var(--rdbx-shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .final-cta p {
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 28px 18px 34px;
+      background: var(--rdbx-deep);
+      color: #ffffff;
+      border-radius: 28px 28px 0 0;
+    }
+
+    .footer-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .footer p {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.45;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 760px) {
+      .rdbx-shell { border-radius: 0 0 36px 36px; }
+
+      .rdbx-brand-row,
+      .rdbx-hero,
+      .rdbx-nav {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      nav {
-        border-radius: 22px;
+      .rdbx-hero {
+        text-align: center;
+        padding-top: 38px;
+        padding-bottom: 24px;
       }
 
-      main {
-        margin-top: -44px;
+      .rdbx-hero-copy {
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .bulletin-layout,
-      .split-section {
-        grid-template-columns: 1fr;
+      .rdbx-services {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      section {
-        padding: 26px;
+      .rdbx-service-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .rdbx-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+      }
+
+      .rdbx-swipe { display: none; }
+
+      .community-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .rdbx-hero-title { font-size: 2.28rem; }
+      .rdbx-brand-text strong { font-size: .92rem; }
+      .rdbx-brand-text span { font-size: .66rem; }
+      .rdbx-contact {
+        font-size: .72rem;
+        padding: 8px 10px;
       }
     }
   </style>
 </head>
 
 <body>
+  <header class="rdbx-shell">
+    <div class="rdbx-brand-row">
+      <a class="rdbx-brand-link" href="index.html">
+        <span class="rdbx-badge">RDB</span>
+        <span class="rdbx-brand-text">
+          <strong>Rent Delaware Beaches</strong>
+          <span>Coastal support • rentals • owner help</span>
+        </span>
+      </a>
 
-  <div class="top-strip">
-    Delaware Beach Community Board • Local Tips • Visitor Questions • Restaurant Picks • Beach Updates
-  </div>
+      <a class="rdbx-contact" href="contact.html">Contact</a>
+    </div>
 
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="beach-towns.html">Beach Towns</a>
-      <a href="plan-your-trip.html">Plan Your Trip</a>
-      <a href="restaurants.html">Restaurants</a>
-      <a href="things-to-do.html">Things To Do</a>
-      <a href="videos.html">Videos</a>
-      <a href="decor.html">Beach House Decor</a>
-      <a href="community.html">Community</a>
-    </nav>
-
-    <div class="hero-content">
-      <span class="eyebrow">Local Voices Coming Together</span>
-
-      <h1>The Delaware Beach Community Board.</h1>
-
-      <p>
-        A growing space for visitor questions, local tips, restaurant recommendations,
-        rental owner ideas, beach updates, video submissions, custom sign requests,
-        and useful coastal notes from people who know and love the Delaware beaches.
+    <section class="rdbx-hero">
+      <span class="rdbx-kicker">Community Board</span>
+      <h1 class="rdbx-hero-title">Help Build the Beach Hub.</h1>
+      <p class="rdbx-hero-copy">
+        Share local tips, visitor questions, restaurant ideas, owner needs, beach updates,
+        video clips, custom sign requests, and practical Delaware beach recommendations.
       </p>
+    </section>
 
-      <div class="hero-buttons">
-        <a class="button gold" href="#submit">Submit a Tip</a>
-        <a class="button light" href="#board">Explore the Board</a>
-        <a class="button" href="videos.html">Watch Videos</a>
+    <section class="rdbx-services" aria-label="Community shortcuts">
+      <h2 class="rdbx-services-title">Community shortcuts</h2>
+      <div class="rdbx-service-grid">
+        <a href="#visitor-tips">Visitor Tips</a>
+        <a href="#owner-ideas">Owner Ideas</a>
+        <a href="#local-business">Local Business</a>
+        <a href="contact.html">Send a Tip</a>
       </div>
+    </section>
+
+    <div class="rdbx-nav-wrap">
+      <nav class="rdbx-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="things-to-do.html">Things To Do</a>
+        <a href="videos.html">Videos</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="rdbx-swipe">Swipe →</span>
+      </nav>
     </div>
   </header>
 
-  <main>
-
-    <div class="quick-panel">
-      <a class="quick-card" href="#questions">
-        <span>Ask</span>
-        <h3>Visitor Questions</h3>
-        <p>Where to stay, what to do, where to eat, when to visit, and how to plan smarter.</p>
-      </a>
-
-      <a class="quick-card" href="#tips">
-        <span>Share</span>
-        <h3>Local Tips</h3>
-        <p>Parking notes, quiet spots, rainy-day ideas, family tips, and seasonal updates.</p>
-      </a>
-
-      <a class="quick-card" href="#restaurants">
-        <span>Recommend</span>
-        <h3>Restaurant Picks</h3>
-        <p>Seafood, breakfast, beach bars, takeout, date nights, and family-friendly meals.</p>
-      </a>
-
-      <a class="quick-card" href="#owners">
-        <span>Build</span>
-        <h3>Rental Owner Ideas</h3>
-        <p>Custom signs, welcome details, decor upgrades, guest tips, and better stays.</p>
-      </a>
-    </div>
-
-    <section id="board">
-      <div class="bulletin-layout">
-        <div>
-          <h2>A Beach Bulletin Board With a Bigger Future</h2>
-
-          <p class="section-intro">
-            This page starts simple: visitors and locals can send tips, recommendations,
-            questions, video ideas, and beach-house suggestions. Over time, it can grow into
-            comments, ratings, featured posts, local business spotlights, and real community discussion.
-          </p>
-
-          <p>
-            The goal is to make Rent Delaware Beaches feel alive. Not just pages sitting there —
-            a place where people can contribute useful information and help shape the Delaware beach experience.
-          </p>
-
-          <div class="cta-row">
-            <a class="button gold" href="#submit">Submit Something</a>
-            <a class="button" href="plan-your-trip.html">Plan Your Trip</a>
-          </div>
-        </div>
-
-        <div class="bulletin-visual">
-          <div>
-            <span class="eyebrow">Community Powered</span>
-            <h3>Tips, Questions, Clips & Local Finds</h3>
-            <p>
-              Build a useful hub around the real questions people ask before, during,
-              and after a Delaware beach trip.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>What Belongs on the Community Board?</h2>
-
-      <p class="section-intro">
-        Think of this as the place for useful, local, practical, beach-specific information
-        that does not always fit neatly on a normal travel page.
-      </p>
-
-      <div class="board-grid">
-        <article class="board-card" id="questions">
-          <span class="tag gold">Questions</span>
-          <h3>Visitor Questions</h3>
-          <p>
-            “Which town is best for families?” “Where should we eat with kids?”
-            “What is there to do if it rains?” “Is Dewey too loud?” “What should we pack?”
-          </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Visitor%20Question">Ask a Question</a>
-        </article>
-
-        <article class="board-card" id="tips">
-          <span class="tag gold">Local Tips</span>
-          <h3>Beach Notes & Updates</h3>
-          <p>
-            Parking notes, seasonal reminders, quiet beach spots, beach access tips,
-            family-friendly ideas, stormy-day suggestions, and local observations.
-          </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Local%20Tip">Send a Tip</a>
-        </article>
-
-        <article class="board-card" id="restaurants">
-          <span class="tag gold">Food</span>
-          <h3>Restaurant Recommendations</h3>
-          <p>
-            Seafood spots, breakfast places, takeout winners, date-night meals,
-            casual family dinners, beach bars, coffee shops, and hidden gems.
-          </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Restaurant%20Recommendation">Recommend Food</a>
-        </article>
-
-        <article class="board-card" id="owners">
-          <span class="tag gold">Owners</span>
-          <h3>Rental Owner Ideas</h3>
-          <p>
-            Welcome signs, guest books, porch upgrades, entryway ideas,
-            custom house signs, printable art, check-in notes, and small details guests remember.
-          </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Rental%20Owner%20Idea">Share Owner Idea</a>
-        </article>
-
-        <article class="board-card">
-          <span class="tag gold">Video</span>
-          <h3>Video Submissions</h3>
-          <p>
-            Beach walks, town walkthroughs, restaurant clips, custom sign builds,
-            rental upgrades, local businesses, sunsets, fishing, and seasonal clips.
-          </p>
-          <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Video%20Submission">Submit Video Idea</a>
-        </article>
-
-        <article class="board-card">
-          <span class="tag gold">Custom</span>
-          <h3>Custom Sign Requests</h3>
-          <p>
-            Beach house names, rental welcome signs, house numbers, patio signs,
-            family signs, personalized gifts, and coastal decor requests.
-          </p>
-          <a class="button" href="decor.html">Request Custom Sign</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="feature-banner">
-      <h2>Community Prompts We Can Build Around</h2>
-
+  <main class="page-wrap">
+    <section class="section">
+      <span class="section-label">Start Here</span>
+      <h2>The best beach guide is built from real local questions.</h2>
       <p>
-        These prompts can eventually become featured discussions, blog posts, social posts,
-        videos, or guides that answer real visitor questions.
+        Rent Delaware Beaches is more useful when visitors, homeowners, local businesses,
+        and beach regulars help shape what belongs here.
       </p>
 
-      <div class="prompt-grid">
-        <article class="prompt-card">
-          <span class="tag gold">Prompt</span>
-          <h3>Best Delaware beach town for a first trip?</h3>
-          <p>
-            Perfect future discussion for comparing Rehoboth, Dewey, Bethany, Lewes, Fenwick,
-            and South Bethany by vibe.
-          </p>
-        </article>
-
-        <article class="prompt-card">
-          <span class="tag gold">Prompt</span>
-          <h3>Best rainy-day plan at the beach?</h3>
-          <p>
-            Great for trip planning, restaurants, shopping, indoor attractions, rental-house activities,
-            and local backup ideas.
-          </p>
-        </article>
-
-        <article class="prompt-card">
-          <span class="tag gold">Prompt</span>
-          <h3>What makes a beach rental feel premium?</h3>
-          <p>
-            Perfect tie-in for decor, custom signs, welcome notes, guest experience, porch details,
-            and rental-owner strategy.
-          </p>
-        </article>
-
-        <article class="prompt-card">
-          <span class="tag gold">Prompt</span>
-          <h3>Best casual seafood meal near the beaches?</h3>
-          <p>
-            Restaurant recommendations can become food guides, videos, town pages,
-            and community-submitted favorites.
-          </p>
-        </article>
+      <div class="button-row">
+        <a class="primary-btn" href="contact.html">Send a Community Tip</a>
+        <a class="secondary-btn" href="blog.html">Read the Blog</a>
       </div>
     </section>
 
-    <section id="submit">
-      <div class="split-section">
-        <div>
-          <h2>Submit a Tip, Question, Recommendation, or Idea</h2>
-
-          <p class="section-intro">
-            For now, submissions go through email. Later, this can become a real form,
-            comment system, ratings section, or featured community board.
-          </p>
-
-          <div class="submit-box">
-            <h3>What can you send?</h3>
-            <p>
-              Send a visitor question, restaurant recommendation, beach tip, video idea,
-              local business suggestion, rental owner idea, or custom sign request.
-            </p>
-
-            <div class="cta-row">
-              <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Community%20Board%20Submission">Email a Submission</a>
-              <a class="button" href="mailto:hello@rentdelawarebeaches.com?subject=Ask%20Rent%20Delaware%20Beaches">Ask a Question</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="decor-preview">
-          <div>
-            <span class="eyebrow">Local + Handmade</span>
-            <h3>Custom Signs, Beach Decor & Rental Ideas</h3>
-            <p>
-              Community questions can lead directly into useful guides, video ideas,
-              and custom decor products people actually want.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Future Community Features</h2>
-
-      <p class="section-intro">
-        This page is built as a foundation. The first version is simple, but the structure
-        is ready for bigger features as the site grows.
-      </p>
-
-      <div class="roadmap-grid">
-        <article class="roadmap-card">
-          <span class="tag gold">Phase 1</span>
-          <h3>Email Submissions</h3>
-          <p>
-            People send questions, recommendations, tips, clips, and product ideas by email.
-            You curate the best ones into site content.
-          </p>
-        </article>
-
-        <article class="roadmap-card">
-          <span class="tag gold">Phase 2</span>
-          <h3>Google Form or Simple Submission Form</h3>
-          <p>
-            Add a clean form for structured submissions: town, category, recommendation,
-            question, photo, video link, or business name.
-          </p>
-        </article>
-
-        <article class="roadmap-card">
-          <span class="tag gold">Phase 3</span>
-          <h3>Featured Community Posts</h3>
-          <p>
-            Turn the best questions into blog posts, quick guides, video scripts,
-            restaurant roundups, and town-specific recommendations.
-          </p>
-        </article>
-
-        <article class="roadmap-card">
-          <span class="tag gold">Phase 4</span>
-          <h3>Comments, Ratings & Discussions</h3>
-          <p>
-            Later, add real comments, ratings, town threads, restaurant notes,
-            rental-owner advice, and local business profiles.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="feature-banner">
-      <h2>This Is How the Site Becomes Alive</h2>
-
+    <section class="section dark">
+      <span class="section-label">Why This Exists</span>
+      <h2>This is the listening post for the brand.</h2>
       <p>
-        Travel guides help people plan. Videos help them feel the place. Decor gives the project a product lane.
-        The community board gives people a reason to participate, submit, ask, recommend, and return.
+        Community tips can become better guides, useful blog posts, local videos, service ideas,
+        owner resources, restaurant recommendations, and partnerships across the Delaware beaches.
       </p>
+    </section>
 
-      <div class="cta-row">
-        <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Community%20Board%20Submission">Submit to the Board</a>
-        <a class="button light" href="videos.html">Watch Videos</a>
-        <a class="button" href="decor.html">Browse Decor</a>
+    <section class="section" id="visitor-tips">
+      <span class="section-label">Visitor Tips</span>
+      <h2>Questions and recommendations from beach visitors.</h2>
+
+      <div class="community-grid">
+        <article class="community-card">
+          <span class="community-tag">Trip planning</span>
+          <h3>Ask a beach question</h3>
+          <p>
+            Send questions about where to stay, which town fits, what to do, where to eat, or what to plan around.
+          </p>
+          <ul>
+            <li>Town comparisons</li>
+            <li>Rainy-day ideas</li>
+            <li>Family-friendly planning</li>
+          </ul>
+        </article>
+
+        <article class="community-card">
+          <span class="community-tag">Food</span>
+          <h3>Suggest restaurants</h3>
+          <p>
+            Share restaurants, coffee shops, bakeries, bars, seafood spots, and casual meals worth including.
+          </p>
+          <ul>
+            <li>Breakfast ideas</li>
+            <li>Family dinners</li>
+            <li>Local favorites</li>
+          </ul>
+        </article>
+
+        <article class="community-card">
+          <span class="community-tag">Activities</span>
+          <h3>Share things to do</h3>
+          <p>
+            Send boardwalk stops, local shops, trails, rainy-day backups, beach tips, or simple ideas that help the day.
+          </p>
+          <ul>
+            <li>Beach-day ideas</li>
+            <li>Indoor backups</li>
+            <li>Town-specific tips</li>
+          </ul>
+        </article>
       </div>
     </section>
 
+    <section class="section" id="owner-ideas">
+      <span class="section-label">Owner Ideas</span>
+      <h2>Beach-house and rental owner needs.</h2>
+
+      <div class="community-grid">
+        <article class="community-card">
+          <span class="community-tag">Owner support</span>
+          <h3>Property improvement ideas</h3>
+          <p>
+            Tell us what beach-house owners need: tools, signs, guest guides, local support, cleanup help, or better rental details.
+          </p>
+        </article>
+
+        <article class="community-card">
+          <span class="community-tag">Custom signs</span>
+          <h3>Request sign concepts</h3>
+          <p>
+            Send house names, welcome wording, guest instructions, Wi-Fi signs, checkout notes, or local tip sign ideas.
+          </p>
+        </article>
+
+        <article class="community-card">
+          <span class="community-tag">Rental experience</span>
+          <h3>Improve the guest stay</h3>
+          <p>
+            Better instructions, cleaner recommendations, and practical local info can make a rental feel more professional.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="local-business">
+      <span class="section-label">Local Business</span>
+      <h2>Local businesses belong in the beach ecosystem.</h2>
+
+      <div class="community-grid">
+        <article class="community-card">
+          <h3>Restaurants and shops</h3>
+          <p>
+            Food businesses, coffee shops, retail stops, and local stores can become part of trip guides and local recommendations.
+          </p>
+        </article>
+
+        <article class="community-card">
+          <h3>Service providers</h3>
+          <p>
+            Cleaners, handymen, landscapers, contractors, rental support, and owner services can help beach properties run better.
+          </p>
+        </article>
+
+        <article class="community-card">
+          <h3>Video and content ideas</h3>
+          <p>
+            Local clips, business features, walkthroughs, and beach-town videos can help visitors understand the area faster.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <span class="section-label">The Goal</span>
+      <h2>Turn community feedback into useful local infrastructure.</h2>
+      <p>
+        Every real question is a clue. Every local tip can become a better page.
+        Every business suggestion can become a partnership.
+      </p>
+
+      <div class="button-row">
+        <a class="secondary-btn" href="contact.html">Send a Tip</a>
+        <a class="secondary-btn" href="videos.html">Submit a Video</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Have something useful to add?</h2>
+      <p>
+        Send a tip, question, recommendation, owner need, local business idea, or beach-town correction.
+        This site gets better when the community helps shape it.
+      </p>
+
+      <div class="button-row">
+        <a class="secondary-btn" href="contact.html">Contact Us</a>
+        <a class="secondary-btn" href="blog.html">Read the Blog</a>
+        <a class="secondary-btn" href="index.html">Back to Home</a>
+      </div>
+    </section>
   </main>
 
- <footer>
-  <p>
-    © 2026 Rent Delaware Beaches |
-    <a href="index.html">Home</a>
-    <a href="delaware-beach-rentals.html">Rentals</a>
-    <a href="beach-towns.html">Beach Towns</a>
-    <a href="plan-your-trip.html">Plan Your Trip</a>
-    <a href="restaurants.html">Restaurants</a>
-    <a href="things-to-do.html">Things To Do</a>
-    <a href="videos.html">Videos</a>
-    <a href="decor.html">Beach House Decor</a>
-    <a href="community.html">Community</a>
-    <a href="blog.html">Blog</a>
-    <a href="advertise.html">Advertise</a>
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <strong>Rent Delaware Beaches</strong>
+      <p>Beach rentals, owner help, custom signs, and local Delaware beach planning resources.</p>
 
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan Your Trip</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="things-to-do.html">Things To Do</a>
+        <a href="videos.html">Videos</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
