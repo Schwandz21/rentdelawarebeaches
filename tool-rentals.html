@@ -1,225 +1,883 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Local Tool Rentals for Delaware Beach Homes | Rent Delaware Beaches</title>
-  <meta name="description" content="Rent local yard cleanup tools for Delaware beach homes, rental properties, patios, decks, driveways, and weekend projects. Backpack blower and gas trimmer rentals available." />
+  <title>Tool Rentals for Delaware Beach Homes | Rent Delaware Beaches</title>
+  <meta name="description" content="Local tool rentals and practical beach house support for Delaware beach homeowners, rental owners, patios, decks, yards, cleanup, and seasonal projects." />
 
-  <link rel="stylesheet" href="style.css?v=3" />
+  <style>
+    :root {
+      --rdbx-deep: #062f3d;
+      --rdbx-teal: #087f88;
+      --rdbx-teal-bright: #20bcb0;
+      --rdbx-sand: #f2d991;
+      --rdbx-cream: #fffaf0;
+      --rdbx-ink: #173743;
+      --rdbx-muted: #54707a;
+      --rdbx-line: rgba(6, 47, 61, 0.10);
+      --rdbx-shadow: 0 20px 55px rgba(6, 47, 61, 0.22);
+      --rdbx-soft-shadow: 0 10px 30px rgba(6, 47, 61, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rdbx-ink);
+      background:
+        radial-gradient(circle at top left, rgba(32, 188, 176, 0.10), transparent 34%),
+        linear-gradient(180deg, #f7f1df 0%, #fffaf0 44%, #f7f1df 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .rdbx-shell {
+      position: relative;
+      width: 100%;
+      color: #ffffff;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 5%, rgba(255,246,214,.94) 0 15%, transparent 34%),
+        radial-gradient(circle at 82% 16%, rgba(125,219,213,.64) 0 18%, transparent 44%),
+        linear-gradient(145deg,#073746 0%,#087f88 42%,#20bcb0 74%,#f2d991 138%);
+      border-radius: 0 0 30px 30px;
+      box-shadow: var(--rdbx-shadow);
+      margin: 0;
+      padding: 0;
+    }
+
+    .rdbx-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -38% -30%;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.10);
+      transform: rotate(-7deg);
+      pointer-events: none;
+    }
+
+    .rdbx-brand-row {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      backdrop-filter: blur(12px);
+    }
+
+    .rdbx-brand-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+      flex: 1 1 auto;
+      max-width: calc(100% - 92px);
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .rdbx-badge {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 34%,#cbd3da 55%,#ffffff 56%,#b9c3cc 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.78);
+      font-weight: 950;
+      font-size: .68rem;
+      letter-spacing: .08em;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -8px 12px rgba(0,0,0,.07);
+    }
+
+    .rdbx-brand-text {
+      min-width: 0;
+      max-width: 100%;
+      padding-top: 1px;
+    }
+
+    .rdbx-brand-text strong {
+      display: block;
+      color: #ffffff;
+      font-size: .98rem;
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      white-space: normal;
+    }
+
+    .rdbx-brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.84);
+      font-size: .70rem;
+      line-height: 1.18;
+      white-space: normal;
+    }
+
+    .rdbx-contact {
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,.74);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      color: #062f3d;
+      border-radius: 999px;
+      padding: 9px 11px;
+      font-size: .76rem;
+      font-weight: 950;
+      margin-top: 1px;
+      text-decoration: none;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .rdbx-hero {
+      position: relative;
+      z-index: 2;
+      padding: 24px 18px 18px;
+      margin: 0;
+      text-align: left;
+      background: transparent;
+    }
+
+    .rdbx-kicker {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,243,200,.96);
+      color: #062f3d;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+    }
+
+    .rdbx-hero-title {
+      margin: 17px 0 12px;
+      color: #ffffff;
+      font-size: clamp(2.45rem, 11vw, 4.2rem);
+      line-height: .96;
+      letter-spacing: -.075em;
+      text-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+
+    .rdbx-hero-copy {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      font-size: 1.08rem;
+      line-height: 1.45;
+      max-width: 36ch;
+    }
+
+    .rdbx-services {
+      position: relative;
+      z-index: 2;
+      margin: 18px;
+      padding: 14px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
+    }
+
+    .rdbx-services-title {
+      margin: 0 0 11px;
+      color: #ffffff;
+      font-size: .82rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .rdbx-service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .rdbx-service-grid a {
+      position: relative;
+      overflow: hidden;
+      min-height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 9px;
+      font-weight: 950;
+      line-height: 1.08;
+      color: #16333d;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.72);
+      background:
+        linear-gradient(180deg,
+          #ffffff 0%,
+          #eef2f5 24%,
+          #d8dde2 50%,
+          #fbfcfd 52%,
+          #c9d0d7 100%);
+      box-shadow:
+        0 12px 24px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -10px 14px rgba(0,0,0,.05);
+    }
+
+    .rdbx-service-grid a::before {
+      content: "";
+      position: absolute;
+      inset: 1px 1px auto 1px;
+      height: 46%;
+      border-radius: 16px 16px 40px 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.08));
+      pointer-events: none;
+    }
+
+    .rdbx-service-grid a:nth-child(2),
+    .rdbx-service-grid a:nth-child(4) {
+      color: #0f2d36;
+      background:
+        linear-gradient(180deg,
+          #f7f9fb 0%,
+          #dfe5ea 22%,
+          #b8c1ca 50%,
+          #f8fafb 52%,
+          #a7b2bc 100%);
+    }
+
+    .rdbx-nav-wrap {
+      position: relative;
+      z-index: 3;
+      padding: 0 0 18px;
+    }
+
+    .rdbx-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 9px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 16px;
+      margin: 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      justify-content: flex-start;
+    }
+
+    .rdbx-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .rdbx-nav a,
+    .rdbx-swipe {
+      flex: 0 0 auto;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+
+    .rdbx-nav a {
+      background:
+        linear-gradient(180deg,
+          #fbfcfd 0%,
+          #edf1f4 35%,
+          #d5dbe1 51%,
+          #fefefe 52%,
+          #c7cfd6 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.72);
+      font-size: .84rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -8px 12px rgba(0,0,0,.05);
+    }
+
+    .rdbx-swipe {
+      color: rgba(255,255,255,.92);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      background: rgba(6,47,61,.26);
+      border: 1px solid rgba(255,255,255,.20);
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section {
+      margin: 22px auto 18px;
+      padding: 22px 18px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(32,188,176,.14), transparent 34%),
+        linear-gradient(180deg,#ffffff 0%,#fffaf0 100%);
+      border: 1px solid var(--rdbx-line);
+      box-shadow: var(--rdbx-soft-shadow);
+    }
+
+    .section.dark {
+      background:
+        radial-gradient(circle at top right, rgba(32,188,176,.24), transparent 36%),
+        linear-gradient(145deg, #062f3d 0%, #083846 60%, #087f88 130%);
+      color: #ffffff;
+    }
+
+    .section-label {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section.dark .section-label {
+      background: rgba(255,243,200,.95);
+      color: var(--rdbx-deep);
+    }
+
+    .section h2 {
+      margin: 14px 0 10px;
+      color: var(--rdbx-deep);
+      font-size: clamp(2rem, 8vw, 3.3rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .section.dark h2 {
+      color: #ffffff;
+    }
+
+    .section p {
+      margin: 0;
+      color: #4b6870;
+      font-size: 1.03rem;
+      line-height: 1.55;
+      max-width: 800px;
+    }
+
+    .section.dark p {
+      color: rgba(255,255,255,.82);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .primary-btn {
+      color: #ffffff;
+      background: var(--rdbx-deep);
+      box-shadow: 0 10px 22px rgba(6,47,61,.18);
+    }
+
+    .secondary-btn {
+      color: var(--rdbx-deep);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .tool-card {
+      background: #ffffff;
+      border: 1px solid var(--rdbx-line);
+      border-radius: 26px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(6,47,61,.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--rdbx-teal-bright), var(--rdbx-sand));
+    }
+
+    .tool-card h3 {
+      margin: 0 0 8px;
+      color: var(--rdbx-deep);
+      font-size: 1.28rem;
+      letter-spacing: -.025em;
+    }
+
+    .tool-card p {
+      margin: 0 0 14px;
+      color: var(--rdbx-muted);
+      line-height: 1.48;
+      font-size: .98rem;
+    }
+
+    .tool-card ul {
+      margin: 0 0 16px;
+      padding-left: 18px;
+      color: var(--rdbx-muted);
+      line-height: 1.5;
+    }
+
+    .tool-card li {
+      margin-bottom: 5px;
+    }
+
+    .price-pill {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .86rem;
+      margin-bottom: 12px;
+    }
+
+    .process-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 18px;
+      counter-reset: steps;
+    }
+
+    .process-step {
+      counter-increment: steps;
+      background: #ffffff;
+      border: 1px solid var(--rdbx-line);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(6,47,61,.08);
+    }
+
+    .process-step::before {
+      content: counter(steps);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 10px;
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      color: var(--rdbx-deep);
+      font-weight: 950;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .process-step strong {
+      display: block;
+      color: var(--rdbx-deep);
+      margin-bottom: 5px;
+      font-size: 1.08rem;
+    }
+
+    .process-step span {
+      display: block;
+      color: var(--rdbx-muted);
+      line-height: 1.42;
+    }
+
+    .final-cta {
+      margin: 20px auto 28px;
+      padding: 24px 20px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(242,217,145,.25), transparent 34%),
+        linear-gradient(145deg, #062f3d 0%, #087f88 92%);
+      color: #ffffff;
+      box-shadow: var(--rdbx-shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .final-cta p {
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 28px 18px 34px;
+      background: var(--rdbx-deep);
+      color: #ffffff;
+      border-radius: 28px 28px 0 0;
+    }
+
+    .footer-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .footer p {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.45;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 760px) {
+      .rdbx-shell {
+        border-radius: 0 0 36px 36px;
+      }
+
+      .rdbx-brand-row,
+      .rdbx-hero,
+      .rdbx-nav {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-hero {
+        text-align: center;
+        padding-top: 38px;
+        padding-bottom: 24px;
+      }
+
+      .rdbx-hero-copy {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-services {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-service-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .rdbx-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+      }
+
+      .rdbx-swipe {
+        display: none;
+      }
+
+      .tool-grid,
+      .process-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .rdbx-hero-title {
+        font-size: 2.28rem;
+      }
+
+      .rdbx-brand-text strong {
+        font-size: .92rem;
+      }
+
+      .rdbx-brand-text span {
+        font-size: .66rem;
+      }
+
+      .rdbx-contact {
+        font-size: .72rem;
+        padding: 8px 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="rdbx-shell">
+    <div class="rdbx-brand-row">
+      <a class="rdbx-brand-link" href="index.html">
+        <span class="rdbx-badge">RDB</span>
+        <span class="rdbx-brand-text">
+          <strong>Rent Delaware Beaches</strong>
+          <span>Coastal support • rentals • owner help</span>
+        </span>
+      </a>
 
-  <header class="site-header">
-    <h1>Rent Delaware Beaches</h1>
-    <p>Delaware Beach Rentals, Local Guides, Property Support & Practical Beach-Life Help</p>
+      <a class="rdbx-contact" href="contact.html">Contact</a>
+    </div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="plan-your-trip.html">Plan Your Trip</a>
-      <a href="restaurants.html">Restaurants</a>
-      <a href="decor.html">Beach Decor</a>
-      <a href="tool-rentals.html">Tool Rentals</a>
-      <a href="advertise.html">Advertise</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <section class="rdbx-hero">
+      <span class="rdbx-kicker">Local Tool Rentals</span>
+      <h1 class="rdbx-hero-title">Tools for Beach House Projects.</h1>
+      <p class="rdbx-hero-copy">
+        Practical local tool rentals and owner support for Delaware beach homes,
+        rental properties, yard cleanup, decks, patios, and seasonal projects.
+      </p>
+    </section>
+
+    <section class="rdbx-services" aria-label="Main services">
+      <h2 class="rdbx-services-title">Rental support</h2>
+      <div class="rdbx-service-grid">
+        <a href="#available-tools">Available Tools</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="contact.html">Request Rental</a>
+        <a href="index.html">Main Site</a>
+      </div>
+    </section>
+
+    <div class="rdbx-nav-wrap">
+      <nav class="rdbx-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="things-to-do.html">Things To Do</a>
+        <a href="videos.html">Videos</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="rdbx-swipe">Swipe →</span>
+      </nav>
+    </div>
   </header>
 
-  <main>
-
-    <section class="tool-hero">
-      <div class="tool-hero-content">
-        <p class="eyebrow">New Local Service</p>
-        <h2>Local Tool Rentals for Delaware Beach Homes</h2>
-        <p>
-          Need to clean up a beach house, rental property, driveway, deck, patio, or yard without buying and storing bulky equipment?
-          Rent Delaware Beaches now offers practical local tool rentals for seasonal cleanup, weekend projects, storm cleanup, and property turnover days.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="contact.html" class="button">Check Availability</a>
-          <a href="#rental-options" class="button secondary-button">View Tools</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section intro-section">
-      <h2>Beach-House Cleanup Made Easier</h2>
+  <main class="page-wrap">
+    <section class="section">
+      <span class="section-label">Tool Rentals</span>
+      <h2>Rent practical tools without buying them for one weekend job.</h2>
       <p>
-        Rent Delaware Beaches is built around one simple idea: making Delaware beach life easier for visitors, homeowners, locals, and property owners.
-        Our local tool rentals are designed for people who need the right equipment for a quick job, but do not want to buy, store, maintain, or transport bulky tools year-round.
+        Beach-house projects usually do not need a permanent garage full of tools.
+        Rent Delaware Beaches is building a simple local rental option for homeowners,
+        rental owners, and people handling practical projects around Delaware beach properties.
       </p>
 
+      <div class="button-row">
+        <a class="primary-btn" href="contact.html">Request a Tool Rental</a>
+        <a class="secondary-btn" href="#available-tools">See Available Tools</a>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <span class="section-label">Built for Owners</span>
+      <h2>Useful for cleanups, turnovers, repairs, and seasonal prep.</h2>
       <p>
-        These rentals are especially useful for rental-property turnovers, weekend yard cleanup, deck cleanup, patio cleanup, driveway clearing, and seasonal beach-house prep.
+        Whether you are cleaning up after guests, preparing a beach house for the season,
+        trimming a yard, clearing outdoor areas, or handling a project before the next rental,
+        the goal is simple: make the job easier without making you buy equipment you barely use.
       </p>
     </section>
 
-    <section id="rental-options" class="content-section">
-      <h2>Available Tool Rental Options</h2>
+    <section class="section" id="available-tools">
+      <span class="section-label">Available Tools</span>
+      <h2>Current rental focus.</h2>
 
-      <div class="rental-grid">
-
-        <article class="rental-card featured-rental">
-          <p class="rental-tag">Best Value</p>
-          <h3>Beach House Yard Cleanup Kit</h3>
-          <p class="rental-price">$45/day · $75/weekend · $125/week</p>
-
+      <div class="tool-grid">
+        <article class="tool-card">
+          <span class="price-pill">Outdoor cleanup</span>
+          <h3>Gas leaf blower</h3>
           <p>
-            A practical cleanup bundle for homeowners, renters, and property owners who need to quickly clean up outdoor areas without buying equipment.
+            Useful for patios, decks, driveways, walkways, porches, yards, and quick beach-house cleanup.
           </p>
-
           <ul>
-            <li>Gas backpack blower</li>
-            <li>Gas trimmer / hedge tool setup</li>
-            <li>Great for decks, patios, yards, driveways, and rental turnovers</li>
-            <li>Ideal for seasonal cleanup and storm debris cleanup</li>
+            <li>Great for seasonal cleanup</li>
+            <li>Helpful before or after guest stays</li>
+            <li>Practical for outdoor maintenance</li>
           </ul>
-
-          <p class="deposit-note">Refundable deposit required.</p>
-          <a href="contact.html" class="button">Request This Kit</a>
+          <a class="primary-btn" href="contact.html">Ask Availability</a>
         </article>
 
-        <article class="rental-card">
-          <h3>Gas Backpack Blower</h3>
-          <p class="rental-price">$25/day · $45/weekend · $75/week</p>
-
+        <article class="tool-card">
+          <span class="price-pill">Yard support</span>
+          <h3>Gas pole saw / trimmer</h3>
           <p>
-            A powerful backpack blower for clearing leaves, grass clippings, sand, light debris, sidewalks, driveways, patios, decks, and outdoor rental-property areas.
+            Useful for light trimming, overgrowth, branches, and outdoor property maintenance around beach homes.
           </p>
-
           <ul>
-            <li>Good for fast outdoor cleanup</li>
-            <li>Useful after mowing, storms, or tenant turnover</li>
-            <li>Local pickup available</li>
+            <li>Helpful for hard-to-reach trimming</li>
+            <li>Good for owner prep days</li>
+            <li>Best for practical property upkeep</li>
           </ul>
-
-          <p class="deposit-note">Refundable deposit required.</p>
-          <a href="contact.html" class="button">Check Availability</a>
+          <a class="primary-btn" href="contact.html">Request Details</a>
         </article>
 
-        <article class="rental-card">
-          <h3>Gas Trimmer / Hedge Tool Setup</h3>
-          <p class="rental-price">$30/day · $50/weekend · $85/week</p>
-
+        <article class="tool-card">
+          <span class="price-pill">Coming soon</span>
+          <h3>More beach-house tools</h3>
           <p>
-            A gas-powered trimming tool setup for grass edges, overgrowth, hedge work, and general outdoor property maintenance.
+            This rental catalog will expand as local needs become clearer through owner requests and real projects.
           </p>
-
           <ul>
-            <li>Useful for beach-house yard maintenance</li>
-            <li>Good for touch-ups before guests arrive</li>
-            <li>Best for homeowners and property owners with a specific cleanup job</li>
+            <li>Cleaning tools</li>
+            <li>Maintenance tools</li>
+            <li>Seasonal property support</li>
           </ul>
-
-          <p class="deposit-note">Refundable deposit required.</p>
-          <a href="contact.html" class="button">Ask About This Tool</a>
+          <a class="primary-btn" href="contact.html">Suggest a Tool</a>
         </article>
-
-        <article class="rental-card pending-rental">
-          <h3>Large Portable Air Compressor</h3>
-          <p class="rental-price">Coming Soon / Pending Inspection</p>
-
-          <p>
-            A large wheeled air compressor may be available after testing and inspection. This item is not currently part of the standard rental inventory.
-          </p>
-
-          <ul>
-            <li>Potential future garage / contractor tool rental</li>
-            <li>Requires inspection before public rental</li>
-            <li>Availability to be announced later</li>
-          </ul>
-
-          <p class="deposit-note">Not currently available for rental.</p>
-        </article>
-
       </div>
     </section>
 
-    <section class="content-section how-it-works">
-      <h2>How Local Tool Rentals Work</h2>
+    <section class="section" id="how-it-works">
+      <span class="section-label">How It Works</span>
+      <h2>Simple rental process.</h2>
 
-      <div class="steps-grid">
-
-        <div class="step-card">
-          <h3>1. Request Availability</h3>
-          <p>
-            Send a message with the tool you need, your preferred date, rental length, and pickup or delivery location.
-          </p>
+      <div class="process-list">
+        <div class="process-step">
+          <strong>Tell us what you need</strong>
+          <span>Use the contact page to describe the tool, project, timing, and general location.</span>
         </div>
 
-        <div class="step-card">
-          <h3>2. Confirm Details</h3>
-          <p>
-            We confirm availability, rental price, deposit amount, pickup/return timing, and basic safety requirements.
-          </p>
+        <div class="process-step">
+          <strong>Confirm availability</strong>
+          <span>We confirm whether the item is available, practical for the job, and a good fit.</span>
         </div>
 
-        <div class="step-card">
-          <h3>3. Pick Up & Use</h3>
-          <p>
-            Tools are photographed before handoff. Valid ID, payment, refundable deposit, and a signed rental agreement are required.
-          </p>
+        <div class="process-step">
+          <strong>Use it and return it</strong>
+          <span>Keep the process simple, local, and focused on useful beach-house project support.</span>
         </div>
-
-        <div class="step-card">
-          <h3>4. Return Clean</h3>
-          <p>
-            Return the equipment on time, with all parts included, clean, and in the same working condition.
-          </p>
-        </div>
-
       </div>
     </section>
 
-    <section class="content-section policy-section">
-      <h2>Rental Requirements</h2>
+    <section class="section">
+      <span class="section-label">Good Fits</span>
+      <h2>Best use cases for local tool rentals.</h2>
 
-      <div class="policy-box">
-        <p><strong>Before equipment leaves:</strong></p>
-        <ul>
-          <li>Valid ID required</li>
-          <li>Payment required before pickup</li>
-          <li>Refundable deposit required</li>
-          <li>Signed rental agreement required</li>
-          <li>Pickup and return time must be confirmed</li>
-          <li>Photos/video of equipment condition may be taken before handoff</li>
-        </ul>
+      <div class="tool-grid">
+        <article class="tool-card">
+          <h3>Beach house owners</h3>
+          <p>
+            For owners who need a tool for one project but do not want to buy, store, maintain,
+            or transport equipment long-term.
+          </p>
+        </article>
+
+        <article class="tool-card">
+          <h3>Rental property prep</h3>
+          <p>
+            Useful before guests arrive, after a busy rental week, during seasonal changeovers,
+            or when a property needs a fast cleanup.
+          </p>
+        </article>
+
+        <article class="tool-card">
+          <h3>Local practical projects</h3>
+          <p>
+            Yard cleanup, deck clearing, walkway cleanup, light trimming, patio prep,
+            and other practical outdoor tasks.
+          </p>
+        </article>
       </div>
-
-      <div class="policy-box">
-        <p><strong>Customer responsibility:</strong></p>
-        <ul>
-          <li>Use equipment safely and responsibly</li>
-          <li>Do not lend equipment to another person</li>
-          <li>Return all parts and accessories</li>
-          <li>Return tools clean and in working condition</li>
-          <li>Customer is responsible for damage, missing parts, misuse, or failure to return</li>
-          <li>Use proper fuel mix where applicable</li>
-        </ul>
-      </div>
-
-      <p class="small-note">
-        Tool rentals are offered as a practical local service. Availability is limited and subject to equipment condition, weather, scheduling, and owner approval.
-      </p>
     </section>
 
-    <section class="content-section contact-cta">
-      <h2>Need a Tool for a Weekend Project?</h2>
+    <section class="final-cta">
+      <h2>Need a tool for a beach-house project?</h2>
       <p>
-        Message Rent Delaware Beaches with the date needed, town or location, rental length, and which tool you want to reserve.
+        Send the project details and timing. If the tool is available and the job is a good fit,
+        we will help you figure out the cleanest next step.
       </p>
 
-      <a href="contact.html" class="button">Check Availability</a>
+      <div class="button-row">
+        <a class="secondary-btn" href="contact.html">Request Tool Rental</a>
+        <a class="secondary-btn" href="index.html">Back to Home</a>
+      </div>
     </section>
-
   </main>
 
-  <footer>
-    <p>&copy; 2026 Rent Delaware Beaches. All rights reserved.</p>
-  </footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <strong>Rent Delaware Beaches</strong>
+      <p>Beach rentals, owner help, custom signs, and local Delaware beach planning resources.</p>
 
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan Your Trip</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
