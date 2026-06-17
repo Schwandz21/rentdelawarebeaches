@@ -1,828 +1,870 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Beach House Decor & Custom Signs | Rent Delaware Beaches</title>
-
   <meta name="description" content="Shop beach house decor, printable coastal wall art, custom hand-built house signs, address signs, rental welcome signs, and coastal decor for Delaware beach homes and rentals." />
 
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --rdbx-deep: #062f3d;
+      --rdbx-teal: #087f88;
+      --rdbx-teal-bright: #20bcb0;
+      --rdbx-sand: #f2d991;
+      --rdbx-cream: #fffaf0;
+      --rdbx-ink: #173743;
+      --rdbx-muted: #54707a;
+      --rdbx-line: rgba(6, 47, 61, 0.10);
+      --rdbx-shadow: 0 20px 55px rgba(6, 47, 61, 0.22);
+      --rdbx-soft-shadow: 0 10px 30px rgba(6, 47, 61, 0.13);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f0e3;
-      color: #102f45;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rdbx-ink);
+      background:
+        radial-gradient(circle at top left, rgba(32, 188, 176, 0.10), transparent 34%),
+        linear-gradient(180deg, #f7f1df 0%, #fffaf0 44%, #f7f1df 100%);
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    .top-strip {
-      background: #d8903d;
-      color: #102f45;
-      text-align: center;
-      padding: 10px 16px;
-      font-weight: bold;
-      letter-spacing: 0.02em;
-    }
-
-    header {
-      min-height: 76vh;
+    .rdbx-shell {
+      position: relative;
+      width: 100%;
+      color: #ffffff;
+      overflow: hidden;
       background:
-        linear-gradient(rgba(8, 35, 54, 0.35), rgba(8, 35, 54, 0.78)),
-        url("images/2092 Address Sign Hero.png");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      flex-direction: column;
+        radial-gradient(circle at 14% 5%, rgba(255,246,214,.94) 0 15%, transparent 34%),
+        radial-gradient(circle at 82% 16%, rgba(125,219,213,.64) 0 18%, transparent 44%),
+        linear-gradient(145deg,#073746 0%,#087f88 42%,#20bcb0 74%,#f2d991 138%);
+      border-radius: 0 0 30px 30px;
+      box-shadow: var(--rdbx-shadow);
+      margin: 0;
+      padding: 0;
     }
 
-    nav {
-      width: calc(100% - 40px);
-      max-width: 1180px;
-      margin: 20px auto 0;
-      padding: 14px 18px;
-      background: rgba(16, 47, 69, 0.86);
-      backdrop-filter: blur(8px);
-      border-radius: 999px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 18px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    .rdbx-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -38% -30%;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.10);
+      transform: rotate(-7deg);
+      pointer-events: none;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      transition: 0.2s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.14);
-      transform: translateY(-1px);
-    }
-
-    .hero-content {
-      max-width: 1040px;
-      margin: auto;
-      padding: 80px 24px 105px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      font-weight: bold;
-      margin-bottom: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 1.02;
-      margin: 0 0 22px;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
-    }
-
-    .hero-content p {
-      max-width: 790px;
-      margin: 0 auto 28px;
-      font-size: 21px;
-      color: #fff7e8;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 999px;
-      background: #1f6f9b;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-      transition: 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: #185879;
-    }
-
-    .button.gold {
-      background: #d8903d;
-      color: #102f45;
-    }
-
-    .button.gold:hover {
-      background: #c17c30;
-    }
-
-    .button.light {
-      background: #fffaf2;
-      color: #102f45;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: -58px auto 0;
-      padding: 0 20px 60px;
+    .rdbx-brand-row {
       position: relative;
       z-index: 2;
-    }
-
-    section {
-      margin-top: 34px;
-      background: #fffaf2;
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
-      border: 1px solid #eadfcd;
-    }
-
-    h2 {
-      color: #1f6f9b;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-
-    h3 {
-      color: #102f45;
-      margin-top: 0;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      color: #425466;
-      font-size: 18px;
-      margin-bottom: 24px;
-    }
-
-    .quick-panel {
-      background: rgba(255, 250, 242, 0.96);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      border: 1px solid rgba(216, 144, 61, 0.22);
-    }
-
-    .quick-card {
-      padding: 20px;
-      border-radius: 18px;
-      background: white;
-      border: 1px solid #eadfcd;
-      text-decoration: none;
-      transition: 0.22s ease;
-    }
-
-    .quick-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
-    }
-
-    .quick-card span {
-      color: #d8903d;
-      font-weight: bold;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .quick-card h3 {
-      margin: 8px 0 6px;
-      font-size: 20px;
-      color: #102f45;
-    }
-
-    .quick-card p {
-      margin: 0;
-      color: #425466;
-      font-size: 15px;
-    }
-
-    .custom-sign-feature {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .custom-sign-image-wrap {
-      position: relative;
-    }
-
-    .custom-sign-feature img {
-      width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
-      display: block;
-    }
-
-    .floating-badge {
-      position: absolute;
-      left: 20px;
-      bottom: 20px;
-      background: rgba(16, 47, 69, 0.82);
-      color: white;
-      padding: 12px 16px;
-      border-radius: 999px;
-      font-weight: bold;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .custom-sign-panel {
-      background: white;
-      border: 1px solid #eadfcd;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(16, 47, 69, 0.08);
-    }
-
-    .order-form {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .order-form label {
-      font-weight: bold;
-      color: #102f45;
-    }
-
-    .order-form select,
-    .order-form input,
-    .order-form textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #d5cbb8;
-      border-radius: 12px;
-      font-family: Arial, sans-serif;
-      background: #fffaf2;
-      color: #102f45;
-    }
-
-    .order-note {
-      font-size: 14px;
-      color: #425466;
-      margin: 4px 0;
-    }
-
-    .catalog-controls {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 18px 0 28px;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      backdrop-filter: blur(12px);
     }
 
-    .catalog-filter {
-      border: none;
-      background: #102f45;
-      color: white;
-      padding: 11px 15px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.2s ease;
+    .rdbx-brand-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+      flex: 1 1 auto;
+      max-width: calc(100% - 92px);
+      color: #ffffff;
+      text-decoration: none;
     }
 
-    .catalog-filter:hover {
-      background: #1f6f9b;
-      transform: translateY(-2px);
-    }
-
-    .catalog-grid {
+    .rdbx-badge {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      place-items: center;
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 34%,#cbd3da 55%,#ffffff 56%,#b9c3cc 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.78);
+      font-weight: 950;
+      font-size: .68rem;
+      letter-spacing: .08em;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -8px 12px rgba(0,0,0,.07);
     }
 
-    .catalog-card {
-      background: white;
-      border: 1px solid #eadfcd;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
-      transition: 0.22s ease;
+    .rdbx-brand-text {
+      min-width: 0;
+      max-width: 100%;
+      padding-top: 1px;
     }
 
-    .catalog-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
-    }
-
-    .catalog-card img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
+    .rdbx-brand-text strong {
       display: block;
-      background: #102f45;
+      color: #ffffff;
+      font-size: .98rem;
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      white-space: normal;
     }
 
-    .catalog-video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: none;
+    .rdbx-brand-text span {
       display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.84);
+      font-size: .70rem;
+      line-height: 1.18;
+      white-space: normal;
     }
 
-    .catalog-card-content {
-      padding: 22px;
-    }
-
-    .catalog-tag,
-    .catalog-status {
-      display: inline-block;
-      background: #f1eadc;
-      color: #102f45;
-      padding: 6px 10px;
+    .rdbx-contact {
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,.74);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      color: #062f3d;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-      margin: 0 6px 10px 0;
+      padding: 9px 11px;
+      font-size: .76rem;
+      font-weight: 950;
+      margin-top: 1px;
+      text-decoration: none;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.96);
     }
 
-    .catalog-status {
-      background: #d8903d;
-      color: #102f45;
+    .rdbx-hero {
+      position: relative;
+      z-index: 2;
+      padding: 24px 18px 18px;
+      margin: 0;
+      text-align: left;
+      background: transparent;
     }
 
-    .catalog-price {
-      font-weight: bold;
-      margin-top: 10px;
-      color: #1f6f9b;
+    .rdbx-kicker {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,243,200,.96);
+      color: #062f3d;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
     }
 
-    .catalog-buttons {
+    .rdbx-hero-title {
+      margin: 17px 0 12px;
+      color: #ffffff;
+      font-size: clamp(2.45rem, 11vw, 4.2rem);
+      line-height: .96;
+      letter-spacing: -.075em;
+      text-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+
+    .rdbx-hero-copy {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      font-size: 1.08rem;
+      line-height: 1.45;
+      max-width: 36ch;
+    }
+
+    .rdbx-services {
+      position: relative;
+      z-index: 2;
+      margin: 18px;
+      padding: 14px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
+    }
+
+    .rdbx-services-title {
+      margin: 0 0 11px;
+      color: #ffffff;
+      font-size: .82rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .rdbx-service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .rdbx-service-grid a {
+      position: relative;
+      overflow: hidden;
+      min-height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 9px;
+      font-weight: 950;
+      line-height: 1.08;
+      color: #16333d;
+      border: 1px solid rgba(255,255,255,.72);
+      background:
+        linear-gradient(180deg,
+          #ffffff 0%,
+          #eef2f5 24%,
+          #d8dde2 50%,
+          #fbfcfd 52%,
+          #c9d0d7 100%);
+      box-shadow:
+        0 12px 24px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -10px 14px rgba(0,0,0,.05);
+    }
+
+    .rdbx-service-grid a::before {
+      content: "";
+      position: absolute;
+      inset: 1px 1px auto 1px;
+      height: 46%;
+      border-radius: 16px 16px 40px 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.08));
+      pointer-events: none;
+    }
+
+    .rdbx-service-grid a:nth-child(2),
+    .rdbx-service-grid a:nth-child(4) {
+      color: #0f2d36;
+      background:
+        linear-gradient(180deg,
+          #f7f9fb 0%,
+          #dfe5ea 22%,
+          #b8c1ca 50%,
+          #f8fafb 52%,
+          #a7b2bc 100%);
+    }
+
+    .rdbx-nav-wrap {
+      position: relative;
+      z-index: 3;
+      padding: 0 0 18px;
+    }
+
+    .rdbx-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 9px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 16px;
+      margin: 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      justify-content: flex-start;
+    }
+
+    .rdbx-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .rdbx-nav a,
+    .rdbx-swipe {
+      flex: 0 0 auto;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+
+    .rdbx-nav a {
+      background:
+        linear-gradient(180deg,
+          #fbfcfd 0%,
+          #edf1f4 35%,
+          #d5dbe1 51%,
+          #fefefe 52%,
+          #c7cfd6 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.72);
+      font-size: .84rem;
+      font-weight: 900;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -8px 12px rgba(0,0,0,.05);
+    }
+
+    .rdbx-swipe {
+      color: rgba(255,255,255,.92);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      background: rgba(6,47,61,.26);
+      border: 1px solid rgba(255,255,255,.20);
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section {
+      margin: 22px auto 18px;
+      padding: 22px 18px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(32,188,176,.14), transparent 34%),
+        linear-gradient(180deg,#ffffff 0%,#fffaf0 100%);
+      border: 1px solid var(--rdbx-line);
+      box-shadow: var(--rdbx-soft-shadow);
+    }
+
+    .section.dark {
+      background:
+        radial-gradient(circle at top right, rgba(32,188,176,.24), transparent 36%),
+        linear-gradient(145deg, #062f3d 0%, #083846 60%, #087f88 130%);
+      color: #ffffff;
+    }
+
+    .section-label {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section.dark .section-label {
+      background: rgba(255,243,200,.95);
+      color: var(--rdbx-deep);
+    }
+
+    .section h2 {
+      margin: 14px 0 10px;
+      color: var(--rdbx-deep);
+      font-size: clamp(2rem, 8vw, 3.3rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .section.dark h2 {
+      color: #ffffff;
+    }
+
+    .section p {
+      margin: 0;
+      color: #4b6870;
+      font-size: 1.03rem;
+      line-height: 1.55;
+      max-width: 800px;
+    }
+
+    .section.dark p {
+      color: rgba(255,255,255,.82);
+    }
+
+    .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 18px;
     }
 
-    .catalog-buttons .button {
-      margin-top: 0;
-    }
-
-    .split-section {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
+    .primary-btn,
+    .secondary-btn {
+      min-height: 46px;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 950;
+      text-align: center;
     }
 
-    .owner-card-grid {
+    .primary-btn {
+      color: #ffffff;
+      background: var(--rdbx-deep);
+      box-shadow: 0 10px 22px rgba(6,47,61,.18);
+    }
+
+    .secondary-btn {
+      color: var(--rdbx-deep);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .decor-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 24px;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
     }
 
-    .owner-card {
-      background: white;
-      border: 1px solid #eadfcd;
-      border-radius: 18px;
-      padding: 22px;
+    .decor-card {
+      background: #ffffff;
+      border: 1px solid var(--rdbx-line);
+      border-radius: 26px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(6,47,61,.08);
+      position: relative;
+      overflow: hidden;
     }
 
-    .owner-card h3 {
-      margin-bottom: 8px;
+    .decor-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--rdbx-teal-bright), var(--rdbx-sand));
     }
 
-    .owner-card p {
-      color: #425466;
-      margin-bottom: 0;
+    .decor-card h3 {
+      margin: 0 0 8px;
+      color: var(--rdbx-deep);
+      font-size: 1.28rem;
+      letter-spacing: -.025em;
     }
 
-    .feature-banner {
-      background: linear-gradient(135deg, #102f45, #1f6f9b);
-      color: white;
-      border: none;
+    .decor-card p {
+      margin: 0 0 14px;
+      color: var(--rdbx-muted);
+      line-height: 1.48;
+      font-size: .98rem;
     }
 
-    .feature-banner h2,
-    .feature-banner h3 {
-      color: white;
+    .decor-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--rdbx-muted);
+      line-height: 1.5;
     }
 
-    .feature-banner p {
-      color: #e9f3f8;
+    .decor-card li {
+      margin-bottom: 5px;
     }
 
-    .cta-row {
+    .decor-tag {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .82rem;
+      margin-bottom: 12px;
+    }
+
+    .product-panel {
+      margin-top: 16px;
+      border-radius: 24px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(242,217,145,.32), transparent 36%),
+        linear-gradient(145deg, rgba(6,47,61,.94), rgba(8,127,136,.92));
+      color: #ffffff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.20);
+    }
+
+    .product-panel strong {
+      display: block;
+      font-size: 1.12rem;
+      margin-bottom: 6px;
+    }
+
+    .product-panel span {
+      display: block;
+      color: rgba(255,255,255,.78);
+      line-height: 1.42;
+    }
+
+    .final-cta {
+      margin: 20px auto 28px;
+      padding: 24px 20px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(242,217,145,.25), transparent 34%),
+        linear-gradient(145deg, #062f3d 0%, #087f88 92%);
+      color: #ffffff;
+      box-shadow: var(--rdbx-shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .final-cta p {
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 28px 18px 34px;
+      background: var(--rdbx-deep);
+      color: #ffffff;
+      border-radius: 28px 28px 0 0;
+    }
+
+    .footer-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .footer p {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.45;
+    }
+
+    .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
     }
 
-    footer {
-      background: #102f45;
-      color: white;
-      text-align: center;
-      padding: 28px 20px;
+    .footer-links a {
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      font-size: .9rem;
     }
 
-    footer a {
-      color: white;
-      font-weight: bold;
-      margin: 0 6px;
+    @media (min-width: 760px) {
+      .rdbx-shell { border-radius: 0 0 36px 36px; }
+
+      .rdbx-brand-row,
+      .rdbx-hero,
+      .rdbx-nav {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-hero {
+        text-align: center;
+        padding-top: 38px;
+        padding-bottom: 24px;
+      }
+
+      .rdbx-hero-copy {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-services {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-service-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .rdbx-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+      }
+
+      .rdbx-swipe { display: none; }
+
+      .decor-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    @media (max-width: 850px) {
-      header {
-        min-height: 72vh;
-      }
-
-      nav {
-        border-radius: 22px;
-      }
-
-      main {
-        margin-top: -44px;
-      }
-
-      .custom-sign-feature,
-      .split-section {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 26px;
-      }
-
-      .floating-badge {
-        position: static;
-        display: inline-block;
-        margin-top: 12px;
+    @media (max-width: 380px) {
+      .rdbx-hero-title { font-size: 2.28rem; }
+      .rdbx-brand-text strong { font-size: .92rem; }
+      .rdbx-brand-text span { font-size: .66rem; }
+      .rdbx-contact {
+        font-size: .72rem;
+        padding: 8px 10px;
       }
     }
   </style>
 </head>
 
 <body>
+  <header class="rdbx-shell">
+    <div class="rdbx-brand-row">
+      <a class="rdbx-brand-link" href="index.html">
+        <span class="rdbx-badge">RDB</span>
+        <span class="rdbx-brand-text">
+          <strong>Rent Delaware Beaches</strong>
+          <span>Coastal support • rentals • owner help</span>
+        </span>
+      </a>
 
-  <div class="top-strip">
-    Coastal Decor • Custom House Signs • Printable Beach Art • Built for Beach Homes & Rentals
-  </div>
+      <a class="rdbx-contact" href="contact.html">Contact</a>
+    </div>
 
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="beach-towns.html">Beach Towns</a>
-      <a href="plan-your-trip.html">Plan Your Trip</a>
-      <a href="restaurants.html">Restaurants</a>
-      <a href="things-to-do.html">Things To Do</a>
-      <a href="videos.html">Videos</a>
-      <a href="decor.html">Beach House Decor</a>
-      <a href="community.html">Community</a>
-    </nav>
-
-    <div class="hero-content">
-      <span class="eyebrow">The Blue Hen Basement</span>
-
-      <h1>Beach House Decor That Feels Personal.</h1>
-
-      <p>
-        Custom hand-built signs, beach-themed printable wall art, rental welcome pieces,
-        address signs, and coastal decor made for beach homes, cottages, patios,
-        guest rooms, and Delaware rental properties.
+    <section class="rdbx-hero">
+      <span class="rdbx-kicker">Beach House Decor</span>
+      <h1 class="rdbx-hero-title">Make the House Feel Like the Beach.</h1>
+      <p class="rdbx-hero-copy">
+        Custom coastal signs, printable wall art, rental welcome signs, address signs,
+        and beach-house decor made for Delaware homes, rentals, and guest spaces.
       </p>
+    </section>
 
-      <div class="hero-buttons">
-        <a class="button gold" href="#custom-signs">Order Custom Signs</a>
-        <a class="button light" href="#catalog">Browse Catalog</a>
-        <a class="button" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">Shop Etsy</a>
-      <a class="button light" href="delaware-beach-rental-owner-checklist.html">Rental Owner Checklist</a></div>
+    <section class="rdbx-services" aria-label="Decor shortcuts">
+      <h2 class="rdbx-services-title">Decor shortcuts</h2>
+      <div class="rdbx-service-grid">
+        <a href="#custom-signs">Custom Signs</a>
+        <a href="#rental-decor">Rental Decor</a>
+        <a href="#printable-art">Printable Art</a>
+        <a href="contact.html">Request Design</a>
+      </div>
+    </section>
+
+    <div class="rdbx-nav-wrap">
+      <nav class="rdbx-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="things-to-do.html">Things To Do</a>
+        <a href="videos.html">Videos</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="rdbx-swipe">Swipe →</span>
+      </nav>
     </div>
   </header>
 
-  <main>
-
-    <div class="quick-panel">
-      <a class="quick-card" href="#custom-signs">
-        <span>Custom</span>
-        <h3>House Signs</h3>
-        <p>House numbers, beach house names, rental signs, welcome signs, and custom ideas.</p>
-      </a>
-
-      <a class="quick-card" href="#catalog">
-        <span>Shop</span>
-        <h3>Product Catalog</h3>
-        <p>Browse printable art, custom sign options, beach rental decor, and coastal pieces.</p>
-      </a>
-
-      <a class="quick-card" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
-        <span>Etsy</span>
-        <h3>The Blue Hen Basement</h3>
-        <p>Visit the Etsy shop for digital downloads, coastal decor, and custom requests.</p>
-      </a>
-
-      <a class="quick-card" href="community.html">
-        <span>Ideas</span>
-        <h3>Rental Owner Notes</h3>
-        <p>Turn beach homes, guest spaces, patios, and entries into more memorable stays.</p>
-      </a>
-    </div>
-
-    <section id="custom-signs">
-      <div class="custom-sign-feature">
-        <div class="custom-sign-image-wrap">
-          <img src="images/2092 Address Sign Hero.png" alt="Custom hand-built house number sign with planter box">
-          <div class="floating-badge">Custom example • Built by hand</div>
-        </div>
-
-        <div class="custom-sign-panel">
-          <span class="eyebrow">Order Now</span>
-          <h2>Custom Hand-Built House Signs</h2>
-
-          <p>
-            Order a custom hand-built sign for your beach house, rental property,
-            family home, garage, patio, shed, bar, basement, or entryway.
-          </p>
-
-          <p>
-            Each piece can be built around your preferred house number, family name,
-            rental name, wording, finish, size, and display style.
-          </p>
-
-          <form class="order-form">
-            <label for="signType">Sign Type</label>
-            <select id="signType">
-              <option>House number sign</option>
-              <option>Beach house name sign</option>
-              <option>Rental welcome sign</option>
-              <option>Family name sign</option>
-              <option>Garage / bar / basement sign</option>
-              <option>Custom idea</option>
-            </select>
-
-            <label for="signSize">Approximate Size</label>
-            <select id="signSize">
-              <option>Small accent sign</option>
-              <option>Medium porch / entry sign</option>
-              <option>Large outdoor statement sign</option>
-              <option>Not sure yet</option>
-            </select>
-
-            <label for="signFinish">Finish Style</label>
-            <select id="signFinish">
-              <option>Natural wood</option>
-              <option>Dark stained wood</option>
-              <option>Coastal whitewash</option>
-              <option>Rustic / weathered</option>
-              <option>Painted custom color</option>
-            </select>
-
-            <label for="signText">Custom Text / House Number</label>
-            <input id="signText" type="text" placeholder="Example: 2092, The Beach House, Welcome to Dewey">
-
-            <label for="signNotes">Notes</label>
-            <textarea id="signNotes" rows="4" placeholder="Tell me where it will go, colors you like, and any special requests."></textarea>
-
-            <p class="order-note">
-              This form helps you plan the specs. Final requests can be sent through Etsy for pricing and details.
-            </p>
-
-            <a class="button gold" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">
-              Order Now / Request Custom Quote
-            </a>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section id="catalog">
-      <h2>Browse the Catalog</h2>
-
-      <p class="section-intro">
-        Browse printable wall art, custom hand-built signs, beach rental decor,
-        funny kitchen prints, and coastal home pieces from The Blue Hen Basement.
-        This catalog will grow as new designs and handmade items are finished.
-      </p>
-
-      <div class="catalog-controls">
-        <button class="catalog-filter" onclick="filterCatalog('all')">All</button>
-        <button class="catalog-filter" onclick="filterCatalog('printable-art')">Printable Art</button>
-        <button class="catalog-filter" onclick="filterCatalog('custom-signs')">Custom Signs</button>
-        <button class="catalog-filter" onclick="filterCatalog('kitchen-decor')">Kitchen Decor</button>
-        <button class="catalog-filter" onclick="filterCatalog('beach-rentals')">Beach Rentals</button>
-      </div>
-
-      <div id="catalogGrid" class="catalog-grid"></div>
-    </section>
-
-    <section>
-      <div class="split-section">
-        <div>
-          <h2>Decor That Makes a Beach Rental Feel Finished</h2>
-
-          <p class="section-intro">
-            A rental property does not need to feel generic. A few well-placed prints,
-            custom signs, welcome pieces, and personal touches can make a guest room,
-            hallway, kitchen, porch, or entryway feel intentional and memorable.
-          </p>
-
-          <p>
-            Printable decor is fast and affordable. Custom signs add a handmade touch.
-            Together, they help a beach house or rental feel less empty and more like
-            a place people remember.
-          </p>
-
-          <div class="cta-row">
-            <a class="button gold" href="#custom-signs">Request Custom Sign</a>
-            <a class="button" href="https://www.etsy.com/shop/TheBlueHenBasement" target="_blank" rel="noopener">Shop Etsy</a>
-          </div>
-        </div>
-
-        <div class="owner-card-grid">
-          <div class="owner-card">
-            <h3>Entryways</h3>
-            <p>Welcome guests with signs, house numbers, and simple coastal styling.</p>
-          </div>
-
-          <div class="owner-card">
-            <h3>Guest Rooms</h3>
-            <p>Add printable wall art, local themes, and relaxed beach-house personality.</p>
-          </div>
-
-          <div class="owner-card">
-            <h3>Patios & Porches</h3>
-            <p>Custom signs and outdoor decor make the space feel more intentional.</p>
-          </div>
-
-          <div class="owner-card">
-            <h3>Rental Branding</h3>
-            <p>Name signs, welcome signs, and house details can make a property memorable.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="feature-banner">
-      <h2>Good Places to Use These Prints and Signs</h2>
-
+  <main class="page-wrap">
+    <section class="section">
+      <span class="section-label">Start Here</span>
+      <h2>Small details make a beach house feel finished.</h2>
       <p>
-        Delaware beach rental homes, Airbnb and Vrbo properties, beach cottages,
-        guest bedrooms, kitchens, dining rooms, hallways, entryways, decks, patios,
-        garages, sheds, basements, bars, offices, and man caves.
+        The right sign, welcome message, wall art, or guest-friendly detail can make a rental,
+        beach house, porch, entryway, or family space feel more intentional and memorable.
       </p>
 
-      <div class="cta-row">
-        <a class="button gold" href="#catalog">Browse Catalog</a>
-        <a class="button light" href="plan-your-trip.html">Plan Your Beach Trip</a>
+      <div class="button-row">
+        <a class="primary-btn" href="#custom-signs">View Custom Sign Ideas</a>
+        <a class="secondary-btn" href="contact.html">Request a Custom Design</a>
       </div>
     </section>
 
+    <section class="section dark">
+      <span class="section-label">Coastal Personality</span>
+      <h2>Decor should help the house tell its story.</h2>
+      <p>
+        Rent Delaware Beaches connects decor with the larger beach-house experience:
+        guest stays, rental branding, local pride, useful information, and details that make people remember the home.
+      </p>
+    </section>
+
+    <section class="section" id="custom-signs">
+      <span class="section-label">Custom Signs</span>
+      <h2>Custom signs for beach houses and rentals.</h2>
+
+      <div class="decor-grid">
+        <article class="decor-card">
+          <span class="decor-tag">House identity</span>
+          <h3>Beach house name signs</h3>
+          <p>
+            Give the property a name, personality, and stronger first impression with a custom coastal sign.
+          </p>
+          <ul>
+            <li>Beach house names</li>
+            <li>Porch or entryway signs</li>
+            <li>Rental branding details</li>
+          </ul>
+        </article>
+
+        <article class="decor-card">
+          <span class="decor-tag">Practical</span>
+          <h3>Address and welcome signs</h3>
+          <p>
+            Useful signs can make check-in easier, improve guest experience, and make the home feel more organized.
+          </p>
+          <ul>
+            <li>Welcome signs</li>
+            <li>Address signs</li>
+            <li>Guest instruction signs</li>
+          </ul>
+        </article>
+
+        <article class="decor-card">
+          <span class="decor-tag">Guest experience</span>
+          <h3>Rental guide signs</h3>
+          <p>
+            Turn practical information into something attractive: Wi-Fi notes, checkout reminders, beach rules, or local tips.
+          </p>
+          <ul>
+            <li>Wi-Fi and house notes</li>
+            <li>Checkout reminders</li>
+            <li>Local recommendation signs</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="rental-decor">
+      <span class="section-label">Rental Decor</span>
+      <h2>Decor that supports the rental experience.</h2>
+
+      <div class="decor-grid">
+        <article class="decor-card">
+          <span class="decor-tag">First impression</span>
+          <h3>Entryway details</h3>
+          <p>
+            The first few seconds matter. A clean welcome sign or coastal detail can make the property feel cared for.
+          </p>
+          <div class="product-panel">
+            <strong>Best for:</strong>
+            <span>Entryways, porches, guest doors, mudrooms, and arrival areas.</span>
+          </div>
+        </article>
+
+        <article class="decor-card">
+          <span class="decor-tag">Useful decor</span>
+          <h3>Guest-friendly information</h3>
+          <p>
+            Make useful information attractive instead of taping random notes to walls or leaving unclear instructions.
+          </p>
+          <div class="product-panel">
+            <strong>Best for:</strong>
+            <span>Wi-Fi info, checkout steps, local tips, parking notes, and beach reminders.</span>
+          </div>
+        </article>
+
+        <article class="decor-card">
+          <span class="decor-tag">Memorable</span>
+          <h3>House personality</h3>
+          <p>
+            A custom sign can help a beach house feel less generic and more like a place guests remember.
+          </p>
+          <div class="product-panel">
+            <strong>Best for:</strong>
+            <span>Rental listings, repeat guests, family homes, and branded property identity.</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="printable-art">
+      <span class="section-label">Printable Art</span>
+      <h2>Coastal wall art and printable decor.</h2>
+
+      <div class="decor-grid">
+        <article class="decor-card">
+          <h3>Beach-town prints</h3>
+          <p>
+            Printable wall art can highlight favorite Delaware beach towns, local phrases, coastal maps, or simple beach-house themes.
+          </p>
+        </article>
+
+        <article class="decor-card">
+          <h3>Rental welcome art</h3>
+          <p>
+            Digital decor can support guest experience with clean welcome pages, guidebook art, and local recommendation sheets.
+          </p>
+        </article>
+
+        <article class="decor-card">
+          <h3>Custom design ideas</h3>
+          <p>
+            Need a specific house name, family phrase, local town, or rental theme? Use the contact page to request a custom idea.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <span class="section-label">Owner Angle</span>
+      <h2>Better decor can support better rental positioning.</h2>
+      <p>
+        The right details help guests understand the home, remember the stay, follow instructions,
+        and feel like the property was built with care.
+      </p>
+
+      <div class="button-row">
+        <a class="secondary-btn" href="contact.html">Request Custom Decor</a>
+        <a class="secondary-btn" href="tool-rentals.html">Owner Tools</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Want a custom coastal sign or beach-house design?</h2>
+      <p>
+        Send the house name, town, style, wording, size idea, or rental use case.
+        We can turn it into a cleaner concept for a sign, printable, or guest-friendly decor piece.
+      </p>
+
+      <div class="button-row">
+        <a class="secondary-btn" href="contact.html">Request Design</a>
+        <a class="secondary-btn" href="index.html">Back to Home</a>
+        <a class="secondary-btn" href="videos.html">See Videos</a>
+      </div>
+    </section>
   </main>
 
-<footer>
-  <p>
-    © 2026 Rent Delaware Beaches |
-    <a href="index.html">Home</a>
-    <a href="delaware-beach-rentals.html">Rentals</a>
-    <a href="beach-towns.html">Beach Towns</a>
-    <a href="plan-your-trip.html">Plan Your Trip</a>
-    <a href="restaurants.html">Restaurants</a>
-    <a href="things-to-do.html">Things To Do</a>
-    <a href="videos.html">Videos</a>
-    <a href="decor.html">Beach House Decor</a>
-    <a href="community.html">Community</a>
-    <a href="blog.html">Blog</a>
-    <a href="advertise.html">Advertise</a>
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <strong>Rent Delaware Beaches</strong>
+      <p>Beach rentals, owner help, custom signs, and local Delaware beach planning resources.</p>
 
-  <script>
-    const products = [
-      {
-        title: "Surf Fishing Vintage Pickup Beach Sunset Wall Art",
-        category: "printable-art",
-        tag: "Printable Art",
-        status: "Available",
-        description: "A beach-themed printable wall art design featuring a vintage pickup, surf fishing energy, and coastal sunset tones. Great for beach houses, rentals, fishing cabins, guest rooms, and coastal homes.",
-        price: "Digital download",
-        image: "images/Surf-Fishing-Vintage-Pickup-Beach-Sunset-Wall-Art.png",
-        video: "",
-        link: "https://www.etsy.com/shop/TheBlueHenBasement",
-        buttonText: "View on Etsy"
-      },
-      {
-        title: "Today’s Menu: Take It Or Leave It",
-        category: "kitchen-decor",
-        tag: "Kitchen Decor",
-        status: "Available",
-        description: "A funny farmhouse-style kitchen print with mom/dad humor. Perfect for kitchens, dining rooms, beach rentals, and family homes.",
-        price: "Digital download",
-        image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1200&q=80",
-        video: "",
-        link: "https://www.etsy.com/shop/TheBlueHenBasement",
-        buttonText: "View on Etsy"
-      },
-      {
-        title: "Custom Hand-Built House Signs",
-        category: "custom-signs",
-        tag: "Custom Signs",
-        status: "Custom Order",
-        description: "Custom handmade signs for beach houses, rental properties, family homes, garages, patios, basements, bars, sheds, and entryways.",
-        price: "Custom quote",
-        image: "images/2092 Address Sign Hero.png",
-        video: "",
-        link: "https://www.etsy.com/shop/TheBlueHenBasement",
-        buttonText: "Request Custom Quote"
-      },
-      {
-        title: "Beach Rental Welcome Sign",
-        category: "beach-rentals",
-        tag: "Beach Rentals",
-        status: "Coming Soon",
-        description: "A coastal-inspired welcome sign idea for Airbnb, Vrbo, guest houses, beach cottages, and Delaware vacation rentals.",
-        price: "Custom order",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-        video: "",
-        link: "https://www.etsy.com/shop/TheBlueHenBasement",
-        buttonText: "Request Custom Quote"
-      }
-    ];
-
-    const catalogGrid = document.getElementById("catalogGrid");
-
-    function displayCatalog(items) {
-      catalogGrid.innerHTML = "";
-
-      items.forEach(product => {
-        const media = product.video
-          ? `<iframe class="catalog-video" src="${product.video}" title="${product.title}" allowfullscreen></iframe>`
-          : `<img src="${product.image}" alt="${product.title}">`;
-
-        const card = `
-          <article class="catalog-card">
-            ${media}
-            <div class="catalog-card-content">
-              <span class="catalog-tag">${product.tag}</span>
-              <span class="catalog-status">${product.status}</span>
-              <h3>${product.title}</h3>
-              <p>${product.description}</p>
-              <p class="catalog-price">${product.price}</p>
-              <div class="catalog-buttons">
-                <a class="button" href="${product.link}" target="_blank" rel="noopener">${product.buttonText}</a>
-              </div>
-            </div>
-          </article>
-        `;
-
-        catalogGrid.innerHTML += card;
-      });
-    }
-
-    function filterCatalog(category) {
-      if (category === "all") {
-        displayCatalog(products);
-      } else {
-        const filteredProducts = products.filter(product => product.category === category);
-        displayCatalog(filteredProducts);
-      }
-    }
-
-    displayCatalog(products);
-  </script>
-
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan Your Trip</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="things-to-do.html">Things To Do</a>
+        <a href="videos.html">Videos</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
