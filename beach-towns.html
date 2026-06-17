@@ -1,14 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Delaware Beach Towns | Rehoboth, Dewey, Bethany, Lewes & Fenwick</title>
-
-  <meta name="description" content="Explore Delaware beach towns including Rehoboth Beach, Dewey Beach, Bethany Beach, Lewes, Fenwick Island, South Bethany, and nearby coastal destinations." />
+  <title>Delaware Beach Towns | Rehoboth, Dewey, Lewes, Bethany & Fenwick</title>
+  <meta name="description" content="Explore Delaware beach towns including Rehoboth Beach, Dewey Beach, Lewes, Bethany Beach, Fenwick Island, South Bethany, and nearby coastal destinations." />
 
   <style>
+    :root {
+      --rdbx-deep: #062f3d;
+      --rdbx-teal: #087f88;
+      --rdbx-teal-bright: #20bcb0;
+      --rdbx-sand: #f2d991;
+      --rdbx-cream: #fffaf0;
+      --rdbx-ink: #173743;
+      --rdbx-muted: #54707a;
+      --rdbx-line: rgba(6, 47, 61, 0.10);
+      --rdbx-shadow: 0 20px 55px rgba(6, 47, 61, 0.22);
+      --rdbx-soft-shadow: 0 10px 30px rgba(6, 47, 61, 0.13);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -19,771 +31,865 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f0e3;
-      color: #102f45;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rdbx-ink);
+      background:
+        radial-gradient(circle at top left, rgba(32, 188, 176, 0.10), transparent 34%),
+        linear-gradient(180deg, #f7f1df 0%, #fffaf0 44%, #f7f1df 100%);
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    .top-strip {
-      background: #d8903d;
-      color: #102f45;
-      text-align: center;
-      padding: 10px 16px;
-      font-weight: bold;
-      letter-spacing: 0.02em;
-    }
-
-    header {
-      min-height: 82vh;
+    .rdbx-shell {
+      position: relative;
+      width: 100%;
+      color: #ffffff;
+      overflow: hidden;
       background:
-        linear-gradient(rgba(8, 35, 54, 0.32), rgba(8, 35, 54, 0.78)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      flex-direction: column;
+        radial-gradient(circle at 14% 5%, rgba(255,246,214,.94) 0 15%, transparent 34%),
+        radial-gradient(circle at 82% 16%, rgba(125,219,213,.64) 0 18%, transparent 44%),
+        linear-gradient(145deg,#073746 0%,#087f88 42%,#20bcb0 74%,#f2d991 138%);
+      border-radius: 0 0 30px 30px;
+      box-shadow: var(--rdbx-shadow);
+      margin: 0;
+      padding: 0;
     }
 
-    nav {
-      width: calc(100% - 40px);
-      max-width: 1180px;
-      margin: 20px auto 0;
-      padding: 14px 18px;
-      background: rgba(16, 47, 69, 0.86);
-      backdrop-filter: blur(8px);
-      border-radius: 999px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 18px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    .rdbx-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -38% -30%;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.10);
+      transform: rotate(-7deg);
+      pointer-events: none;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      transition: 0.2s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.14);
-      transform: translateY(-1px);
-    }
-
-    .hero-content {
-      max-width: 1040px;
-      margin: auto;
-      padding: 80px 24px 110px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      font-weight: bold;
-      margin-bottom: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 7vw, 80px);
-      line-height: 1.02;
-      margin: 0 0 22px;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
-    }
-
-    .hero-content p {
-      max-width: 800px;
-      margin: 0 auto 28px;
-      font-size: 21px;
-      color: #fff7e8;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 999px;
-      background: #1f6f9b;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: #185879;
-    }
-
-    .button.gold {
-      background: #d8903d;
-      color: #102f45;
-    }
-
-    .button.gold:hover {
-      background: #c17c30;
-    }
-
-    .button.light {
-      background: #fffaf2;
-      color: #102f45;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: -58px auto 0;
-      padding: 0 20px 60px;
+    .rdbx-brand-row {
       position: relative;
       z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      backdrop-filter: blur(12px);
     }
 
-    section {
-      margin-top: 34px;
-      background: #fffaf2;
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
-      border: 1px solid #eadfcd;
-    }
-
-    h2 {
-      color: #1f6f9b;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-
-    h3 {
-      color: #102f45;
-      margin-top: 0;
-    }
-
-    .section-intro {
-      max-width: 790px;
-      color: #425466;
-      font-size: 18px;
-      margin-bottom: 24px;
-    }
-
-    .quick-panel {
-      background: rgba(255, 250, 242, 0.96);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 12px 35px rgba(16, 47, 69, 0.18);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      border: 1px solid rgba(216, 144, 61, 0.22);
-    }
-
-    .quick-card {
-      padding: 20px;
-      border-radius: 18px;
-      background: white;
-      border: 1px solid #eadfcd;
+    .rdbx-brand-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+      flex: 1 1 auto;
+      max-width: calc(100% - 92px);
+      color: #ffffff;
       text-decoration: none;
-      transition: 0.22s ease;
     }
 
-    .quick-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(16, 47, 69, 0.12);
-    }
-
-    .quick-card span {
-      color: #d8903d;
-      font-weight: bold;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .quick-card h3 {
-      margin: 8px 0 6px;
-      font-size: 20px;
-      color: #102f45;
-    }
-
-    .quick-card p {
-      margin: 0;
-      color: #425466;
-      font-size: 15px;
-    }
-
-    .vibe-grid {
+    .rdbx-badge {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 24px;
+      place-items: center;
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 34%,#cbd3da 55%,#ffffff 56%,#b9c3cc 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.78);
+      font-weight: 950;
+      font-size: .68rem;
+      letter-spacing: .08em;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -8px 12px rgba(0,0,0,.07);
     }
 
-    .vibe-card {
-      background: white;
-      border: 1px solid #eadfcd;
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
-      transition: 0.22s ease;
+    .rdbx-brand-text {
+      min-width: 0;
+      max-width: 100%;
+      padding-top: 1px;
     }
 
-    .vibe-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
+    .rdbx-brand-text strong {
+      display: block;
+      color: #ffffff;
+      font-size: .98rem;
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      white-space: normal;
     }
 
-    .vibe-card span {
-      display: inline-block;
-      background: #f1eadc;
-      color: #102f45;
-      padding: 6px 10px;
+    .rdbx-brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.84);
+      font-size: .70rem;
+      line-height: 1.18;
+      white-space: normal;
+    }
+
+    .rdbx-contact {
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,.74);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      color: #062f3d;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      padding: 9px 11px;
+      font-size: .76rem;
+      font-weight: 950;
+      margin-top: 1px;
+      text-decoration: none;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .rdbx-hero {
+      position: relative;
+      z-index: 2;
+      padding: 24px 18px 18px;
+      margin: 0;
+      text-align: left;
+      background: transparent;
+    }
+
+    .rdbx-kicker {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,243,200,.96);
+      color: #062f3d;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+    }
+
+    .rdbx-hero-title {
+      margin: 17px 0 12px;
+      color: #ffffff;
+      font-size: clamp(2.45rem, 11vw, 4.2rem);
+      line-height: .96;
+      letter-spacing: -.075em;
+      text-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+
+    .rdbx-hero-copy {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      font-size: 1.08rem;
+      line-height: 1.45;
+      max-width: 36ch;
+    }
+
+    .rdbx-services {
+      position: relative;
+      z-index: 2;
+      margin: 18px;
+      padding: 14px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
+    }
+
+    .rdbx-services-title {
+      margin: 0 0 11px;
+      color: #ffffff;
+      font-size: .82rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .rdbx-service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .rdbx-service-grid a {
+      position: relative;
+      overflow: hidden;
+      min-height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 9px;
+      font-weight: 950;
+      line-height: 1.08;
+      color: #16333d;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.72);
+      background:
+        linear-gradient(180deg,
+          #ffffff 0%,
+          #eef2f5 24%,
+          #d8dde2 50%,
+          #fbfcfd 52%,
+          #c9d0d7 100%);
+      box-shadow:
+        0 12px 24px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -10px 14px rgba(0,0,0,.05);
+    }
+
+    .rdbx-service-grid a::before {
+      content: "";
+      position: absolute;
+      inset: 1px 1px auto 1px;
+      height: 46%;
+      border-radius: 16px 16px 40px 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.08));
+      pointer-events: none;
+    }
+
+    .rdbx-service-grid a:nth-child(2),
+    .rdbx-service-grid a:nth-child(4) {
+      color: #0f2d36;
+      background:
+        linear-gradient(180deg,
+          #f7f9fb 0%,
+          #dfe5ea 22%,
+          #b8c1ca 50%,
+          #f8fafb 52%,
+          #a7b2bc 100%);
+    }
+
+    .rdbx-nav-wrap {
+      position: relative;
+      z-index: 3;
+      padding: 0 0 18px;
+    }
+
+    .rdbx-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 9px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 16px;
+      margin: 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      justify-content: flex-start;
+    }
+
+    .rdbx-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .rdbx-nav a,
+    .rdbx-swipe {
+      flex: 0 0 auto;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+
+    .rdbx-nav a {
+      background:
+        linear-gradient(180deg,
+          #fbfcfd 0%,
+          #edf1f4 35%,
+          #d5dbe1 51%,
+          #fefefe 52%,
+          #c7cfd6 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.72);
+      font-size: .84rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -8px 12px rgba(0,0,0,.05);
+    }
+
+    .rdbx-swipe {
+      color: rgba(255,255,255,.92);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      background: rgba(6,47,61,.26);
+      border: 1px solid rgba(255,255,255,.20);
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section {
+      margin: 22px auto 18px;
+      padding: 22px 18px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(32,188,176,.14), transparent 34%),
+        linear-gradient(180deg,#ffffff 0%,#fffaf0 100%);
+      border: 1px solid var(--rdbx-line);
+      box-shadow: var(--rdbx-soft-shadow);
+    }
+
+    .section.dark {
+      background:
+        radial-gradient(circle at top right, rgba(32,188,176,.24), transparent 36%),
+        linear-gradient(145deg, #062f3d 0%, #083846 60%, #087f88 130%);
+      color: #ffffff;
+    }
+
+    .section-label {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section.dark .section-label {
+      background: rgba(255,243,200,.95);
+      color: var(--rdbx-deep);
+    }
+
+    .section h2 {
+      margin: 14px 0 10px;
+      color: var(--rdbx-deep);
+      font-size: clamp(2rem, 8vw, 3.3rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .section.dark h2 {
+      color: #ffffff;
+    }
+
+    .section p {
+      margin: 0;
+      color: #4b6870;
+      font-size: 1.03rem;
+      line-height: 1.55;
+      max-width: 800px;
+    }
+
+    .section.dark p {
+      color: rgba(255,255,255,.82);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .primary-btn {
+      color: #ffffff;
+      background: var(--rdbx-deep);
+      box-shadow: 0 10px 22px rgba(6,47,61,.18);
+    }
+
+    .secondary-btn {
+      color: var(--rdbx-deep);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96);
     }
 
     .town-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .town-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid #eadfcd;
-      box-shadow: 0 8px 22px rgba(16, 47, 69, 0.09);
-      transition: 0.22s ease;
-    }
-
-    .town-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 32px rgba(16, 47, 69, 0.16);
-    }
-
-    .town-image {
-      height: 210px;
-      background-size: cover;
-      background-position: center;
+      background: #ffffff;
+      border: 1px solid var(--rdbx-line);
+      border-radius: 26px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(6,47,61,.08);
       position: relative;
+      overflow: hidden;
     }
 
-    .town-image::after {
+    .town-card::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(transparent, rgba(16, 47, 69, 0.68));
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--rdbx-teal-bright), var(--rdbx-sand));
     }
 
-    .town-label {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      z-index: 2;
-      color: white;
-      font-weight: bold;
-      font-size: 22px;
-      text-shadow: 0 3px 14px rgba(0,0,0,0.45);
+    .town-card h3 {
+      margin: 0 0 8px;
+      color: var(--rdbx-deep);
+      font-size: 1.28rem;
+      letter-spacing: -.025em;
     }
 
-    .town-body {
-      padding: 24px;
+    .town-card p {
+      margin: 0 0 14px;
+      color: var(--rdbx-muted);
+      line-height: 1.48;
+      font-size: .98rem;
     }
 
-    .town-body p {
-      color: #425466;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 14px 0;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #f1eadc;
-      color: #102f45;
-      padding: 6px 10px;
+    .town-tag {
+      display: inline-flex;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .82rem;
+      margin-bottom: 12px;
     }
 
-    .tag.gold {
-      background: #d8903d;
-      color: #102f45;
+    .town-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--rdbx-muted);
+      line-height: 1.5;
     }
 
-    .split-section {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
-      align-items: center;
+    .town-card li {
+      margin-bottom: 5px;
     }
 
-    .feature-banner {
-      background: linear-gradient(135deg, #102f45, #1f6f9b);
-      color: white;
-      border: none;
-    }
-
-    .feature-banner h2,
-    .feature-banner h3 {
-      color: white;
-    }
-
-    .feature-banner p {
-      color: #e9f3f8;
-    }
-
-    .decor-preview {
-      min-height: 390px;
+    .final-cta {
+      margin: 20px auto 28px;
+      padding: 24px 20px;
+      border-radius: 30px;
       background:
-        linear-gradient(rgba(16, 47, 69, 0.62), rgba(16, 47, 69, 0.78)),
-        url("images/2092 Address Sign Hero.png");
-      background-size: cover;
-      background-position: center;
-      border-radius: 24px;
-      padding: 28px;
-      color: white;
-      display: flex;
-      align-items: end;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+        radial-gradient(circle at top right, rgba(242,217,145,.25), transparent 34%),
+        linear-gradient(145deg, #062f3d 0%, #087f88 92%);
+      color: #ffffff;
+      box-shadow: var(--rdbx-shadow);
     }
 
-    .decor-preview h3 {
-      color: white;
-      font-size: 28px;
-      margin-bottom: 10px;
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
     }
 
-    .decor-preview p {
-      color: #fff7e8;
+    .final-cta p {
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+      max-width: 760px;
     }
 
-    .cta-row {
+    .footer {
+      margin-top: 26px;
+      padding: 28px 18px 34px;
+      background: var(--rdbx-deep);
+      color: #ffffff;
+      border-radius: 28px 28px 0 0;
+    }
+
+    .footer-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .footer p {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.45;
+    }
+
+    .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
     }
 
-    footer {
-      background: #102f45;
-      color: white;
-      text-align: center;
-      padding: 28px 20px;
+    .footer-links a {
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      font-size: .9rem;
     }
 
-    footer a {
-      color: white;
-      font-weight: bold;
-      margin: 0 6px;
+    @media (min-width: 760px) {
+      .rdbx-shell {
+        border-radius: 0 0 36px 36px;
+      }
+
+      .rdbx-brand-row,
+      .rdbx-hero,
+      .rdbx-nav {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-hero {
+        text-align: center;
+        padding-top: 38px;
+        padding-bottom: 24px;
+      }
+
+      .rdbx-hero-copy {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-services {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-service-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .rdbx-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+      }
+
+      .rdbx-swipe {
+        display: none;
+      }
+
+      .town-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    @media (max-width: 850px) {
-      header {
-        min-height: 74vh;
+    @media (max-width: 380px) {
+      .rdbx-hero-title {
+        font-size: 2.28rem;
       }
 
-      nav {
-        border-radius: 22px;
+      .rdbx-brand-text strong {
+        font-size: .92rem;
       }
 
-      main {
-        margin-top: -44px;
+      .rdbx-brand-text span {
+        font-size: .66rem;
       }
 
-      .split-section {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 26px;
+      .rdbx-contact {
+        font-size: .72rem;
+        padding: 8px 10px;
       }
     }
   </style>
 </head>
 
 <body>
+  <header class="rdbx-shell">
+    <div class="rdbx-brand-row">
+      <a class="rdbx-brand-link" href="index.html">
+        <span class="rdbx-badge">RDB</span>
+        <span class="rdbx-brand-text">
+          <strong>Rent Delaware Beaches</strong>
+          <span>Coastal support • rentals • owner help</span>
+        </span>
+      </a>
 
-  <div class="top-strip">
-    Delaware Beach Town Guide • Rehoboth • Dewey • Bethany • Lewes • Fenwick
-  </div>
+      <a class="rdbx-contact" href="contact.html">Contact</a>
+    </div>
 
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="beach-towns.html">Beach Towns</a>
-      <a href="plan-your-trip.html">Plan Your Trip</a>
-      <a href="restaurants.html">Restaurants</a>
-      <a href="things-to-do.html">Things To Do</a>
-      <a href="videos.html">Videos</a>
-      <a href="decor.html">Beach House Decor</a>
-      <a href="community.html">Community</a>
-    </nav>
-
-    <div class="hero-content">
-      <span class="eyebrow">Choose Your Coast</span>
-
-      <h1>Find the Delaware Beach Town That Fits Your Trip.</h1>
-
-      <p>
-        From boardwalk energy and nightlife to quiet family weeks, historic charm,
-        scenic parks, beach rentals, restaurants, and coastal escapes — every Delaware
-        beach town has its own personality.
+    <section class="rdbx-hero">
+      <span class="rdbx-kicker">Delaware Beach Towns</span>
+      <h1 class="rdbx-hero-title">Find Your Delaware Beach Fit.</h1>
+      <p class="rdbx-hero-copy">
+        Explore Rehoboth, Dewey, Lewes, Bethany, Fenwick, and nearby coastal towns
+        with a simple guide built for beach days, rentals, owners, and local planning.
       </p>
+    </section>
 
-      <div class="hero-buttons">
-        <a class="button gold" href="#towns">Explore Towns</a>
-        <a class="button light" href="#vibes">Choose Your Vibe</a>
-        <a class="button" href="plan-your-trip.html">Plan Your Trip</a>
+    <section class="rdbx-services" aria-label="Town guide shortcuts">
+      <h2 class="rdbx-services-title">Town shortcuts</h2>
+      <div class="rdbx-service-grid">
+        <a href="#rehoboth-dewey">Rehoboth & Dewey</a>
+        <a href="#lewes">Lewes</a>
+        <a href="#bethany-fenwick">Bethany & Fenwick</a>
+        <a href="plan-your-trip.html">Plan Your Trip</a>
       </div>
+    </section>
+
+    <div class="rdbx-nav-wrap">
+      <nav class="rdbx-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="things-to-do.html">Things To Do</a>
+        <a href="videos.html">Videos</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="rdbx-swipe">Swipe →</span>
+      </nav>
     </div>
   </header>
 
-  <main>
-
-    <div class="quick-panel">
-      <a class="quick-card" href="#rehoboth">
-        <span>Classic</span>
-        <h3>Rehoboth Beach</h3>
-        <p>Boardwalk, restaurants, shops, family energy, and first-time visitor appeal.</p>
-      </a>
-
-      <a class="quick-card" href="#dewey">
-        <span>Social</span>
-        <h3>Dewey Beach</h3>
-        <p>Nightlife, live music, beach bars, group weekends, and bayside sunsets.</p>
-      </a>
-
-      <a class="quick-card" href="#bethany">
-        <span>Relaxed</span>
-        <h3>Bethany Beach</h3>
-        <p>Family-friendly, quiet, cozy, and ideal for slower rental-home weeks.</p>
-      </a>
-
-      <a class="quick-card" href="#lewes">
-        <span>Charming</span>
-        <h3>Lewes</h3>
-        <p>History, Cape Henlopen, restaurants, shops, and scenic coastal day trips.</p>
-      </a>
-    </div>
-
-    <section id="vibes">
-      <h2>Choose the Vibe Before You Choose the Town</h2>
-
-      <p class="section-intro">
-        The Delaware beaches are close together, but they do not all feel the same.
-        Pick the experience first, then choose the town that matches the kind of trip
-        you actually want.
+  <main class="page-wrap">
+    <section class="section">
+      <span class="section-label">Start Here</span>
+      <h2>Each Delaware beach town has its own personality.</h2>
+      <p>
+        Some towns feel busy and classic. Some feel quieter and residential. Some are better
+        for restaurants and nightlife, while others are better for relaxed family trips, nature,
+        trails, and slower beach days. Use this page as a simple starting point.
       </p>
 
-      <div class="vibe-grid">
-        <article class="vibe-card">
-          <span>Family Week</span>
-          <h3>Easy, Comfortable, Reliable</h3>
-          <p>
-            Look for calmer streets, simple beach access, casual food, rental-home comfort,
-            and a pace that works for kids, parents, and grandparents.
-          </p>
-        </article>
-
-        <article class="vibe-card">
-          <span>Boardwalk Energy</span>
-          <h3>Classic Beach Trip</h3>
-          <p>
-            Think food, shops, crowds, beach days, entertainment, first-time visitors,
-            and a full beach-town atmosphere.
-          </p>
-        </article>
-
-        <article class="vibe-card">
-          <span>Nightlife</span>
-          <h3>Groups, Music, Beach Bars</h3>
-          <p>
-            Best for friends, weekend energy, live music, social nights, and a more outgoing
-            beach trip.
-          </p>
-        </article>
-
-        <article class="vibe-card">
-          <span>Quiet Escape</span>
-          <h3>Slow Mornings & Peace</h3>
-          <p>
-            Choose quieter towns, scenic walks, low-pressure plans, and a rental that feels
-            like a real retreat.
-          </p>
-        </article>
+      <div class="button-row">
+        <a class="primary-btn" href="plan-your-trip.html">Plan a Beach Trip</a>
+        <a class="secondary-btn" href="restaurants.html">Find Restaurants</a>
       </div>
     </section>
 
-    <section id="towns">
-      <h2>Featured Delaware Beach Towns</h2>
-
-      <p class="section-intro">
-        Use these town profiles as a starting point for planning your stay, choosing a rental,
-        building an itinerary, or deciding where to spend a beach day.
+    <section class="section dark">
+      <span class="section-label">Quick Guide</span>
+      <h2>Choose the town that matches the trip.</h2>
+      <p>
+        Rent Delaware Beaches is designed to help visitors, homeowners, and rental owners quickly
+        understand the difference between Delaware beach towns without digging through cluttered travel pages.
       </p>
+    </section>
+
+    <section class="section" id="rehoboth-dewey">
+      <span class="section-label">Classic Beach Energy</span>
+      <h2>Rehoboth & Dewey Beach.</h2>
 
       <div class="town-grid">
-
-        <article class="town-card" id="rehoboth">
-          <div class="town-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1100&q=85');">
-            <div class="town-label">Rehoboth Beach</div>
-          </div>
-
-          <div class="town-body">
-            <div class="tag-row">
-              <span class="tag gold">Classic</span>
-              <span class="tag">Boardwalk</span>
-              <span class="tag">Restaurants</span>
-            </div>
-
-            <h3>Best for a classic Delaware beach experience.</h3>
-            <p>
-              Rehoboth is one of Delaware’s most popular beach towns, known for its boardwalk,
-              restaurants, shops, family-friendly attractions, and full vacation energy.
-            </p>
-            <p>
-              Best for families, first-time visitors, boardwalk trips, shopping, dining,
-              and people who want a complete beach-town experience.
-            </p>
-
-            <a class="button" href="plan-your-trip.html">Plan a Rehoboth Trip</a>
-          </div>
-        </article>
-
-        <article class="town-card" id="dewey">
-          <div class="town-image" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1100&q=85');">
-            <div class="town-label">Dewey Beach</div>
-          </div>
-
-          <div class="town-body">
-            <div class="tag-row">
-              <span class="tag gold">Nightlife</span>
-              <span class="tag">Music</span>
-              <span class="tag">Groups</span>
-            </div>
-
-            <h3>Best for social weekends and beach-bar energy.</h3>
-            <p>
-              Dewey has a younger, livelier feel with beach days, nightlife, live music,
-              bayside sunsets, and a more energetic social scene.
-            </p>
-            <p>
-              Best for nightlife, groups, music, beach bars, weekend trips, and visitors
-              who want more movement after dark.
-            </p>
-
-            <a class="button" href="videos.html">Watch Beach Videos</a>
-          </div>
-        </article>
-
-        <article class="town-card" id="bethany">
-          <div class="town-image" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=85');">
-            <div class="town-label">Bethany Beach</div>
-          </div>
-
-          <div class="town-body">
-            <div class="tag-row">
-              <span class="tag gold">Family</span>
-              <span class="tag">Quiet</span>
-              <span class="tag">Rental Week</span>
-            </div>
-
-            <h3>Best for a calmer family beach week.</h3>
-            <p>
-              Bethany is quieter and more relaxed, with a family-friendly atmosphere,
-              a smaller boardwalk, and a calmer coastal pace.
-            </p>
-            <p>
-              Best for families, peaceful beach weeks, slower vacations, cozy rental homes,
-              and travelers who want less nightlife and more ease.
-            </p>
-
-            <a class="button" href="decor.html">Upgrade Your Rental</a>
-          </div>
-        </article>
-
-        <article class="town-card" id="lewes">
-          <div class="town-image" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1100&q=85');">
-            <div class="town-label">Lewes</div>
-          </div>
-
-          <div class="town-body">
-            <div class="tag-row">
-              <span class="tag gold">Historic</span>
-              <span class="tag">Cape Henlopen</span>
-              <span class="tag">Scenic</span>
-            </div>
-
-            <h3>Best for charm, history, and nature.</h3>
-            <p>
-              Lewes blends beach access with history, restaurants, shops, Cape Henlopen State Park,
-              and a more classic coastal-town feel.
-            </p>
-            <p>
-              Best for history, nature, Cape Henlopen, quieter stays, scenic day trips,
-              and visitors who want a less crowded coastal experience.
-            </p>
-
-            <a class="button" href="things-to-do.html">Find Things To Do</a>
-          </div>
-        </article>
-
-        <article class="town-card" id="fenwick">
-          <div class="town-image" style="background-image: url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1100&q=85');">
-            <div class="town-label">Fenwick Island</div>
-          </div>
-
-          <div class="town-body">
-            <div class="tag-row">
-              <span class="tag gold">Quiet</span>
-              <span class="tag">Family</span>
-              <span class="tag">South Coast</span>
-            </div>
-
-            <h3>Best for quieter stays near the Maryland line.</h3>
-            <p>
-              Fenwick Island offers a quieter beach escape with access to family attractions,
-              restaurants, and nearby Ocean City energy.
-            </p>
-            <p>
-              Best for quieter beach stays, families, and travelers who want access to both
-              Delaware and Maryland beach options.
-            </p>
-
-            <a class="button" href="plan-your-trip.html">Plan a Fenwick Stay</a>
-          </div>
-        </article>
-
-        <article class="town-card" id="south-bethany">
-          <div class="town-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1100&q=85');">
-            <div class="town-label">South Bethany</div>
-          </div>
-
-          <div class="town-body">
-            <div class="tag-row">
-              <span class="tag gold">Rental Homes</span>
-              <span class="tag">Quiet</span>
-              <span class="tag">Laid Back</span>
-            </div>
-
-            <h3>Best for rental homes and peaceful routines.</h3>
-            <p>
-              South Bethany and nearby coastal neighborhoods are great for travelers who want
-              a quieter rental-home experience close to the beach without the heavier crowds.
-            </p>
-            <p>
-              Best for family weeks, peaceful stays, slow mornings, and laid-back beach routines.
-            </p>
-
-            <a class="button" href="decor.html">Beach House Decor Ideas</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="feature-banner">
-      <h2>Quick Pick Guide</h2>
-
-      <p><strong>Best classic beach-town experience:</strong> Rehoboth Beach</p>
-      <p><strong>Best nightlife and group weekends:</strong> Dewey Beach</p>
-      <p><strong>Best quiet family feel:</strong> Bethany Beach</p>
-      <p><strong>Best history and nature mix:</strong> Lewes</p>
-      <p><strong>Best quieter southern Delaware option:</strong> Fenwick Island and South Bethany</p>
-
-      <div class="cta-row">
-        <a class="button gold" href="plan-your-trip.html">Plan Your Trip</a>
-        <a class="button light" href="restaurants.html">Find Restaurants</a>
-      </div>
-    </section>
-
-    <section>
-      <div class="split-section">
-        <div>
-          <h2>Make the Beach House Part of the Destination</h2>
-
-          <p class="section-intro">
-            The town sets the mood, but the rental sets the memory. A welcoming entryway,
-            custom house sign, guest-room print, or beach-themed detail can make a stay
-            feel more personal and finished.
-          </p>
-
+        <article class="town-card">
+          <span class="town-tag">Boardwalk + dining</span>
+          <h3>Rehoboth Beach</h3>
           <p>
-            The Blue Hen Basement catalog includes printable beach art, custom house signs,
-            address signs, welcome signs, and coastal decor for beach homes, rentals,
-            patios, porches, guest rooms, and family spaces.
+            Rehoboth is one of Delaware’s most recognizable beach towns, with boardwalk energy,
+            restaurants, shops, family attractions, and a classic beach-town feel.
           </p>
+          <ul>
+            <li>Good for families and first-time visitors</li>
+            <li>Strong restaurant and shopping scene</li>
+            <li>Classic boardwalk experience</li>
+          </ul>
+        </article>
 
-          <div class="cta-row">
-            <a class="button gold" href="decor.html">Browse Beach House Decor</a>
-            <a class="button" href="videos.html">Watch Coastal Videos</a>
-          </div>
-        </div>
+        <article class="town-card">
+          <span class="town-tag">Nightlife + beach days</span>
+          <h3>Dewey Beach</h3>
+          <p>
+            Dewey is compact, lively, and known for beach days, music, nightlife, bay access,
+            and a more energetic coastal atmosphere.
+          </p>
+          <ul>
+            <li>Good for groups and nightlife</li>
+            <li>Beach and bay access nearby</li>
+            <li>More energetic than quiet beach towns</li>
+          </ul>
+        </article>
 
-        <div class="decor-preview">
-          <div>
-            <span class="eyebrow">Coastal Decor</span>
-            <h3>Custom Signs for Beach Homes</h3>
-            <p>
-              House numbers, rental names, welcome signs, patio signs, and custom pieces
-              that help a beach house feel memorable.
-            </p>
-          </div>
-        </div>
+        <article class="town-card">
+          <span class="town-tag">Best fit</span>
+          <h3>Who should stay here?</h3>
+          <p>
+            Choose this area if you want restaurants, walkability, activity, nightlife,
+            and the feeling of being close to the center of the action.
+          </p>
+          <ul>
+            <li>Visitors who like busier beach towns</li>
+            <li>Rental owners serving high-demand areas</li>
+            <li>People who want a full beach-town experience</li>
+          </ul>
+        </article>
       </div>
     </section>
 
+    <section class="section" id="lewes">
+      <span class="section-label">Historic + Natural</span>
+      <h2>Lewes & Cape Henlopen.</h2>
+
+      <div class="town-grid">
+        <article class="town-card">
+          <span class="town-tag">Historic charm</span>
+          <h3>Lewes</h3>
+          <p>
+            Lewes has a quieter, historic feel with local shops, restaurants, bay views,
+            and a different pace than the busier resort towns.
+          </p>
+          <ul>
+            <li>Good for slower trips</li>
+            <li>Historic town center feel</li>
+            <li>Restaurants, shops, and bay access</li>
+          </ul>
+        </article>
+
+        <article class="town-card">
+          <span class="town-tag">Trails + nature</span>
+          <h3>Cape Henlopen</h3>
+          <p>
+            Cape Henlopen adds trails, nature, beaches, biking, and scenic outdoor experiences
+            close to Lewes.
+          </p>
+          <ul>
+            <li>Good for biking and trails</li>
+            <li>Nature-focused beach days</li>
+            <li>Great for outdoor-focused visitors</li>
+          </ul>
+        </article>
+
+        <article class="town-card">
+          <span class="town-tag">Best fit</span>
+          <h3>Who should stay here?</h3>
+          <p>
+            Choose Lewes if you want a calmer, more historic, more nature-oriented coastal stay.
+          </p>
+          <ul>
+            <li>Visitors who like quiet charm</li>
+            <li>Families who want less chaos</li>
+            <li>Outdoor and nature-focused trips</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="bethany-fenwick">
+      <span class="section-label">Relaxed Family Beach</span>
+      <h2>Bethany, South Bethany & Fenwick.</h2>
+
+      <div class="town-grid">
+        <article class="town-card">
+          <span class="town-tag">Family-friendly</span>
+          <h3>Bethany Beach</h3>
+          <p>
+            Bethany is known for a calmer family beach feel, a compact town center,
+            and a more relaxed pace than Rehoboth or Dewey.
+          </p>
+          <ul>
+            <li>Good for family trips</li>
+            <li>Relaxed beach-house atmosphere</li>
+            <li>Less nightlife-driven</li>
+          </ul>
+        </article>
+
+        <article class="town-card">
+          <span class="town-tag">Quiet rental feel</span>
+          <h3>South Bethany</h3>
+          <p>
+            South Bethany has a more residential feel and is often a strong fit for people
+            who want a quieter beach-house setting.
+          </p>
+          <ul>
+            <li>Good for slower beach weeks</li>
+            <li>Residential rental atmosphere</li>
+            <li>Better for calm than crowds</li>
+          </ul>
+        </article>
+
+        <article class="town-card">
+          <span class="town-tag">Coastal edge</span>
+          <h3>Fenwick Island</h3>
+          <p>
+            Fenwick sits near the southern end of Delaware’s beach towns and works well for relaxed
+            beach trips, family stops, and access toward Ocean City.
+          </p>
+          <ul>
+            <li>Good for families and quieter stays</li>
+            <li>Close to more southern beach activity</li>
+            <li>Great for laid-back coastal rentals</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <span class="section-label">Owner Angle</span>
+      <h2>Beach towns matter for rental positioning.</h2>
+      <p>
+        Rental owners can use town personality to better describe listings, set guest expectations,
+        choose decor, write better guidebooks, and explain why their property is a good fit for the right visitors.
+      </p>
+
+      <div class="button-row">
+        <a class="secondary-btn" href="contact.html">Owner Help</a>
+        <a class="secondary-btn" href="decor.html">Custom Signs</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Not sure where to start?</h2>
+      <p>
+        Start with the town that matches the kind of beach experience you want:
+        active and classic, historic and outdoorsy, or quiet and family-focused.
+      </p>
+
+      <div class="button-row">
+        <a class="secondary-btn" href="plan-your-trip.html">Plan Your Trip</a>
+        <a class="secondary-btn" href="restaurants.html">Find Restaurants</a>
+        <a class="secondary-btn" href="things-to-do.html">Things To Do</a>
+      </div>
+    </section>
   </main>
 
- <footer>
-  <p>
-    © 2026 Rent Delaware Beaches |
-    <a href="index.html">Home</a>
-    <a href="delaware-beach-rentals.html">Rentals</a>
-    <a href="beach-towns.html">Beach Towns</a>
-    <a href="plan-your-trip.html">Plan Your Trip</a>
-    <a href="restaurants.html">Restaurants</a>
-    <a href="things-to-do.html">Things To Do</a>
-    <a href="videos.html">Videos</a>
-    <a href="decor.html">Beach House Decor</a>
-    <a href="community.html">Community</a>
-    <a href="blog.html">Blog</a>
-    <a href="advertise.html">Advertise</a>
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <strong>Rent Delaware Beaches</strong>
+      <p>Beach rentals, owner help, custom signs, and local Delaware beach planning resources.</p>
 
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan Your Trip</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
