@@ -924,3 +924,64 @@ footer {
     margin-top: 28px !important;
   }
 }
+/* =========================================================
+   Premium Mobile Quick Nav Rail
+   Makes navigation feel lighter, cleaner, and less dominant
+   ========================================================= */
+
+@media (max-width: 700px) {
+  header {
+    padding: 10px 0 8px !important;
+    background: #f7efe1 !important;
+  }
+
+  header nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  header nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  header nav a {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: auto !important;
+    min-height: 38px !important;
+    padding: 10px 15px !important;
+    border-radius: 999px !important;
+    background: #ffffff !important;
+    color: #073f42 !important;
+    border: 1px solid rgba(6, 76, 73, 0.14) !important;
+    box-shadow: 0 6px 16px rgba(6, 76, 73, 0.08) !important;
+    font-size: 0.84rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+
+  header nav a[href*="tool-rentals"] {
+    background: #073f42 !important;
+    color: #fff3cf !important;
+    border-color: #073f42 !important;
+  }
+
+  header nav a[href*="contact"] {
+    background: #fff3cf !important;
+    color: #073f42 !important;
+    border-color: rgba(6, 76, 73, 0.12) !important;
+  }
+}
