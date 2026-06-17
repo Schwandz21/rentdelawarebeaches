@@ -1,523 +1,868 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Things To Do at the Delaware Beaches | Rent Delaware Beaches</title>
-
   <meta name="description" content="Explore things to do at the Delaware beaches including beach days, boardwalks, rainy day ideas, family activities, restaurants, shopping, videos, and beach house decor inspiration." />
 
   <style>
+    :root {
+      --rdbx-deep: #062f3d;
+      --rdbx-teal: #087f88;
+      --rdbx-teal-bright: #20bcb0;
+      --rdbx-sand: #f2d991;
+      --rdbx-cream: #fffaf0;
+      --rdbx-ink: #173743;
+      --rdbx-muted: #54707a;
+      --rdbx-line: rgba(6, 47, 61, 0.10);
+      --rdbx-shadow: 0 20px 55px rgba(6, 47, 61, 0.22);
+      --rdbx-soft-shadow: 0 10px 30px rgba(6, 47, 61, 0.13);
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f0e3;
-      color: #102f45;
-      line-height: 1.6;
-    }
-
-    .top-strip {
-      background: #d8903d;
-      color: #102f45;
-      text-align: center;
-      padding: 10px 16px;
-      font-weight: bold;
-      letter-spacing: 0.02em;
-    }
-
-    header {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rdbx-ink);
       background:
-        linear-gradient(rgba(8, 35, 54, 0.38), rgba(8, 35, 54, 0.78)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 34px 20px 95px;
-      text-align: center;
+        radial-gradient(circle at top left, rgba(32, 188, 176, 0.10), transparent 34%),
+        linear-gradient(180deg, #f7f1df 0%, #fffaf0 44%, #f7f1df 100%);
     }
 
-    nav {
-      max-width: 1180px;
-      margin: 0 auto 70px;
-      padding: 14px 18px;
-      background: rgba(16, 47, 69, 0.86);
-      backdrop-filter: blur(8px);
-      border-radius: 999px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 18px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
-    }
-
-    nav a {
-      color: white;
+    a {
+      color: inherit;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      transition: 0.2s ease;
     }
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.14);
-      transform: translateY(-1px);
+    .rdbx-shell {
+      position: relative;
+      width: 100%;
+      color: #ffffff;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 5%, rgba(255,246,214,.94) 0 15%, transparent 34%),
+        radial-gradient(circle at 82% 16%, rgba(125,219,213,.64) 0 18%, transparent 44%),
+        linear-gradient(145deg,#073746 0%,#087f88 42%,#20bcb0 74%,#f2d991 138%);
+      border-radius: 0 0 30px 30px;
+      box-shadow: var(--rdbx-shadow);
+      margin: 0;
+      padding: 0;
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      font-weight: bold;
-      margin-bottom: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 13px;
+    .rdbx-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -38% -30%;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.10);
+      transform: rotate(-7deg);
+      pointer-events: none;
     }
 
-    header h1 {
-      font-size: clamp(42px, 6vw, 74px);
-      line-height: 1.04;
-      margin: 0 0 22px;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.38);
-    }
-
-    header p {
-      max-width: 790px;
-      margin: 0 auto 28px;
-      font-size: 21px;
-      color: #fff7e8;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 999px;
-      background: #1f6f9b;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-      transition: 0.2s ease;
-      margin: 8px 6px 0 0;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: #185879;
-    }
-
-    .button.gold {
-      background: #d8903d;
-      color: #102f45;
-    }
-
-    .button.gold:hover {
-      background: #c17c30;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: -58px auto 0;
-      padding: 0 20px 60px;
+    .rdbx-brand-row {
       position: relative;
       z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      backdrop-filter: blur(12px);
     }
 
-    section {
-      margin-top: 34px;
-      background: #fffaf2;
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: 0 8px 28px rgba(16, 47, 69, 0.08);
-      border: 1px solid #eadfcd;
+    .rdbx-brand-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+      flex: 1 1 auto;
+      max-width: calc(100% - 92px);
+      color: #ffffff;
+      text-decoration: none;
     }
 
-    h2 {
-      color: #1f6f9b;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.1;
-      margin: 0 0 16px;
+    .rdbx-badge {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 34%,#cbd3da 55%,#ffffff 56%,#b9c3cc 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.78);
+      font-weight: 950;
+      font-size: .68rem;
+      letter-spacing: .08em;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -8px 12px rgba(0,0,0,.07);
     }
 
-    h3 {
-      color: #102f45;
-      margin-top: 0;
+    .rdbx-brand-text {
+      min-width: 0;
+      max-width: 100%;
+      padding-top: 1px;
     }
 
-    .section-intro {
-      max-width: 760px;
-      color: #425466;
-      font-size: 18px;
-      margin-bottom: 24px;
+    .rdbx-brand-text strong {
+      display: block;
+      color: #ffffff;
+      font-size: .98rem;
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      white-space: normal;
+    }
+
+    .rdbx-brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.84);
+      font-size: .70rem;
+      line-height: 1.18;
+      white-space: normal;
+    }
+
+    .rdbx-contact {
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,.74);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      color: #062f3d;
+      border-radius: 999px;
+      padding: 9px 11px;
+      font-size: .76rem;
+      font-weight: 950;
+      margin-top: 1px;
+      text-decoration: none;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .rdbx-hero {
+      position: relative;
+      z-index: 2;
+      padding: 24px 18px 18px;
+      margin: 0;
+      text-align: left;
+      background: transparent;
+    }
+
+    .rdbx-kicker {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,243,200,.96);
+      color: #062f3d;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+    }
+
+    .rdbx-hero-title {
+      margin: 17px 0 12px;
+      color: #ffffff;
+      font-size: clamp(2.45rem, 11vw, 4.2rem);
+      line-height: .96;
+      letter-spacing: -.075em;
+      text-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+
+    .rdbx-hero-copy {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      font-size: 1.08rem;
+      line-height: 1.45;
+      max-width: 36ch;
+    }
+
+    .rdbx-services {
+      position: relative;
+      z-index: 2;
+      margin: 18px;
+      padding: 14px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
+    }
+
+    .rdbx-services-title {
+      margin: 0 0 11px;
+      color: #ffffff;
+      font-size: .82rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .rdbx-service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .rdbx-service-grid a {
+      position: relative;
+      overflow: hidden;
+      min-height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 9px;
+      font-weight: 950;
+      line-height: 1.08;
+      color: #16333d;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.72);
+      background:
+        linear-gradient(180deg,
+          #ffffff 0%,
+          #eef2f5 24%,
+          #d8dde2 50%,
+          #fbfcfd 52%,
+          #c9d0d7 100%);
+      box-shadow:
+        0 12px 24px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -10px 14px rgba(0,0,0,.05);
+    }
+
+    .rdbx-service-grid a::before {
+      content: "";
+      position: absolute;
+      inset: 1px 1px auto 1px;
+      height: 46%;
+      border-radius: 16px 16px 40px 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.08));
+      pointer-events: none;
+    }
+
+    .rdbx-service-grid a:nth-child(2),
+    .rdbx-service-grid a:nth-child(4) {
+      color: #0f2d36;
+      background:
+        linear-gradient(180deg,
+          #f7f9fb 0%,
+          #dfe5ea 22%,
+          #b8c1ca 50%,
+          #f8fafb 52%,
+          #a7b2bc 100%);
+    }
+
+    .rdbx-nav-wrap {
+      position: relative;
+      z-index: 3;
+      padding: 0 0 18px;
+    }
+
+    .rdbx-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 9px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 16px;
+      margin: 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      justify-content: flex-start;
+    }
+
+    .rdbx-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .rdbx-nav a,
+    .rdbx-swipe {
+      flex: 0 0 auto;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+
+    .rdbx-nav a {
+      background:
+        linear-gradient(180deg,
+          #fbfcfd 0%,
+          #edf1f4 35%,
+          #d5dbe1 51%,
+          #fefefe 52%,
+          #c7cfd6 100%);
+      color: #062f3d;
+      border: 1px solid rgba(255,255,255,.72);
+      font-size: .84rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96),
+        inset 0 -8px 12px rgba(0,0,0,.05);
+    }
+
+    .rdbx-swipe {
+      color: rgba(255,255,255,.92);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      background: rgba(6,47,61,.26);
+      border: 1px solid rgba(255,255,255,.20);
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section {
+      margin: 22px auto 18px;
+      padding: 22px 18px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(32,188,176,.14), transparent 34%),
+        linear-gradient(180deg,#ffffff 0%,#fffaf0 100%);
+      border: 1px solid var(--rdbx-line);
+      box-shadow: var(--rdbx-soft-shadow);
+    }
+
+    .section.dark {
+      background:
+        radial-gradient(circle at top right, rgba(32,188,176,.24), transparent 36%),
+        linear-gradient(145deg, #062f3d 0%, #083846 60%, #087f88 130%);
+      color: #ffffff;
+    }
+
+    .section-label {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section.dark .section-label {
+      background: rgba(255,243,200,.95);
+      color: var(--rdbx-deep);
+    }
+
+    .section h2 {
+      margin: 14px 0 10px;
+      color: var(--rdbx-deep);
+      font-size: clamp(2rem, 8vw, 3.3rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .section.dark h2 {
+      color: #ffffff;
+    }
+
+    .section p {
+      margin: 0;
+      color: #4b6870;
+      font-size: 1.03rem;
+      line-height: 1.55;
+      max-width: 800px;
+    }
+
+    .section.dark p {
+      color: rgba(255,255,255,.82);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .primary-btn {
+      color: #ffffff;
+      background: var(--rdbx-deep);
+      box-shadow: 0 10px 22px rgba(6,47,61,.18);
+    }
+
+    .secondary-btn {
+      color: var(--rdbx-deep);
+      background:
+        linear-gradient(180deg,#ffffff 0%,#eef2f5 38%,#d1d8de 52%,#ffffff 53%,#c3ccd4 100%);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.96);
     }
 
     .activity-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-
-    .activity-card {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid #eadfcd;
-      box-shadow: 0 6px 18px rgba(16, 47, 69, 0.07);
-      transition: 0.22s ease;
-    }
-
-    .activity-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(16, 47, 69, 0.13);
-    }
-
-    .activity-image {
-      height: 165px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .activity-body {
-      padding: 22px;
-    }
-
-    .activity-body p {
-      color: #425466;
-      margin-bottom: 0;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #f1eadc;
-      color: #102f45;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .split-section {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .callout {
-      background: linear-gradient(135deg, #102f45, #1f6f9b);
-      color: white;
-      border: none;
-    }
-
-    .callout h2,
-    .callout h3 {
-      color: white;
-    }
-
-    .callout p,
-    .callout li {
-      color: #e9f3f8;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 14px;
       margin-top: 18px;
     }
 
-    .mini-item {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 16px;
-      padding: 16px;
+    .activity-card {
+      background: #ffffff;
+      border: 1px solid var(--rdbx-line);
+      border-radius: 26px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(6,47,61,.08);
+      position: relative;
+      overflow: hidden;
     }
 
-    .decor-preview {
-      min-height: 390px;
+    .activity-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--rdbx-teal-bright), var(--rdbx-sand));
+    }
+
+    .activity-card h3 {
+      margin: 0 0 8px;
+      color: var(--rdbx-deep);
+      font-size: 1.28rem;
+      letter-spacing: -.025em;
+    }
+
+    .activity-card p {
+      margin: 0 0 14px;
+      color: var(--rdbx-muted);
+      line-height: 1.48;
+      font-size: .98rem;
+    }
+
+    .activity-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--rdbx-muted);
+      line-height: 1.5;
+    }
+
+    .activity-card li {
+      margin-bottom: 5px;
+    }
+
+    .activity-tag {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #e6faf6;
+      color: #07756e;
+      font-weight: 950;
+      font-size: .82rem;
+      margin-bottom: 12px;
+    }
+
+    .final-cta {
+      margin: 20px auto 28px;
+      padding: 24px 20px;
+      border-radius: 30px;
       background:
-        linear-gradient(rgba(16, 47, 69, 0.68), rgba(16, 47, 69, 0.76)),
-        url("images/2092 Address Sign Hero.png");
-      background-size: cover;
-      background-position: center;
-      border-radius: 24px;
-      padding: 28px;
-      color: white;
+        radial-gradient(circle at top right, rgba(242,217,145,.25), transparent 34%),
+        linear-gradient(145deg, #062f3d 0%, #087f88 92%);
+      color: #ffffff;
+      box-shadow: var(--rdbx-shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .final-cta p {
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 28px 18px 34px;
+      background: var(--rdbx-deep);
+      color: #ffffff;
+      border-radius: 28px 28px 0 0;
+    }
+
+    .footer-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .footer p {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.45;
+    }
+
+    .footer-links {
       display: flex;
-      align-items: end;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .decor-preview h3 {
-      color: white;
-      font-size: 28px;
-      margin-bottom: 10px;
+    .footer-links a {
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      font-size: .9rem;
     }
 
-    .decor-preview p {
-      color: #fff7e8;
-    }
-
-    footer {
-      background: #102f45;
-      color: white;
-      text-align: center;
-      padding: 28px 20px;
-    }
-
-    footer a {
-      color: white;
-      font-weight: bold;
-      margin: 0 6px;
-    }
-
-    @media (max-width: 800px) {
-      nav {
-        border-radius: 22px;
-        margin-bottom: 50px;
+    @media (min-width: 760px) {
+      .rdbx-shell {
+        border-radius: 0 0 36px 36px;
       }
 
-      nav a {
-        display: inline-block;
+      .rdbx-brand-row,
+      .rdbx-hero,
+      .rdbx-nav {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      header {
-        padding-bottom: 80px;
+      .rdbx-hero {
+        text-align: center;
+        padding-top: 38px;
+        padding-bottom: 24px;
       }
 
-      .split-section {
-        grid-template-columns: 1fr;
+      .rdbx-hero-copy {
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      section {
-        padding: 26px;
+      .rdbx-services {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rdbx-service-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .rdbx-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+      }
+
+      .rdbx-swipe {
+        display: none;
+      }
+
+      .activity-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .rdbx-hero-title {
+        font-size: 2.28rem;
+      }
+
+      .rdbx-brand-text strong {
+        font-size: .92rem;
+      }
+
+      .rdbx-brand-text span {
+        font-size: .66rem;
+      }
+
+      .rdbx-contact {
+        font-size: .72rem;
+        padding: 8px 10px;
       }
     }
   </style>
 </head>
 
 <body>
+  <header class="rdbx-shell">
+    <div class="rdbx-brand-row">
+      <a class="rdbx-brand-link" href="index.html">
+        <span class="rdbx-badge">RDB</span>
+        <span class="rdbx-brand-text">
+          <strong>Rent Delaware Beaches</strong>
+          <span>Coastal support • rentals • owner help</span>
+        </span>
+      </a>
 
-  <div class="top-strip">
-    Summer 2026 Delaware Beach Guide • Activities • Local Ideas • Rainy Day Plans
-  </div>
+      <a class="rdbx-contact" href="contact.html">Contact</a>
+    </div>
 
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="beach-towns.html">Beach Towns</a>
-      <a href="plan-your-trip.html">Plan Your Trip</a>
-      <a href="restaurants.html">Restaurants</a>
-      <a href="things-to-do.html">Things To Do</a>
-      <a href="videos.html">Videos</a>
-      <a href="decor.html">Beach House Decor</a>
-    </nav>
+    <section class="rdbx-hero">
+      <span class="rdbx-kicker">Things To Do</span>
+      <h1 class="rdbx-hero-title">Make the Beach Day Bigger.</h1>
+      <p class="rdbx-hero-copy">
+        Explore Delaware beach activities, boardwalk time, rainy-day backups, family ideas,
+        shopping, restaurants, local videos, and simple ways to make the trip feel full.
+      </p>
+    </section>
 
-    <span class="eyebrow">Delaware Beach Activities</span>
+    <section class="rdbx-services" aria-label="Things to do shortcuts">
+      <h2 class="rdbx-services-title">Activity shortcuts</h2>
+      <div class="rdbx-service-grid">
+        <a href="#beach-days">Beach Days</a>
+        <a href="#rainy-days">Rainy Days</a>
+        <a href="#family-ideas">Family Ideas</a>
+        <a href="videos.html">Local Videos</a>
+      </div>
+    </section>
 
-    <h1>Things To Do at the Delaware Beaches</h1>
-
-    <p>
-      Beach days, boardwalk stops, family activities, rainy-day backup plans,
-      local exploring, video inspiration, and beach-house ideas for a better coastal trip.
-    </p>
-
-    <a class="button gold" href="plan-your-trip.html">Plan Your Trip</a>
-    <a class="button" href="videos.html">Watch Beach Videos</a>
+    <div class="rdbx-nav-wrap">
+      <nav class="rdbx-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="things-to-do.html">Things To Do</a>
+        <a href="videos.html">Videos</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="rdbx-swipe">Swipe →</span>
+      </nav>
+    </div>
   </header>
 
-  <main>
-
-    <section>
-      <h2>Start With the Kind of Day You Want</h2>
-      <p class="section-intro">
-        The Delaware beaches can be relaxed, busy, family-friendly, social, quiet,
-        outdoorsy, food-focused, or completely spontaneous. Use this guide to match
-        your day to the right activity.
+  <main class="page-wrap">
+    <section class="section">
+      <span class="section-label">Start Here</span>
+      <h2>Do more than just show up and hope the day works.</h2>
+      <p>
+        Delaware beach trips are better with a few good ideas ready: a beach plan, a food plan,
+        a rainy-day plan, and one or two activities that make the day feel memorable.
       </p>
+
+      <div class="button-row">
+        <a class="primary-btn" href="#beach-days">Beach Day Ideas</a>
+        <a class="secondary-btn" href="#rainy-days">Rainy Day Backup</a>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <span class="section-label">Simple Activity Planning</span>
+      <h2>Build the day around the weather, the town, and the group.</h2>
+      <p>
+        The best beach trips are flexible. Start with the beach, then add food, town exploring,
+        boardwalk energy, local videos, shopping, trails, or indoor backup plans.
+      </p>
+    </section>
+
+    <section class="section" id="beach-days">
+      <span class="section-label">Beach Days</span>
+      <h2>Classic Delaware beach day ideas.</h2>
 
       <div class="activity-grid">
         <article class="activity-card">
-          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80');"></div>
-          <div class="activity-body">
-            <span class="tag">Classic</span>
-            <h3>Beach Day</h3>
-            <p>Pack towels, chairs, sunscreen, snacks, and water. Keep the day simple: sun, sand, swimming, reading, and slow time.</p>
-          </div>
+          <span class="activity-tag">Classic</span>
+          <h3>Beach + boardwalk</h3>
+          <p>
+            Pair the sand with a walk, snacks, shops, arcades, ice cream, or a simple boardwalk evening.
+          </p>
+          <ul>
+            <li>Great for Rehoboth-style days</li>
+            <li>Easy family pacing</li>
+            <li>Good after dinner or before sunset</li>
+          </ul>
         </article>
 
         <article class="activity-card">
-          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80');"></div>
-          <div class="activity-body">
-            <span class="tag">Explore</span>
-            <h3>Boardwalk & Town Walks</h3>
-            <p>Walk the boardwalk, browse shops, grab ice cream, people-watch, and explore the personality of each beach town.</p>
-          </div>
+          <span class="activity-tag">Relaxed</span>
+          <h3>Quiet beach-house day</h3>
+          <p>
+            Some days are better slow: coffee, beach chairs, a cooler, a low-pressure meal, and no overplanning.
+          </p>
+          <ul>
+            <li>Great for Bethany and Fenwick trips</li>
+            <li>Good for family rental weeks</li>
+            <li>Less driving, more relaxing</li>
+          </ul>
         </article>
 
         <article class="activity-card">
-          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80');"></div>
-          <div class="activity-body">
-            <span class="tag">Family</span>
-            <h3>Family-Friendly Stops</h3>
-            <p>Build the day around easy food, short drives, flexible timing, beach breaks, and activities that do not require over-planning.</p>
-          </div>
-        </article>
-
-        <article class="activity-card">
-          <div class="activity-image" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80');"></div>
-          <div class="activity-body">
-            <span class="tag">Nature</span>
-            <h3>Outdoor Exploring</h3>
-            <p>Look for parks, trails, scenic drives, sunrise walks, bike rides, fishing spots, and quieter stretches of coast.</p>
-          </div>
+          <span class="activity-tag">Outdoors</span>
+          <h3>Trails, parks, and nature</h3>
+          <p>
+            Use coastal parks, trails, biking, bay views, and nature stops to make the trip feel bigger than the beach alone.
+          </p>
+          <ul>
+            <li>Great near Lewes and Cape Henlopen</li>
+            <li>Good for active mornings</li>
+            <li>Pairs well with casual lunch</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <section class="callout">
-      <h2>Quick Pick Activity Guide</h2>
-
-      <div class="mini-list">
-        <div class="mini-item">
-          <h3>Best relaxed day</h3>
-          <p>Beach morning, easy lunch, slow afternoon, dinner near the rental.</p>
-        </div>
-
-        <div class="mini-item">
-          <h3>Best family rhythm</h3>
-          <p>Beach early, break midday, simple dinner, ice cream or boardwalk walk at night.</p>
-        </div>
-
-        <div class="mini-item">
-          <h3>Best rainy day plan</h3>
-          <p>Shopping, coffee, restaurants, scenic drive, games at the rental, or a movie night.</p>
-        </div>
-
-        <div class="mini-item">
-          <h3>Best local-content day</h3>
-          <p>Film a beach walk, town preview, rental upgrade, food stop, or custom sign/decor project.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Rainy Day Backup Ideas</h2>
-      <p class="section-intro">
-        Rain does not have to ruin the trip. A good backup plan keeps the day relaxed
-        and gives everyone something to do without scrambling.
-      </p>
+    <section class="section" id="rainy-days">
+      <span class="section-label">Rainy Days</span>
+      <h2>Save the trip when the weather turns.</h2>
 
       <div class="activity-grid">
         <article class="activity-card">
-          <div class="activity-body">
-            <span class="tag">Indoor</span>
-            <h3>At the Rental</h3>
-            <p>Board games, cooking, movies, reading, porch time, planning the next day, or organizing a cozy dinner.</p>
-          </div>
+          <span class="activity-tag">Indoor</span>
+          <h3>Restaurants and comfort food</h3>
+          <p>
+            A rainy beach day can still work if you shift the focus to food, coffee, dessert, shopping, or a longer meal.
+          </p>
+          <ul>
+            <li>Breakfast or brunch</li>
+            <li>Casual lunch</li>
+            <li>Early dinner plan</li>
+          </ul>
         </article>
 
         <article class="activity-card">
-          <div class="activity-body">
-            <span class="tag">Town</span>
-            <h3>Out and About</h3>
-            <p>Shopping, coffee shops, restaurants, historic areas, local markets, arcades, or another beach town.</p>
-          </div>
+          <span class="activity-tag">Easy backup</span>
+          <h3>Shopping and town exploring</h3>
+          <p>
+            Use rainy weather to explore shops, town centers, local stops, and places you might skip on a perfect beach day.
+          </p>
+          <ul>
+            <li>Good for Rehoboth and Lewes</li>
+            <li>Flexible with kids</li>
+            <li>Pairs well with coffee stops</li>
+          </ul>
         </article>
 
         <article class="activity-card">
-          <div class="activity-body">
-            <span class="tag">Creative</span>
-            <h3>Make the Space Better</h3>
-            <p>Use downtime to style a rental, hang a print, plan a custom sign, or take photos/video for future listing content.</p>
-          </div>
+          <span class="activity-tag">At the house</span>
+          <h3>Beach house reset</h3>
+          <p>
+            Rain can be a good time to cook, organize, decorate, plan the next day, or improve the beach-house experience.
+          </p>
+          <ul>
+            <li>Custom signs and decor ideas</li>
+            <li>Guest guide updates</li>
+            <li>Owner improvement planning</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <section>
-      <div class="split-section">
-        <div>
-          <h2>Turn Activities Into Video Content</h2>
-          <p class="section-intro">
-            Beach walks, boardwalk clips, rental upgrades, restaurant stops, and custom sign builds
-            can all become useful video content for visitors and homeowners.
-          </p>
+    <section class="section" id="family-ideas">
+      <span class="section-label">Family Ideas</span>
+      <h2>Keep the group moving without overplanning.</h2>
 
+      <div class="activity-grid">
+        <article class="activity-card">
+          <h3>Low-stress mornings</h3>
           <p>
-            The video hub is designed to grow into a visual library of Delaware beach life:
-            trip ideas, local tips, town previews, and behind-the-scenes coastal projects.
+            Start with breakfast, sunscreen, water, and one simple plan. Beach trips go sideways when the morning gets chaotic.
           </p>
+        </article>
 
-          <a class="button" href="videos.html">Browse Videos</a>
-          <a class="button gold" href="mailto:hello@rentdelawarebeaches.com?subject=Delaware%20Beach%20Video%20Idea">Submit Video Idea</a>
-        </div>
+        <article class="activity-card">
+          <h3>One anchor activity</h3>
+          <p>
+            Pick one real activity each day — beach, boardwalk, park, dinner, shopping, or video-inspired local stop.
+          </p>
+        </article>
 
-        <div class="activity-card">
-          <div class="activity-body">
-            <span class="tag">Content Ideas</span>
-            <h3>Easy Videos To Make</h3>
-            <p>“Morning in Rehoboth,” “Rainy day beach plan,” “Custom sign build,” “Best rental entryway upgrades,” or “One-day Bethany trip.”</p>
-          </div>
-        </div>
+        <article class="activity-card">
+          <h3>Easy backup list</h3>
+          <p>
+            Keep a short backup list for weather, tired kids, traffic, crowded beaches, or nights when nobody wants to decide.
+          </p>
+        </article>
       </div>
     </section>
 
-    <section>
-      <div class="split-section">
-        <div>
-          <h2>Make the Rental Part of the Experience</h2>
-          <p class="section-intro">
-            A beach trip is not just the beach. The rental, porch, kitchen, entryway,
-            guest room, and small personal touches shape the whole stay.
-          </p>
+    <section class="section dark">
+      <span class="section-label">Local Inspiration</span>
+      <h2>Use videos, food, towns, and decor to shape the trip.</h2>
+      <p>
+        Rent Delaware Beaches connects the activity side of the beach with the rest of the experience:
+        town guides, restaurants, videos, custom signs, owner help, and local business partnerships.
+      </p>
 
-          <p>
-            Custom signs, printable wall art, and coastal decor help a rental or beach house
-            feel more finished, memorable, and photo-worthy.
-          </p>
-
-          <a class="button gold" href="decor.html">Browse Decor & Custom Signs</a>
-        </div>
-
-        <div class="decor-preview">
-          <div>
-            <h3>Custom Signs for Beach Homes</h3>
-            <p>Hand-built signs for house numbers, rental names, porches, patios, garages, bars, and entryways.</p>
-          </div>
-        </div>
+      <div class="button-row">
+        <a class="secondary-btn" href="videos.html">Watch Local Videos</a>
+        <a class="secondary-btn" href="decor.html">Beach House Decor</a>
       </div>
     </section>
 
+    <section class="final-cta">
+      <h2>Pick one thing to make the day better.</h2>
+      <p>
+        A good beach day does not need to be complicated. Choose the beach, the meal, the backup plan,
+        or the one activity that makes the day feel worth remembering.
+      </p>
+
+      <div class="button-row">
+        <a class="secondary-btn" href="restaurants.html">Find Food</a>
+        <a class="secondary-btn" href="plan-your-trip.html">Plan Your Trip</a>
+        <a class="secondary-btn" href="contact.html">Suggest an Idea</a>
+      </div>
+    </section>
   </main>
 
- <footer>
-  <p>
-    © 2026 Rent Delaware Beaches |
-    <a href="index.html">Home</a>
-    <a href="delaware-beach-rentals.html">Rentals</a>
-    <a href="beach-towns.html">Beach Towns</a>
-    <a href="plan-your-trip.html">Plan Your Trip</a>
-    <a href="restaurants.html">Restaurants</a>
-    <a href="things-to-do.html">Things To Do</a>
-    <a href="videos.html">Videos</a>
-    <a href="decor.html">Beach House Decor</a>
-    <a href="community.html">Community</a>
-    <a href="blog.html">Blog</a>
-    <a href="advertise.html">Advertise</a>
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <strong>Rent Delaware Beaches</strong>
+      <p>Beach rentals, owner help, custom signs, and local Delaware beach planning resources.</p>
 
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tool-rentals.html">Rentals</a>
+        <a href="beach-towns.html">Beach Towns</a>
+        <a href="plan-your-trip.html">Plan Your Trip</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="decor.html">Decor</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
