@@ -1,0 +1,322 @@
+/* ==========================================================================
+   DIRECTION 3 — "ATLANTIC DISPATCH" / THE FIELD BOARD
+   --------------------------------------------------------------------------
+   Visual idea: an operational dispatch board. The first viewport is a hard
+   split — a dark board on the left where the visitor picks a job type from a
+   queue of rows, and a light panel on the right that takes the details. The
+   service finder is therefore not a component on the page; it is the page's
+   entire opening structure. Services are rows with status rails, not cards.
+   High density, heavy type, yellow as the single action signal.
+
+   Requires rdb-core.css.
+   ========================================================================== */
+
+:root {
+  /* --- Palette: Atlantic navy + vivid service blue + sun yellow --- */
+  --ds-navy:    #0B2545;   /* 15.39:1 on white */
+  --ds-navy-9:  #071A33;
+  --ds-navy-7:  #12365F;
+  --ds-blue:    #1A6FC0;   /* text-safe — 5.15:1 on white */
+  --ds-blue-br: #1C7ED6;   /* 4.20:1 — UI FILLS AND RAILS ONLY, never text */
+  --ds-blue-lt: #6BB6F0;   /* on navy — 7.02:1 */
+  --ds-yellow:  #FFC533;   /* CTA — 10.82:1 with ink, 9.74:1 on navy */
+  --ds-yellow-d:#E8AE1C;
+  --ds-yellow-t:#7A5200;   /* yellow as TEXT on white — 6.92:1 */
+  --ds-ink:     #101C2E;
+  --ds-slate:   #4A5867;   /* 7.28:1 on white */
+  --ds-cool:    #EEF2F6;
+
+  /* --- Core contract --- */
+  --c-bg: #FFFFFF;
+  --c-surface: #FFFFFF;
+  --c-ink: var(--ds-ink);
+  --c-muted: var(--ds-slate);
+  --c-line: #D8E0E8;
+  --c-line-strong: #BCC8D4;
+  --c-input-line: #78889A;
+  --c-accent: var(--ds-yellow);
+  --c-accent-ink: var(--ds-ink);
+  --c-brand: var(--ds-blue);
+  --focus-ring: var(--ds-blue-br);
+  --radius: 3px;
+  --radius-sm: 2px;
+  --radius-lg: 4px;
+  --container: 1320px;
+  --gutter: 28px;
+
+  --ds-sans: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body { font-family: var(--ds-sans); }
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY — heavy, tight, high weight contrast
+   -------------------------------------------------------------------------- */
+.ds-kicker {
+  display: inline-block;
+  padding: 5px 10px;
+  background: var(--ds-yellow);
+  color: var(--ds-ink);
+  font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+}
+.ds-kicker--quiet {
+  background: transparent; padding: 0;
+  color: var(--ds-blue); letter-spacing: .16em;
+}
+.ds-kicker--ondark { background: transparent; padding: 0; color: var(--ds-yellow); letter-spacing: .16em; }
+
+.ds-h1 {
+  font-size: clamp(1.95rem, 1.3rem + 2.3vw, 3rem);
+  font-weight: 800; line-height: 1.02; letter-spacing: -.03em;
+}
+.ds-h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.15rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -.025em;
+  color: var(--ds-navy);
+}
+.ds-h3 { font-size: 1.15rem; font-weight: 800; line-height: 1.22; letter-spacing: -.015em; color: var(--ds-navy); }
+.ds-body { font-size: 16.5px; line-height: 1.58; color: var(--ds-slate); max-width: 60ch; }
+.ds-small { font-size: 14.5px; line-height: 1.5; color: var(--ds-slate); }
+
+/* --------------------------------------------------------------------------
+   HEADER — compact navy bar with a yellow rail
+   -------------------------------------------------------------------------- */
+.ds-top {
+  background: var(--ds-navy-9); color: #C6D6E6;
+  font-size: 12px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+  --focus-ring: #FFFFFF;
+}
+.ds-top-in { display: flex; align-items: center; justify-content: space-between; gap: var(--s4); min-height: 34px; }
+
+.ds-head {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--ds-navy); color: #FFFFFF;
+  border-bottom: 3px solid var(--ds-yellow);
+  --focus-ring: var(--ds-yellow);
+}
+.ds-head-in { display: flex; align-items: stretch; justify-content: space-between; gap: var(--s5); min-height: 70px; }
+
+/* Lockup: heavy stacked wordmark sitting on a yellow rail */
+.ds-lockup { display: inline-flex; align-items: center; text-decoration: none; min-height: var(--tap-min); }
+.ds-lockup-bar { width: 6px; align-self: stretch; background: var(--ds-yellow); margin-right: var(--s3); }
+.ds-lockup-name {
+  display: block; font-size: 1.02rem; font-weight: 800;
+  line-height: 1.02; letter-spacing: -.02em; text-transform: uppercase; color: #FFFFFF;
+}
+.ds-lockup-name span { color: var(--ds-yellow); }
+.ds-lockup-sub {
+  display: block; margin-top: 4px; font-size: 10px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--ds-blue-lt);
+}
+
+.ds-nav { display: flex; align-items: stretch; }
+.ds-nav a {
+  display: inline-flex; align-items: center; padding-inline: var(--s4);
+  min-height: var(--tap-min);
+  font-size: 13.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: #D3E0EC; text-decoration: none;
+  border-bottom: 3px solid transparent; margin-bottom: -3px;
+}
+.ds-nav a:hover { color: #FFFFFF; background: var(--ds-navy-7); }
+.ds-nav a[aria-current="page"] { color: #FFFFFF; border-bottom-color: var(--ds-yellow); }
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+.ds-btn--primary { background: var(--ds-yellow); color: var(--ds-ink); font-weight: 800; letter-spacing: .02em; }
+.ds-btn--primary:hover { background: var(--ds-yellow-d); }
+.ds-btn--primary:focus-visible { --focus-ring: var(--ds-navy); }
+.ds-btn--navy { background: var(--ds-navy); color: #FFFFFF; font-weight: 800; }
+.ds-btn--navy:hover { background: var(--ds-navy-7); }
+.ds-btn--wire {
+  background: transparent; color: #FFFFFF; font-weight: 700;
+  border: 2px solid rgba(255,255,255,.45);
+}
+.ds-btn--wire:hover { border-color: var(--ds-yellow); color: var(--ds-yellow); }
+
+/* --------------------------------------------------------------------------
+   HERO — hard split: job board left, intake right
+   -------------------------------------------------------------------------- */
+.ds-hero { display: grid; grid-template-columns: 1.02fr .98fr; }
+
+.ds-board {
+  background: var(--ds-navy); color: #FFFFFF;
+  padding: var(--s8) var(--s7) var(--s8) max(var(--s7), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  --focus-ring: var(--ds-yellow);
+}
+.ds-board .ds-h1 { color: #FFFFFF; margin-top: var(--s4); max-width: 15ch; }
+.ds-board-note { margin-top: var(--s4); font-size: 16px; color: #B9CCDD; max-width: 44ch; }
+
+.ds-queue { margin-top: var(--s6); border-top: 1px solid rgba(255,255,255,.18); }
+/* Validation on a radio group lands on the wrapper — a radio has no border. */
+.ds-queue.is-error {
+  outline: 3px solid #FF6B6B;
+  outline-offset: 6px;
+}
+.ds-queue-label {
+  margin: var(--s5) 0 var(--s3);
+  font-size: 11px; font-weight: 800; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ds-blue-lt);
+}
+
+/* Radio-driven job rows — native inputs, styled labels */
+.ds-job { position: relative; display: block; }
+.ds-job input { position: absolute; opacity: 0; width: 0; height: 0; }
+.ds-job-face {
+  display: flex; align-items: center; gap: var(--s4);
+  min-height: 60px; padding: var(--s3) var(--s4);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--motion), border-color var(--motion);
+}
+.ds-job-face:hover { background: rgba(255,255,255,.06); border-left-color: var(--ds-blue-br); }
+.ds-job input:checked + .ds-job-face {
+  background: rgba(255,197,51,.12);
+  border-left-color: var(--ds-yellow);
+}
+.ds-job input:focus-visible + .ds-job-face {
+  outline: var(--focus-w) solid var(--ds-yellow);
+  outline-offset: -3px;
+}
+.ds-job-code {
+  font-size: 12px; font-weight: 800; letter-spacing: .08em;
+  color: var(--ds-blue-lt); flex: 0 0 44px;
+}
+.ds-job input:checked + .ds-job-face .ds-job-code { color: var(--ds-yellow); }
+/* Both are spans inside a wrapper span — without display:block they run
+   together on one line and the row loses its two-tier read. */
+.ds-job-name { display: block; font-size: 16px; font-weight: 700; color: #FFFFFF; }
+.ds-job-desc { display: block; font-size: 13.5px; color: #A9BFD2; margin-top: 2px; }
+.ds-job-tick { margin-left: auto; color: var(--ds-yellow); opacity: 0; flex: 0 0 auto; }
+.ds-job input:checked + .ds-job-face .ds-job-tick { opacity: 1; }
+
+/* Right-hand intake panel */
+.ds-intake {
+  background: #FFFFFF;
+  padding: var(--s8) max(var(--s7), calc((100vw - var(--container)) / 2 + var(--gutter))) var(--s8) var(--s7);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.ds-intake-head { padding-bottom: var(--s4); border-bottom: 3px solid var(--ds-navy); margin-bottom: var(--s5); }
+.ds-intake-fields { display: grid; gap: var(--s5); }
+.ds-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 16 16' fill='none' stroke='%230B2545' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+}
+.ds-select.is-chosen { border-color: var(--ds-navy); }
+
+/* Segmented frequency control */
+.ds-seg { display: grid; grid-template-columns: repeat(3, 1fr); border: 2px solid var(--ds-navy); }
+.ds-seg input { position: absolute; opacity: 0; width: 0; height: 0; }
+.ds-seg label {
+  display: flex; align-items: center; justify-content: center;
+  min-height: var(--tap-min); padding: var(--s2);
+  font-size: 14px; font-weight: 700; color: var(--ds-navy);
+  border-right: 2px solid var(--ds-navy); cursor: pointer;
+  transition: background-color var(--motion), color var(--motion);
+}
+.ds-seg label:last-of-type { border-right: 0; }
+.ds-seg label:hover { background: var(--ds-cool); }
+.ds-seg input:checked + label { background: var(--ds-navy); color: #FFFFFF; }
+.ds-seg input:focus-visible + label { outline: var(--focus-w) solid var(--focus-ring); outline-offset: -3px; }
+
+/* --------------------------------------------------------------------------
+   SERVICE ROWS — a queue, not a card grid
+   -------------------------------------------------------------------------- */
+.ds-rows { border-top: 2px solid var(--ds-navy); }
+.ds-row {
+  position: relative; display: grid;
+  grid-template-columns: 150px 1fr auto; gap: var(--s5);
+  align-items: center;
+  padding: var(--s5) var(--s5) var(--s5) var(--s4);
+  border-bottom: 1px solid var(--c-line);
+  border-left: 5px solid transparent;
+  background: #FFFFFF;
+  transition: background-color var(--motion), border-color var(--motion);
+}
+.ds-row:hover, .ds-row.is-hover { background: var(--ds-cool); border-left-color: var(--ds-yellow); }
+.ds-row:focus-within { border-left-color: var(--ds-yellow); }
+.ds-row-media { width: 150px; }
+.ds-row-code { font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--ds-yellow-t); }
+.ds-row-go {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+  min-height: var(--tap-min); padding-inline: var(--s4);
+  font-size: 14px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ds-navy); text-decoration: none;
+  border: 2px solid var(--ds-navy);
+}
+.ds-row-go:hover { background: var(--ds-navy); color: #FFFFFF; }
+.ds-row-go::after { content: "→"; }
+
+.ds-section { padding-block: var(--s8); }
+.ds-section--cool { background: var(--ds-cool); }
+.ds-section--navy { background: var(--ds-navy); color: #FFFFFF; --focus-ring: var(--ds-yellow); }
+.ds-section--navy .ds-h2 { color: #FFFFFF; }
+.ds-section--navy .ds-body { color: #BACCDC; }
+
+.ds-head-rule { display: flex; align-items: center; gap: var(--s4); margin-bottom: var(--s6); }
+.ds-head-rule::after { content: ""; flex: 1 1 auto; height: 3px; background: var(--ds-yellow); }
+
+/* --------------------------------------------------------------------------
+   CUSTOM SIGNS — yellow-framed product plate on navy
+   -------------------------------------------------------------------------- */
+.ds-signs { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--s7); align-items: center; }
+.ds-signs-frame { border: 6px solid var(--ds-yellow); background: var(--ds-navy-9); }
+.ds-signs-price { display: flex; align-items: baseline; gap: var(--s3); flex-wrap: wrap; }
+.ds-signs-num { font-size: 3rem; font-weight: 800; line-height: 1; letter-spacing: -.03em; color: var(--ds-yellow); }
+.ds-signs-from { font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--ds-blue-lt); }
+
+/* --------------------------------------------------------------------------
+   PROCESS — numbered board rows
+   -------------------------------------------------------------------------- */
+.ds-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--c-line); }
+.ds-step { background: #FFFFFF; padding: var(--s5); display: grid; gap: var(--s2); }
+.ds-step-no {
+  font-size: 2.4rem; font-weight: 800; line-height: 1;
+  letter-spacing: -.04em; color: var(--ds-yellow); -webkit-text-stroke: 1px var(--ds-navy);
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE — the board becomes a stacked queue, intake follows immediately
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .ds-nav { display: none; }
+  .ds-head-in { min-height: 60px; }
+  .ds-hero { grid-template-columns: 1fr; }
+  .ds-board, .ds-intake { padding: var(--s7) var(--gutter); }
+  .ds-signs { grid-template-columns: 1fr; gap: var(--s5); }
+  .ds-steps { grid-template-columns: 1fr; }
+  .ds-row { grid-template-columns: 110px 1fr; }
+  .ds-row-media { width: 110px; }
+  .ds-row-go { grid-column: 1 / -1; justify-self: start; }
+}
+
+@media (max-width: 767px) {
+  .ds-top-in { min-height: 32px; justify-content: center; }
+  .ds-top-right { display: none; }
+  .ds-board { padding: var(--s5) var(--gutter) var(--s6); }
+  .ds-board .ds-h1 { font-size: 1.7rem; max-width: none; margin-top: var(--s3); }
+  /* Supporting note is desktop-only — mobile reaches the queue immediately */
+  .ds-board-note { display: none; }
+  .ds-queue { margin-top: var(--s5); }
+  .ds-job-face { min-height: 56px; }
+  .ds-job-desc { display: none; }
+  .ds-intake { padding: var(--s6) var(--gutter); }
+  .ds-section { padding-block: var(--s6); }
+  .ds-row { grid-template-columns: 1fr; gap: var(--s3); padding: var(--s4) var(--s4) var(--s5); }
+  .ds-row-media { width: 100%; }
+  .ds-row-go { width: 100%; }
+  .ds-signs-num { font-size: 2.4rem; }
+  .ds-lockup-name { font-size: .92rem; }
+  /* The descriptor drops so the persistent Request CTA fits beside the burger. */
+  .ds-lockup-sub { display: none; }
+}
+
+/* Header CTA stays visible on mobile — it is the page's standing action. */
+@media (max-width: 1023px) {
+  .ds-cta-head {
+    width: auto;
+    min-height: var(--tap-min);
+    padding-inline: var(--s4);
+    font-size: 14px;
+  }
+}

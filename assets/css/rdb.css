@@ -1,0 +1,1390 @@
+/* ==========================================================================
+   RENT DELAWARE BEACHES — PHASE 2 SHARED DESIGN SYSTEM
+   Beach Home Property Care
+   --------------------------------------------------------------------------
+   This is the real shared foundation. The Checkpoint A styleguide consumes
+   this file, and the Phase 2 homepage and service pages will consume the
+   same file. No framework, no build step, no webfont, no CDN.
+
+   Every colour pair used for text or UI boundaries in this file has been
+   verified against WCAG 2.1 AA. Ratios are recorded inline.
+
+   CONTENTS
+     1.  Design tokens
+     2.  Base + reset
+     3.  Layout: container, sections, grid
+     4.  Typography
+     5.  Buttons
+     6.  Form controls
+     7.  Cards (property-care services)
+     8.  Custom Home Signs product module
+     9.  Service Finder
+     10. Header, navigation, utility bar
+     11. Process (How It Works) + Trust
+     12. Media + development placeholders
+     13. Footer
+     14. Utilities
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
+
+:root {
+
+  /* ---- Brand: navy (structure, authority, footer, dark bands) ---- */
+  --rdb-navy-900:  #0A1D2E;
+  --rdb-navy-800:  #0C2338;   /* pressed / hover on navy fills */
+  --rdb-navy:      #12304A;   /* PRIMARY STRUCTURAL — 13.57:1 on white */
+  --rdb-navy-400:  #3C5A76;   /* hairlines and dividers on navy surfaces */
+
+  /* ---- Brand: service blue ----
+     IMPORTANT: --rdb-blue is a FILL / ICON / ACCENT colour only.
+     It measures 4.47:1 on --rdb-gray-50, which fails AA for body text.
+     All blue TEXT (links, inline actions) must use --rdb-blue-700. */
+  --rdb-blue-700:  #12608F;   /* blue TEXT — 6.78:1 white, 6.31:1 gray-50 */
+  --rdb-blue:      #1677B8;   /* fills, icons, focus ring on light surfaces */
+  --rdb-blue-300:  #7FB6DC;   /* text/links on navy — 6.22:1 on navy */
+  --rdb-blue-50:   #EAF3FA;   /* tinted/selected backgrounds */
+
+  /* ---- Brand: CTA amber ----
+     Refined from the #F28C28 reference for a stronger ratio and a cleaner
+     read against both white and navy.
+     NEVER pair with white text (2.36:1 — fails badly).
+     Always pair with --rdb-ink (7.09:1). */
+  --rdb-amber:     #F5941F;   /* PRIMARY CTA FILL — 7.09:1 with ink */
+  --rdb-amber-600: #D97A14;   /* hover / pressed — 5.23:1 with ink */
+  --rdb-amber-700: #8F4E0C;   /* amber TEXT on white — 6.44:1 */
+  --rdb-amber-50:  #FDF0DF;   /* tinted background */
+
+  /* ---- Neutrals ---- */
+  --rdb-white:     #FFFFFF;
+  --rdb-gray-50:   #F4F7F9;   /* secondary section background */
+  --rdb-gray-100:  #E9EEF2;   /* subtle fills, table stripes */
+  --rdb-ink:       #17212B;   /* primary text — 16.29:1 on white */
+  --rdb-slate:     #52616B;   /* secondary text — 6.40:1 white, 5.95:1 gray */
+  --rdb-muted:     #5F6E78;   /* tertiary text — 5.27:1 white, 4.89:1 gray */
+
+  /* ---- Lines ----
+     Decorative dividers may be low contrast. Interactive control borders
+     must reach 3:1 to be perceivable, hence --rdb-border-input. */
+  --rdb-border:        #DDE5EB;  /* dividers, card edges (decorative) */
+  --rdb-border-strong: #CBD6DF;  /* emphasised dividers */
+  --rdb-border-input:  #7C8D9A;  /* form control borders — 3.42:1 */
+
+  /* ---- Feedback ---- */
+  --rdb-success: #17693F;   /* 6.71:1 on white */
+  --rdb-error:   #B3261E;   /* 6.54:1 on white */
+  --rdb-warning: #8A5A00;   /* 5.93:1 on white */
+  --rdb-error-50:   #FCEDEC;
+  --rdb-success-50: #EAF4EF;
+
+  /* ---- Focus ring ----
+     Surface-aware by necessity: a blue ring measures only 2.82:1 on navy
+     and 2.09:1 on amber, both below the 3:1 needed for a visible indicator.
+     Components on dark or amber surfaces override --rdb-focus locally. */
+  --rdb-focus:        var(--rdb-blue);   /* on light surfaces */
+  --rdb-focus-ondark: var(--rdb-white);  /* on navy — 13.57:1 */
+  --rdb-focus-onamber: var(--rdb-navy);  /* on amber — 5.91:1 */
+  --rdb-focus-width:  3px;
+  --rdb-focus-offset: 2px;
+
+  /* ---- Typography ---- */
+  --rdb-font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  --rdb-font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Type scale — fluid where it earns it, fixed where predictability matters */
+  --rdb-fs-display:   clamp(2rem, 1.35rem + 2.7vw, 3.25rem);
+  --rdb-fs-h2:        clamp(1.625rem, 1.35rem + 1.2vw, 2.25rem);
+  --rdb-fs-h3:        1.25rem;
+  --rdb-fs-h4:        1.0625rem;
+  --rdb-fs-body-lg:   1.125rem;
+  --rdb-fs-body:      1.0625rem;   /* 17px — mobile-readable floor */
+  --rdb-fs-small:     0.9375rem;   /* 15px */
+  --rdb-fs-eyebrow:   0.75rem;
+  --rdb-fs-nav:       0.9375rem;
+  --rdb-fs-button:    1rem;
+  --rdb-fs-label:     0.9375rem;
+  --rdb-fs-helper:    0.875rem;
+
+  --rdb-lh-tight:  1.08;
+  --rdb-lh-snug:   1.25;
+  --rdb-lh-normal: 1.6;
+
+  --rdb-fw-regular:  400;
+  --rdb-fw-medium:   500;
+  --rdb-fw-semibold: 600;
+  --rdb-fw-bold:     700;
+  --rdb-fw-black:    800;
+
+  --rdb-measure: 68ch;
+
+  /* ---- Spacing (4px base) ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+
+  /* ---- Shape — modest radii, crisp structure. No pill-everything. ---- */
+  --r-xs:   4px;
+  --r-sm:   6px;
+  --r-md:   8px;   /* buttons, inputs */
+  --r-lg:  12px;   /* cards, panels */
+  --r-pill: 999px; /* reserved for badges/price chips only */
+
+  /* ---- Elevation — restrained, navy-tinted, never black ---- */
+  --shadow-sm: 0 1px 2px rgba(18, 48, 74, .08);
+  --shadow-md: 0 4px 12px rgba(18, 48, 74, .10);
+  --shadow-lg: 0 12px 28px rgba(18, 48, 74, .14);
+
+  /* ---- Layout ---- */
+  --rdb-container: 1200px;
+  --rdb-gutter: var(--sp-5);
+
+  /* ---- Motion ---- */
+  --rdb-transition: 140ms ease-out;
+
+  /* ---- Controls ---- */
+  --rdb-control-h:        48px;  /* desktop */
+  --rdb-control-h-mobile: 52px;  /* mobile primary */
+  --rdb-tap-min:          44px;  /* absolute minimum tap target */
+}
+
+
+/* ==========================================================================
+   2. BASE + RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--rdb-font-sans);
+  font-size: var(--rdb-fs-body);
+  line-height: var(--rdb-lh-normal);
+  color: var(--rdb-ink);
+  background: var(--rdb-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure, blockquote { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--rdb-blue-700);
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--rdb-navy); }
+
+/* Global focus indicator. Every interactive element keeps a visible ring. */
+:focus-visible {
+  outline: var(--rdb-focus-width) solid var(--rdb-focus);
+  outline-offset: var(--rdb-focus-offset);
+  border-radius: var(--r-xs);
+}
+
+/* Surface-aware focus overrides (blue fails contrast on these backgrounds) */
+.rdb-section--navy :focus-visible,
+.rdb-footer :focus-visible,
+.rdb-utility :focus-visible { outline-color: var(--rdb-focus-ondark); }
+
+.rdb-btn--primary:focus-visible { outline-color: var(--rdb-focus-onamber); }
+
+.rdb-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--rdb-navy);
+  color: var(--rdb-white);
+  border-radius: 0 0 var(--r-md) 0;
+}
+.rdb-skip-link:focus { left: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* ==========================================================================
+   3. LAYOUT
+   ========================================================================== */
+
+.rdb-container {
+  width: min(var(--rdb-container), 100% - (var(--rdb-gutter) * 2));
+  margin-inline: auto;
+}
+
+.rdb-section {
+  padding-block: var(--sp-9);
+  background: var(--rdb-white);
+}
+
+.rdb-section--gray  { background: var(--rdb-gray-50); }
+.rdb-section--navy  { background: var(--rdb-navy); color: var(--rdb-white); }
+.rdb-section--blue  { background: var(--rdb-blue-700); color: var(--rdb-white); }
+
+.rdb-section--navy .rdb-h2,
+.rdb-section--blue .rdb-h2 { color: var(--rdb-white); }
+
+.rdb-section--navy .rdb-body,
+.rdb-section--blue .rdb-body { color: rgba(255, 255, 255, .88); }
+
+.rdb-section--navy .rdb-eyebrow { color: var(--rdb-blue-300); }
+.rdb-section--blue .rdb-eyebrow { color: rgba(255, 255, 255, .82); }
+
+.rdb-section--tight { padding-block: var(--sp-7); }
+
+.rdb-section-head { margin-bottom: var(--sp-6); }
+.rdb-section-head .rdb-body { margin-top: var(--sp-3); }
+
+.rdb-grid { display: grid; gap: var(--sp-5); }
+.rdb-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.rdb-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.rdb-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.rdb-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-7);
+  align-items: center;
+}
+
+@media (max-width: 1023px) {
+  .rdb-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  :root { --rdb-gutter: var(--sp-4); }
+  .rdb-section { padding-block: var(--sp-7); }
+  .rdb-grid--2,
+  .rdb-grid--3,
+  .rdb-grid--4,
+  .rdb-split { grid-template-columns: 1fr; }
+  .rdb-split { gap: var(--sp-5); }
+}
+
+
+/* ==========================================================================
+   4. TYPOGRAPHY
+   ========================================================================== */
+
+.rdb-display,
+.rdb-h1 {
+  font-size: var(--rdb-fs-display);
+  font-weight: var(--rdb-fw-black);
+  line-height: var(--rdb-lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--rdb-navy);
+}
+
+.rdb-h2 {
+  font-size: var(--rdb-fs-h2);
+  font-weight: var(--rdb-fw-black);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--rdb-navy);
+}
+
+.rdb-h3 {
+  font-size: var(--rdb-fs-h3);
+  font-weight: var(--rdb-fw-bold);
+  line-height: var(--rdb-lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--rdb-navy);
+}
+
+.rdb-h4 {
+  font-size: var(--rdb-fs-h4);
+  font-weight: var(--rdb-fw-bold);
+  line-height: 1.35;
+  color: var(--rdb-navy);
+}
+
+.rdb-body-lg {
+  font-size: var(--rdb-fs-body-lg);
+  line-height: var(--rdb-lh-normal);
+  color: var(--rdb-slate);
+  max-width: var(--rdb-measure);
+}
+
+.rdb-body {
+  font-size: var(--rdb-fs-body);
+  line-height: var(--rdb-lh-normal);
+  color: var(--rdb-slate);
+  max-width: var(--rdb-measure);
+}
+
+.rdb-small {
+  font-size: var(--rdb-fs-small);
+  line-height: 1.55;
+  color: var(--rdb-muted);
+}
+
+.rdb-eyebrow {
+  display: block;
+  font-size: var(--rdb-fs-eyebrow);
+  font-weight: var(--rdb-fw-bold);
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rdb-blue-700);
+  margin-bottom: var(--sp-3);
+}
+
+.rdb-label {
+  display: block;
+  font-size: var(--rdb-fs-label);
+  font-weight: var(--rdb-fw-semibold);
+  color: var(--rdb-ink);
+  margin-bottom: var(--sp-2);
+}
+
+.rdb-helper {
+  font-size: var(--rdb-fs-helper);
+  line-height: 1.5;
+  color: var(--rdb-muted);
+  margin-top: var(--sp-2);
+}
+
+.rdb-required {
+  color: var(--rdb-error);
+  font-weight: var(--rdb-fw-bold);
+}
+
+.rdb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-pill);      /* pill is semantically right here */
+  font-size: var(--rdb-fs-small);
+  font-weight: var(--rdb-fw-bold);
+  line-height: 1;
+}
+.rdb-badge--price {
+  background: var(--rdb-amber);
+  color: var(--rdb-ink);
+}
+.rdb-badge--quiet {
+  background: var(--rdb-blue-50);
+  color: var(--rdb-blue-700);
+}
+
+
+/* ==========================================================================
+   5. BUTTONS
+   State classes (.is-hover/.is-focus/.is-active) mirror the pseudo-classes
+   so the styleguide can display every state without interaction. One source
+   of truth — the real states and the demo states share declarations.
+   ========================================================================== */
+
+.rdb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: var(--rdb-control-h);
+  padding: var(--sp-3) var(--sp-5);
+  border: 1.5px solid transparent;
+  border-radius: var(--r-md);
+  font-size: var(--rdb-fs-button);
+  font-weight: var(--rdb-fw-bold);
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--rdb-transition),
+    border-color var(--rdb-transition),
+    color var(--rdb-transition),
+    box-shadow var(--rdb-transition),
+    transform var(--rdb-transition);
+}
+
+/* --- Primary: amber fill, INK text. Never white text on amber. --- */
+.rdb-btn--primary {
+  background: var(--rdb-amber);
+  color: var(--rdb-ink);
+  box-shadow: var(--shadow-sm);
+}
+.rdb-btn--primary:hover,
+.rdb-btn--primary.is-hover {
+  background: var(--rdb-amber-600);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.rdb-btn--primary:active,
+.rdb-btn--primary.is-active {
+  background: var(--rdb-amber-600);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(0);
+}
+.rdb-btn--primary.is-focus {
+  outline: var(--rdb-focus-width) solid var(--rdb-focus-onamber);
+  outline-offset: var(--rdb-focus-offset);
+}
+
+/* --- Secondary: navy fill --- */
+.rdb-btn--secondary {
+  background: var(--rdb-navy);
+  color: var(--rdb-white);
+  box-shadow: var(--shadow-sm);
+}
+.rdb-btn--secondary:hover,
+.rdb-btn--secondary.is-hover {
+  background: var(--rdb-navy-800);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.rdb-btn--secondary:active,
+.rdb-btn--secondary.is-active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+.rdb-btn--secondary.is-focus {
+  outline: var(--rdb-focus-width) solid var(--rdb-focus);
+  outline-offset: var(--rdb-focus-offset);
+}
+
+/* --- Outline --- */
+.rdb-btn--outline {
+  background: transparent;
+  color: var(--rdb-navy);
+  border-color: var(--rdb-navy);
+}
+.rdb-btn--outline:hover,
+.rdb-btn--outline.is-hover {
+  background: var(--rdb-navy);
+  color: var(--rdb-white);
+}
+.rdb-btn--outline:active,
+.rdb-btn--outline.is-active { background: var(--rdb-navy-800); color: var(--rdb-white); }
+.rdb-btn--outline.is-focus {
+  outline: var(--rdb-focus-width) solid var(--rdb-focus);
+  outline-offset: var(--rdb-focus-offset);
+}
+
+/* --- Tertiary / text action --- */
+.rdb-btn--text {
+  background: transparent;
+  color: var(--rdb-blue-700);
+  min-height: var(--rdb-tap-min);
+  padding-inline: var(--sp-2);
+}
+.rdb-btn--text:hover,
+.rdb-btn--text.is-hover { color: var(--rdb-navy); text-decoration: underline; }
+.rdb-btn--text.is-focus {
+  outline: var(--rdb-focus-width) solid var(--rdb-focus);
+  outline-offset: var(--rdb-focus-offset);
+}
+
+/* --- On dark surfaces --- */
+.rdb-btn--ondark {
+  background: var(--rdb-white);
+  color: var(--rdb-navy);
+}
+.rdb-btn--ondark:hover,
+.rdb-btn--ondark.is-hover { background: var(--rdb-gray-50); transform: translateY(-1px); }
+
+/* --- Disabled --- */
+.rdb-btn:disabled,
+.rdb-btn.is-disabled,
+.rdb-btn[aria-disabled="true"] {
+  background: var(--rdb-gray-100);
+  color: var(--rdb-muted);
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.rdb-btn--block { width: 100%; }
+
+.rdb-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .rdb-btn { min-height: var(--rdb-control-h-mobile); }
+  .rdb-btn-row--stack { flex-direction: column; align-items: stretch; }
+  .rdb-btn-row--stack .rdb-btn { width: 100%; }
+}
+
+
+/* ==========================================================================
+   6. FORM CONTROLS
+   ========================================================================== */
+
+.rdb-field { margin-bottom: var(--sp-5); }
+
+.rdb-input,
+.rdb-select,
+.rdb-textarea {
+  width: 100%;
+  min-height: var(--rdb-control-h);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--rdb-white);
+  color: var(--rdb-ink);
+  border: 1.5px solid var(--rdb-border-input);
+  border-radius: var(--r-md);
+  transition: border-color var(--rdb-transition), box-shadow var(--rdb-transition);
+}
+
+.rdb-input::placeholder,
+.rdb-textarea::placeholder { color: var(--rdb-muted); }
+
+.rdb-input:hover,
+.rdb-select:hover,
+.rdb-textarea:hover { border-color: var(--rdb-navy); }
+
+.rdb-input:focus-visible,
+.rdb-select:focus-visible,
+.rdb-textarea:focus-visible {
+  border-color: var(--rdb-blue);
+  outline: var(--rdb-focus-width) solid var(--rdb-focus);
+  outline-offset: 1px;
+}
+
+.rdb-textarea {
+  min-height: 120px;
+  padding-block: var(--sp-3);
+  resize: vertical;
+  line-height: var(--rdb-lh-normal);
+}
+
+/* Native select keeps the OS picker — the best one-thumb control on mobile */
+.rdb-select {
+  appearance: none;
+  padding-right: var(--sp-8);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%2312304A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--sp-4) center;
+  cursor: pointer;
+}
+
+/* A select that still shows its placeholder option reads as "unset" */
+.rdb-select:not(.is-chosen) { color: var(--rdb-muted); }
+.rdb-select.is-chosen {
+  color: var(--rdb-ink);
+  border-color: var(--rdb-navy);
+  font-weight: var(--rdb-fw-semibold);
+}
+
+/* --- Validation --- */
+.rdb-input.is-error,
+.rdb-select.is-error,
+.rdb-textarea.is-error {
+  border-color: var(--rdb-error);
+  background: var(--rdb-error-50);
+}
+.rdb-input.is-valid,
+.rdb-select.is-valid,
+.rdb-textarea.is-valid { border-color: var(--rdb-success); }
+
+.rdb-error-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  font-size: var(--rdb-fs-helper);
+  font-weight: var(--rdb-fw-semibold);
+  color: var(--rdb-error);
+}
+.rdb-valid-msg {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  font-size: var(--rdb-fs-helper);
+  font-weight: var(--rdb-fw-semibold);
+  color: var(--rdb-success);
+}
+
+.rdb-input:disabled,
+.rdb-select:disabled,
+.rdb-textarea:disabled {
+  background: var(--rdb-gray-100);
+  color: var(--rdb-muted);
+  border-color: var(--rdb-border-strong);
+  cursor: not-allowed;
+}
+
+/* --- Segmented choice (radio group styled as connected buttons) --- */
+.rdb-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: 1.5px solid var(--rdb-border-input);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.rdb-segmented input { position: absolute; opacity: 0; pointer-events: none; }
+.rdb-segmented label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--rdb-tap-min);
+  padding: var(--sp-3) var(--sp-5);
+  border-right: 1.5px solid var(--rdb-border-input);
+  background: var(--rdb-white);
+  font-size: var(--rdb-fs-small);
+  font-weight: var(--rdb-fw-semibold);
+  color: var(--rdb-slate);
+  cursor: pointer;
+  transition: background-color var(--rdb-transition), color var(--rdb-transition);
+}
+.rdb-segmented label:last-of-type { border-right: 0; }
+.rdb-segmented label:hover { background: var(--rdb-gray-50); color: var(--rdb-navy); }
+.rdb-segmented input:checked + label {
+  background: var(--rdb-navy);
+  color: var(--rdb-white);
+}
+.rdb-segmented input:focus-visible + label {
+  outline: var(--rdb-focus-width) solid var(--rdb-focus);
+  outline-offset: -3px;
+}
+
+/* --- Checkbox / radio rows --- */
+.rdb-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  min-height: var(--rdb-tap-min);
+  padding: var(--sp-2) 0;
+  cursor: pointer;
+}
+.rdb-check input {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: var(--rdb-blue);
+  cursor: pointer;
+}
+.rdb-check span { font-size: var(--rdb-fs-body); color: var(--rdb-ink); }
+
+/* --- File upload --- */
+.rdb-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: var(--sp-6) var(--sp-5);
+  background: var(--rdb-gray-50);
+  border: 2px dashed var(--rdb-border-input);
+  border-radius: var(--r-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--rdb-transition), background-color var(--rdb-transition);
+}
+.rdb-upload:hover,
+.rdb-upload.is-hover {
+  border-color: var(--rdb-blue);
+  background: var(--rdb-blue-50);
+}
+.rdb-upload input[type="file"] { position: absolute; opacity: 0; width: 0; height: 0; }
+.rdb-upload-icon { color: var(--rdb-blue); }
+.rdb-upload-title { font-weight: var(--rdb-fw-bold); color: var(--rdb-navy); }
+
+.rdb-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+.rdb-thumb {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--rdb-border);
+  background: var(--rdb-gray-100);
+  overflow: hidden;
+}
+.rdb-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 767px) {
+  .rdb-input,
+  .rdb-select,
+  .rdb-textarea { min-height: var(--rdb-control-h-mobile); font-size: 1rem; }
+  .rdb-segmented { display: flex; width: 100%; }
+  .rdb-segmented label { flex: 1 1 0; padding-inline: var(--sp-3); }
+}
+
+
+/* ==========================================================================
+   7. SERVICE CARDS
+   ========================================================================== */
+
+.rdb-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--rdb-white);
+  border: 1px solid var(--rdb-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition:
+    border-color var(--rdb-transition),
+    box-shadow var(--rdb-transition),
+    transform var(--rdb-transition);
+}
+.rdb-card:hover,
+.rdb-card.is-hover {
+  border-color: var(--rdb-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.rdb-card:focus-within {
+  border-color: var(--rdb-blue);
+  box-shadow: var(--shadow-md);
+}
+.rdb-card.is-selected {
+  border-color: var(--rdb-blue);
+  border-width: 2px;
+  box-shadow: var(--shadow-md);
+}
+
+.rdb-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: var(--sp-5);
+  gap: var(--sp-3);
+}
+
+.rdb-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--rdb-blue-50);
+  color: var(--rdb-blue-700);
+}
+
+.rdb-card .rdb-body,
+.rdb-card .rdb-small { max-width: none; }
+
+.rdb-card-list {
+  list-style: none;
+  display: grid;
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+}
+.rdb-card-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font-size: var(--rdb-fs-small);
+  color: var(--rdb-slate);
+}
+.rdb-card-list svg { flex: 0 0 auto; margin-top: 3px; color: var(--rdb-blue); }
+
+/* CTA pinned to the card bottom so a 4-up grid aligns */
+.rdb-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  font-size: var(--rdb-fs-small);
+  font-weight: var(--rdb-fw-bold);
+  color: var(--rdb-blue-700);
+  text-decoration: none;
+}
+.rdb-card-cta::after {
+  content: "→";
+  transition: transform var(--rdb-transition);
+}
+.rdb-card:hover .rdb-card-cta::after,
+.rdb-card.is-hover .rdb-card-cta::after { transform: translateX(4px); }
+
+/* Whole card is the target, but the link keeps the accessible name */
+.rdb-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.rdb-card { position: relative; }
+
+/* --- "Something Else?" variant: same geometry, navy fill --- */
+.rdb-card--invert {
+  background: var(--rdb-navy);
+  border-color: var(--rdb-navy);
+}
+.rdb-card--invert .rdb-h3 { color: var(--rdb-white); }
+.rdb-card--invert .rdb-body,
+.rdb-card--invert .rdb-small { color: rgba(255, 255, 255, .88); }
+.rdb-card--invert .rdb-card-icon {
+  background: rgba(255, 255, 255, .12);
+  color: var(--rdb-white);
+}
+.rdb-card--invert .rdb-card-cta { color: var(--rdb-amber); }
+.rdb-card--invert:hover,
+.rdb-card--invert.is-hover { border-color: var(--rdb-amber); }
+
+
+/* ==========================================================================
+   8. CUSTOM HOME SIGNS — PRODUCT MODULE
+   Deliberately distinct from the property-care service cards: it is a
+   bespoke product, not a physical service. More personality (amber rule,
+   price chip, warmer tint) but the same tokens, type and shape language.
+   ========================================================================== */
+
+.rdb-signs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rdb-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--rdb-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.rdb-signs-media { background: var(--rdb-gray-100); min-height: 340px; }
+
+.rdb-signs-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-7);
+  background: var(--rdb-amber-50);
+  border-left: 4px solid var(--rdb-amber);
+}
+
+.rdb-signs-price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+.rdb-signs-price-note {
+  font-size: var(--rdb-fs-small);
+  color: var(--rdb-slate);
+}
+
+.rdb-signs .rdb-eyebrow { color: var(--rdb-amber-700); }
+
+@media (max-width: 767px) {
+  .rdb-signs { grid-template-columns: 1fr; }
+  .rdb-signs-media { min-height: 200px; }
+  .rdb-signs-body {
+    padding: var(--sp-5);
+    border-left: 0;
+    border-top: 4px solid var(--rdb-amber);
+  }
+}
+
+
+/* ==========================================================================
+   9. SERVICE FINDER
+   A real <form method="GET">. JavaScript only enhances it.
+   ========================================================================== */
+
+.rdb-finder {
+  background: var(--rdb-white);
+  border: 1px solid var(--rdb-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--sp-5);
+}
+
+.rdb-finder-head { margin-bottom: var(--sp-4); }
+
+.rdb-finder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: var(--sp-4);
+  align-items: end;
+}
+
+.rdb-finder .rdb-field { margin-bottom: 0; }
+
+.rdb-finder-submit { min-width: 220px; }
+
+.rdb-finder-note {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--rdb-border);
+}
+
+/* Live region for validation feedback */
+.rdb-finder-status:empty { display: none; }
+.rdb-finder-status {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--rdb-error-50);
+  border: 1px solid var(--rdb-error);
+  font-size: var(--rdb-fs-small);
+  font-weight: var(--rdb-fw-semibold);
+  color: var(--rdb-error);
+}
+.rdb-finder-status.is-ok {
+  background: var(--rdb-success-50);
+  border-color: var(--rdb-success);
+  color: var(--rdb-success);
+}
+
+@media (max-width: 1023px) {
+  .rdb-finder-grid { grid-template-columns: 1fr 1fr; }
+  .rdb-finder-submit { grid-column: 1 / -1; width: 100%; }
+}
+@media (max-width: 767px) {
+  .rdb-finder { padding: var(--sp-4); }
+  .rdb-finder-grid { grid-template-columns: 1fr; gap: var(--sp-3); }
+}
+
+
+/* ==========================================================================
+   10. HEADER / NAVIGATION
+   ========================================================================== */
+
+/* --- Utility bar --- */
+.rdb-utility {
+  background: var(--rdb-navy);
+  color: rgba(255, 255, 255, .92);
+  font-size: 0.8125rem;
+}
+.rdb-utility-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  min-height: 40px;
+}
+.rdb-utility a { color: var(--rdb-white); text-decoration: none; }
+.rdb-utility a:hover { text-decoration: underline; }
+.rdb-utility-list {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  list-style: none;
+}
+
+/* --- Primary header --- */
+.rdb-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--rdb-white);
+  border-bottom: 1px solid var(--rdb-border);
+}
+.rdb-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  min-height: 76px;
+}
+
+.rdb-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: var(--rdb-tap-min);
+  text-decoration: none;
+  /* Must be allowed to shrink, or the brand + action group overflows a
+     375px viewport. min-width:0 lets the name ellipsize as a last resort. */
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.rdb-brand > span { min-width: 0; }
+
+/* Right-hand header group (CTA + menu toggle) */
+.rdb-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex: 0 0 auto;
+}
+.rdb-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-md);
+  background: var(--rdb-navy);
+  color: var(--rdb-white);
+  font-size: 0.8125rem;
+  font-weight: var(--rdb-fw-black);
+  letter-spacing: 0.04em;
+}
+.rdb-brand-name {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: var(--rdb-fw-black);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--rdb-navy);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rdb-brand-tag {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.6875rem;
+  font-weight: var(--rdb-fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rdb-muted);
+}
+
+.rdb-nav { flex: 1 1 auto; }
+.rdb-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sp-5);
+  list-style: none;
+}
+.rdb-nav-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rdb-tap-min);
+  font-size: var(--rdb-fs-nav);
+  font-weight: var(--rdb-fw-semibold);
+  color: var(--rdb-ink);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color var(--rdb-transition), border-color var(--rdb-transition);
+}
+.rdb-nav-list a:hover { color: var(--rdb-blue-700); border-bottom-color: var(--rdb-blue); }
+.rdb-nav-list a[aria-current="page"] {
+  color: var(--rdb-navy);
+  border-bottom-color: var(--rdb-blue);
+}
+
+.rdb-header-cta { flex: 0 0 auto; }
+
+/* --- Mobile header --- */
+.rdb-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--rdb-tap-min);
+  height: var(--rdb-tap-min);
+  background: transparent;
+  border: 1.5px solid var(--rdb-border-input);
+  border-radius: var(--r-md);
+  color: var(--rdb-navy);
+  cursor: pointer;
+}
+
+.rdb-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  flex-direction: column;
+  background: var(--rdb-white);
+}
+.rdb-drawer.is-open { display: flex; }
+.rdb-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--rdb-border);
+  min-height: 60px;
+}
+.rdb-drawer-list {
+  list-style: none;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--sp-2) var(--sp-4);
+}
+.rdb-drawer-list a {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  font-size: 1.125rem;
+  font-weight: var(--rdb-fw-semibold);
+  color: var(--rdb-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rdb-border);
+}
+.rdb-drawer-foot {
+  padding: var(--sp-4);
+  border-top: 1px solid var(--rdb-border);
+  background: var(--rdb-gray-50);
+}
+
+@media (max-width: 1023px) {
+  .rdb-header-inner { min-height: 60px; gap: var(--sp-3); }
+  .rdb-nav { display: none; }
+  .rdb-burger { display: inline-flex; }
+  .rdb-brand-tag { display: none; }
+  .rdb-brand-mark { width: 38px; height: 38px; }
+  /* Wrap to two lines rather than ellipsize — the full company name is
+     branding and should never render as "Rent Delaware Be…". */
+  .rdb-brand-name {
+    font-size: 0.875rem;
+    line-height: 1.1;
+    white-space: normal;
+    overflow: visible;
+  }
+  .rdb-header-cta .rdb-btn {
+    min-height: var(--rdb-tap-min);
+    padding-inline: var(--sp-3);
+    font-size: var(--rdb-fs-small);
+    white-space: nowrap;
+  }
+  /* Card CTAs must still clear the 44px tap minimum.
+     The footer equivalent lives in the footer's own media query — the base
+     .rdb-footer-list rule is declared later in this file and would win here. */
+  .rdb-card-cta { min-height: var(--rdb-tap-min); }
+  .rdb-utility-inner { min-height: 36px; justify-content: center; }
+  .rdb-utility-list { display: none; }
+}
+
+
+/* ==========================================================================
+   11. PROCESS + TRUST
+   ========================================================================== */
+
+.rdb-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+  counter-reset: step;
+}
+.rdb-step {
+  position: relative;
+  padding-top: var(--sp-5);
+  border-top: 3px solid var(--rdb-blue);
+}
+.rdb-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--rdb-navy);
+  color: var(--rdb-white);
+  font-size: 1.125rem;
+  font-weight: var(--rdb-fw-black);
+}
+.rdb-step .rdb-body { max-width: none; }
+
+.rdb-trust {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-5);
+}
+.rdb-trust-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-5);
+  background: var(--rdb-white);
+  border: 1px solid var(--rdb-border);
+  border-radius: var(--r-lg);
+}
+.rdb-trust-item svg { color: var(--rdb-blue); }
+.rdb-trust-title {
+  font-size: var(--rdb-fs-h4);
+  font-weight: var(--rdb-fw-bold);
+  color: var(--rdb-navy);
+}
+.rdb-trust-item .rdb-small { max-width: none; }
+
+@media (max-width: 1023px) {
+  .rdb-trust { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+  .rdb-steps { grid-template-columns: 1fr; gap: var(--sp-5); }
+  .rdb-trust { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
+  .rdb-trust-item { padding: var(--sp-4); }
+}
+
+
+/* ==========================================================================
+   12. MEDIA + DEVELOPMENT PLACEHOLDERS
+   No stock photography stands in for real RDB work. Empty slots are
+   labelled as development placeholders so nothing misleading can ship.
+   ========================================================================== */
+
+.rdb-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--rdb-gray-100);
+}
+.rdb-media img { width: 100%; height: 100%; object-fit: cover; }
+
+.rdb-media--16x9 { aspect-ratio: 16 / 9; }
+.rdb-media--4x3  { aspect-ratio: 4 / 3; }
+.rdb-media--1x1  { aspect-ratio: 1 / 1; }
+
+.rdb-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  height: 100%;
+  padding: var(--sp-4);
+  text-align: center;
+  color: var(--rdb-slate);
+  background-color: var(--rdb-gray-100);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(18, 48, 74, .05) 0 10px,
+    transparent 10px 20px
+  );
+}
+.rdb-placeholder-label {
+  font-size: 0.6875rem;
+  font-weight: var(--rdb-fw-black);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rdb-navy);
+}
+.rdb-placeholder-desc {
+  font-size: var(--rdb-fs-helper);
+  color: var(--rdb-slate);
+  max-width: 32ch;
+}
+
+.rdb-caption {
+  margin-top: var(--sp-2);
+  font-size: var(--rdb-fs-helper);
+  color: var(--rdb-muted);
+}
+
+
+/* ==========================================================================
+   13. FOOTER
+   ========================================================================== */
+
+.rdb-footer {
+  background: var(--rdb-navy);
+  color: rgba(255, 255, 255, .82);
+  padding-block: var(--sp-8) var(--sp-6);
+}
+.rdb-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--sp-6);
+}
+.rdb-footer h2,
+.rdb-footer-title {
+  font-size: var(--rdb-fs-small);
+  font-weight: var(--rdb-fw-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rdb-white);
+  margin-bottom: var(--sp-3);
+}
+.rdb-footer-list { list-style: none; display: grid; gap: var(--sp-2); }
+.rdb-footer-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: rgba(255, 255, 255, .82);
+  text-decoration: none;
+  font-size: var(--rdb-fs-small);
+}
+.rdb-footer-list a:hover { color: var(--rdb-white); text-decoration: underline; }
+.rdb-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: var(--sp-7);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--rdb-navy-400);
+  font-size: var(--rdb-fs-helper);
+}
+
+@media (max-width: 1023px) {
+  /* Stacked footer links are primary navigation on small screens */
+  .rdb-footer-list a { min-height: var(--rdb-tap-min); }
+}
+
+@media (max-width: 767px) {
+  .rdb-footer-grid { grid-template-columns: 1fr; gap: var(--sp-5); }
+}
+
+
+/* ==========================================================================
+   14. UTILITIES
+   ========================================================================== */
+
+.rdb-stack   { display: grid; gap: var(--sp-4); }
+.rdb-stack-2 { display: grid; gap: var(--sp-2); }
+.rdb-stack-3 { display: grid; gap: var(--sp-3); }
+.rdb-stack-5 { display: grid; gap: var(--sp-5); }
+
+.rdb-flow > * + * { margin-top: var(--sp-4); }
+
+.rdb-visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rdb-text-center { text-align: center; }
+.rdb-mt-0 { margin-top: 0; }
+.rdb-mt-3 { margin-top: var(--sp-3); }
+.rdb-mt-4 { margin-top: var(--sp-4); }
+.rdb-mt-5 { margin-top: var(--sp-5); }
+.rdb-mt-6 { margin-top: var(--sp-6); }
+.rdb-no-measure { max-width: none; }

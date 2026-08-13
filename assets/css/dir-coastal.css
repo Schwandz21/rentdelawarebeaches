@@ -1,0 +1,343 @@
+/* ==========================================================================
+   DIRECTION 2 — "COASTAL UTILITY" / ROOFLINE + PLAT GRID
+   --------------------------------------------------------------------------
+   Visual idea: property geometry. A roofline chevron is the brand mark, the
+   section divider and the card edge; a faint plat-map grid underlies the hero.
+   The composition is photograph-led — a full-bleed property image carries the
+   first viewport with the intake panel floating over its lower edge, so the
+   page opens on a place and an action rather than on a headline block.
+
+   Requires rdb-core.css.
+   ========================================================================== */
+
+:root {
+  /* --- Palette: deep marine + clear water + restrained coral --- */
+  --ct-marine:    #0E2A47;   /* 14.57:1 on white */
+  --ct-marine-2:  #163A5F;
+  --ct-marine-9:  #08192C;
+  --ct-water:     #0E7490;   /* text-safe — 5.36:1 on white */
+  --ct-water-br:  #0891B2;   /* 3.68:1 — UI FILLS AND RULES ONLY, never text */
+  --ct-water-lt:  #7DD3E8;   /* on marine — for eyebrows on dark */
+  --ct-coral:     #FF6B4A;   /* CTA fill — 5.84:1 with ink */
+  --ct-coral-dk:  #E8542F;
+  --ct-coral-txt: #C2410C;   /* coral as TEXT on white — 5.18:1 */
+  --ct-ink:       #14202E;
+  --ct-slate:     #4B5B66;   /* 7.03:1 on white */
+  --ct-mist:      #F0F4F8;
+
+  /* --- Core contract --- */
+  --c-bg: #FFFFFF;
+  --c-surface: #FFFFFF;
+  --c-ink: var(--ct-ink);
+  --c-muted: var(--ct-slate);
+  --c-line: #DBE3EA;
+  --c-line-strong: #C2CEDA;
+  --c-input-line: #7C8D9A;
+  --c-accent: var(--ct-coral);
+  --c-accent-ink: var(--ct-ink);
+  --c-brand: var(--ct-water);
+  --focus-ring: var(--ct-water);
+  --radius: 6px;
+  --radius-lg: 10px;
+  --container: 1260px;
+
+  --ct-sans: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body { font-family: var(--ct-sans); }
+
+/* Plat-map grid — structural, low contrast, never decorative noise */
+.ct-plat {
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+.ct-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  font-size: 12px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ct-water);
+}
+.ct-eyebrow--ondark { color: var(--ct-water-lt); }
+
+.ct-h1 {
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem);
+  font-weight: 700; line-height: 1.05; letter-spacing: -.02em;
+}
+.ct-h2 {
+  font-size: clamp(1.55rem, 1.25rem + 1.3vw, 2.3rem);
+  font-weight: 700; line-height: 1.14; letter-spacing: -.015em;
+  color: var(--ct-marine);
+}
+.ct-h3 { font-size: 1.22rem; font-weight: 700; line-height: 1.25; color: var(--ct-marine); }
+.ct-body { font-size: 17px; line-height: 1.62; color: var(--ct-slate); max-width: 62ch; }
+.ct-small { font-size: 15px; line-height: 1.55; color: var(--ct-slate); }
+
+/* --------------------------------------------------------------------------
+   HEADER — transparent, sitting over the hero photograph
+   -------------------------------------------------------------------------- */
+.ct-shell { position: relative; }
+
+.ct-top {
+  position: relative; z-index: 3;
+  background: var(--ct-marine-9);
+  color: #CFE0EA;
+  font-size: 12.5px; letter-spacing: .06em;
+  --focus-ring: #FFFFFF;
+}
+.ct-top-in { display: flex; align-items: center; justify-content: space-between; gap: var(--s4); min-height: 38px; }
+
+.ct-head {
+  position: relative; z-index: 3;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+  color: #FFFFFF;
+  --focus-ring: #FFFFFF;
+}
+.ct-head-in { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: 78px; }
+
+/* Lockup: roofline chevron + name — no monogram tile */
+.ct-lockup { display: inline-flex; align-items: center; gap: var(--s3); text-decoration: none; min-height: var(--tap-min); }
+.ct-roof { flex: 0 0 auto; }
+.ct-lockup-name {
+  display: block; font-size: 1.06rem; font-weight: 700;
+  line-height: 1.06; letter-spacing: -.01em; color: #FFFFFF;
+}
+.ct-lockup-sub {
+  display: block; margin-top: 3px; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--ct-water-lt);
+}
+
+.ct-nav { display: flex; align-items: center; gap: var(--s6); }
+.ct-nav a {
+  display: inline-flex; align-items: center; min-height: var(--tap-min);
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.9);
+  text-decoration: none; position: relative;
+}
+.ct-nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 10px;
+  height: 2px; background: var(--ct-coral);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--motion);
+}
+.ct-nav a:hover::after,
+.ct-nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+.ct-btn--primary { background: var(--ct-coral); color: var(--ct-ink); font-weight: 700; }
+.ct-btn--primary:hover { background: var(--ct-coral-dk); }
+.ct-btn--primary:focus-visible { --focus-ring: var(--ct-marine); }
+.ct-btn--onphoto {
+  background: rgba(255,255,255,.14); color: #FFFFFF;
+  border: 1.5px solid rgba(255,255,255,.6); backdrop-filter: blur(4px);
+}
+.ct-btn--onphoto:hover { background: rgba(255,255,255,.24); }
+.ct-btn--marine { background: var(--ct-marine); color: #FFFFFF; }
+.ct-btn--marine:hover { background: var(--ct-marine-2); }
+
+/* --------------------------------------------------------------------------
+   HERO — full-bleed photograph, intake panel floating on its lower edge
+   -------------------------------------------------------------------------- */
+/* Header floats over the photograph: the hero pulls up by exactly the header
+   height so the opaque utility strip stays put and only the nav overlays. */
+.ct-hero { position: relative; margin-top: -79px; }
+.ct-hero-media { position: absolute; inset: 0; background: var(--ct-marine); }
+.ct-hero-media .u-ph { background: var(--ct-marine-2); color: #BFD4E2; }
+.ct-hero-media .u-ph-label { color: #FFFFFF; }
+
+/* The hero placeholder fills the whole bleed, so centring its art would drop
+   it straight behind the headline. Anchor it to the lower-right instead —
+   which is also where the real photograph's subject will sit under this crop. */
+.ct-hero-media .u-ph {
+  align-items: flex-end;
+  justify-content: flex-end;
+  /* Bottom padding clears the intake panel, which overlaps the photo by 110px,
+     so the slot's caption stays readable during review. */
+  padding: 0 var(--s6) 150px;
+  text-align: right;
+}
+.ct-hero-media .u-ph-art { width: min(38%, 300px); opacity: .38; }
+.ct-hero-media .u-ph-note { max-width: 34ch; }
+
+.ct-hero-scrim {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8,25,44,.86) 0%, rgba(8,25,44,.55) 42%, rgba(8,25,44,.78) 100%);
+}
+.ct-hero-copy {
+  position: relative; z-index: 2;
+  min-height: 660px;
+  padding-top: 150px; padding-bottom: var(--s9);
+  color: #FFFFFF;
+}
+.ct-hero-copy .ct-h1 { margin-top: var(--s4); max-width: 17ch; color: #FFFFFF; }
+.ct-hero-copy .ct-lede {
+  margin-top: var(--s4); max-width: 52ch;
+  font-size: 18px; line-height: 1.55; color: rgba(255,255,255,.9);
+}
+/* Kept in CSS rather than inline so the mobile rules below can suppress it —
+   an inline display:flex would win over the media query. */
+.ct-btn-row { display: flex; gap: var(--s3); flex-wrap: wrap; margin-top: var(--s5); }
+
+/* Intake panel overlaps the photo's bottom edge and the section below it */
+.ct-intake {
+  position: relative; z-index: 4;
+  margin-top: -110px; margin-bottom: var(--s8);
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border-top: 5px solid var(--ct-coral);
+  box-shadow: 0 22px 50px rgba(14,42,71,.26);
+  padding: var(--s6);
+}
+.ct-intake-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s4); flex-wrap: wrap; margin-bottom: var(--s5); }
+.ct-intake-grid { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: var(--s4); align-items: end; }
+.ct-intake-submit { min-width: 210px; }
+.ct-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 16 16' fill='none' stroke='%230E2A47' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+}
+.ct-select.is-chosen { border-color: var(--ct-water); }
+
+/* --------------------------------------------------------------------------
+   ROOFLINE GEOMETRY — the repeating structural motif
+   -------------------------------------------------------------------------- */
+.ct-roofline {
+  clip-path: polygon(0 46px, 50% 0, 100% 46px, 100% 100%, 0 100%);
+  padding-top: calc(46px + var(--s8));
+}
+
+.ct-section { padding-block: var(--s8); }
+.ct-section--mist { background: var(--ct-mist); }
+.ct-section--marine {
+  background: var(--ct-marine); color: #FFFFFF;
+  --focus-ring: #FFFFFF;
+}
+.ct-section--marine .ct-h2 { color: #FFFFFF; }
+.ct-section--marine .ct-body { color: rgba(255,255,255,.86); }
+
+/* --------------------------------------------------------------------------
+   SERVICE CARDS — angled roof edge on the image
+   -------------------------------------------------------------------------- */
+.ct-card {
+  display: flex; flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--motion), box-shadow var(--motion), transform var(--motion);
+}
+.ct-card:hover, .ct-card.is-hover {
+  border-color: var(--ct-water-br);
+  box-shadow: 0 14px 30px rgba(14,42,71,.14);
+  transform: translateY(-3px);
+}
+.ct-card:focus-within { border-color: var(--ct-water-br); }
+.ct-card-media { position: relative; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 22px)); }
+.ct-card-body { display: flex; flex-direction: column; gap: var(--s3); padding: var(--s5); flex: 1 1 auto; }
+.ct-card-cta {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  min-height: var(--tap-min); margin-top: auto;
+  font-size: 15px; font-weight: 700; color: var(--ct-coral-txt); text-decoration: none;
+}
+.ct-card-cta::after { content: "→"; transition: transform var(--motion); }
+.ct-card:hover .ct-card-cta::after { transform: translateX(4px); }
+
+.ct-check { display: grid; gap: var(--s2); }
+.ct-check li { display: flex; align-items: flex-start; gap: var(--s2); font-size: 15px; color: var(--ct-slate); }
+.ct-check svg { flex: 0 0 auto; margin-top: 4px; color: var(--ct-water-br); }
+
+/* --------------------------------------------------------------------------
+   CUSTOM SIGNS — a hanging plaque, the warmest moment in the system
+   -------------------------------------------------------------------------- */
+.ct-signs { display: grid; grid-template-columns: .95fr 1.05fr; gap: var(--s7); align-items: center; }
+.ct-plaque {
+  position: relative;
+  padding: var(--s4);
+  background: #FFFFFF;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px rgba(14,42,71,.16);
+}
+/* Two small hanger points — reads as a mounted sign, not a photo card */
+.ct-plaque::before,
+.ct-plaque::after {
+  content: ""; position: absolute; top: -9px; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--ct-marine);
+}
+.ct-plaque::before { left: 26%; }
+.ct-plaque::after { right: 26%; }
+
+.ct-price {
+  display: inline-flex; align-items: baseline; gap: var(--s2);
+  padding: var(--s2) var(--s4);
+  background: var(--ct-coral); color: var(--ct-ink);
+  border-radius: 999px; font-weight: 700;
+}
+.ct-price b { font-size: 1.25rem; }
+
+/* --------------------------------------------------------------------------
+   PROCESS — chevron-marked steps
+   -------------------------------------------------------------------------- */
+.ct-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s6); }
+.ct-step { display: grid; gap: var(--s3); }
+.ct-step-mark { display: flex; align-items: center; gap: var(--s3); }
+.ct-step-no { font-size: 2rem; font-weight: 700; line-height: 1; color: var(--ct-water-br); }
+
+/* --------------------------------------------------------------------------
+   MOBILE — photo compresses, intake rises to just under the fold
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .ct-nav { display: none; }
+  .ct-head-in { min-height: 64px; }
+  .ct-hero { margin-top: -65px; }
+  .ct-hero-copy { min-height: 520px; padding-top: 120px; }
+  .ct-intake-grid { grid-template-columns: 1fr 1fr; }
+  .ct-intake-submit { grid-column: 1 / -1; width: 100%; }
+  .ct-signs { grid-template-columns: 1fr; gap: var(--s5); }
+  .ct-steps { grid-template-columns: 1fr; gap: var(--s5); }
+}
+
+@media (max-width: 767px) {
+  .ct-top-in { min-height: 34px; justify-content: center; }
+  .ct-top-right { display: none; }
+  .ct-hero-copy { min-height: 0; padding-top: 104px; padding-bottom: var(--s8); }
+  /* At 375px the headline owns the frame — the placeholder caption would only
+     compete with it, so reduce it to the label alone, pinned bottom-right. */
+  .ct-hero-media .u-ph { padding: 0 var(--s4) var(--s4); }
+  .ct-hero-media .u-ph-art,
+  .ct-hero-media .u-ph-note { display: none; }
+  .ct-hero-media .u-ph-label { font-size: 9.5px; opacity: .8; }
+  .ct-hero-copy .ct-h1 { font-size: 1.85rem; max-width: none; }
+  /* Lede is desktop-only — mobile reaches the intake panel faster */
+  .ct-hero-copy .ct-lede { display: none; }
+  .ct-hero-copy .ct-btn-row { display: none; }
+  /* Hiding the lede and buttons shortens the hero copy, so the overlap has to
+     shrink with it or the panel clips the last line of the headline. */
+  .ct-hero-copy { padding-bottom: var(--s9); }
+  .ct-intake {
+    margin-top: -56px; margin-bottom: var(--s6);
+    padding: var(--s5) var(--s4); border-radius: var(--radius);
+  }
+  .ct-intake-grid { grid-template-columns: 1fr; gap: var(--s4); }
+  .ct-roofline { clip-path: polygon(0 26px, 50% 0, 100% 26px, 100% 100%, 0 100%); padding-top: calc(26px + var(--s6)); }
+  .ct-section { padding-block: var(--s6); }
+  .ct-card-media { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 14px)); }
+  .ct-lockup-name { font-size: .95rem; }
+  /* The descriptor drops so the persistent Request CTA fits beside the burger. */
+  .ct-lockup-sub { display: none; }
+}
+
+/* Header CTA stays visible on mobile — it is the page's standing action. */
+@media (max-width: 1023px) {
+  .ct-cta-head {
+    width: auto;
+    min-height: var(--tap-min);
+    padding-inline: var(--s4);
+    font-size: 14px;
+  }
+  .ct-roof { width: 36px; height: 28px; }
+}
