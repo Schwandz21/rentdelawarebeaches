@@ -1,0 +1,357 @@
+/* ==========================================================================
+   DIRECTION 1 — "HARBOR WORKWEAR" / THE WORK ORDER
+   --------------------------------------------------------------------------
+   Visual idea: the site is built like a job ticket. The intake panel is not a
+   component below a hero — it IS the hero, rendered as a work order with a
+   cut-corner brass plate, monospace field codes and a tear-off action row.
+   Warm paper ground and a dark charcoal masthead deliberately reject the
+   white-page / white-header professional-services grammar.
+
+   Requires rdb-core.css.
+   ========================================================================== */
+
+:root {
+  /* --- Palette: charcoal + ocean + brass on warm paper --- */
+  --hb-char:      #1B2430;   /* masthead, headings — 14.37:1 on paper */
+  --hb-char-2:    #263242;
+  --hb-ocean:     #17607F;   /* 6.39:1 on paper, 6.96:1 on white */
+  --hb-ocean-lt:  #4E93AE;   /* on charcoal only */
+  --hb-brass:     #C8922A;   /* CTA fill — 5.67:1 with charcoal ink */
+  --hb-brass-dk:  #A9781C;
+  --hb-brass-txt: #8A6414;   /* brass as TEXT on paper — 4.93:1 */
+  --hb-paper:     #F7F5F1;   /* warm ground, not clinical white */
+  --hb-paper-2:   #EFEBE4;
+  --hb-slate:     #4A5A66;   /* 6.55:1 on paper */
+
+  /* --- Core contract --- */
+  --c-bg: var(--hb-paper);
+  --c-surface: #FFFFFF;
+  --c-ink: var(--hb-char);
+  --c-muted: var(--hb-slate);
+  --c-line: #DCD6CC;
+  --c-line-strong: #C3BAAC;
+  --c-input-line: #8A8377;
+  --c-accent: var(--hb-brass);
+  --c-accent-ink: var(--hb-char);
+  --c-brand: var(--hb-ocean);
+  --focus-ring: var(--hb-ocean);
+  --radius: 2px;             /* near-square: mechanical, not app-like */
+  --radius-sm: 2px;
+  --radius-lg: 2px;
+  --container: 1240px;
+
+  --hb-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --hb-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body { font-family: var(--hb-sans); background: var(--hb-paper); }
+
+/* Ruled paper underlay — faint, architectural, never decorative noise */
+.hb-ruled {
+  background-image: linear-gradient(to right, rgba(27,36,48,.05) 1px, transparent 1px);
+  background-size: 44px 100%;
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY — the monospace label system is the signature
+   -------------------------------------------------------------------------- */
+.hb-code {
+  font-family: var(--hb-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--hb-brass-txt);
+}
+.hb-code--ocean { color: var(--hb-ocean); }
+.hb-code--onchar { color: var(--hb-brass); }
+
+.hb-h1 {
+  font-size: clamp(1.9rem, 1.4rem + 1.9vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -.02em;
+  color: var(--hb-char);
+}
+.hb-h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.015em;
+  color: var(--hb-char);
+}
+.hb-h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.25; color: var(--hb-char); }
+.hb-body { font-size: 17px; line-height: 1.6; color: var(--hb-slate); max-width: 62ch; }
+.hb-small { font-size: 15px; line-height: 1.55; color: var(--hb-slate); }
+
+/* --------------------------------------------------------------------------
+   MASTHEAD — dark band, not a white nav bar
+   -------------------------------------------------------------------------- */
+.hb-top {
+  background: var(--hb-char-2);
+  color: #E7E2D9;
+  border-bottom: 2px solid var(--hb-brass);
+  font-family: var(--hb-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  --focus-ring: #FFFFFF;
+}
+.hb-top-in {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s4); min-height: 38px;
+}
+
+.hb-head {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--hb-char);
+  color: #FFFFFF;
+  --focus-ring: var(--hb-brass);
+}
+.hb-head-in {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s5); min-height: 74px;
+}
+
+/* Lockup: stacked wordmark with a brass rule and a monospace descriptor —
+   no square monogram tile. */
+.hb-lockup { display: inline-flex; align-items: center; gap: var(--s4); text-decoration: none; min-height: var(--tap-min); }
+.hb-lockup-rule { width: 4px; align-self: stretch; background: var(--hb-brass); flex: 0 0 auto; }
+.hb-lockup-name {
+  display: block;
+  font-size: 1.05rem; font-weight: 800; line-height: 1.05;
+  letter-spacing: .01em; text-transform: uppercase; color: #FFFFFF;
+}
+.hb-lockup-sub {
+  display: block; margin-top: 3px;
+  font-family: var(--hb-mono); font-size: 10.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--hb-brass);
+}
+
+.hb-nav { display: flex; align-items: center; gap: var(--s5); }
+.hb-nav a {
+  display: inline-flex; align-items: center; min-height: var(--tap-min);
+  font-family: var(--hb-mono); font-size: 12.5px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: #DDD7CC; text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.hb-nav a:hover { color: #FFFFFF; border-bottom-color: var(--hb-brass); }
+.hb-nav a[aria-current="page"] { color: #FFFFFF; border-bottom-color: var(--hb-brass); }
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+.hb-btn { font-family: var(--hb-sans); letter-spacing: .02em; }
+.hb-btn--primary { background: var(--hb-brass); color: var(--hb-char); }
+.hb-btn--primary:hover { background: var(--hb-brass-dk); }
+.hb-btn--primary:focus-visible { --focus-ring: var(--hb-char); }
+.hb-btn--ghost {
+  background: transparent; color: #FFFFFF;
+  border: 1.5px solid rgba(255,255,255,.5);
+}
+.hb-btn--ghost:hover { border-color: var(--hb-brass); color: var(--hb-brass); }
+.hb-btn--outline {
+  background: transparent; color: var(--hb-char);
+  border: 1.5px solid var(--hb-char);
+}
+.hb-btn--outline:hover { background: var(--hb-char); color: var(--hb-paper); }
+
+/* --------------------------------------------------------------------------
+   HERO — the work order IS the hero
+   -------------------------------------------------------------------------- */
+.hb-hero { padding-block: var(--s7) var(--s8); }
+.hb-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: var(--s7);
+  align-items: start;
+}
+.hb-hero-intro { margin-bottom: var(--s5); }
+.hb-hero-intro .hb-h1 { margin-top: var(--s3); max-width: 18ch; }
+.hb-hero-intro .hb-body { margin-top: var(--s4); }
+
+/* Cut-corner brass plate: outer = brass frame, inner = paper ticket */
+.hb-plate {
+  --cut: 14px;
+  background: var(--hb-brass);
+  padding: 3px;
+  clip-path: polygon(
+    0 var(--cut), var(--cut) 0,
+    calc(100% - var(--cut)) 0, 100% var(--cut),
+    100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%,
+    var(--cut) 100%, 0 calc(100% - var(--cut))
+  );
+}
+.hb-plate-in {
+  --cut: 12px;
+  background: #FFFFFF;
+  padding: var(--s5);
+  clip-path: polygon(
+    0 var(--cut), var(--cut) 0,
+    calc(100% - var(--cut)) 0, 100% var(--cut),
+    100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%,
+    var(--cut) 100%, 0 calc(100% - var(--cut))
+  );
+}
+
+.hb-ticket-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--s3); flex-wrap: wrap;
+  padding-bottom: var(--s3);
+  border-bottom: 2px solid var(--hb-char);
+  margin-bottom: var(--s5);
+}
+.hb-ticket-title {
+  font-size: 1.15rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--hb-char);
+}
+
+/* Field rows read like a form on a paper work order */
+.hb-fields { display: grid; gap: var(--s5); }
+.hb-field-label {
+  display: flex; align-items: baseline; gap: var(--s2);
+  margin-bottom: var(--s2);
+  font-family: var(--hb-mono); font-size: 11.5px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--hb-char);
+}
+.hb-field-label .hb-fno { color: var(--hb-brass-txt); }
+
+.hb-input, .hb-select {
+  border: 0; border-bottom: 2px solid var(--hb-char);
+  border-radius: 0;
+  /* background-COLOR, not the `background` shorthand: the shorthand would
+     reset background-repeat to `repeat` and tile the chevron across the field. */
+  background-color: transparent;
+  padding-inline: var(--s2);
+  font-weight: 600;
+}
+.hb-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16' fill='none' stroke='%231B2430' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--s2) center;
+}
+.hb-input:hover, .hb-select:hover { border-bottom-color: var(--hb-ocean); }
+.hb-select.is-chosen { border-bottom-color: var(--hb-ocean); color: var(--hb-char); }
+.hb-select.is-error, .hb-input.is-error { border-bottom-color: var(--c-error); background: var(--c-error-bg); }
+
+/* Tear-off action row */
+.hb-tear {
+  margin-top: var(--s5); padding-top: var(--s5);
+  border-top: 2px dashed var(--hb-char);
+}
+
+/* Vertical photo strip beside the ticket */
+.hb-strip { display: grid; gap: 3px; }
+
+/* --------------------------------------------------------------------------
+   SERVICE CARDS — ticket stubs
+   -------------------------------------------------------------------------- */
+.hb-card {
+  display: flex; flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--c-line);
+  border-top: 4px solid var(--hb-ocean);
+  transition: border-color var(--motion), box-shadow var(--motion), transform var(--motion);
+}
+.hb-card:hover, .hb-card.is-hover {
+  border-top-color: var(--hb-brass);
+  box-shadow: 0 6px 0 -2px rgba(27,36,48,.18);
+  transform: translateY(-2px);
+}
+.hb-card:focus-within { border-top-color: var(--hb-brass); }
+.hb-card-body { display: flex; flex-direction: column; gap: var(--s3); padding: var(--s5); flex: 1 1 auto; }
+.hb-card-meta { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
+.hb-card-cta {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  min-height: var(--tap-min); margin-top: auto;
+  padding-top: var(--s3); border-top: 1px dashed var(--c-line-strong);
+  font-family: var(--hb-mono); font-size: 12px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--hb-ocean); text-decoration: none;
+}
+.hb-card-cta::after { content: "→"; transition: transform var(--motion); }
+.hb-card:hover .hb-card-cta::after { transform: translateX(4px); }
+
+/* --------------------------------------------------------------------------
+   CUSTOM SIGNS — brass-stamped plate, warmer than the service system
+   -------------------------------------------------------------------------- */
+.hb-signs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--hb-char);
+  color: #FFFFFF;
+  --focus-ring: var(--hb-brass);
+}
+.hb-signs-body { padding: var(--s8) var(--s7); display: flex; flex-direction: column; gap: var(--s4); }
+.hb-signs-body .hb-h2 { color: #FFFFFF; }
+.hb-signs-body .hb-body { color: #D9D3C8; }
+.hb-stamp {
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  padding: var(--s3) var(--s5);
+  border: 2px solid var(--hb-brass);
+  color: var(--hb-brass);
+  align-self: flex-start;
+}
+.hb-stamp-lead { font-family: var(--hb-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+.hb-stamp-price { font-size: 1.9rem; font-weight: 800; line-height: 1.05; letter-spacing: -.02em; }
+
+/* --------------------------------------------------------------------------
+   SPEC LIST (trust / process) — reads like equipment specs
+   -------------------------------------------------------------------------- */
+.hb-spec { border-top: 2px solid var(--hb-char); }
+.hb-spec-row {
+  display: grid; grid-template-columns: 40px 1fr; gap: var(--s4);
+  padding: var(--s4) 0; border-bottom: 1px solid var(--c-line);
+}
+.hb-spec-no {
+  font-family: var(--hb-mono); font-size: 13px; font-weight: 700;
+  color: var(--hb-brass-txt); padding-top: 2px;
+}
+
+.hb-section { padding-block: var(--s8); }
+.hb-section--paper2 { background: var(--hb-paper-2); }
+
+/* --------------------------------------------------------------------------
+   PLACEHOLDERS
+   -------------------------------------------------------------------------- */
+.hb-ph { background: var(--hb-paper-2); color: var(--hb-slate); }
+.hb-ph .u-ph-label { color: var(--hb-char); }
+
+/* --------------------------------------------------------------------------
+   MOBILE — the ticket leads; the headline is compressed to one line
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .hb-nav { display: none; }
+  .hb-head-in { min-height: 62px; }
+  .hb-hero-grid { grid-template-columns: 1fr; gap: var(--s6); }
+  .hb-signs { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+  .hb-top-in { min-height: 34px; justify-content: center; }
+  .hb-top-right { display: none; }
+  .hb-hero { padding-block: var(--s5) var(--s6); }
+  .hb-hero-intro { margin-bottom: var(--s4); }
+  .hb-hero-intro .hb-h1 { font-size: 1.6rem; max-width: none; }
+  /* Supporting paragraph is desktop-only: mobile goes straight to the ticket */
+  .hb-hero-intro .hb-body { display: none; }
+  .hb-plate { --cut: 10px; }
+  .hb-plate-in { --cut: 9px; padding: var(--s4); }
+  .hb-strip { order: 2; grid-template-columns: 1fr 1fr; }
+  .hb-signs-body { padding: var(--s6) var(--s5); }
+  .hb-section { padding-block: var(--s6); }
+  .hb-lockup-name { font-size: .9rem; }
+  /* The descriptor drops so the persistent Request CTA fits beside the burger. */
+  .hb-lockup-sub { display: none; }
+}
+
+/* Header CTA stays visible on mobile — it is the page's standing action.
+   It shrinks rather than disappearing, and keeps the 44px tap floor. */
+@media (max-width: 1023px) {
+  .hb-cta-head {
+    width: auto;
+    min-height: var(--tap-min);
+    padding-inline: var(--s4);
+    font-size: 14px;
+  }
+}

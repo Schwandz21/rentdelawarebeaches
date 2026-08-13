@@ -1,0 +1,630 @@
+/* ==========================================================================
+   RENT DELAWARE BEACHES — PRODUCTION SITE STYLES
+   Beach Home Property Care · Delaware Beaches + Eastern Shore Maryland
+   --------------------------------------------------------------------------
+   Visual direction: "Harbor" — a warm paper ground, a dark charcoal masthead,
+   brass as the single action colour, and a monospace label system that gives
+   the site a practical, written-down, field-service character.
+
+   Requires rdb-core.css (reset, focus system, touch-target floors, form
+   behaviour, reduced-motion, responsive mechanics).
+
+   CONTENTS
+     1.  Tokens
+     2.  Typography
+     3.  Header + navigation
+     4.  Buttons
+     5.  Hero + request panel
+     6.  Sections
+     7.  Service cards
+     8.  Custom Home Signs
+     9.  Process, reasons, service area
+     10. Closing CTA + footer
+     11. Responsive
+   ========================================================================== */
+
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+
+:root {
+  /* Palette — charcoal + ocean + brass on warm paper.
+     Contrast ratios verified against WCAG 2.1 AA. */
+  --char:      #1B2430;   /* headings, masthead — 14.37:1 on paper */
+  --char-2:    #263242;
+  --ocean:     #17607F;   /* links, accents — 6.39:1 on paper */
+  --ocean-dk:  #114E68;
+  --brass:     #C8922A;   /* primary action — 5.67:1 with charcoal ink */
+  --brass-dk:  #A9781C;
+  --brass-txt: #8A6414;   /* brass as text on paper — 4.93:1 */
+  --paper:     #F7F5F1;   /* warm ground */
+  --paper-2:   #EFEBE4;
+  --paper-3:   #E5DFD5;
+  --slate:     #4A5A66;   /* body text — 6.55:1 on paper */
+
+  /* Core contract */
+  --c-bg: var(--paper);
+  --c-surface: #FFFFFF;
+  --c-ink: var(--char);
+  --c-muted: var(--slate);
+  --c-line: #DCD6CC;
+  --c-line-strong: #C3BAAC;
+  --c-input-line: #8A8377;
+  --c-accent: var(--brass);
+  --c-accent-ink: var(--char);
+  --c-brand: var(--ocean);
+  --focus-ring: var(--ocean);
+
+  --radius: 2px;
+  --radius-sm: 2px;
+  --radius-lg: 3px;
+  --container: 1200px;
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body { font-family: var(--sans); background: var(--paper); }
+
+/* Faint vertical rule, like ruled paper. Structural, never noisy. */
+.ruled {
+  background-image: linear-gradient(to right, rgba(27,36,48,.045) 1px, transparent 1px);
+  background-size: 44px 100%;
+}
+
+
+/* ==========================================================================
+   2. TYPOGRAPHY
+   ========================================================================== */
+
+.code {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brass-txt);
+}
+.code--ocean { color: var(--ocean); }
+.code--dark  { color: var(--brass); }
+
+.h1 {
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3.1rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -.025em;
+  color: var(--char);
+}
+.h2 {
+  font-size: clamp(1.55rem, 1.25rem + 1.3vw, 2.25rem);
+  font-weight: 800; line-height: 1.12; letter-spacing: -.02em;
+  color: var(--char);
+}
+.h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.25; color: var(--char); }
+.h4 { font-size: 1.03rem; font-weight: 700; line-height: 1.35; color: var(--char); }
+
+.body   { font-size: 17px; line-height: 1.62; color: var(--slate); max-width: 60ch; }
+.body-lg{ font-size: 18.5px; line-height: 1.6; color: var(--slate); max-width: 56ch; }
+.small  { font-size: 15px; line-height: 1.55; color: var(--slate); }
+
+.lede-dark { color: #D9D3C8; }
+
+a { color: var(--ocean); text-underline-offset: 2px; }
+a:hover { color: var(--char); }
+
+
+/* ==========================================================================
+   3. HEADER + NAVIGATION
+   ========================================================================== */
+
+.utility {
+  background: var(--char-2);
+  color: #E7E2D9;
+  border-bottom: 2px solid var(--brass);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  --focus-ring: #FFFFFF;
+}
+.utility-in {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s4); min-height: 38px;
+}
+.utility a { color: #FFFFFF; text-decoration: none; }
+.utility a:hover { text-decoration: underline; }
+
+.masthead {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--char);
+  color: #FFFFFF;
+  --focus-ring: var(--brass);
+}
+.masthead-in {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s5); min-height: 74px;
+}
+
+/* Lockup: brass rule + stacked wordmark. No monogram tile. */
+.lockup {
+  display: inline-flex; align-items: center; gap: var(--s4);
+  text-decoration: none; min-height: var(--tap-min); flex: 0 0 auto;
+}
+.lockup-rule { width: 4px; align-self: stretch; background: var(--brass); flex: 0 0 auto; }
+.lockup-name {
+  display: block; font-size: 1.05rem; font-weight: 800; line-height: 1.05;
+  letter-spacing: .01em; text-transform: uppercase; color: #FFFFFF;
+}
+.lockup-sub {
+  display: block; margin-top: 3px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--brass);
+}
+
+.nav { display: flex; align-items: center; gap: var(--s5); }
+.nav a {
+  display: inline-flex; align-items: center; min-height: var(--tap-min);
+  font-family: var(--mono); font-size: 12.5px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: #DDD7CC; text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover,
+.nav a[aria-current="page"] { color: #FFFFFF; border-bottom-color: var(--brass); }
+
+.masthead-actions { display: flex; align-items: center; gap: var(--s3); flex: 0 0 auto; }
+
+/* Mobile drawer skin (behaviour lives in core) */
+.drawer-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--s3) var(--s4); background: var(--char); color: #FFFFFF;
+  border-bottom: 2px solid var(--brass);
+}
+.drawer-list { padding: 0 var(--s4); }
+.drawer-list a { color: var(--char); border-bottom: 1px solid var(--c-line); }
+.drawer-foot { padding: var(--s4); border-top: 2px solid var(--char); background: var(--paper-2); }
+
+
+/* ==========================================================================
+   4. BUTTONS
+   ========================================================================== */
+
+.btn { letter-spacing: .015em; }
+
+.btn--primary { background: var(--brass); color: var(--char); }
+.btn--primary:hover { background: var(--brass-dk); }
+.btn--primary:focus-visible { --focus-ring: var(--char); }
+
+.btn--dark { background: var(--char); color: #FFFFFF; }
+.btn--dark:hover { background: var(--char-2); }
+
+.btn--outline {
+  background: transparent; color: var(--char);
+  border: 1.5px solid var(--char);
+}
+.btn--outline:hover { background: var(--char); color: var(--paper); }
+
+.btn--ghost {
+  background: transparent; color: #FFFFFF;
+  border: 1.5px solid rgba(255,255,255,.5);
+}
+.btn--ghost:hover { border-color: var(--brass); color: var(--brass); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center; }
+
+
+/* ==========================================================================
+   5. HERO + REQUEST PANEL
+   ========================================================================== */
+
+.hero { padding-block: var(--s7) var(--s8); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  gap: var(--s7);
+  align-items: start;
+}
+.hero-intro .h1 { margin-top: var(--s3); max-width: 17ch; }
+.hero-intro .body-lg { margin-top: var(--s4); }
+.hero-points {
+  display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5);
+  margin-top: var(--s5); padding-top: var(--s4);
+  border-top: 1px solid var(--c-line);
+}
+.hero-point {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  font-family: var(--mono); font-size: 11.5px; font-weight: 600;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--char);
+}
+.hero-point svg { color: var(--brass-txt); flex: 0 0 auto; }
+
+.hero-media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--paper-2);
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 18px 40px rgba(27,36,48,.20);
+}
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+
+/* Small brass caption plate on the hero photograph */
+.hero-tag {
+  position: absolute; left: 0; bottom: 0;
+  display: inline-flex; align-items: center; gap: var(--s2);
+  padding: var(--s3) var(--s4);
+  background: var(--char);
+  border-top: 2px solid var(--brass);
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: #FFFFFF;
+}
+
+/* --- The request panel: a work order --- */
+.plate {
+  --cut: 14px;
+  background: var(--brass);
+  padding: 3px;
+  margin-top: var(--s6);
+  clip-path: polygon(
+    0 var(--cut), var(--cut) 0,
+    calc(100% - var(--cut)) 0, 100% var(--cut),
+    100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%,
+    var(--cut) 100%, 0 calc(100% - var(--cut))
+  );
+}
+.plate-in {
+  --cut: 12px;
+  background: #FFFFFF;
+  padding: var(--s5);
+  clip-path: polygon(
+    0 var(--cut), var(--cut) 0,
+    calc(100% - var(--cut)) 0, 100% var(--cut),
+    100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%,
+    var(--cut) 100%, 0 calc(100% - var(--cut))
+  );
+}
+.plate-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--s3); flex-wrap: wrap;
+  padding-bottom: var(--s3);
+  border-bottom: 2px solid var(--char);
+  margin-bottom: var(--s5);
+}
+.plate-title {
+  font-size: 1.15rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .03em; color: var(--char);
+}
+
+.fields { display: grid; gap: var(--s5); }
+.field-label {
+  display: flex; align-items: baseline; gap: var(--s2);
+  margin-bottom: var(--s2);
+  font-family: var(--mono); font-size: 11.5px; font-weight: 600;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--char);
+}
+.field-no { color: var(--brass-txt); }
+
+.select {
+  border: 0; border-bottom: 2px solid var(--char);
+  border-radius: 0;
+  /* background-COLOR, not the shorthand — the shorthand resets
+     background-repeat and tiles the chevron across the field. */
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16' fill='none' stroke='%231B2430' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--s2) center;
+  padding-inline: var(--s2);
+  font-weight: 600;
+}
+.select:hover { border-bottom-color: var(--ocean); }
+.select.is-chosen { border-bottom-color: var(--ocean); color: var(--char); }
+.select.is-error { border-bottom-color: var(--c-error); background-color: var(--c-error-bg); }
+
+.tear { margin-top: var(--s5); padding-top: var(--s5); border-top: 2px dashed var(--char); }
+
+
+/* ==========================================================================
+   6. SECTIONS
+   ========================================================================== */
+
+.section { padding-block: var(--s8); }
+.section--paper2 { background: var(--paper-2); }
+.section--dark { background: var(--char); color: #FFFFFF; --focus-ring: var(--brass); }
+.section--dark .h2 { color: #FFFFFF; }
+.section--dark .body, .section--dark .small { color: #D3CDC2; }
+
+.section-head { margin-bottom: var(--s6); }
+.section-head .h2 { margin-top: var(--s3); }
+.section-head .body { margin-top: var(--s3); }
+
+/* Rule that runs out from a heading — a drafting cue */
+.rule-head { display: flex; align-items: center; gap: var(--s4); }
+.rule-head::after { content: ""; flex: 1 1 auto; height: 2px; background: var(--c-line-strong); }
+.section--dark .rule-head::after { background: rgba(255,255,255,.22); }
+
+
+/* ==========================================================================
+   7. SERVICE CARDS
+   ========================================================================== */
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); }
+
+.card {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--c-line);
+  border-top: 4px solid var(--ocean);
+  transition: border-color var(--motion), box-shadow var(--motion), transform var(--motion);
+}
+.card:hover {
+  border-top-color: var(--brass);
+  box-shadow: 0 8px 0 -2px rgba(27,36,48,.16);
+  transform: translateY(-2px);
+}
+.card:focus-within { border-top-color: var(--brass); }
+
+.card-media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--paper-2); }
+.card-media img { width: 100%; height: 100%; object-fit: cover; }
+/* Per-image framing so the subject survives the crop at every width */
+.card-media img.pos-bins  { object-position: 50% 72%; }
+.card-media img.pos-wash  { object-position: 42% 42%; }
+.card-media img.pos-assy  { object-position: 50% 50%; }
+
+.card-body { display: flex; flex-direction: column; gap: var(--s3); padding: var(--s5); flex: 1 1 auto; }
+.card-meta { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
+.card-body .small { max-width: none; }
+
+.card-list { display: grid; gap: var(--s2); margin-top: var(--s1); }
+.card-list li {
+  display: flex; align-items: flex-start; gap: var(--s2);
+  font-size: 14.5px; color: var(--slate);
+}
+.card-list svg { flex: 0 0 auto; margin-top: 4px; color: var(--ocean); }
+
+.card-cta {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  min-height: var(--tap-min); margin-top: auto;
+  padding-top: var(--s3); border-top: 1px dashed var(--c-line-strong);
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ocean); text-decoration: none;
+}
+.card-cta::after { content: "→"; transition: transform var(--motion); }
+.card:hover .card-cta::after { transform: translateX(4px); }
+/* Whole card is the target; the link keeps the accessible name */
+.card-cta::before { content: ""; position: absolute; inset: 0; }
+
+
+/* ==========================================================================
+   8. CUSTOM HOME SIGNS
+   ========================================================================== */
+
+.signs { display: grid; grid-template-columns: .85fr 1.15fr; align-items: stretch; }
+
+.signs-media { position: relative; background: var(--char-2); min-height: 460px; }
+.signs-media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%;
+}
+.signs-badge {
+  position: absolute; top: 0; left: 0;
+  padding: var(--s2) var(--s4);
+  background: var(--char); color: var(--brass);
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  border-bottom: 2px solid var(--brass);
+}
+
+.signs-body {
+  padding: var(--s8) var(--s7);
+  background: var(--char);
+  color: #FFFFFF;
+  display: flex; flex-direction: column; gap: var(--s4);
+  justify-content: center;
+}
+.signs-body .h2 { color: #FFFFFF; }
+.signs-body .body { color: #D3CDC2; }
+
+.stamp {
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  align-self: flex-start;
+  padding: var(--s3) var(--s5);
+  border: 2px solid var(--brass);
+  color: var(--brass);
+}
+.stamp-lead { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+.stamp-price { font-size: 1.9rem; font-weight: 800; line-height: 1.05; letter-spacing: -.02em; }
+
+.signs-list { display: grid; gap: var(--s2); }
+.signs-list li {
+  display: flex; align-items: flex-start; gap: var(--s2);
+  font-size: 15px; color: #D3CDC2;
+}
+.signs-list svg { flex: 0 0 auto; margin-top: 4px; color: var(--brass); }
+
+
+/* ==========================================================================
+   9. PROCESS, REASONS, SERVICE AREA
+   ========================================================================== */
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s6); }
+.step { padding-top: var(--s4); border-top: 3px solid var(--brass); }
+.step-no {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: .12em; color: var(--brass-txt);
+}
+.step .h3 { margin: var(--s3) 0 var(--s2); }
+.step .small { max-width: none; }
+
+.reasons { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s5) var(--s7); }
+.reason { display: grid; grid-template-columns: 28px 1fr; gap: var(--s3); align-items: start; }
+.reason svg { color: var(--brass); margin-top: 3px; }
+.reason .small { max-width: none; margin-top: var(--s1); }
+
+.area-list { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s5); }
+.area-chip {
+  display: inline-flex; align-items: center;
+  padding: var(--s2) var(--s4);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.24);
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: .07em; text-transform: uppercase; color: #FFFFFF;
+}
+
+
+/* ==========================================================================
+   10. CLOSING CTA + FOOTER
+   ========================================================================== */
+
+.closing { background: var(--paper-2); padding-block: var(--s8); }
+.closing-in {
+  display: grid; grid-template-columns: 1.2fr auto; gap: var(--s6);
+  align-items: center;
+}
+
+.footer { background: var(--char); color: #B9B2A5; padding-block: var(--s7) var(--s5); }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: var(--s6); }
+.footer-title {
+  display: block; margin-bottom: var(--s3);
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--brass);
+}
+.footer-list { display: grid; gap: var(--s1); }
+.footer-list a {
+  display: inline-flex; align-items: center; min-height: var(--tap-min);
+  color: #D3CDC2; text-decoration: none; font-size: 15px;
+}
+.footer-list a:hover { color: #FFFFFF; text-decoration: underline; }
+.footer-bottom {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--s3);
+  margin-top: var(--s7); padding-top: var(--s4);
+  border-top: 1px solid rgba(255,255,255,.14);
+  font-size: 13px; color: #9A9284;
+}
+.footer-bottom a { color: #B9B2A5; }
+
+
+/* ==========================================================================
+   11. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+  .nav { display: none; }
+  .masthead-in { min-height: 62px; gap: var(--s3); }
+  .hero-grid { grid-template-columns: 1fr; gap: var(--s6); }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .signs { grid-template-columns: 1fr; }
+  .signs-media { min-height: 340px; }
+  .steps { grid-template-columns: 1fr; gap: var(--s5); }
+  .closing-in { grid-template-columns: 1fr; gap: var(--s5); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Header CTA stays visible on mobile — it is the standing action. */
+  .cta-head { width: auto; min-height: var(--tap-min); padding-inline: var(--s4); font-size: 14px; }
+}
+
+@media (max-width: 767px) {
+  .utility-in { min-height: 34px; justify-content: center; }
+  .utility-right { display: none; }
+
+  .hero { padding-block: var(--s5) var(--s6); }
+  .hero-intro .h1 { font-size: 1.72rem; max-width: none; }
+  /* The supporting paragraph is desktop-only: on a phone the request panel
+     should begin inside the first screen, not below a wall of copy. */
+  .hero-intro .body-lg { display: none; }
+  .hero-points { margin-top: var(--s4); padding-top: var(--s3); gap: var(--s2) var(--s4); }
+  .hero-point { font-size: 10.5px; }
+  .hero-media { aspect-ratio: 3 / 2; }
+  .hero-media img { object-position: 50% 45%; }
+  .hero-order-media { order: 2; }
+
+  .plate { --cut: 10px; margin-top: var(--s5); }
+  .plate-in { --cut: 9px; padding: var(--s4); }
+  .plate-title { font-size: 1.05rem; }
+
+  .section { padding-block: var(--s6); }
+  .cards { grid-template-columns: 1fr; }
+  .signs-body { padding: var(--s6) var(--s5); }
+  .signs-media { min-height: 260px; }
+  .reasons { grid-template-columns: 1fr; gap: var(--s4); }
+  .footer-grid { grid-template-columns: 1fr; gap: var(--s5); }
+  .lockup-name { font-size: .9rem; }
+  .lockup-sub { display: none; }
+  .closing { padding-block: var(--s6); }
+}
+
+/* Below ~480px the wordmark, the CTA and the burger stop fitting on one line
+   inside the container. The wordmark wraps to two lines rather than being
+   shrunk to nothing, which keeps the lockup legible and the burger inside
+   the gutter instead of flush against the screen edge. */
+@media (max-width: 479px) {
+  .lockup { gap: var(--s3); }
+  .lockup-name {
+    font-size: .84rem;
+    line-height: 1.14;
+    max-width: 13ch;
+  }
+  .masthead-actions { gap: var(--s2); }
+}
+
+@media (max-width: 359px) {
+  .hero-intro .h1 { font-size: 1.55rem; }
+  .plate-in { padding: var(--s3); }
+  .lockup-name { font-size: .78rem; max-width: 11ch; }
+  .cta-head { padding-inline: var(--s3); font-size: 13px; }
+}
+
+
+/* RDB 2026 typography refresh */
+body,
+button,
+input,
+select,
+textarea,
+h1, h2, h3, h4, h5, h6,
+p, a, span, label, li, strong, small {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+p {
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+
+nav a,
+button,
+input,
+select {
+  letter-spacing: -0.01em;
+}
+
+label {
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+
+/* Final 2026 polish — reduce work-order typography */
+label,
+.rdb-eyebrow,
+.rdb-kicker,
+.rdb-meta,
+.rdb-proof,
+.rdb-form-label,
+.rdb-field-label {
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+}
+
