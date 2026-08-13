@@ -1,0 +1,90 @@
+name: Analytics bootstrap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/analytics-bootstrap.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install-ga4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Install GA4 tag across HTML pages
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          measurement_id = "G-TVN3S76JWX"
+          tag = f'''  <!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id={measurement_id}"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){{dataLayer.push(arguments);}}
+            gtag('js', new Date());
+            gtag('config', '{measurement_id}');
+          </script>'''
+
+          changed = []
+          skipped = []
+          for path in sorted(Path('.').glob('*.html')):
+            # Leave Google's Search Console verification file byte-identical.
+            if path.name.startswith('google'):
+              skipped.append(path.name)
+              continue
+
+            text = path.read_text(encoding='utf-8')
+
+            # app.html already contains the confirmed RDB measurement ID.
+            if measurement_id in text:
+              skipped.append(path.name)
+              continue
+
+            match = re.search(r'<head\b[^>]*>', text, flags=re.IGNORECASE)
+            if not match:
+              raise RuntimeError(f"No <head> found in {path}")
+
+            text = text[:match.end()] + '\n' + tag + text[match.end():]
+            path.write_text(text, encoding='utf-8')
+            changed.append(path.name)
+
+          print(f"Updated {len(changed)} HTML pages")
+          for name in changed:
+            print(f"  + {name}")
+          print(f"Skipped {len(skipped)} pages")
+          for name in skipped:
+            print(f"  = {name}")
+
+          # Verification: every real root HTML page except the Google verification
+          # file must now contain the confirmed RDB GA4 measurement ID.
+          missing = []
+          for path in sorted(Path('.').glob('*.html')):
+            if path.name.startswith('google'):
+              continue
+            if measurement_id not in path.read_text(encoding='utf-8'):
+              missing.append(path.name)
+          if missing:
+            raise RuntimeError(f"GA4 tag missing from: {', '.join(missing)}")
+
+      - name: Commit analytics installation
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No analytics changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html'
+          git commit -m "Install GA4 measurement site-wide"
+          git push origin HEAD:main
